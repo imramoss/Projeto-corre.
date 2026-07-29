@@ -526,8 +526,11 @@ color:var(--gray);
 /*==============================*/
 /* RESPONSIVO */
 /*==============================*/
+/* ===========================
+   RESPONSIVO
+=========================== */
 
-@media(max-width:1100px){
+@media screen and (max-width: 1024px){
 
 .hero{
 
@@ -535,11 +538,43 @@ grid-template-columns:1fr;
 
 text-align:center;
 
+padding-top:120px;
+
+}
+
+.hero-content{
+
+order:2;
+
+}
+
+.hero-image{
+
+order:1;
+
+margin-bottom:40px;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+margin:auto;
+
 }
 
 .hero-buttons{
 
 justify-content:center;
+
+flex-wrap:wrap;
 
 }
 
@@ -548,6 +583,24 @@ justify-content:center;
 justify-content:center;
 
 flex-wrap:wrap;
+
+}
+
+}
+
+@media screen and (max-width:768px){
+
+.navbar{
+
+padding:15px 20px;
+
+height:auto;
+
+}
+
+.logo h2{
+
+font-size:26px;
 
 }
 
@@ -563,73 +616,115 @@ display:none;
 
 }
 
-.hero h1{
+.hamburger{
 
-font-size:48px;
+display:flex;
 
 }
-/* BENEFÍCIOS */
 
-.benefits-grid{
+.hero{
+
+padding:120px 25px 60px;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+line-height:1.2;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.primary,
+.secondary{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.stats{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:1fr;
 
-gap:30px;
-
-margin-top:70px;
+gap:20px;
 
 }
 
-.benefit-card{
+.stats .card{
 
-background:#151515;
-
-padding:40px;
-
-border-radius:20px;
-
-transition:.4s;
-
-border:1px solid rgba(255,255,255,.05);
+width:100%;
 
 }
 
-.benefit-card:hover{
+.section-title h2{
 
-transform:translateY(-12px);
-
-border-color:#A3FF12;
-
-box-shadow:0 20px 40px rgba(163,255,18,.12);
+font-size:34px;
 
 }
 
-.benefit-card i{
+.section-title p{
 
-font-size:45px;
-
-color:#A3FF12;
-
-margin-bottom:25px;
+font-size:17px;
 
 }
 
-.benefit-card h3{
+.benefits-grid{
 
-font-size:28px;
-
-margin-bottom:15px;
+grid-template-columns:1fr;
 
 }
 
-.benefit-card p{
+}
 
-color:#B8B8B8;
+@media screen and (max-width:480px){
 
-line-height:1.8;
+.hero h1{
+
+font-size:30px;
 
 }
-   
 
+.hero p{
+
+font-size:16px;
+
+}
+
+.logo h2{
+
+font-size:22px;
+
+}
+
+.badge{
+
+font-size:13px;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+}
