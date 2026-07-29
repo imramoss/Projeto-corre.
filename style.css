@@ -568,5 +568,68 @@ display:none;
 font-size:48px;
 
 }
+/* BENEFÍCIOS */
+
+.benefits-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+margin-top:70px;
 
 }
+
+.benefit-card{
+
+background:#151515;
+
+padding:40px;
+
+border-radius:20px;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.benefit-card:hover{
+
+transform:translateY(-12px);
+
+border-color:#A3FF12;
+
+box-shadow:0 20px 40px rgba(163,255,18,.12);
+
+}
+
+.benefit-card i{
+
+font-size:45px;
+
+color:#A3FF12;
+
+margin-bottom:25px;
+
+}
+
+.benefit-card h3{
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+.benefit-card p{
+
+color:#B8B8B8;
+
+line-height:1.8;
+
+}
+   
+
