@@ -1278,3 +1278,379 @@ color:#777;
 font-size:14px;
 
 }
+/* =====================================================
+   STYLE.CSS - PARTE 2
+   RESPONSIVIDADE
+======================================================*/
+
+/* ---------- Tablets ---------- */
+
+@media (max-width:1100px){
+
+.navbar{
+
+padding:0 25px;
+
+}
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+padding-top:150px;
+
+gap:60px;
+
+}
+
+.hero-left{
+
+order:2;
+
+}
+
+.hero-right{
+
+order:1;
+
+}
+
+.hero-left p{
+
+margin:auto;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-stats{
+
+margin-top:50px;
+
+}
+
+.about .container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.about-list{
+
+align-items:center;
+
+}
+
+.section-header h2{
+
+font-size:42px;
+
+}
+
+}
+
+
+/* ---------- Celulares ---------- */
+
+@media (max-width:768px){
+
+header{
+
+height:80px;
+
+}
+
+.navbar{
+
+height:80px;
+
+padding:0 20px;
+
+}
+
+.menu{
+
+position:fixed;
+
+top:80px;
+
+left:-100%;
+
+width:100%;
+
+height:calc(100vh - 80px);
+
+background:#050505;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:35px;
+
+transition:.35s;
+
+}
+
+.menu.active{
+
+left:0;
+
+}
+
+.menu a{
+
+font-size:22px;
+
+}
+
+.nav-buttons{
+
+display:none;
+
+}
+
+.hamburger{
+
+display:flex;
+
+z-index:1000;
+
+}
+
+.hero{
+
+padding:120px 25px 70px;
+
+}
+
+.hero-left h1{
+
+font-size:42px;
+
+}
+
+.hero-left p{
+
+font-size:17px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+.btn-primary,
+
+.btn-secondary{
+
+width:100%;
+
+}
+
+.hero-stats{
+
+grid-template-columns:1fr;
+
+}
+
+.steps{
+
+grid-template-columns:1fr;
+
+}
+
+.plans-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.numbers-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.testimonial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-links{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.section-header h2{
+
+font-size:34px;
+
+}
+
+.cta-final h2{
+
+font-size:36px;
+
+}
+
+}
+
+
+/* ---------- Celulares pequenos ---------- */
+
+@media (max-width:480px){
+
+.logo{
+
+font-size:22px;
+
+}
+
+.logo i{
+
+font-size:24px;
+
+}
+
+.hero{
+
+padding:110px 18px 60px;
+
+}
+
+.hero-left h1{
+
+font-size:34px;
+
+line-height:1.15;
+
+}
+
+.hero-left p{
+
+font-size:16px;
+
+line-height:1.7;
+
+}
+
+.tag{
+
+font-size:12px;
+
+padding:8px 15px;
+
+}
+
+.section-header h2{
+
+font-size:30px;
+
+}
+
+.section-header p{
+
+font-size:16px;
+
+}
+
+.benefit-card,
+
+.plan-card,
+
+.step-card,
+
+.testimonial,
+
+.faq-item{
+
+padding:25px;
+
+}
+
+.plan-card h1{
+
+font-size:48px;
+
+}
+
+.numbers-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.numbers-grid h2{
+
+font-size:42px;
+
+}
+
+.cta-final h2{
+
+font-size:30px;
+
+}
+
+.footer-logo h2{
+
+font-size:28px;
+
+}
+
+}
+
+
+/* ---------- Monitores grandes ---------- */
+
+@media (min-width:1500px){
+
+.container{
+
+max-width:1400px;
+
+}
+
+.hero{
+
+padding-left:8%;
+
+padding-right:8%;
+
+}
+
+.hero-left h1{
+
+font-size:78px;
+
+}
+
+.hero-right img{
+
+max-width:700px;
+
+}
+
+}
+
