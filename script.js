@@ -1,64 +1,85 @@
-.hidden{
-    opacity:0;
-    transform:translateY(60px);
-    transition:.8s;
-}
+/* =====================================================
+   PROJETO CORRE
+   SCRIPT.JS - PARTE 1
+====================================================== */
 
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-.menu.active{
-    display:flex;
-    position:absolute;
-    top:90px;
-    left:0;
-    width:100%;
-    background:#111;
-    flex-direction:column;
-    padding:30px;
-}
+    /* ==========================================
+       MENU MOBILE
+    ========================================== */
 
-.back-top{
-    position:fixed;
-    right:30px;
-    bottom:30px;
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:#A3FF12;
-    color:#000;
-    font-size:24px;
-    cursor:pointer;
-    opacity:0;
-    transform:translateY(20px);
-    transition:.3s;
-    z-index:999;
-}
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
 
-.back-top.visible{
-    opacity:1;
-    transform:translateY(0);
-}
+    if (hamburger) {
 
-.hamburger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    cursor:pointer;
-}
+        hamburger.addEventListener("click", () => {
 
-.hamburger span{
-    width:28px;
-    height:3px;
-    background:#fff;
-    border-radius:10px;
-}
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("active");
 
-@media(max-width:1100px){
-    .hamburger{
-        display:flex;
+        });
+
     }
-}
+
+    document.querySelectorAll(".menu a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menu.classList.remove("active");
+            hamburger.classList.remove("active");
+
+        });
+
+    });
+
+    /* ==========================================
+       NAVBAR AO ROLAR
+    ========================================== */
+
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+
+        if(window.scrollY > 60){
+
+            header.style.background = "rgba(5,5,5,.95)";
+            header.style.boxShadow = "0 10px 35px rgba(0,0,0,.35)";
+
+        }else{
+
+            header.style.background = "rgba(5,5,5,.75)";
+            header.style.boxShadow = "none";
+
+        }
+
+    });
+
+    /* ==========================================
+       SCROLL SUAVE
+    ========================================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+        anchor.addEventListener("click",function(e){
+
+            e.preventDefault();
+
+            const destino=document.querySelector(this.getAttribute("href"));
+
+            if(destino){
+
+                destino.scrollIntoView({
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        });
+
+    });
+
+});
