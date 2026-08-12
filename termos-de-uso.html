@@ -5,39 +5,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Termos de Uso</title>
+    <meta name="description"
+        content="Termos de Uso do Projeto Corre.">
+
+    <title>Termos de Uso | Projeto Corre</title>
 
     <style>
-        body {
+        * {
             margin: 0;
-            padding: 40px 20px;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f5f7;
             color: #222;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .termos {
-            max-width: 850px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-        }
+        /* CABEÇALHO */
 
-        h1 {
-            margin-top: 0;
+        header {
+            background: #111;
+            color: #fff;
+            padding: 30px 20px;
             text-align: center;
         }
 
-        h2 {
-            margin-top: 30px;
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
         }
 
-        @media (max-width: 600px) {
+        header p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* CONTEÚDO */
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .termos {
+            background: #fff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* TÍTULOS */
+
+        .termos h2 {
+            font-size: 22px;
+            margin-top: 38px;
+            margin-bottom: 15px;
+            color: #111;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 8px;
+        }
+
+        .termos h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .termos h3 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        /* PARÁGRAFOS */
+
+        .termos p {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        /* LISTAS */
+
+        .termos ul {
+            margin: 10px 0 20px 25px;
+        }
+
+        .termos li {
+            margin-bottom: 9px;
+            color: #444;
+            padding-left: 5px;
+        }
+
+        /* DESTAQUE */
+
+        .aviso {
+            background: #f1f1f1;
+            border-left: 4px solid #111;
+            padding: 18px 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+        }
+
+        .aviso p {
+            margin: 0;
+        }
+
+        /* ACEITE */
+
+        .aceite {
+            margin-top: 45px;
+            padding: 25px;
+            background: #f7f7f7;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .aceite h2 {
+            margin-top: 0;
+            border: none;
+        }
+
+        .aceite p {
+            margin-bottom: 10px;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
             .termos {
                 padding: 25px 20px;
+                border-radius: 12px;
+            }
+
+            .termos h2 {
+                font-size: 20px;
+            }
+
+            .termos p,
+            .termos li {
+                font-size: 15px;
             }
         }
     </style>
@@ -45,305 +175,599 @@
 
 <body>
 
-    <div class="termos">
+    <!-- CABEÇALHO -->
 
-        # TERMOS DE USO — PROJETO CORRE
+    <header>
 
-**Última atualização:** 12 de agosto de 2026
+        <h1>Termos de Uso</h1>
 
-Bem-vindo ao **Projeto Corre**.
+        <p>
+            Projeto Corre
+        </p>
 
-Estes Termos de Uso estabelecem as regras e condições para acesso e utilização da plataforma, seus recursos, conteúdos e serviços.
+    </header>
 
-Ao acessar, criar uma conta ou utilizar qualquer funcionalidade do Projeto Corre, o usuário declara que leu, compreendeu e concorda com estes Termos de Uso e com a Política de Privacidade aplicável.
 
-Caso não concorde com qualquer disposição destes termos, o usuário não deverá utilizar a plataforma.
+    <!-- CONTEÚDO -->
 
----
+    <main class="container">
 
-## 1. DEFINIÇÕES
+        <article class="termos">
 
-Para fins destes Termos:
+            <p>
+                <strong>Última atualização:</strong>
+                12 de agosto de 2026
+            </p>
 
-**“Plataforma”** significa o site, sistema, aplicativo, páginas e demais ambientes digitais disponibilizados pelo Projeto Corre.
+            <p>
+                Bem-vindo ao <strong>Projeto Corre</strong>.
+            </p>
 
-**“Usuário”** significa qualquer pessoa que acesse ou utilize a Plataforma.
+            <p>
+                Estes Termos de Uso estabelecem as regras e condições
+                para acesso e utilização da plataforma, seus recursos,
+                conteúdos e serviços.
+            </p>
 
-**“Conta”** significa o cadastro individual utilizado pelo Usuário para acessar determinados recursos.
+            <p>
+                Ao acessar, criar uma conta ou utilizar qualquer
+                funcionalidade do Projeto Corre, o usuário declara
+                que leu, compreendeu e concorda com estes Termos de
+                Uso e com a Política de Privacidade aplicável.
+            </p>
 
-**“Serviços”** significa os recursos, funcionalidades, conteúdos, ferramentas, planos de treinamento e demais serviços disponibilizados pela Plataforma.
+            <div class="aviso">
 
----
+                <p>
+                    Caso não concorde com qualquer disposição destes
+                    termos, o usuário não deverá utilizar a plataforma.
+                </p>
 
-## 2. ACEITAÇÃO DOS TERMOS
+            </div>
 
-Ao marcar a caixa de aceite e prosseguir na utilização da Plataforma, o Usuário declara expressamente que:
 
-* Leu e compreendeu estes Termos de Uso;
-* Concorda com suas disposições;
-* Compromete-se a respeitar as regras estabelecidas;
-* Fornecerá informações verdadeiras e atualizadas;
-* Utilizará a Plataforma de maneira lícita e responsável.
+            <!-- 1 -->
 
-O aceite eletrônico realizado pelo Usuário poderá ser registrado para fins de comprovação da concordância com estes Termos.
+            <h2>1. Definições</h2>
 
----
+            <p>
+                Para fins destes Termos de Uso, serão consideradas
+                as seguintes definições:
+            </p>
 
-## 3. CADASTRO E CONTA DO USUÁRIO
+            <ul>
 
-Algumas funcionalidades poderão exigir a criação de uma conta.
+                <li>
+                    <strong>Plataforma:</strong>
+                    significa o site, sistema, aplicativo, páginas
+                    e demais ambientes digitais disponibilizados pelo
+                    Projeto Corre.
+                </li>
 
-O Usuário deverá fornecer informações verdadeiras, completas e atualizadas durante o cadastro.
+                <li>
+                    <strong>Usuário:</strong>
+                    significa qualquer pessoa que acesse ou utilize
+                    a Plataforma.
+                </li>
 
-O Usuário é responsável por manter a segurança de suas credenciais de acesso e não deverá compartilhar sua senha ou permitir que terceiros utilizem sua conta.
+                <li>
+                    <strong>Conta:</strong>
+                    significa o cadastro individual utilizado pelo
+                    Usuário para acessar determinados recursos.
+                </li>
 
-Caso identifique acesso não autorizado à sua conta, o Usuário deverá comunicar o Projeto Corre pelos canais oficiais disponíveis.
+                <li>
+                    <strong>Serviços:</strong>
+                    significa os recursos, funcionalidades, conteúdos,
+                    ferramentas, planos de treinamento e demais serviços
+                    disponibilizados pela Plataforma.
+                </li>
 
-O Projeto Corre poderá solicitar a confirmação ou atualização de informações quando necessário para manutenção da segurança da Plataforma.
+            </ul>
 
----
 
-## 4. UTILIZAÇÃO DA PLATAFORMA
+            <!-- 2 -->
 
-O Usuário compromete-se a utilizar a Plataforma exclusivamente para finalidades legais e de acordo com estes Termos.
+            <h2>2. Aceitação dos Termos</h2>
 
-É proibido:
+            <p>
+                Ao marcar a caixa de aceite e prosseguir na utilização
+                da Plataforma, o Usuário declara expressamente que:
+            </p>
 
-* Utilizar a Plataforma para atividades ilegais;
-* Tentar acessar contas ou dados de terceiros;
-* Interferir no funcionamento da Plataforma;
-* Introduzir vírus, códigos maliciosos ou qualquer mecanismo prejudicial;
-* Tentar obter acesso não autorizado aos sistemas;
-* Copiar, modificar ou distribuir conteúdos da Plataforma sem autorização;
-* Utilizar sistemas automatizados para acessar ou extrair informações sem autorização;
-* Fornecer informações falsas ou fraudulentas;
-* Utilizar a Plataforma para prejudicar terceiros.
+            <ul>
 
-O descumprimento destas regras poderá resultar na suspensão ou encerramento da conta.
+                <li>
+                    Leu e compreendeu estes Termos de Uso;
+                </li>
 
----
+                <li>
+                    Concorda com suas disposições;
+                </li>
 
-## 5. TREINAMENTOS E RECOMENDAÇÕES
+                <li>
+                    Compromete-se a respeitar as regras estabelecidas;
+                </li>
 
-O Projeto Corre poderá disponibilizar planos de treinamento, recomendações, informações sobre corrida, exercícios, desempenho e outros conteúdos relacionados à prática esportiva.
+                <li>
+                    Fornecerá informações verdadeiras e atualizadas;
+                </li>
 
-Essas informações têm finalidade **informativa e educacional** e não substituem avaliação, diagnóstico, acompanhamento ou orientação individualizada de profissionais devidamente habilitados.
+                <li>
+                    Utilizará a Plataforma de maneira lícita e responsável.
+                </li>
 
-O Usuário é responsável por avaliar suas próprias condições e decidir se está apto a realizar determinada atividade.
+            </ul>
 
-Em caso de dor, desconforto, mal-estar, lesão ou qualquer outro sinal de risco, o Usuário deverá interromper a atividade e procurar orientação profissional adequada.
+            <p>
+                O aceite eletrônico realizado pelo Usuário poderá ser
+                registrado para fins de comprovação da concordância
+                com estes Termos.
+            </p>
 
----
 
-## 6. RECURSOS BASEADOS EM INTELIGÊNCIA ARTIFICIAL
+            <!-- 3 -->
 
-Determinados recursos da Plataforma poderão utilizar tecnologias de inteligência artificial para auxiliar na geração de recomendações, análises, sugestões ou conteúdos.
+            <h2>3. Cadastro e Conta do Usuário</h2>
 
-As informações produzidas por sistemas de inteligência artificial são geradas com base nos dados e parâmetros disponíveis e podem conter erros, imprecisões ou limitações.
+            <p>
+                Algumas funcionalidades poderão exigir a criação
+                de uma conta.
+            </p>
 
-As recomendações geradas pela inteligência artificial não devem ser consideradas diagnóstico médico, prescrição médica ou substituição de avaliação profissional.
+            <p>
+                O Usuário deverá fornecer informações verdadeiras,
+                completas e atualizadas durante o cadastro.
+            </p>
 
-O Usuário permanece responsável pelas decisões tomadas a partir das informações apresentadas pela Plataforma.
+            <p>
+                O Usuário é responsável por manter a segurança de
+                suas credenciais de acesso e não deverá compartilhar
+                sua senha ou permitir que terceiros utilizem sua conta.
+            </p>
 
----
+            <p>
+                Caso identifique acesso não autorizado à sua conta,
+                o Usuário deverá comunicar o Projeto Corre pelos
+                canais oficiais disponíveis.
+            </p>
 
-## 7. RESPONSABILIDADE DO USUÁRIO
 
-O Usuário é responsável:
+            <!-- 4 -->
 
-* Pelas informações fornecidas à Plataforma;
-* Pela utilização de sua conta;
-* Pela manutenção de seus dados de acesso;
-* Pelas decisões tomadas a partir dos conteúdos disponibilizados;
-* Pelo uso adequado dos recursos oferecidos;
-* Pelo cumprimento da legislação aplicável.
+            <h2>4. Utilização da Plataforma</h2>
 
-O Usuário declara estar ciente de que a prática de atividades físicas pode envolver riscos e que deverá respeitar seus próprios limites e condições.
+            <p>
+                O Usuário compromete-se a utilizar a Plataforma
+                exclusivamente para finalidades legais e de acordo
+                com estes Termos.
+            </p>
 
----
+            <p>É proibido:</p>
 
-## 8. DISPONIBILIDADE DOS SERVIÇOS
+            <ul>
 
-O Projeto Corre buscará manter a Plataforma disponível e funcionando adequadamente.
+                <li>
+                    Utilizar a Plataforma para atividades ilegais;
+                </li>
 
-Entretanto, determinados recursos poderão ficar temporariamente indisponíveis em razão de:
+                <li>
+                    Tentar acessar contas ou dados de terceiros;
+                </li>
 
-* Manutenção;
-* Atualizações;
-* Falhas técnicas;
-* Problemas de conexão;
-* Indisponibilidade de serviços de terceiros;
-* Eventos fora do controle razoável do Projeto Corre.
+                <li>
+                    Interferir no funcionamento da Plataforma;
+                </li>
 
-A indisponibilidade temporária de determinada funcionalidade não caracteriza, por si só, descumprimento destes Termos.
+                <li>
+                    Introduzir vírus, códigos maliciosos ou qualquer
+                    mecanismo prejudicial;
+                </li>
 
----
+                <li>
+                    Tentar obter acesso não autorizado aos sistemas;
+                </li>
 
-## 9. PROPRIEDADE INTELECTUAL
+                <li>
+                    Copiar, modificar ou distribuir conteúdos da
+                    Plataforma sem autorização;
+                </li>
 
-Todo o conteúdo disponibilizado pelo Projeto Corre, incluindo, mas não limitado a:
+                <li>
+                    Utilizar sistemas automatizados para acessar ou
+                    extrair informações sem autorização;
+                </li>
 
-* Nome e identidade visual;
-* Logotipos;
-* Textos;
-* Layouts;
-* Imagens;
-* Gráficos;
-* Sistemas;
-* Código-fonte;
-* Funcionalidades;
-* Materiais de treinamento;
-* Conteúdos exclusivos;
+                <li>
+                    Fornecer informações falsas ou fraudulentas;
+                </li>
 
-poderá estar protegido pela legislação aplicável de propriedade intelectual.
+                <li>
+                    Utilizar a Plataforma para prejudicar terceiros.
+                </li>
 
-É proibida a reprodução, distribuição, comercialização, modificação ou utilização comercial não autorizada desses materiais.
+            </ul>
 
-A utilização da Plataforma não concede ao Usuário qualquer direito de propriedade sobre seus conteúdos ou sistemas.
 
----
+            <!-- 5 -->
 
-## 10. CONTEÚDO FORNECIDO PELO USUÁRIO
+            <h2>5. Treinamentos e Recomendações</h2>
 
-Caso a Plataforma permita o envio de informações, comentários, avaliações, imagens ou outros conteúdos pelo Usuário, este declara possuir os direitos necessários para realizar esse envio.
+            <p>
+                O Projeto Corre poderá disponibilizar planos de
+                treinamento, recomendações, informações sobre corrida,
+                exercícios, desempenho e outros conteúdos relacionados
+                à prática esportiva.
+            </p>
 
-O Usuário não deverá enviar conteúdo ilegal, ofensivo, fraudulento, discriminatório, difamatório ou que viole direitos de terceiros.
+            <div class="aviso">
 
-O Projeto Corre poderá remover conteúdos que violem estes Termos ou a legislação aplicável.
+                <p>
+                    As informações disponibilizadas pela Plataforma
+                    possuem finalidade informativa e educacional e não
+                    substituem avaliação, diagnóstico, acompanhamento
+                    ou orientação individualizada de profissionais
+                    devidamente habilitados.
+                </p>
 
----
+            </div>
 
-## 11. PAGAMENTOS E PLANOS
+            <p>
+                O Usuário é responsável por avaliar suas próprias
+                condições e decidir se está apto a realizar determinada
+                atividade.
+            </p>
 
-Caso sejam disponibilizados serviços pagos, os respectivos preços, condições, períodos de utilização e formas de pagamento serão apresentados ao Usuário antes da contratação.
+            <p>
+                Em caso de dor, desconforto, mal-estar, lesão ou
+                qualquer outro sinal de risco, o Usuário deverá
+                interromper a atividade e procurar orientação
+                profissional adequada.
+            </p>
 
-O acesso a determinados recursos poderá depender da confirmação do pagamento.
 
-Em caso de contratação de serviços recorrentes, as condições de renovação, cancelamento e cobrança serão informadas no momento da contratação.
+            <!-- 6 -->
 
-Eventuais políticas específicas de reembolso ou cancelamento serão apresentadas de acordo com o serviço contratado e com a legislação aplicável.
+            <h2>6. Recursos Baseados em Inteligência Artificial</h2>
 
----
+            <p>
+                Determinados recursos da Plataforma poderão utilizar
+                tecnologias de inteligência artificial para auxiliar
+                na geração de recomendações, análises, sugestões
+                ou conteúdos.
+            </p>
 
-## 12. CANCELAMENTO E ENCERRAMENTO DA CONTA
+            <p>
+                As informações produzidas por sistemas de inteligência
+                artificial são geradas com base nos dados e parâmetros
+                disponíveis e podem conter erros, imprecisões ou limitações.
+            </p>
 
-O Usuário poderá solicitar o encerramento de sua conta por meio dos canais disponibilizados pela Plataforma.
+            <p>
+                As recomendações geradas pela inteligência artificial
+                não devem ser consideradas diagnóstico médico,
+                prescrição médica ou substituição de avaliação
+                profissional.
+            </p>
 
-O Projeto Corre poderá suspender ou encerrar uma conta quando houver:
+            <p>
+                O Usuário permanece responsável pelas decisões tomadas
+                a partir das informações apresentadas pela Plataforma.
+            </p>
 
-* Violação destes Termos;
-* Uso fraudulento da Plataforma;
-* Tentativa de comprometer a segurança do sistema;
-* Utilização ilegal dos serviços;
-* Fornecimento de informações falsas;
-* Outras situações que representem risco à Plataforma ou a terceiros.
 
-Sempre que aplicável, o encerramento observará os direitos assegurados pela legislação vigente.
+            <!-- 7 -->
 
----
+            <h2>7. Responsabilidade do Usuário</h2>
 
-## 13. PRIVACIDADE E PROTEÇÃO DE DADOS
+            <p>O Usuário é responsável:</p>
 
-O tratamento de dados pessoais realizado pelo Projeto Corre deverá observar a legislação aplicável, incluindo a **Lei Geral de Proteção de Dados Pessoais — LGPD**.
+            <ul>
 
-As informações sobre coleta, utilização, armazenamento, compartilhamento, segurança e direitos dos titulares deverão estar descritas na Política de Privacidade da Plataforma.
+                <li>
+                    Pelas informações fornecidas à Plataforma;
+                </li>
 
-O Usuário declara estar ciente de que determinados dados poderão ser necessários para funcionamento dos serviços oferecidos.
+                <li>
+                    Pela utilização de sua conta;
+                </li>
 
----
+                <li>
+                    Pela manutenção de seus dados de acesso;
+                </li>
 
-## 14. LINKS E SERVIÇOS DE TERCEIROS
+                <li>
+                    Pelas decisões tomadas a partir dos conteúdos
+                    disponibilizados;
+                </li>
 
-A Plataforma poderá utilizar ou disponibilizar links, ferramentas, serviços ou integrações fornecidos por terceiros.
+                <li>
+                    Pelo uso adequado dos recursos oferecidos;
+                </li>
 
-Esses serviços poderão possuir seus próprios termos de uso e políticas de privacidade.
+                <li>
+                    Pelo cumprimento da legislação aplicável.
+                </li>
 
-O Projeto Corre não necessariamente controla ou possui responsabilidade sobre serviços de terceiros, devendo o Usuário consultar as respectivas condições quando necessário.
+            </ul>
 
----
 
-## 15. LIMITAÇÃO DE RESPONSABILIDADE
+            <!-- 8 -->
 
-O Projeto Corre não garante que todas as informações disponibilizadas pela Plataforma estarão permanentemente livres de erros ou indisponibilidades.
+            <h2>8. Disponibilidade dos Serviços</h2>
 
-Na extensão permitida pela legislação aplicável, o Projeto Corre não será responsável por danos decorrentes de:
+            <p>
+                O Projeto Corre buscará manter a Plataforma disponível
+                e funcionando adequadamente.
+            </p>
 
-* Uso inadequado da Plataforma;
-* Informações incorretamente fornecidas pelo Usuário;
-* Decisões tomadas exclusivamente pelo Usuário;
-* Falhas de serviços de terceiros;
-* Problemas de conexão ou equipamentos do Usuário;
-* Interrupções temporárias do serviço;
-* Uso da Plataforma em desacordo com estes Termos.
+            <p>
+                Entretanto, determinados recursos poderão ficar
+                temporariamente indisponíveis em razão de manutenção,
+                atualizações, falhas técnicas, problemas de conexão,
+                indisponibilidade de serviços de terceiros ou eventos
+                fora do controle razoável do Projeto Corre.
+            </p>
 
-Nada nestes Termos tem a finalidade de excluir ou limitar direitos que não possam legalmente ser excluídos ou limitados.
 
----
+            <!-- 9 -->
 
-## 16. ALTERAÇÕES DOS TERMOS
+            <h2>9. Propriedade Intelectual</h2>
 
-O Projeto Corre poderá atualizar estes Termos de Uso periodicamente para refletir alterações na Plataforma, nos serviços, na legislação ou em suas práticas.
+            <p>
+                Todo o conteúdo disponibilizado pelo Projeto Corre,
+                incluindo, mas não limitado a textos, imagens,
+                gráficos, logotipos, layouts, sistemas, funcionalidades,
+                materiais de treinamento e código-fonte, poderá estar
+                protegido pela legislação aplicável de propriedade
+                intelectual.
+            </p>
 
-A versão mais recente estará disponível nesta página.
+            <p>
+                É proibida a reprodução, distribuição, comercialização,
+                modificação ou utilização comercial não autorizada
+                desses materiais.
+            </p>
 
-Quando necessário, alterações relevantes poderão exigir novo aceite do Usuário antes da continuidade da utilização de determinados serviços.
 
----
+            <!-- 10 -->
 
-## 17. COMUNICAÇÕES
+            <h2>10. Conteúdo Fornecido pelo Usuário</h2>
 
-O Projeto Corre poderá utilizar os dados de contato fornecidos pelo Usuário para enviar comunicações relacionadas à conta, segurança, funcionamento dos serviços, alterações importantes e outras informações necessárias à prestação dos serviços.
+            <p>
+                Caso a Plataforma permita o envio de informações,
+                comentários, avaliações, imagens ou outros conteúdos
+                pelo Usuário, este declara possuir os direitos necessários
+                para realizar esse envio.
+            </p>
 
-Comunicações de marketing, quando aplicáveis, deverão observar as regras e opções de consentimento previstas na legislação e na Política de Privacidade.
+            <p>
+                O Usuário não deverá enviar conteúdo ilegal, ofensivo,
+                fraudulento, discriminatório, difamatório ou que viole
+                direitos de terceiros.
+            </p>
 
----
 
-## 18. DISPOSIÇÕES GERAIS
+            <!-- 11 -->
 
-Caso alguma disposição destes Termos seja considerada inválida ou inexequível, as demais disposições permanecerão válidas na medida permitida pela legislação aplicável.
+            <h2>11. Pagamentos e Planos</h2>
 
-A eventual tolerância em relação ao descumprimento de qualquer disposição não significará renúncia ao direito de exigir seu cumprimento posteriormente.
+            <p>
+                Caso sejam disponibilizados serviços pagos, os respectivos
+                preços, condições, períodos de utilização e formas de
+                pagamento serão apresentados ao Usuário antes da contratação.
+            </p>
 
----
+            <p>
+                O acesso a determinados recursos poderá depender da
+                confirmação do pagamento.
+            </p>
 
-## 19. LEGISLAÇÃO APLICÁVEL
+            <p>
+                Em caso de contratação de serviços recorrentes, as
+                condições de renovação, cancelamento e cobrança serão
+                informadas no momento da contratação.
+            </p>
 
-Estes Termos serão interpretados de acordo com a legislação brasileira, respeitados os direitos assegurados ao Usuário pela legislação aplicável.
 
-Eventuais conflitos deverão, sempre que possível, ser inicialmente solucionados por meio dos canais oficiais de atendimento do Projeto Corre.
+            <!-- 12 -->
 
----
+            <h2>12. Cancelamento e Encerramento da Conta</h2>
 
-## 20. CONTATO
+            <p>
+                O Usuário poderá solicitar o encerramento de sua conta
+                por meio dos canais disponibilizados pela Plataforma.
+            </p>
 
-Para dúvidas, solicitações ou esclarecimentos relacionados a estes Termos de Uso, o Usuário poderá entrar em contato por meio dos canais oficiais disponibilizados pelo Projeto Corre.
+            <p>
+                O Projeto Corre poderá suspender ou encerrar uma conta
+                quando houver violação destes Termos, uso fraudulento
+                da Plataforma, tentativa de comprometer a segurança
+                do sistema ou utilização ilegal dos serviços.
+            </p>
 
-**Projeto Corre**
 
-**E-mail:** [INSIRA SEU E-MAIL]
+            <!-- 13 -->
 
-**Site:** [INSIRA O ENDEREÇO DO SITE]
+            <h2>13. Privacidade e Proteção de Dados</h2>
 
-**Responsável:** [INSIRA O NOME/RAZÃO SOCIAL]
+            <p>
+                O tratamento de dados pessoais realizado pelo Projeto
+                Corre deverá observar a legislação aplicável, incluindo
+                a Lei Geral de Proteção de Dados Pessoais — LGPD.
+            </p>
 
-**CPF/CNPJ:** [INSIRA O CPF OU CNPJ]
+            <p>
+                As informações sobre coleta, utilização, armazenamento,
+                compartilhamento, segurança e direitos dos titulares
+                deverão estar descritas na Política de Privacidade
+                da Plataforma.
+            </p>
 
----
 
-## 21. ACEITE ELETRÔNICO
+            <!-- 14 -->
 
-Ao marcar a caixa:
+            <h2>14. Links e Serviços de Terceiros</h2>
 
-**☐ Li e concordo com os Termos de Uso.**
+            <p>
+                A Plataforma poderá utilizar ou disponibilizar links,
+                ferramentas, serviços ou integrações fornecidos por
+                terceiros.
+            </p>
 
-e prosseguir na utilização da Plataforma, o Usuário declara que teve acesso a este documento, leu suas disposições e concorda com as condições nele estabelecidas.
+            <p>
+                Esses serviços poderão possuir seus próprios termos
+                de uso e políticas de privacidade.
+            </p>
 
-**Versão dos Termos:** 1.0
-**Data de publicação:** 12 de agosto de 2026
-dfgh
 
+            <!-- 15 -->
 
-    </div>
+            <h2>15. Limitação de Responsabilidade</h2>
+
+            <p>
+                O Projeto Corre não garante que todas as informações
+                disponibilizadas pela Plataforma estarão permanentemente
+                livres de erros ou indisponibilidades.
+            </p>
+
+            <p>
+                Na extensão permitida pela legislação aplicável, o
+                Projeto Corre não será responsável por danos decorrentes
+                de uso inadequado da Plataforma, informações incorretamente
+                fornecidas pelo Usuário, decisões tomadas exclusivamente
+                pelo Usuário, falhas de serviços de terceiros ou problemas
+                de conexão e equipamentos do Usuário.
+            </p>
+
+            <p>
+                Nada nestes Termos tem a finalidade de excluir ou limitar
+                direitos que não possam legalmente ser excluídos ou limitados.
+            </p>
+
+
+            <!-- 16 -->
+
+            <h2>16. Alterações dos Termos</h2>
+
+            <p>
+                O Projeto Corre poderá atualizar estes Termos de Uso
+                periodicamente para refletir alterações na Plataforma,
+                nos serviços, na legislação ou em suas práticas.
+            </p>
+
+            <p>
+                A versão mais recente estará disponível nesta página.
+            </p>
+
+
+            <!-- 17 -->
+
+            <h2>17. Comunicações</h2>
+
+            <p>
+                O Projeto Corre poderá utilizar os dados de contato
+                fornecidos pelo Usuário para enviar comunicações
+                relacionadas à conta, segurança, funcionamento dos
+                serviços e alterações importantes.
+            </p>
+
+
+            <!-- 18 -->
+
+            <h2>18. Disposições Gerais</h2>
+
+            <p>
+                Caso alguma disposição destes Termos seja considerada
+                inválida ou inexequível, as demais disposições permanecerão
+                válidas na medida permitida pela legislação aplicável.
+            </p>
+
+            <p>
+                A eventual tolerância em relação ao descumprimento de
+                qualquer disposição não significará renúncia ao direito
+                de exigir seu cumprimento posteriormente.
+            </p>
+
+
+            <!-- 19 -->
+
+            <h2>19. Legislação Aplicável</h2>
+
+            <p>
+                Estes Termos serão interpretados de acordo com a legislação
+                brasileira, respeitados os direitos assegurados ao Usuário
+                pela legislação aplicável.
+            </p>
+
+
+            <!-- 20 -->
+
+            <h2>20. Contato</h2>
+
+            <p>
+                Para dúvidas, solicitações ou esclarecimentos relacionados
+                a estes Termos de Uso, o Usuário poderá entrar em contato
+                por meio dos canais oficiais disponibilizados pelo
+                Projeto Corre.
+            </p>
+
+            <p>
+                <strong>Projeto Corre</strong>
+            </p>
+
+            <p>
+                <strong>E-mail:</strong>
+                SEU-EMAIL-AQUI
+            </p>
+
+            <p>
+                <strong>Site:</strong>
+                SEU-SITE-AQUI
+            </p>
+
+
+            <!-- ACEITE -->
+
+            <div class="aceite">
+
+                <h2>21. Aceite Eletrônico</h2>
+
+                <p>
+                    Ao marcar a caixa de aceite e prosseguir na utilização
+                    da Plataforma, o Usuário declara que teve acesso a
+                    este documento, leu suas disposições e concorda com
+                    as condições nele estabelecidas.
+                </p>
+
+                <p>
+                    <strong>
+                        Versão dos Termos:
+                    </strong>
+                    1.0
+                </p>
+
+                <p>
+                    <strong>
+                        Data de publicação:
+                    </strong>
+                    12 de agosto de 2026
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        © 2026 Projeto Corre. Todos os direitos reservados.
+
+    </footer>
 
 </body>
 
