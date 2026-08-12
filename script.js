@@ -263,3 +263,519 @@ loader.remove();
 }
 
 });
+
+/* =====================================================
+   PROJETO CORRE
+   SCRIPT PRINCIPAL
+===================================================== */
+
+
+/* =====================================================
+   VERIFICAÇÃO DE LOGIN
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const session = localStorage.getItem("correSession");
+
+    const user = JSON.parse(
+        localStorage.getItem("correUser") || "null"
+    );
+
+
+    /*
+     * Se não estiver logado,
+     * volta para a tela de login.
+     */
+
+    if (
+        session !== "1" ||
+        !user
+    ) {
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+
+    /* =================================================
+       DADOS DO USUÁRIO
+    ================================================= */
+
+    const userName =
+        user.nome ||
+        user.name ||
+        "Corredor";
+
+
+    /*
+     * Nome no dashboard
+     */
+
+    const title =
+        document.querySelector(".topbar h1");
+
+
+    if (title) {
+
+        title.innerHTML =
+            `Olá, ${userName} 👋`;
+
+    }
+
+
+    /* =================================================
+       BOTÃO SAIR
+    ================================================= */
+
+    const logoutButton =
+        document.getElementById("logoutButton");
+
+
+    if (logoutButton) {
+
+        logoutButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmLogout =
+                    confirm(
+                        "Tem certeza que deseja sair da sua conta?"
+                    );
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+                /*
+                 * Remove a sessão
+                 */
+
+                localStorage.removeItem(
+                    "correSession"
+                );
+
+
+                /*
+                 * Redireciona para login
+                 */
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       AVATAR
+    ================================================= */
+
+    const avatar =
+        document.querySelector(
+            ".top-icons img"
+        );
+
+
+    if (avatar) {
+
+        avatar.style.cursor = "pointer";
+
+
+        avatar.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "perfil.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       NOTIFICAÇÕES
+    ================================================= */
+
+    const notification =
+        document.querySelector(
+            ".top-icons .fa-bell"
+        );
+
+
+    if (notification) {
+
+        notification.style.cursor = "pointer";
+
+
+        notification.addEventListener(
+            "click",
+            function () {
+
+                alert(
+                    "🔔 Você não possui novas notificações."
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       LINKS DO DASHBOARD
+    ================================================= */
+
+    const links =
+        document.querySelectorAll(
+            ".sidebar nav a"
+        );
+
+
+    links.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * Remove ativo de todos
+                 */
+
+                links.forEach(function (item) {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                /*
+                 * Marca o atual
+                 */
+
+                this.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =================================================
+       TREINO DE HOJE
+    ================================================= */
+
+    const workoutCards =
+        document.querySelectorAll(
+            ".dash-card"
+        );
+
+
+    if (workoutCards.length > 0) {
+
+        workoutCards[0].style.cursor =
+            "pointer";
+
+
+        workoutCards[0].addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "treinos.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CARD DE EVOLUÇÃO
+    ================================================= */
+
+    if (workoutCards.length > 2) {
+
+        workoutCards[2].style.cursor =
+            "pointer";
+
+
+        workoutCards[2].addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "evolucao.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       PRÓXIMA META
+    ================================================= */
+
+    if (workoutCards.length > 3) {
+
+        workoutCards[3].style.cursor =
+            "pointer";
+
+
+        workoutCards[3].addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "evolucao.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CALENDÁRIO
+    ================================================= */
+
+    const calendarLink =
+        document.querySelector(
+            ".calendar-card .card-header a"
+        );
+
+
+    if (calendarLink) {
+
+        calendarLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                window.location.href =
+                    "treinos.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CURSOS
+    ================================================= */
+
+    const coursesLink =
+        document.querySelector(
+            ".courses-card .card-header a"
+        );
+
+
+    if (coursesLink) {
+
+        coursesLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                window.location.href =
+                    "aulas.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CURSOS INDIVIDUAIS
+    ================================================= */
+
+    const courses =
+        document.querySelectorAll(
+            ".course"
+        );
+
+
+    courses.forEach(function (course) {
+
+        course.style.cursor =
+            "pointer";
+
+
+        course.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "aulas.html";
+
+            }
+        );
+
+    });
+
+
+
+    /* =================================================
+       CONQUISTAS
+    ================================================= */
+
+    const achievements =
+        document.querySelectorAll(
+            ".achievement"
+        );
+
+
+    achievements.forEach(function (achievement) {
+
+        achievement.style.cursor =
+            "pointer";
+
+
+        achievement.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "evolucao.html";
+
+            }
+        );
+
+    });
+
+
+
+    /* =================================================
+       ANIMAÇÃO DAS BARRAS
+    ================================================= */
+
+    const fills =
+        document.querySelectorAll(
+            ".progress .fill"
+        );
+
+
+    fills.forEach(function (fill) {
+
+        const width =
+            fill.style.width;
+
+
+        fill.style.width = "0";
+
+
+        setTimeout(function () {
+
+            fill.style.width =
+                width;
+
+        }, 300);
+
+    });
+
+
+
+    /* =================================================
+       LINKS "VER TUDO"
+    ================================================= */
+
+    document
+        .querySelectorAll(
+            'a[href="#"]'
+        )
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                }
+            );
+
+        });
+
+});
+
+
+
+/* =====================================================
+   PROTEÇÃO CONTRA VOLTAR APÓS LOGOUT
+===================================================== */
+
+window.addEventListener(
+    "pageshow",
+    function () {
+
+        const session =
+            localStorage.getItem(
+                "correSession"
+            );
+
+
+        const user =
+            localStorage.getItem(
+                "correUser"
+            );
+
+
+        if (
+            session !== "1" ||
+            !user
+        ) {
+
+            /*
+             * Só redireciona se estiver
+             * em uma página protegida.
+             */
+
+            const currentPage =
+                window.location.pathname;
+
+
+            if (
+                currentPage.includes(
+                    "dashboard.html"
+                )
+            ) {
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+
+    }
+);
