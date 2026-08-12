@@ -484,635 +484,476 @@ document.addEventListener(
             };
 
 
-        /* ====================================================
-           CADASTRO
-        ==================================================== */
+       /* ========================================================
+   PÁGINA DE CADASTRO
+======================================================== */
 
-        const signupForm =
-            document.getElementById("signupForm");
+const signupForm = document.getElementById("signupForm");
+
+if (signupForm) {
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const confirmPasswordInput =
+        document.getElementById("confirmPassword");
+
+    const aceiteTermos =
+        document.getElementById("aceiteTermos");
+
+    const btnSubmit =
+        document.getElementById("btnSubmit");
+
+    const message =
+        document.getElementById("message");
 
 
-        if (signupForm) {
+    /* ====================================================
+       BOTÃO INICIALMENTE DESABILITADO
+    ==================================================== */
+
+    if (btnSubmit) {
+        btnSubmit.disabled = true;
+    }
 
 
-            const togglePassword =
-                document.getElementById(
-                    "togglePassword"
-                );
+    /* ====================================================
+       ATIVAR BOTÃO AO ACEITAR TERMOS
+    ==================================================== */
 
+    if (aceiteTermos && btnSubmit) {
 
-            const passwordInput =
-                document.getElementById(
-                    "password"
-                );
+        aceiteTermos.addEventListener(
+            "change",
+            function () {
 
-
-            /* ================================================
-               MOSTRAR SENHA
-            ================================================ */
-
-            if (
-                togglePassword &&
-                passwordInput
-            ) {
-
-                togglePassword.addEventListener(
-                    "click",
-                    function () {
-
-                        if (
-                            passwordInput.type ===
-                            "password"
-                        ) {
-
-                            passwordInput.type =
-                                "text";
-
-                            this.innerHTML =
-                                '<i class="fa-solid fa-eye-slash"></i>';
-
-                        } else {
-
-                            passwordInput.type =
-                                "password";
-
-                            this.innerHTML =
-                                '<i class="fa-solid fa-eye"></i>';
-
-                        }
-
-                    }
-                );
+                btnSubmit.disabled =
+                    !this.checked;
 
             }
+        );
 
+    }
 
-            /* ================================================
-               CADASTRAR
-            ================================================ */
 
-            signupForm.addEventListener(
-                "submit",
-                function (event) {
+    /* ====================================================
+       MOSTRAR / ESCONDER SENHA
+    ==================================================== */
 
-                    event.preventDefault();
+    if (togglePassword && passwordInput) {
 
+        togglePassword.addEventListener(
+            "click",
+            function () {
 
-                    const name =
-                        document
-                            .getElementById("name")
-                            ?.value
-                            .trim();
+                if (
+                    passwordInput.type === "password"
+                ) {
 
+                    passwordInput.type = "text";
 
-                    const email =
-                        document
-                            .getElementById("email")
-                            ?.value
-                            .trim()
-                            .toLowerCase();
+                    this.innerHTML =
+                        '<i class="fa-solid fa-eye-slash"></i>';
 
-
-                    const password =
-                        document
-                            .getElementById("password")
-                            ?.value;
-
-
-                    const confirmPassword =
-                        document
-                            .getElementById(
-                                "confirmPassword"
-                            )
-                            ?.value;
-
-
-                    /*
-                       IMPORTANTE:
-                       O ID correto é aceiteTermos
-                    */
-
-                    const terms =
-                        document
-                            .getElementById(
-                                "aceiteTermos"
-                            )
-                            ?.checked;
-
-
-                    const message =
-                        document.getElementById(
-                            "message"
-                        );
-
-
-                    function showError(text) {
-
-                        if (!message) {
-
-                            return;
-
-                        }
-
-                        message.className =
-                            "message error";
-
-                        message.innerHTML =
-                            '<i class="fa-solid fa-circle-exclamation"></i> ' +
-                            text;
-
-                    }
-
-
-                    function showSuccess(text) {
-
-                        if (!message) {
-
-                            return;
-
-                        }
-
-                        message.className =
-                            "message success";
-
-                        message.innerHTML =
-                            '<i class="fa-solid fa-circle-check"></i> ' +
-                            text;
-
-                    }
-
-
-                    /* ========================================
-                       NOME
-                    ======================================== */
-
-                    if (
-                        !name ||
-                        name.length < 3
-                    ) {
-
-                        showError(
-                            "Digite seu nome completo."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       E-MAIL
-                    ======================================== */
-
-                    const emailRegex =
-                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                    if (
-                        !email ||
-                        !emailRegex.test(email)
-                    ) {
-
-                        showError(
-                            "Digite um e-mail válido."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       SENHA
-                    ======================================== */
-
-                    if (
-                        !password ||
-                        password.length < 6
-                    ) {
-
-                        showError(
-                            "A senha precisa ter pelo menos 6 caracteres."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       CONFIRMAR SENHA
-                    ======================================== */
-
-                    if (
-                        password !==
-                        confirmPassword
-                    ) {
-
-                        showError(
-                            "As senhas não são iguais."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       TERMOS
-                    ======================================== */
-
-                    if (!terms) {
-
-                        showError(
-                            "Você precisa aceitar os termos para continuar."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       USUÁRIOS EXISTENTES
-                    ======================================== */
-
-                    const users =
-                        getUsers();
-
-
-                    const existingUser =
-                        users.find(
-                            function (user) {
-
-                                return (
-                                    user.email &&
-                                    user.email
-                                        .toLowerCase() ===
-                                    email
-                                );
-
-                            }
-                        );
-
-
-                    if (existingUser) {
-
-                        showError(
-                            "Este e-mail já possui uma conta. Entre com ela."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* ========================================
-                       NOVO USUÁRIO
-                    ======================================== */
-
-                    const newUser = {
-
-                        id:
-                            Date.now(),
-
-                        name:
-                            name,
-
-                        nome:
-                            name,
-
-                        email:
-                            email,
-
-                        password:
-                            password,
-
-                        createdAt:
-                            new Date()
-                                .toISOString(),
-
-                        plan:
-                            "free",
-
-                        avatar:
-                            "",
-
-                        goal:
-                            "5 km",
-
-                        totalKm:
-                            0,
-
-                        workouts:
-                            0,
-
-                        classes:
-                            0
-
-                    };
-
-
-                    /* ========================================
-                       SALVA DEFINITIVAMENTE
-                    ======================================== */
-
-                    users.push(
-                        newUser
+                    this.setAttribute(
+                        "aria-label",
+                        "Esconder senha"
                     );
 
-                    saveUsers(
-                        users
-                    );
+                } else {
 
+                    passwordInput.type = "password";
 
-                    /* ========================================
-                       LOGIN AUTOMÁTICO
-                    ======================================== */
+                    this.innerHTML =
+                        '<i class="fa-solid fa-eye"></i>';
 
-                    localStorage.setItem(
-                        "correUser",
-                        JSON.stringify(
-                            newUser
-                        )
-                    );
-
-
-                    localStorage.setItem(
-                        "correSession",
-                        "1"
-                    );
-
-
-                    showSuccess(
-                        "Conta criada com sucesso! Entrando..."
-                    );
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "painel.html";
-
-                        },
-                        700
+                    this.setAttribute(
+                        "aria-label",
+                        "Mostrar senha"
                     );
 
                 }
-            );
 
+            }
+        );
+
+    }
+
+
+    /* ====================================================
+       FUNÇÃO DE MENSAGEM
+    ==================================================== */
+
+    function showError(text) {
+
+        if (!message) {
+            return;
         }
 
+        message.className =
+            "message error";
 
-        /* ====================================================
-           PÁGINAS LOGADAS
-        ==================================================== */
+        message.innerHTML =
+            '<i class="fa-solid fa-circle-exclamation"></i> ' +
+            text;
 
-        if (isLoggedIn()) {
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
 
-            const user =
-                getCurrentUser();
+    }
 
 
-            if (!user) {
+    function showSuccess(text) {
+
+        if (!message) {
+            return;
+        }
+
+        message.className =
+            "message success";
+
+        message.innerHTML =
+            '<i class="fa-solid fa-circle-check"></i> ' +
+            text;
+
+    }
+
+
+    /* ====================================================
+       SUBMIT DO CADASTRO
+    ==================================================== */
+
+    signupForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /* =================================================
+               CAPTURA OS CAMPOS
+            ================================================= */
+
+            const nameInput =
+                document.getElementById("name");
+
+            const emailInput =
+                document.getElementById("email");
+
+
+            const name =
+                nameInput
+                    ? nameInput.value.trim()
+                    : "";
+
+
+            const email =
+                emailInput
+                    ? emailInput.value
+                        .trim()
+                        .toLowerCase()
+                    : "";
+
+
+            const password =
+                passwordInput
+                    ? passwordInput.value
+                    : "";
+
+
+            const confirmPassword =
+                confirmPasswordInput
+                    ? confirmPasswordInput.value
+                    : "";
+
+
+            const termsAccepted =
+                aceiteTermos
+                    ? aceiteTermos.checked
+                    : false;
+
+
+            /* =================================================
+               VALIDA NOME
+            ================================================= */
+
+            if (
+                !name ||
+                name.length < 3
+            ) {
+
+                showError(
+                    "Digite seu nome completo."
+                );
 
                 return;
 
             }
 
 
-            const userName =
-                user.nome ||
-                user.name ||
-                "Corredor";
+            /* =================================================
+               VALIDA E-MAIL
+            ================================================= */
 
-
-            /* ================================================
-               NOME
-            ================================================ */
-
-            document
-                .querySelectorAll(
-                    "[data-user-name]"
-                )
-                .forEach(function (element) {
-
-                    element.textContent =
-                        userName;
-
-                });
-
-
-            /* ================================================
-               EMAIL
-            ================================================ */
-
-            document
-                .querySelectorAll(
-                    "[data-user-email]"
-                )
-                .forEach(function (element) {
-
-                    element.textContent =
-                        user.email || "";
-
-                });
-
-
-            /* ================================================
-               BOTÃO LOGOUT
-            ================================================ */
-
-            document
-                .querySelectorAll(
-                    "#logoutButton, [data-logout]"
-                )
-                .forEach(function (button) {
-
-                    button.addEventListener(
-                        "click",
-                        logout
-                    );
-
-                });
-
-
-            /* ================================================
-               NAVEGAÇÃO
-            ================================================ */
-
-            document
-                .querySelectorAll(
-                    "[data-page]"
-                )
-                .forEach(function (link) {
-
-                    link.addEventListener(
-                        "click",
-                        function () {
-
-                            const page =
-                                this.dataset.page;
-
-                            if (page) {
-
-                                window.location.href =
-                                    page;
-
-                            }
-
-                        }
-                    );
-
-                });
-
-
-            /* ================================================
-               PÁGINA ATIVA
-            ================================================ */
-
-            const currentPage =
-                getCurrentPage();
-
-
-            document
-                .querySelectorAll(
-                    "[data-page]"
-                )
-                .forEach(function (link) {
-
-                    if (
-                        link.dataset.page ===
-                        currentPage
-                    ) {
-
-                        link.classList.add(
-                            "active"
-                        );
-
-                    }
-
-                });
-
-
-            /* ================================================
-               AVATAR
-            ================================================ */
-
-            const avatar =
-                document.querySelector(
-                    "[data-user-avatar]"
-                );
-
-
-            if (avatar) {
-
-                if (user.avatar) {
-
-                    avatar.src =
-                        user.avatar;
-
-                } else {
-
-                    avatar.src =
-                        "https://ui-avatars.com/api/?name=" +
-                        encodeURIComponent(
-                            userName
-                        ) +
-                        "&background=A3FF12&color=080808";
-
-                }
-
-            }
-
-
-            /* ================================================
-               LINKS ANTIGOS
-            ================================================ */
-
-            document
-                .querySelectorAll(
-                    'a[href="dashboard.html"]'
-                )
-                .forEach(function (link) {
-
-                    link.setAttribute(
-                        "href",
-                        "painel.html"
-                    );
-
-                });
-
-
-            /* ================================================
-               NOME DO TOPO ANTIGO
-            ================================================ */
-
-            const title =
-                document.querySelector(
-                    ".topbar h1"
-                );
+            const emailRegex =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
             if (
-                title &&
-                !title.hasAttribute(
-                    "data-user-name"
-                )
+                !email ||
+                !emailRegex.test(email)
             ) {
 
-                title.innerHTML =
-                    `Olá, ${userName} 👋`;
+                showError(
+                    "Digite um e-mail válido."
+                );
+
+                return;
 
             }
 
-        }
+
+            /* =================================================
+               VALIDA SENHA
+            ================================================= */
+
+            if (
+                !password ||
+                password.length < 6
+            ) {
+
+                showError(
+                    "A senha precisa ter pelo menos 6 caracteres."
+                );
+
+                return;
+
+            }
 
 
-    }
+            /* =================================================
+               CONFIRMA SENHA
+            ================================================= */
 
-);
+            if (
+                password !== confirmPassword
+            ) {
 
+                showError(
+                    "As senhas não são iguais."
+                );
 
-/* ============================================================
-   VOLTAR AO PAINEL SE USUÁRIO TENTAR ABRIR LOGIN/CADASTRO
-============================================================ */
+                return;
 
-window.addEventListener(
-    "pageshow",
-    function () {
-
-        const page =
-            getCurrentPage();
-
-
-        if (
-            (
-                page === "login.html" ||
-                page === "cadastro.html"
-            ) &&
-            isLoggedIn()
-        ) {
-
-            /*
-               Não bloqueia totalmente o cadastro,
-               mas permite entrar no painel.
-            */
-
-        }
+            }
 
 
-        if (
-            protectedPages.includes(page) &&
-            !isLoggedIn()
-        ) {
+            /* =================================================
+               TERMOS
+            ================================================= */
 
-            window.location.replace(
-                "login.html"
+            if (!termsAccepted) {
+
+                showError(
+                    "Você precisa aceitar os Termos de Uso para continuar."
+                );
+
+                return;
+
+            }
+
+
+            /* =================================================
+               CARREGA USUÁRIOS EXISTENTES
+            ================================================= */
+
+            let users = getUsers();
+
+
+            if (!Array.isArray(users)) {
+                users = [];
+            }
+
+
+            /* =================================================
+               VERIFICA E-MAIL EXISTENTE
+            ================================================= */
+
+            const existingUser =
+                users.find(
+                    function (user) {
+
+                        return (
+                            user &&
+                            user.email &&
+                            user.email
+                                .toLowerCase()
+                                .trim() === email
+                        );
+
+                    }
+                );
+
+
+            if (existingUser) {
+
+                showError(
+                    "Este e-mail já possui uma conta. " +
+                    "Entre com sua conta existente."
+                );
+
+                return;
+
+            }
+
+
+            /* =================================================
+               CRIA USUÁRIO
+            ================================================= */
+
+            const newUser = {
+
+                id:
+                    Date.now().toString(),
+
+                name:
+                    name,
+
+                nome:
+                    name,
+
+                email:
+                    email,
+
+                password:
+                    password,
+
+                plan:
+                    "free",
+
+                createdAt:
+                    new Date().toISOString(),
+
+                /* DADOS PARA O PAINEL */
+
+                treinos:
+                    [],
+
+                aulas:
+                    [],
+
+                evolucao:
+                    {
+                        distancia: 0,
+                        treinos: 0,
+                        tempo: 0,
+                        calorias: 0
+                    },
+
+                meta:
+                    {
+                        distancia: 0,
+                        objetivo: 5
+                    }
+
+            };
+
+
+            /* =================================================
+               SALVA NA BASE LOCAL
+            ================================================= */
+
+            users.push(newUser);
+
+            saveUsers(users);
+
+
+            /* =================================================
+               CRIA SESSÃO
+            ================================================= */
+
+            localStorage.setItem(
+                "correUser",
+                JSON.stringify(newUser)
+            );
+
+            localStorage.setItem(
+                "correSession",
+                "1"
+            );
+
+
+            /* =================================================
+               CONFERE SE REALMENTE SALVOU
+            ================================================= */
+
+            const savedUsers =
+                getUsers();
+
+            const savedUser =
+                savedUsers.find(
+                    function (user) {
+
+                        return (
+                            user.email === email
+                        );
+
+                    }
+                );
+
+
+            if (!savedUser) {
+
+                showError(
+                    "Não foi possível salvar sua conta. Tente novamente."
+                );
+
+                return;
+
+            }
+
+
+            /* =================================================
+               SUCESSO
+            ================================================= */
+
+            showSuccess(
+                "Conta criada com sucesso! Entrando no seu painel..."
+            );
+
+
+            if (btnSubmit) {
+
+                btnSubmit.disabled = true;
+
+                btnSubmit.innerHTML =
+                    '<i class="fa-solid fa-spinner fa-spin"></i> ' +
+                    'Entrando...';
+
+            }
+
+
+            /* =================================================
+               REDIRECIONA PARA PAINEL
+            ================================================= */
+
+            setTimeout(
+                function () {
+
+                    window.location.replace(
+                        "painel.html"
+                    );
+
+                },
+                700
             );
 
         }
+    );
 
-    }
-);
+}
