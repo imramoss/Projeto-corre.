@@ -1423,6 +1423,86 @@
 
 
 </script>
+<script>
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+    const aceiteTermos =
+        document.getElementById("aceiteTermos").checked;
+
+
+    if (!name || !email || !password || !confirmPassword) {
+
+        alert("Preencha todos os campos.");
+
+        return;
+    }
+
+
+    if (password.length < 6) {
+
+        alert("A senha precisa ter pelo menos 6 caracteres.");
+
+        return;
+    }
+
+
+    if (password !== confirmPassword) {
+
+        alert("As senhas não são iguais.");
+
+        return;
+    }
+
+
+    if (!aceiteTermos) {
+
+        alert("Você precisa aceitar os Termos de Uso.");
+
+        return;
+    }
+
+
+    /*
+       SALVA O NOME DO USUÁRIO
+       PARA APARECER NO PAINEL
+    */
+
+    localStorage.setItem(
+        "userName",
+        name
+    );
+
+    localStorage.setItem(
+        "userEmail",
+        email
+    );
+
+
+    /*
+       REDIRECIONA PARA O PAINEL
+    */
+
+    window.location.href =
+        "painel.html";
+
+});
+
+</script>
 
 
 </body>
