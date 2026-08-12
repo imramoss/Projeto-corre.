@@ -2,12 +2,11 @@
    PROJETO CORRE
    SCRIPT.JS
    Sistema principal do site
-   ============================================================ */
-
+============================================================ */
 
 /* ============================================================
    CONFIGURAÇÃO
-   ============================================================ */
+============================================================ */
 
 const STORAGE_USERS = "correUsers";
 const STORAGE_USER = "correUser";
@@ -16,7 +15,7 @@ const STORAGE_SESSION = "correSession";
 
 /* ============================================================
    FUNÇÕES DE USUÁRIO
-   ============================================================ */
+============================================================ */
 
 /*
    Retorna todos os usuários cadastrados.
@@ -25,16 +24,18 @@ function getUsers() {
 
     try {
 
-        const users = localStorage.getItem(STORAGE_USERS);
+        const savedUsers =
+            localStorage.getItem(STORAGE_USERS);
 
-        if (!users) {
+        if (!savedUsers) {
             return [];
         }
 
-        const parsed = JSON.parse(users);
+        const users =
+            JSON.parse(savedUsers);
 
-        return Array.isArray(parsed)
-            ? parsed
+        return Array.isArray(users)
+            ? users
             : [];
 
     } catch (error) {
@@ -45,9 +46,7 @@ function getUsers() {
         );
 
         return [];
-
     }
-
 }
 
 
@@ -73,9 +72,7 @@ function saveUsers(users) {
         );
 
         return false;
-
     }
-
 }
 
 
@@ -86,15 +83,14 @@ function getCurrentUser() {
 
     try {
 
-        const user = localStorage.getItem(
-            STORAGE_USER
-        );
+        const savedUser =
+            localStorage.getItem(STORAGE_USER);
 
-        if (!user) {
+        if (!savedUser) {
             return null;
         }
 
-        return JSON.parse(user);
+        return JSON.parse(savedUser);
 
     } catch (error) {
 
@@ -104,21 +100,17 @@ function getCurrentUser() {
         );
 
         return null;
-
     }
-
 }
 
 
 /*
-   Verifica se existe uma sessão válida.
+   Verifica se existe sessão válida.
 */
 function isLoggedIn() {
 
     const session =
-        localStorage.getItem(
-            STORAGE_SESSION
-        );
+        localStorage.getItem(STORAGE_SESSION);
 
     const user =
         getCurrentUser();
@@ -127,38 +119,55 @@ function isLoggedIn() {
         session === "1" &&
         user !== null
     );
-
 }
 
 
 /* ============================================================
-   LOGIN
-   ============================================================ */
+   SESSÃO
+============================================================ */
 
 function createSession(user) {
 
-    localStorage.setItem(
-        STORAGE_USER,
-        JSON.stringify(user)
-    );
+    if (!user) {
+        return false;
+    }
 
-    localStorage.setItem(
-        STORAGE_SESSION,
-        "1"
-    );
+    try {
 
+        localStorage.setItem(
+            STORAGE_USER,
+            JSON.stringify(user)
+        );
+
+        localStorage.setItem(
+            STORAGE_SESSION,
+            "1"
+        );
+
+        return true;
+
+    } catch (error) {
+
+        console.error(
+            "Erro ao criar sessão:",
+            error
+        );
+
+        return false;
+    }
 }
 
 
 /* ============================================================
    LOGOUT
-   ============================================================ */
+============================================================ */
 
 function logout() {
 
-    const confirmLogout = confirm(
-        "Tem certeza que deseja sair da sua conta?"
-    );
+    const confirmLogout =
+        confirm(
+            "Tem certeza que deseja sair da sua conta?"
+        );
 
     if (!confirmLogout) {
         return;
@@ -168,9 +177,9 @@ function logout() {
     /*
        IMPORTANTE:
 
-       Aqui NÃO apagamos correUsers.
+       Não removemos correUsers.
 
-       Portanto a conta continua cadastrada.
+       A conta continua cadastrada.
        Apenas encerramos a sessão.
     */
 
@@ -184,8 +193,7 @@ function logout() {
 
 
     /*
-       Remove também possíveis dados
-       da versão antiga do sistema.
+       Remove dados de versões antigas.
     */
 
     localStorage.removeItem(
@@ -206,64 +214,74 @@ function logout() {
 
 
     /*
-       Retorna para o login.
+       Redireciona para o login.
     */
 
     window.location.replace(
         "login.html"
     );
-
 }
 
 
 /*
-   Disponibiliza logout globalmente.
+   Disponibiliza globalmente.
 */
 window.logout = logout;
 
 
 /* ============================================================
    PÁGINAS PROTEGIDAS
-   ============================================================ */
+============================================================ */
 
 const protectedPages = [
 
     "painel.html",
     "dashboard.html",
-
     "treinos.html",
-
     "aulas.html",
-
     "evolucao.html",
-
     "perfil.html"
 
 ];
 
 
-/*
-   Descobre qual é a página atual.
-*/
+/* ============================================================
+   DESCOBRIR PÁGINA ATUAL
+============================================================ */
+
 function getCurrentPage() {
 
-    return window.location.pathname
-        .split("/")
-        .pop()
-        .toLowerCase();
+    let page =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
 
+    /*
+       Caso esteja acessando a raiz do site.
+    */
+
+    if (!page) {
+        page = "index.html";
+    }
+
+    return page;
 }
 
 
 /* ============================================================
-   PROTEÇÃO DAS PÁGINAS
-   ============================================================ */
+   PROTEGER PÁGINAS
+============================================================ */
 
 function protectPage() {
 
     const currentPage =
         getCurrentPage();
 
+    /*
+       Se não for uma página protegida,
+       não faz nada.
+    */
 
     if (
         !protectedPages.includes(
@@ -272,9 +290,13 @@ function protectPage() {
     ) {
 
         return true;
-
     }
 
+
+    /*
+       Se não estiver logado,
+       manda para o login.
+    */
 
     if (!isLoggedIn()) {
 
@@ -283,36 +305,25 @@ function protectPage() {
         );
 
         return false;
-
     }
 
 
     return true;
-
 }
 
 
 /* ============================================================
    PÁGINAS DE AUTENTICAÇÃO
-   ============================================================ */
-
-/*
-   Se o usuário já estiver logado e tentar
-   abrir login/cadastro, podemos direcioná-lo
-   para o painel.
-*/
+============================================================ */
 
 function redirectIfLoggedIn() {
 
     const currentPage =
         getCurrentPage();
 
-
     const authPages = [
-
         "login.html",
         "cadastro.html"
-
     ];
 
 
@@ -328,1222 +339,21 @@ function redirectIfLoggedIn() {
         );
 
         return true;
-
     }
 
 
     return false;
-
 }
 
 
 /* ============================================================
-   DOM READY
-   ============================================================ */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-
-        /* ====================================================
-           PROTEÇÃO
-        ==================================================== */
-
-        if (!protectPage()) {
-            return;
-        }
-
-
-        redirectIfLoggedIn();
-
-
-        /* ====================================================
-           MENU MOBILE
-        ==================================================== */
-
-        const hamburger =
-            document.querySelector(
-                ".hamburger"
-            );
-
-        const menu =
-            document.querySelector(
-                ".menu"
-            );
-
-
-        if (
-            hamburger &&
-            menu
-        ) {
-
-            hamburger.addEventListener(
-                "click",
-                function () {
-
-                    hamburger.classList.toggle(
-                        "active"
-                    );
-
-                    menu.classList.toggle(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            document
-                .querySelectorAll(
-                    ".menu a"
-                )
-                .forEach(
-                    function (link) {
-
-                        link.addEventListener(
-                            "click",
-                            function () {
-
-                                menu.classList.remove(
-                                    "active"
-                                );
-
-                                hamburger.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-                    }
-                );
-
-        }
-
-
-        /* ====================================================
-           NAVBAR AO ROLAR
-        ==================================================== */
-
-        const header =
-            document.querySelector(
-                "header"
-            );
-
-
-        if (header) {
-
-            window.addEventListener(
-                "scroll",
-                function () {
-
-                    if (
-                        window.scrollY > 60
-                    ) {
-
-                        header.style.background =
-                            "rgba(5,5,5,.95)";
-
-                        header.style.boxShadow =
-                            "0 10px 35px rgba(0,0,0,.35)";
-
-                    } else {
-
-                        header.style.background =
-                            "rgba(5,5,5,.75)";
-
-                        header.style.boxShadow =
-                            "none";
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           SCROLL SUAVE
-        ==================================================== */
-
-        document
-            .querySelectorAll(
-                'a[href^="#"]'
-            )
-            .forEach(
-                function (anchor) {
-
-                    anchor.addEventListener(
-                        "click",
-                        function (event) {
-
-                            const href =
-                                this.getAttribute(
-                                    "href"
-                                );
-
-
-                            if (
-                                !href ||
-                                href === "#"
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            const destino =
-                                document.querySelector(
-                                    href
-                                );
-
-
-                            if (destino) {
-
-                                event.preventDefault();
-
-                                destino.scrollIntoView({
-                                    behavior: "smooth"
-                                });
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
-
-        /* ====================================================
-           FAQ
-        ==================================================== */
-
-        document
-            .querySelectorAll(
-                ".faq-question"
-            )
-            .forEach(
-                function (button) {
-
-                    button.addEventListener(
-                        "click",
-                        function () {
-
-                            const item =
-                                this.closest(
-                                    ".faq-item"
-                                );
-
-
-                            if (!item) {
-                                return;
-                            }
-
-
-                            document
-                                .querySelectorAll(
-                                    ".faq-item"
-                                )
-                                .forEach(
-                                    function (other) {
-
-                                        if (
-                                            other !== item
-                                        ) {
-
-                                            other.classList.remove(
-                                                "active"
-                                            );
-
-                                        }
-
-                                    }
-                                );
-
-
-                            item.classList.toggle(
-                                "active"
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-
-        /* ====================================================
-           ANIMAÇÕES
-        ==================================================== */
-
-        const animatedElements =
-            document.querySelectorAll(
-                ".benefit-card," +
-                ".step-card," +
-                ".plan-card," +
-                ".testimonial," +
-                ".faq-item," +
-                ".hero-stats div"
-            );
-
-
-        if (
-            animatedElements.length > 0 &&
-            "IntersectionObserver" in window
-        ) {
-
-            const observer =
-                new IntersectionObserver(
-                    function (entries) {
-
-                        entries.forEach(
-                            function (entry) {
-
-                                if (
-                                    entry.isIntersecting
-                                ) {
-
-                                    entry.target.classList.add(
-                                        "show"
-                                    );
-
-                                    observer.unobserve(
-                                        entry.target
-                                    );
-
-                                }
-
-                            }
-                        );
-
-                    },
-                    {
-                        threshold: 0.15
-                    }
-                );
-
-
-            animatedElements.forEach(
-                function (element) {
-
-                    element.classList.add(
-                        "fade-up"
-                    );
-
-                    observer.observe(
-                        element
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           CONTADORES
-        ==================================================== */
-
-        const numeros =
-            document.querySelectorAll(
-                ".numbers-grid h2"
-            );
-
-
-        if (
-            numeros.length > 0 &&
-            "IntersectionObserver" in window
-        ) {
-
-            const contadorObserver =
-                new IntersectionObserver(
-                    function (entries) {
-
-                        entries.forEach(
-                            function (entry) {
-
-                                if (
-                                    !entry.isIntersecting
-                                ) {
-
-                                    return;
-
-                                }
-
-
-                                const numero =
-                                    entry.target;
-
-                                const texto =
-                                    numero.innerText;
-
-
-                                const valor =
-                                    parseInt(
-                                        texto.replace(
-                                            /\D/g,
-                                            ""
-                                        )
-                                    );
-
-
-                                if (
-                                    isNaN(valor)
-                                ) {
-
-                                    return;
-
-                                }
-
-
-                                const sufixo =
-                                    texto.replace(
-                                        /[0-9]/g,
-                                        ""
-                                    );
-
-
-                                let atual = 0;
-
-
-                                const incremento =
-                                    Math.max(
-                                        1,
-                                        Math.ceil(
-                                            valor / 120
-                                        )
-                                    );
-
-
-                                function atualizar() {
-
-                                    atual += incremento;
-
-
-                                    if (
-                                        atual < valor
-                                    ) {
-
-                                        numero.innerText =
-                                            atual +
-                                            sufixo;
-
-
-                                        requestAnimationFrame(
-                                            atualizar
-                                        );
-
-                                    } else {
-
-                                        numero.innerText =
-                                            texto;
-
-                                    }
-
-                                }
-
-
-                                atualizar();
-
-
-                                contadorObserver.unobserve(
-                                    numero
-                                );
-
-                            }
-                        );
-
-                    },
-                    {
-                        threshold: 0.5
-                    }
-                );
-
-
-            numeros.forEach(
-                function (numero) {
-
-                    contadorObserver.observe(
-                        numero
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           BOTÃO VOLTAR AO TOPO
-        ==================================================== */
-
-        const topButton =
-            document.createElement(
-                "button"
-            );
-
-
-        topButton.innerHTML =
-            '<i class="fa-solid fa-arrow-up"></i>';
-
-
-        topButton.className =
-            "topButton";
-
-
-        topButton.setAttribute(
-            "aria-label",
-            "Voltar ao topo"
-        );
-
-
-        document.body.appendChild(
-            topButton
-        );
-
-
-        window.addEventListener(
-            "scroll",
-            function () {
-
-                if (
-                    window.scrollY > 500
-                ) {
-
-                    topButton.classList.add(
-                        "showTop"
-                    );
-
-                } else {
-
-                    topButton.classList.remove(
-                        "showTop"
-                    );
-
-                }
-
-            }
-        );
-
-
-        topButton.addEventListener(
-            "click",
-            function () {
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-
-        /* ====================================================
-           PARALLAX DO HERO
-        ==================================================== */
-
-        const heroImage =
-            document.querySelector(
-                ".hero-right img"
-            );
-
-
-        if (heroImage) {
-
-            window.addEventListener(
-                "mousemove",
-                function (event) {
-
-                    const x =
-                        (
-                            window.innerWidth / 2 -
-                            event.clientX
-                        ) / 45;
-
-
-                    const y =
-                        (
-                            window.innerHeight / 2 -
-                            event.clientY
-                        ) / 45;
-
-
-                    heroImage.style.transform =
-                        `translate(${x}px, ${y}px)`;
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           LOGIN
-        ==================================================== */
-
-        const loginForm =
-            document.getElementById(
-                "loginForm"
-            );
-
-
-        if (loginForm) {
-
-            loginForm.addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    const emailInput =
-                        document.getElementById(
-                            "email"
-                        );
-
-
-                    const senhaInput =
-                        document.getElementById(
-                            "senha"
-                        );
-
-
-                    const error =
-                        document.getElementById(
-                            "error"
-                        );
-
-
-                    const email =
-                        emailInput
-                            ? emailInput.value
-                                .trim()
-                                .toLowerCase()
-                            : "";
-
-
-                    const senha =
-                        senhaInput
-                            ? senhaInput.value
-                            : "";
-
-
-                    if (error) {
-
-                        error.style.display =
-                            "none";
-
-                        error.innerHTML =
-                            "";
-
-                    }
-
-
-                    /* VALIDA CAMPOS */
-
-                    if (
-                        !email ||
-                        !senha
-                    ) {
-
-                        if (error) {
-
-                            error.innerHTML =
-                                "Preencha o e-mail e a senha.";
-
-                            error.style.display =
-                                "block";
-
-                        }
-
-                        return;
-
-                    }
-
-
-                    /* BUSCA USUÁRIO */
-
-                    const users =
-                        getUsers();
-
-
-                    const user =
-                        users.find(
-                            function (item) {
-
-                                return (
-                                    String(
-                                        item.email || ""
-                                    )
-                                    .toLowerCase()
-                                    === email
-                                );
-
-                            }
-                        );
-
-
-                    /* E-MAIL NÃO EXISTE */
-
-                    if (!user) {
-
-                        if (error) {
-
-                            error.innerHTML =
-                                "Este e-mail não está cadastrado. Crie uma conta para continuar.";
-
-                            error.style.display =
-                                "block";
-
-                        }
-
-                        return;
-
-                    }
-
-
-                    /* SENHA INCORRETA */
-
-                    if (
-                        user.password !== senha
-                    ) {
-
-                        if (error) {
-
-                            error.innerHTML =
-                                "A senha está incorreta.";
-
-                            error.style.display =
-                                "block";
-
-                        }
-
-                        return;
-
-                    }
-
-
-                    /* LOGIN CORRETO */
-
-                    createSession(
-                        user
-                    );
-
-
-                    window.location.replace(
-                        "painel.html"
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           LOGIN GOOGLE
-        ==================================================== */
-
-        window.loginGoogle =
-            function () {
-
-                alert(
-                    "O login com Google ainda não está conectado. Utilize seu e-mail e senha cadastrados."
-                );
-
-            };
-
-
-        /* ====================================================
-           CADASTRO
-        ==================================================== */
-
-        const signupForm =
-            document.getElementById(
-                "signupForm"
-            );
-
-
-        if (signupForm) {
-
-            const togglePassword =
-                document.getElementById(
-                    "togglePassword"
-                );
-
-
-            const passwordInput =
-                document.getElementById(
-                    "password"
-                );
-
-
-            /* MOSTRAR SENHA */
-
-            if (
-                togglePassword &&
-                passwordInput
-            ) {
-
-                togglePassword.addEventListener(
-                    "click",
-                    function () {
-
-                        if (
-                            passwordInput.type ===
-                            "password"
-                        ) {
-
-                            passwordInput.type =
-                                "text";
-
-                            this.innerHTML =
-                                '<i class="fa-solid fa-eye-slash"></i>';
-
-                        } else {
-
-                            passwordInput.type =
-                                "password";
-
-                            this.innerHTML =
-                                '<i class="fa-solid fa-eye"></i>';
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-            /* SUBMIT */
-
-            signupForm.addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    const name =
-                        document
-                            .getElementById(
-                                "name"
-                            )
-                            ?.value
-                            .trim();
-
-
-                    const email =
-                        document
-                            .getElementById(
-                                "email"
-                            )
-                            ?.value
-                            .trim()
-                            .toLowerCase();
-
-
-                    const password =
-                        document
-                            .getElementById(
-                                "password"
-                            )
-                            ?.value;
-
-
-                    const confirmPassword =
-                        document
-                            .getElementById(
-                                "confirmPassword"
-                            )
-                            ?.value;
-
-
-                    const terms =
-                        document
-                            .getElementById(
-                                "aceiteTermos"
-                            )
-                            ?.checked;
-
-
-                    const message =
-                        document.getElementById(
-                            "message"
-                        );
-
-
-                    function showError(
-                        text
-                    ) {
-
-                        if (!message) {
-                            return;
-                        }
-
-
-                        message.className =
-                            "message error";
-
-
-                        message.innerHTML =
-                            '<i class="fa-solid fa-circle-exclamation"></i> ' +
-                            text;
-
-                    }
-
-
-                    function showSuccess(
-                        text
-                    ) {
-
-                        if (!message) {
-                            return;
-                        }
-
-
-                        message.className =
-                            "message success";
-
-
-                        message.innerHTML =
-                            '<i class="fa-solid fa-circle-check"></i> ' +
-                            text;
-
-                    }
-
-
-                    /* NOME */
-
-                    if (
-                        !name ||
-                        name.length < 3
-                    ) {
-
-                        showError(
-                            "Digite seu nome completo."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* E-MAIL */
-
-                    const emailRegex =
-                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                    if (
-                        !email ||
-                        !emailRegex.test(
-                            email
-                        )
-                    ) {
-
-                        showError(
-                            "Digite um e-mail válido."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* SENHA */
-
-                    if (
-                        !password ||
-                        password.length < 6
-                    ) {
-
-                        showError(
-                            "A senha precisa ter pelo menos 6 caracteres."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* CONFIRMAÇÃO */
-
-                    if (
-                        password !==
-                        confirmPassword
-                    ) {
-
-                        showError(
-                            "As senhas não são iguais."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* TERMOS */
-
-                    if (!terms) {
-
-                        showError(
-                            "Você precisa aceitar os Termos de Uso para continuar."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* BUSCA USUÁRIOS */
-
-                    const users =
-                        getUsers();
-
-
-                    /* VERIFICA E-MAIL */
-
-                    const existingUser =
-                        users.find(
-                            function (user) {
-
-                                return (
-                                    String(
-                                        user.email || ""
-                                    )
-                                    .toLowerCase()
-                                    === email
-                                );
-
-                            }
-                        );
-
-
-                    if (existingUser) {
-
-                        showError(
-                            "Este e-mail já possui uma conta. Entre com sua conta existente."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* CRIA USUÁRIO */
-
-                    const newUser = {
-
-                        id:
-                            Date.now(),
-
-                        name:
-                            name,
-
-                        nome:
-                            name,
-
-                        email:
-                            email,
-
-                        password:
-                            password,
-
-                        createdAt:
-                            new Date()
-                                .toISOString(),
-
-                        cadastradoEm:
-                            new Date()
-                                .toISOString(),
-
-                        plan:
-                            "free"
-
-                    };
-
-
-                    /* SALVA */
-
-                    users.push(
-                        newUser
-                    );
-
-
-                    const saved =
-                        saveUsers(
-                            users
-                        );
-
-
-                    if (!saved) {
-
-                        showError(
-                            "Não foi possível salvar sua conta neste navegador."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* CRIA SESSÃO */
-
-                    createSession(
-                        newUser
-                    );
-
-
-                    /* COMPATIBILIDADE */
-
-                    localStorage.setItem(
-                        "userName",
-                        name
-                    );
-
-                    localStorage.setItem(
-                        "userEmail",
-                        email
-                    );
-
-
-                    /* SUCESSO */
-
-                    showSuccess(
-                        "Conta criada com sucesso! Entrando no seu painel..."
-                    );
-
-
-                    /* BLOQUEIA BOTÃO */
-
-                    const submitButton =
-                        document.getElementById(
-                            "btnSubmit"
-                        );
-
-
-                    const buttonText =
-                        document.getElementById(
-                            "btnText"
-                        );
-
-
-                    const buttonIcon =
-                        document.getElementById(
-                            "btnIcon"
-                        );
-
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            true;
-
-                    }
-
-
-                    if (buttonText) {
-
-                        buttonText.textContent =
-                            "Conta criada!";
-
-                    }
-
-
-                    if (buttonIcon) {
-
-                        buttonIcon.className =
-                            "fa-solid fa-check";
-
-                    }
-
-
-                    /* REDIRECIONA */
-
-                    setTimeout(
-                        function () {
-
-                            window.location.replace(
-                                "painel.html"
-                            );
-
-                        },
-                        700
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           DADOS DO USUÁRIO
-        ==================================================== */
-
-        if (
-            isLoggedIn() &&
-            protectedPages.includes(
-                getCurrentPage()
-            )
-        ) {
-
-            setupUserInterface();
-
-        }
-
-
-        /* ====================================================
-           LOGOUT
-        ==================================================== */
-
-        setupLogoutButton();
-
-
-        /* ====================================================
-           SIDEBAR
-        ==================================================== */
-
-        setupSidebar();
-
-
-        /* ====================================================
-           LINKS DO PAINEL
-        ==================================================== */
-
-        setupDashboardLinks();
-
-
-        /* ====================================================
-           BARRAS DE EVOLUÇÃO
-        ==================================================== */
-
-        setupProgressBars();
-
-
-    }
-);
-
-
-/* ============================================================
    INTERFACE DO USUÁRIO
-   ============================================================ */
+============================================================ */
 
 function setupUserInterface() {
 
     const user =
         getCurrentUser();
-
 
     if (!user) {
         return;
@@ -1556,29 +366,27 @@ function setupUserInterface() {
         "Corredor";
 
 
-    /* ========================================================
-       NOME NO TOPO
-    ======================================================== */
+    /*
+       Nome nos títulos.
+    */
 
-    const titles =
-        document.querySelectorAll(
+    document
+        .querySelectorAll(
             ".topbar h1"
+        )
+        .forEach(
+            function (title) {
+
+                title.innerHTML =
+                    `Olá, ${escapeHTML(userName)} 👋`;
+
+            }
         );
 
 
-    titles.forEach(
-        function (title) {
-
-            title.innerHTML =
-                `Olá, ${userName} 👋`;
-
-        }
-    );
-
-
-    /* ========================================================
-       ELEMENTOS COM DATA-USER-NAME
-    ======================================================== */
+    /*
+       Elementos com data-user-name.
+    */
 
     document
         .querySelectorAll(
@@ -1594,9 +402,9 @@ function setupUserInterface() {
         );
 
 
-    /* ========================================================
-       E-MAIL
-    ======================================================== */
+    /*
+       Elementos com data-user-email.
+    */
 
     document
         .querySelectorAll(
@@ -1612,9 +420,27 @@ function setupUserInterface() {
         );
 
 
-    /* ========================================================
-       AVATAR
-    ======================================================== */
+    /*
+       Elementos com data-user-plan.
+    */
+
+    document
+        .querySelectorAll(
+            "[data-user-plan]"
+        )
+        .forEach(
+            function (element) {
+
+                element.textContent =
+                    user.plan || "free";
+
+            }
+        );
+
+
+    /*
+       Avatar.
+    */
 
     const avatars =
         document.querySelectorAll(
@@ -1627,7 +453,6 @@ function setupUserInterface() {
 
             avatar.style.cursor =
                 "pointer";
-
 
             avatar.addEventListener(
                 "click",
@@ -1643,9 +468,9 @@ function setupUserInterface() {
     );
 
 
-    /* ========================================================
-       NOTIFICAÇÃO
-    ======================================================== */
+    /*
+       Notificação.
+    */
 
     const notification =
         document.querySelector(
@@ -1657,7 +482,6 @@ function setupUserInterface() {
 
         notification.style.cursor =
             "pointer";
-
 
         notification.addEventListener(
             "click",
@@ -1671,13 +495,27 @@ function setupUserInterface() {
         );
 
     }
+}
 
+
+/* ============================================================
+   ESCAPAR HTML
+============================================================ */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 
 /* ============================================================
    BOTÃO SAIR
-   ============================================================ */
+============================================================ */
 
 function setupLogoutButton() {
 
@@ -1691,21 +529,22 @@ function setupLogoutButton() {
         function (button) {
 
             /*
-               Clona o botão para evitar que outro
-               script tenha colocado eventos duplicados.
+               Evita cadastrar o evento duas vezes.
             */
 
-            const newButton =
-                button.cloneNode(true);
+            if (
+                button.dataset.logoutReady === "true"
+            ) {
+
+                return;
+            }
 
 
-            button.parentNode.replaceChild(
-                newButton,
-                button
-            );
+            button.dataset.logoutReady =
+                "true";
 
 
-            newButton.addEventListener(
+            button.addEventListener(
                 "click",
                 function (event) {
 
@@ -1720,13 +559,64 @@ function setupLogoutButton() {
 
         }
     );
-
 }
+
+
+/*
+   Também usamos delegação de evento.
+
+   Isso permite que o botão sair continue
+   funcionando mesmo se algum elemento for
+   criado dinamicamente depois.
+*/
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const button =
+            event.target.closest(
+                "#logoutButton, .logoutButton, [data-logout]"
+            );
+
+
+        if (!button) {
+            return;
+        }
+
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+
+        /*
+           Evita chamar duas vezes caso
+           setupLogoutButton também esteja ativo.
+        */
+
+        if (
+            button.dataset.logoutHandling === "true"
+        ) {
+
+            return;
+        }
+
+
+        button.dataset.logoutHandling =
+            "true";
+
+
+        logout();
+
+    },
+    true
+);
 
 
 /* ============================================================
    SIDEBAR
-   ============================================================ */
+============================================================ */
 
 function setupSidebar() {
 
@@ -1763,13 +653,12 @@ function setupSidebar() {
 
         }
     );
-
 }
 
 
 /* ============================================================
    LINKS DO DASHBOARD
-   ============================================================ */
+============================================================ */
 
 function setupDashboardLinks() {
 
@@ -1777,24 +666,18 @@ function setupDashboardLinks() {
         getCurrentPage();
 
 
-    /*
-       Só executa esses comportamentos
-       no painel/dashboard.
-    */
-
     if (
         currentPage !== "painel.html" &&
         currentPage !== "dashboard.html"
     ) {
 
         return;
-
     }
 
 
-    /* ========================================================
+    /*
        CARDS
-    ======================================================== */
+    */
 
     const dashCards =
         document.querySelectorAll(
@@ -1802,7 +685,9 @@ function setupDashboardLinks() {
         );
 
 
-    /* TREINOS */
+    /*
+       TREINOS
+    */
 
     if (dashCards[0]) {
 
@@ -1823,7 +708,9 @@ function setupDashboardLinks() {
     }
 
 
-    /* DISTÂNCIA */
+    /*
+       DISTÂNCIA
+    */
 
     if (dashCards[2]) {
 
@@ -1844,7 +731,9 @@ function setupDashboardLinks() {
     }
 
 
-    /* META */
+    /*
+       META
+    */
 
     if (dashCards[3]) {
 
@@ -1865,9 +754,9 @@ function setupDashboardLinks() {
     }
 
 
-    /* ========================================================
+    /*
        CALENDÁRIO
-    ======================================================== */
+    */
 
     const calendarLink =
         document.querySelector(
@@ -1883,7 +772,6 @@ function setupDashboardLinks() {
 
                 event.preventDefault();
 
-
                 window.location.href =
                     "treinos.html";
 
@@ -1893,9 +781,9 @@ function setupDashboardLinks() {
     }
 
 
-    /* ========================================================
+    /*
        AULAS
-    ======================================================== */
+    */
 
     const coursesLink =
         document.querySelector(
@@ -1911,7 +799,6 @@ function setupDashboardLinks() {
 
                 event.preventDefault();
 
-
                 window.location.href =
                     "aulas.html";
 
@@ -1921,73 +808,68 @@ function setupDashboardLinks() {
     }
 
 
-    /* ========================================================
-       CURSOS / AULAS
-    ======================================================== */
+    /*
+       CURSOS
+    */
 
-    const courses =
-        document.querySelectorAll(
+    document
+        .querySelectorAll(
             ".course"
+        )
+        .forEach(
+            function (course) {
+
+                course.style.cursor =
+                    "pointer";
+
+
+                course.addEventListener(
+                    "click",
+                    function () {
+
+                        window.location.href =
+                            "aulas.html";
+
+                    }
+                );
+
+            }
         );
 
 
-    courses.forEach(
-        function (course) {
-
-            course.style.cursor =
-                "pointer";
-
-
-            course.addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "aulas.html";
-
-                }
-            );
-
-        }
-    );
-
-
-    /* ========================================================
+    /*
        CONQUISTAS
-    ======================================================== */
+    */
 
-    const achievements =
-        document.querySelectorAll(
+    document
+        .querySelectorAll(
             ".achievement"
+        )
+        .forEach(
+            function (achievement) {
+
+                achievement.style.cursor =
+                    "pointer";
+
+
+                achievement.addEventListener(
+                    "click",
+                    function () {
+
+                        window.location.href =
+                            "evolucao.html";
+
+                    }
+                );
+
+            }
         );
-
-
-    achievements.forEach(
-        function (achievement) {
-
-            achievement.style.cursor =
-                "pointer";
-
-
-            achievement.addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "evolucao.html";
-
-                }
-            );
-
-        }
-    );
-
 }
 
 
 /* ============================================================
    BARRAS DE EVOLUÇÃO
-   ============================================================ */
+============================================================ */
 
 function setupProgressBars() {
 
@@ -2025,13 +907,1484 @@ function setupProgressBars() {
 
         }
     );
-
 }
 
 
 /* ============================================================
-   PROTEÇÃO CONTRA VOLTAR PARA PÁGINA PROTEGIDA
-   ============================================================ */
+   LOGIN
+============================================================ */
+
+function setupLogin() {
+
+    const loginForm =
+        document.getElementById(
+            "loginForm"
+        );
+
+
+    if (!loginForm) {
+        return;
+    }
+
+
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /*
+               Aceita tanto id="senha"
+               quanto id="password".
+            */
+
+            const emailInput =
+                document.getElementById(
+                    "email"
+                );
+
+
+            const senhaInput =
+                document.getElementById(
+                    "senha"
+                ) ||
+                document.getElementById(
+                    "password"
+                );
+
+
+            const error =
+                document.getElementById(
+                    "error"
+                );
+
+
+            const email =
+                emailInput
+                    ? emailInput.value
+                        .trim()
+                        .toLowerCase()
+                    : "";
+
+
+            const senha =
+                senhaInput
+                    ? senhaInput.value
+                    : "";
+
+
+            /*
+               Limpa erro.
+            */
+
+            if (error) {
+
+                error.style.display =
+                    "none";
+
+                error.textContent =
+                    "";
+
+            }
+
+
+            /*
+               Campos vazios.
+            */
+
+            if (
+                !email ||
+                !senha
+            ) {
+
+                showLoginError(
+                    "Preencha o e-mail e a senha.",
+                    error
+                );
+
+                return;
+            }
+
+
+            /*
+               Busca usuário.
+            */
+
+            const users =
+                getUsers();
+
+
+            const user =
+                users.find(
+                    function (item) {
+
+                        return (
+                            String(
+                                item.email || ""
+                            )
+                            .trim()
+                            .toLowerCase()
+                            === email
+                        );
+
+                    }
+                );
+
+
+            /*
+               E-mail inexistente.
+            */
+
+            if (!user) {
+
+                showLoginError(
+                    "Este e-mail não está cadastrado. Crie uma conta para continuar.",
+                    error
+                );
+
+                return;
+            }
+
+
+            /*
+               Senha incorreta.
+            */
+
+            if (
+                String(user.password || "") !==
+                senha
+            ) {
+
+                showLoginError(
+                    "A senha está incorreta.",
+                    error
+                );
+
+                return;
+            }
+
+
+            /*
+               Login realizado.
+            */
+
+            const sessionCreated =
+                createSession(user);
+
+
+            if (!sessionCreated) {
+
+                showLoginError(
+                    "Não foi possível iniciar sua sessão.",
+                    error
+                );
+
+                return;
+            }
+
+
+            /*
+               Compatibilidade.
+            */
+
+            localStorage.setItem(
+                "userName",
+                user.nome ||
+                user.name ||
+                ""
+            );
+
+            localStorage.setItem(
+                "userEmail",
+                user.email ||
+                ""
+            );
+
+
+            /*
+               Redireciona.
+            */
+
+            window.location.replace(
+                "painel.html"
+            );
+
+        }
+    );
+}
+
+
+function showLoginError(
+    text,
+    errorElement
+) {
+
+    if (!errorElement) {
+        alert(text);
+        return;
+    }
+
+
+    errorElement.textContent =
+        text;
+
+    errorElement.style.display =
+        "block";
+}
+
+
+/* ============================================================
+   LOGIN GOOGLE
+============================================================ */
+
+window.loginGoogle =
+    function () {
+
+        alert(
+            "O login com Google ainda não está conectado. Utilize seu e-mail e senha cadastrados."
+        );
+
+    };
+
+
+/* ============================================================
+   CADASTRO
+============================================================ */
+
+function setupSignup() {
+
+    const signupForm =
+        document.getElementById(
+            "signupForm"
+        );
+
+
+    if (!signupForm) {
+        return;
+    }
+
+
+    const togglePassword =
+        document.getElementById(
+            "togglePassword"
+        );
+
+
+    const passwordInput =
+        document.getElementById(
+            "password"
+        );
+
+
+    const confirmPasswordInput =
+        document.getElementById(
+            "confirmPassword"
+        );
+
+
+    const terms =
+        document.getElementById(
+            "aceiteTermos"
+        );
+
+
+    const submitButton =
+        document.getElementById(
+            "btnSubmit"
+        );
+
+
+    const buttonText =
+        document.getElementById(
+            "btnText"
+        );
+
+
+    const buttonIcon =
+        document.getElementById(
+            "btnIcon"
+        );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    /*
+       MOSTRAR / ESCONDER SENHA
+    */
+
+    if (
+        togglePassword &&
+        passwordInput
+    ) {
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+                const showing =
+                    passwordInput.type ===
+                    "text";
+
+
+                passwordInput.type =
+                    showing
+                        ? "password"
+                        : "text";
+
+
+                this.innerHTML =
+                    showing
+                        ? '<i class="fa-solid fa-eye"></i>'
+                        : '<i class="fa-solid fa-eye-slash"></i>';
+
+
+                this.setAttribute(
+                    "aria-label",
+                    showing
+                        ? "Mostrar senha"
+                        : "Ocultar senha"
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+       ATIVA / DESATIVA BOTÃO
+       CONFORME TERMOS.
+    */
+
+    function updateSubmitButton() {
+
+        if (!submitButton) {
+            return;
+        }
+
+
+        submitButton.disabled =
+            !(
+                terms &&
+                terms.checked
+            );
+
+    }
+
+
+    if (terms) {
+
+        terms.addEventListener(
+            "change",
+            updateSubmitButton
+        );
+
+    }
+
+
+    updateSubmitButton();
+
+
+    /*
+       MENSAGENS.
+    */
+
+    function showMessage(
+        text,
+        type
+    ) {
+
+        if (!message) {
+            return;
+        }
+
+
+        message.className =
+            "message " +
+            type;
+
+
+        message.innerHTML =
+            text;
+
+    }
+
+
+    function clearMessage() {
+
+        if (!message) {
+            return;
+        }
+
+
+        message.className =
+            "message";
+
+        message.textContent =
+            "";
+
+    }
+
+
+    /*
+       SUBMIT DO CADASTRO.
+    */
+
+    signupForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            clearMessage();
+
+
+            /*
+               NOME
+            */
+
+            const nameInput =
+                document.getElementById(
+                    "name"
+                );
+
+
+            const name =
+                nameInput
+                    ? nameInput.value.trim()
+                    : "";
+
+
+            if (
+                !name ||
+                name.length < 3
+            ) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> Digite seu nome completo.',
+                    "error"
+                );
+
+                if (nameInput) {
+                    nameInput.focus();
+                }
+
+                return;
+            }
+
+
+            /*
+               E-MAIL
+            */
+
+            const emailInput =
+                document.getElementById(
+                    "email"
+                );
+
+
+            const email =
+                emailInput
+                    ? emailInput.value
+                        .trim()
+                        .toLowerCase()
+                    : "";
+
+
+            const emailRegex =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (
+                !email ||
+                !emailRegex.test(email)
+            ) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> Digite um e-mail válido.',
+                    "error"
+                );
+
+                if (emailInput) {
+                    emailInput.focus();
+                }
+
+                return;
+            }
+
+
+            /*
+               SENHA
+            */
+
+            const password =
+                passwordInput
+                    ? passwordInput.value
+                    : "";
+
+
+            if (
+                !password ||
+                password.length < 6
+            ) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> A senha precisa ter pelo menos 6 caracteres.',
+                    "error"
+                );
+
+                if (passwordInput) {
+                    passwordInput.focus();
+                }
+
+                return;
+            }
+
+
+            /*
+               CONFIRMAÇÃO
+            */
+
+            const confirmPassword =
+                confirmPasswordInput
+                    ? confirmPasswordInput.value
+                    : "";
+
+
+            if (
+                password !==
+                confirmPassword
+            ) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> As senhas não são iguais.',
+                    "error"
+                );
+
+                if (confirmPasswordInput) {
+                    confirmPasswordInput.focus();
+                }
+
+                return;
+            }
+
+
+            /*
+               TERMOS
+            */
+
+            if (
+                !terms ||
+                !terms.checked
+            ) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> Você precisa aceitar os Termos de Uso para continuar.',
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+               BUSCA USUÁRIOS.
+            */
+
+            const users =
+                getUsers();
+
+
+            /*
+               VERIFICA E-MAIL.
+            */
+
+            const existingUser =
+                users.find(
+                    function (user) {
+
+                        return (
+                            String(
+                                user.email || ""
+                            )
+                            .trim()
+                            .toLowerCase()
+                            === email
+                        );
+
+                    }
+                );
+
+
+            if (existingUser) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> Este e-mail já possui uma conta. Entre com sua conta existente.',
+                    "error"
+                );
+
+                if (emailInput) {
+                    emailInput.focus();
+                }
+
+                return;
+            }
+
+
+            /*
+               CRIA USUÁRIO.
+            */
+
+            const now =
+                new Date().toISOString();
+
+
+            const newUser = {
+
+                id:
+                    Date.now(),
+
+                name:
+                    name,
+
+                nome:
+                    name,
+
+                email:
+                    email,
+
+                password:
+                    password,
+
+                plan:
+                    "free",
+
+                createdAt:
+                    now,
+
+                cadastradoEm:
+                    now
+
+            };
+
+
+            /*
+               ADICIONA À LISTA.
+            */
+
+            users.push(
+                newUser
+            );
+
+
+            /*
+               SALVA.
+            */
+
+            const saved =
+                saveUsers(users);
+
+
+            if (!saved) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> Não foi possível salvar sua conta neste navegador.',
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+               CRIA SESSÃO AUTOMATICAMENTE.
+            */
+
+            const sessionCreated =
+                createSession(
+                    newUser
+                );
+
+
+            if (!sessionCreated) {
+
+                showMessage(
+                    '<i class="fa-solid fa-circle-exclamation"></i> A conta foi criada, mas não foi possível iniciar sua sessão.',
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+               COMPATIBILIDADE COM VERSÕES ANTIGAS.
+            */
+
+            localStorage.setItem(
+                "userName",
+                name
+            );
+
+            localStorage.setItem(
+                "userEmail",
+                email
+            );
+
+
+            /*
+               SUCESSO.
+            */
+
+            showMessage(
+                '<i class="fa-solid fa-circle-check"></i> Conta criada com sucesso! Entrando no seu painel...',
+                "success"
+            );
+
+
+            /*
+               BLOQUEIA BOTÃO.
+            */
+
+            if (submitButton) {
+
+                submitButton.disabled =
+                    true;
+
+            }
+
+
+            if (buttonText) {
+
+                buttonText.textContent =
+                    "Conta criada!";
+
+            }
+
+
+            if (buttonIcon) {
+
+                buttonIcon.className =
+                    "fa-solid fa-check";
+
+            }
+
+
+            /*
+               REDIRECIONA.
+            */
+
+            setTimeout(
+                function () {
+
+                    window.location.replace(
+                        "painel.html"
+                    );
+
+                },
+                700
+            );
+
+        }
+    );
+}
+
+
+/* ============================================================
+   MENU MOBILE
+============================================================ */
+
+function setupMobileMenu() {
+
+    const hamburger =
+        document.querySelector(
+            ".hamburger"
+        );
+
+
+    const menu =
+        document.querySelector(
+            ".menu"
+        );
+
+
+    if (
+        !hamburger ||
+        !menu
+    ) {
+
+        return;
+    }
+
+
+    hamburger.addEventListener(
+        "click",
+        function () {
+
+            hamburger.classList.toggle(
+                "active"
+            );
+
+            menu.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+
+    menu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        menu.classList.remove(
+                            "active"
+                        );
+
+                        hamburger.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+}
+
+
+/* ============================================================
+   NAVBAR AO ROLAR
+============================================================ */
+
+function setupNavbarScroll() {
+
+    const header =
+        document.querySelector(
+            "header"
+        );
+
+
+    if (!header) {
+        return;
+    }
+
+
+    function updateHeader() {
+
+        if (
+            window.scrollY > 60
+        ) {
+
+            header.style.background =
+                "rgba(5,5,5,.95)";
+
+            header.style.boxShadow =
+                "0 10px 35px rgba(0,0,0,.35)";
+
+        } else {
+
+            header.style.background =
+                "rgba(5,5,5,.75)";
+
+            header.style.boxShadow =
+                "none";
+
+        }
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader
+    );
+
+
+    updateHeader();
+}
+
+
+/* ============================================================
+   SCROLL SUAVE
+============================================================ */
+
+function setupSmoothScroll() {
+
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(
+            function (anchor) {
+
+                anchor.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const href =
+                            this.getAttribute(
+                                "href"
+                            );
+
+
+                        if (
+                            !href ||
+                            href === "#"
+                        ) {
+
+                            return;
+                        }
+
+
+                        const target =
+                            document.querySelector(
+                                href
+                            );
+
+
+                        if (target) {
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth"
+                            });
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+}
+
+
+/* ============================================================
+   FAQ
+============================================================ */
+
+function setupFAQ() {
+
+    document
+        .querySelectorAll(
+            ".faq-question"
+        )
+        .forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const item =
+                            this.closest(
+                                ".faq-item"
+                            );
+
+
+                        if (!item) {
+                            return;
+                        }
+
+
+                        document
+                            .querySelectorAll(
+                                ".faq-item"
+                            )
+                            .forEach(
+                                function (other) {
+
+                                    if (
+                                        other !== item
+                                    ) {
+
+                                        other.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+
+                                }
+                            );
+
+
+                        item.classList.toggle(
+                            "active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+}
+
+
+/* ============================================================
+   ANIMAÇÕES
+============================================================ */
+
+function setupAnimations() {
+
+    const animatedElements =
+        document.querySelectorAll(
+            ".benefit-card," +
+            ".step-card," +
+            ".plan-card," +
+            ".testimonial," +
+            ".faq-item," +
+            ".hero-stats div"
+        );
+
+
+    if (
+        animatedElements.length === 0 ||
+        !("IntersectionObserver" in window)
+    ) {
+
+        return;
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    animatedElements.forEach(
+        function (element) {
+
+            element.classList.add(
+                "fade-up"
+            );
+
+            observer.observe(
+                element
+            );
+
+        }
+    );
+}
+
+
+/* ============================================================
+   CONTADORES
+============================================================ */
+
+function setupCounters() {
+
+    const numbers =
+        document.querySelectorAll(
+            ".numbers-grid h2"
+        );
+
+
+    if (
+        numbers.length === 0 ||
+        !("IntersectionObserver" in window)
+    ) {
+
+        return;
+    }
+
+
+    const counterObserver =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(
+                    function (entry) {
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+
+                            return;
+                        }
+
+
+                        const number =
+                            entry.target;
+
+
+                        const originalText =
+                            number.innerText;
+
+
+                        const value =
+                            parseInt(
+                                originalText.replace(
+                                    /\D/g,
+                                    ""
+                                ),
+                                10
+                            );
+
+
+                        if (
+                            isNaN(value)
+                        ) {
+
+                            return;
+                        }
+
+
+                        const suffix =
+                            originalText.replace(
+                                /[0-9]/g,
+                                ""
+                            );
+
+
+                        let current =
+                            0;
+
+
+                        const increment =
+                            Math.max(
+                                1,
+                                Math.ceil(
+                                    value / 120
+                                )
+                            );
+
+
+                        function update() {
+
+                            current +=
+                                increment;
+
+
+                            if (
+                                current < value
+                            ) {
+
+                                number.innerText =
+                                    current +
+                                    suffix;
+
+
+                                requestAnimationFrame(
+                                    update
+                                );
+
+                            } else {
+
+                                number.innerText =
+                                    originalText;
+
+                            }
+
+                        }
+
+
+                        update();
+
+
+                        counterObserver.unobserve(
+                            number
+                        );
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
+    numbers.forEach(
+        function (number) {
+
+            counterObserver.observe(
+                number
+            );
+
+        }
+    );
+}
+
+
+/* ============================================================
+   BOTÃO VOLTAR AO TOPO
+============================================================ */
+
+function setupTopButton() {
+
+    /*
+       Não cria outro botão se já existir.
+    */
+
+    let topButton =
+        document.querySelector(
+            ".topButton"
+        );
+
+
+    if (!topButton) {
+
+        topButton =
+            document.createElement(
+                "button"
+            );
+
+
+        topButton.innerHTML =
+            '<i class="fa-solid fa-arrow-up"></i>';
+
+
+        topButton.className =
+            "topButton";
+
+
+        topButton.setAttribute(
+            "aria-label",
+            "Voltar ao topo"
+        );
+
+
+        document.body.appendChild(
+            topButton
+        );
+
+    }
+
+
+    function updateTopButton() {
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            topButton.classList.add(
+                "showTop"
+            );
+
+        } else {
+
+            topButton.classList.remove(
+                "showTop"
+            );
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateTopButton
+    );
+
+
+    topButton.addEventListener(
+        "click",
+        function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+    updateTopButton();
+}
+
+
+/* ============================================================
+   PARALLAX DO HERO
+============================================================ */
+
+function setupHeroParallax() {
+
+    const heroImage =
+        document.querySelector(
+            ".hero-right img"
+        );
+
+
+    if (!heroImage) {
+        return;
+    }
+
+
+    window.addEventListener(
+        "mousemove",
+        function (event) {
+
+            const x =
+                (
+                    window.innerWidth / 2 -
+                    event.clientX
+                ) / 45;
+
+
+            const y =
+                (
+                    window.innerHeight / 2 -
+                    event.clientY
+                ) / 45;
+
+
+            heroImage.style.transform =
+                `translate(${x}px, ${y}px)`;
+
+        }
+    );
+}
+
+
+/* ============================================================
+   DOM READY
+============================================================ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /*
+           Primeiro verifica proteção.
+        */
+
+        if (!protectPage()) {
+            return;
+        }
+
+
+        /*
+           Redireciona usuário já logado
+           caso esteja em login/cadastro.
+        */
+
+        redirectIfLoggedIn();
+
+
+        /*
+           Funcionalidades gerais.
+        */
+
+        setupMobileMenu();
+
+        setupNavbarScroll();
+
+        setupSmoothScroll();
+
+        setupFAQ();
+
+        setupAnimations();
+
+        setupCounters();
+
+        setupTopButton();
+
+        setupHeroParallax();
+
+
+        /*
+           Autenticação.
+        */
+
+        setupLogin();
+
+        setupSignup();
+
+
+        /*
+           Área logada.
+        */
+
+        if (
+            isLoggedIn() &&
+            protectedPages.includes(
+                getCurrentPage()
+            )
+        ) {
+
+            setupUserInterface();
+
+        }
+
+
+        /*
+           Botão sair.
+        */
+
+        setupLogoutButton();
+
+
+        /*
+           Sidebar.
+        */
+
+        setupSidebar();
+
+
+        /*
+           Links do painel.
+        */
+
+        setupDashboardLinks();
+
+
+        /*
+           Barras de evolução.
+        */
+
+        setupProgressBars();
+
+    }
+);
+
+
+/* ============================================================
+   PROTEÇÃO CONTRA CACHE
+============================================================ */
 
 window.addEventListener(
     "pageshow",
@@ -2044,16 +2397,13 @@ window.addEventListener(
         if (
             protectedPages.includes(
                 currentPage
-            )
+            ) &&
+            !isLoggedIn()
         ) {
 
-            if (!isLoggedIn()) {
-
-                window.location.replace(
-                    "login.html"
-                );
-
-            }
+            window.location.replace(
+                "login.html"
+            );
 
         }
 
@@ -2062,8 +2412,8 @@ window.addEventListener(
 
 
 /* ============================================================
-   PROTEÇÃO ADICIONAL CONTRA PÁGINA EM CACHE
-   ============================================================ */
+   PROTEÇÃO CONTRA VOLTAR NO NAVEGADOR
+============================================================ */
 
 window.addEventListener(
     "popstate",
@@ -2092,7 +2442,7 @@ window.addEventListener(
 
 /* ============================================================
    FUNÇÕES GLOBAIS
-   ============================================================ */
+============================================================ */
 
 window.getUsers =
     getUsers;
@@ -2108,3 +2458,9 @@ window.isLoggedIn =
 
 window.createSession =
     createSession;
+
+window.protectPage =
+    protectPage;
+
+window.setupLogoutButton =
+    setupLogoutButton;
