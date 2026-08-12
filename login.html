@@ -9,23 +9,75 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Entre na sua conta do Projeto Corre.">
+
+    <meta
+        name="theme-color"
+        content="#A3FF12">
+
     <title>Entrar | Projeto Corre</title>
+
+    <!-- GOOGLE FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- FONT AWESOME -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        :root {
+
+            --green: #A3FF12;
+            --green-dark: #78c400;
+
+            --black: #080808;
+            --dark: #101010;
+            --dark-2: #151515;
+
+            --white: #fff;
+
+            --gray: #777;
+            --gray-light: #aaa;
+
+            --border: #292929;
+
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
 
         body {
 
@@ -39,19 +91,34 @@
 
             padding: 20px;
 
-            font-family: Poppins, sans-serif;
+            font-family: "Poppins", sans-serif;
 
-            color: white;
+            color: var(--white);
 
             background:
+
                 radial-gradient(
                     circle at top right,
                     rgba(163,255,18,.12),
                     transparent 35%
                 ),
-                #080808;
+
+                radial-gradient(
+                    circle at bottom left,
+                    rgba(163,255,18,.05),
+                    transparent 30%
+                ),
+
+                var(--black);
+
+            overflow-x: hidden;
 
         }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
 
         .login-box {
 
@@ -61,9 +128,15 @@
 
             padding: 40px;
 
-            background: #151515;
+            background:
 
-            border: 1px solid #292929;
+                linear-gradient(
+                    145deg,
+                    rgba(23,23,23,.98),
+                    rgba(13,13,13,.98)
+                );
+
+            border: 1px solid var(--border);
 
             border-radius: 25px;
 
@@ -71,6 +144,11 @@
                 0 25px 70px rgba(0,0,0,.5);
 
         }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
 
         .logo {
 
@@ -80,9 +158,12 @@
 
         }
 
+
         .logo i {
 
-            color: #A3FF12;
+            display: block;
+
+            color: var(--green);
 
             font-size: 35px;
 
@@ -90,51 +171,97 @@
 
         }
 
+
         .logo h1 {
 
             font-size: 30px;
 
+            font-weight: 700;
+
+            letter-spacing: -1px;
+
         }
+
 
         .logo span {
 
-            color: #A3FF12;
+            color: var(--green);
 
         }
 
+
         .logo p {
 
-            color: #777;
+            color: var(--gray);
 
             margin-top: 8px;
 
             font-size: 13px;
 
+            line-height: 1.6;
+
         }
+
+
+        /* =====================================================
+           CAMPOS
+        ===================================================== */
+
+        .form-group {
+
+            margin-top: 18px;
+
+        }
+
 
         label {
 
             display: block;
 
-            margin-top: 18px;
-
             margin-bottom: 7px;
 
             font-size: 13px;
 
-            color: #aaa;
+            color: var(--gray-light);
 
         }
+
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .input-wrapper > i {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #666;
+
+            pointer-events: none;
+
+        }
+
 
         input {
 
             width: 100%;
 
-            padding: 15px;
+            height: 52px;
+
+            padding: 0 15px 0 43px;
 
             border-radius: 12px;
 
-            border: 1px solid #292929;
+            border: 1px solid var(--border);
 
             background: #0f0f0f;
 
@@ -142,21 +269,92 @@
 
             font-family: inherit;
 
+            font-size: 13px;
+
             outline: none;
 
+            transition: .25s;
+
         }
+
+
+        input::placeholder {
+
+            color: #555;
+
+        }
+
 
         input:focus {
 
-            border-color: #A3FF12;
+            border-color: var(--green);
+
+            box-shadow:
+                0 0 0 3px rgba(163,255,18,.06);
 
         }
+
+
+        /* =====================================================
+           SENHA
+        ===================================================== */
+
+        .password-wrapper input {
+
+            padding-right: 50px;
+
+        }
+
+
+        .toggle-password {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #666;
+
+            cursor: pointer;
+
+            padding: 6px;
+
+            font-size: 14px;
+
+        }
+
+
+        .toggle-password:hover {
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
+           BOTÕES
+        ===================================================== */
 
         .btn {
 
             width: 100%;
 
-            padding: 16px;
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
 
             margin-top: 25px;
 
@@ -164,17 +362,52 @@
 
             border-radius: 13px;
 
-            background: #A3FF12;
+            background: var(--green);
 
-            color: #080808;
+            color: var(--black);
 
             font-family: inherit;
 
             font-weight: 800;
 
+            font-size: 14px;
+
             cursor: pointer;
 
+            transition: .25s;
+
         }
+
+
+        .btn:hover:not(:disabled) {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 35px rgba(163,255,18,.18);
+
+        }
+
+
+        .btn:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        .btn:disabled {
+
+            opacity: .5;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+            box-shadow: none;
+
+        }
+
 
         .google {
 
@@ -186,6 +419,80 @@
 
         }
 
+
+        .google:hover:not(:disabled) {
+
+            box-shadow:
+                0 15px 35px rgba(255,255,255,.08);
+
+        }
+
+
+        /* =====================================================
+           MENSAGEM
+        ===================================================== */
+
+        .error {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 13px 15px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,50,50,.10);
+
+            border:
+                1px solid rgba(255,80,80,.20);
+
+            color: #ff7777;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .error.success {
+
+            display: block;
+
+            background:
+                rgba(163,255,18,.08);
+
+            border-color:
+                rgba(163,255,18,.25);
+
+            color:
+                var(--green);
+
+        }
+
+
+        .error.warning {
+
+            display: block;
+
+            background:
+                rgba(255,180,0,.08);
+
+            border-color:
+                rgba(255,180,0,.20);
+
+            color:
+                #ffc44d;
+
+        }
+
+
+        /* =====================================================
+           LINKS
+        ===================================================== */
+
         .links {
 
             margin-top: 22px;
@@ -194,25 +501,60 @@
 
             justify-content: space-between;
 
+            align-items: center;
+
             gap: 10px;
 
             font-size: 12px;
 
         }
 
+
         .links a {
 
-            color: #A3FF12;
+            color: var(--green);
 
             text-decoration: none;
 
+            transition: .2s;
+
         }
+
+
+        .links a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .forgot-password {
+
+            color: #777 !important;
+
+        }
+
+
+        .forgot-password:hover {
+
+            color: var(--green) !important;
+
+        }
+
+
+        /* =====================================================
+           VOLTAR
+        ===================================================== */
 
         .back {
 
-            display: block;
+            display: flex;
 
-            text-align: center;
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
 
             margin-top: 28px;
 
@@ -222,59 +564,80 @@
 
             text-decoration: none;
 
+            transition: .2s;
+
         }
 
-        .error {
 
-    display: none;
+        .back:hover {
 
-    margin-top: 15px;
+            color: var(--green);
 
-    padding: 13px 15px;
+        }
 
-    border-radius: 10px;
 
-    background: rgba(255, 50, 50, .10);
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
-    border: 1px solid rgba(255, 80, 80, .20);
+        @media (max-width: 500px) {
 
-    color: #ff7777;
+            body {
 
-    font-size: 12px;
+                padding: 15px;
 
-    line-height: 1.5;
+            }
 
-}
 
-.error.success {
+            .login-box {
 
-    background: rgba(163, 255, 18, .08);
+                padding: 30px 22px;
 
-    border-color: rgba(163, 255, 18, .25);
+                border-radius: 20px;
 
-    color: #A3FF12;
+            }
 
-}
 
-.error.warning {
+            .logo {
 
-    background: rgba(255, 180, 0, .08);
+                margin-bottom: 28px;
 
-    border-color: rgba(255, 180, 0, .20);
+            }
 
-    color: #ffc44d;
 
-}
+            .logo h1 {
+
+                font-size: 27px;
+
+            }
+
+
+            .links {
+
+                flex-direction: column;
+
+                justify-content: center;
+
+                text-align: center;
+
+            }
+
+        }
 
     </style>
 
 </head>
+
 
 <body>
 
 
 <div class="login-box">
 
+
+    <!-- =====================================================
+         LOGO
+    ====================================================== -->
 
     <div class="logo">
 
@@ -291,69 +654,138 @@
     </div>
 
 
+    <!-- =====================================================
+         FORMULÁRIO
+    ====================================================== -->
+
     <form id="loginForm">
 
 
-        <label>
-            E-mail
-        </label>
+        <!-- E-MAIL -->
 
-        <input
-            type="email"
-            id="email"
-            placeholder="seu@email.com"
-            required>
+        <div class="form-group">
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <div class="input-wrapper">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required>
+
+            </div>
+
+        </div>
 
 
-        <label>
-            Senha
-        </label>
+        <!-- SENHA -->
 
-        <input
-            type="password"
-            id="senha"
-            placeholder="Sua senha"
-            required>
+        <div class="form-group">
 
+            <label for="senha">
+                Senha
+            </label>
+
+            <div class="input-wrapper password-wrapper">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    id="senha"
+                    name="password"
+                    placeholder="Sua senha"
+                    autocomplete="current-password"
+                    required>
+
+                <button
+                    type="button"
+                    class="toggle-password"
+                    id="toggleLoginPassword"
+                    aria-label="Mostrar senha">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTÃO ENTRAR -->
 
         <button
             class="btn"
+            id="loginButton"
             type="submit">
 
-            Entrar
+            <span id="loginButtonText">
+                Entrar
+            </span>
+
+            <i
+                class="fa-solid fa-arrow-right"
+                id="loginButtonIcon">
+            </i>
 
         </button>
 
 
+        <!-- GOOGLE -->
+
         <button
             class="btn google"
+            id="googleLoginButton"
             type="button"
             onclick="loginGoogle()">
 
             <i class="fa-brands fa-google"></i>
 
-            Entrar com Google
+            <span>
+                Entrar com Google
+            </span>
 
         </button>
 
 
+        <!-- MENSAGEM -->
+
         <div
             class="error"
-            id="error">
-
-            E-mail ou senha inválidos.
+            id="error"
+            role="alert"
+            aria-live="polite">
 
         </div>
 
 
+        <!-- LINKS -->
+
         <div class="links">
 
-            <a href="#">
+            <a
+                href="#"
+                class="forgot-password"
+                id="forgotPassword">
+
                 Esqueci minha senha
+
             </a>
 
+
             <a href="cadastro.html">
+
                 Criar conta
+
             </a>
 
         </div>
@@ -362,11 +794,15 @@
     </form>
 
 
+    <!-- VOLTAR -->
+
     <a
         href="index.html"
         class="back">
 
-        ← Voltar para o início
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Voltar para o início
 
     </a>
 
@@ -375,6 +811,202 @@
 
 
 <script src="script.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =================================================
+           MOSTRAR / OCULTAR SENHA
+        ================================================= */
+
+        const togglePassword =
+            document.getElementById(
+                "toggleLoginPassword"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "senha"
+            );
+
+
+        if (
+            togglePassword &&
+            passwordInput
+        ) {
+
+            togglePassword.addEventListener(
+                "click",
+                function () {
+
+                    const isPassword =
+                        passwordInput.type === "password";
+
+
+                    passwordInput.type =
+                        isPassword
+                            ? "text"
+                            : "password";
+
+
+                    this.innerHTML =
+                        isPassword
+
+                            ? '<i class="fa-solid fa-eye-slash"></i>'
+
+                            : '<i class="fa-solid fa-eye"></i>';
+
+
+                    this.setAttribute(
+                        "aria-label",
+                        isPassword
+                            ? "Ocultar senha"
+                            : "Mostrar senha"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           ESQUECI MINHA SENHA
+        ================================================= */
+
+        const forgotPassword =
+            document.getElementById(
+                "forgotPassword"
+            );
+
+
+        if (forgotPassword) {
+
+            forgotPassword.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const error =
+                        document.getElementById(
+                            "error"
+                        );
+
+
+                    if (!error) {
+                        return;
+                    }
+
+
+                    error.className =
+                        "error warning";
+
+
+                    error.innerHTML =
+                        '<i class="fa-solid fa-circle-info"></i> ' +
+                        'A recuperação de senha ainda não está disponível. Entre em contato com o suporte para recuperar sua conta.';
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           ENTER NO FORMULÁRIO
+        ================================================= */
+
+        const loginForm =
+            document.getElementById(
+                "loginForm"
+            );
+
+
+        const loginButton =
+            document.getElementById(
+                "loginButton"
+            );
+
+
+        if (
+            loginForm &&
+            loginButton
+        ) {
+
+            loginForm.addEventListener(
+                "submit",
+                function () {
+
+                    /*
+                       O processamento principal do login
+                       continua no script.js.
+
+                       Aqui apenas evitamos cliques
+                       múltiplos enquanto o script processa.
+                    */
+
+                    setTimeout(
+                        function () {
+
+                            if (
+                                loginButton &&
+                                isLoggedIn()
+                            ) {
+
+                                loginButton.disabled =
+                                    true;
+
+                                const buttonText =
+                                    document.getElementById(
+                                        "loginButtonText"
+                                    );
+
+
+                                const buttonIcon =
+                                    document.getElementById(
+                                        "loginButtonIcon"
+                                    );
+
+
+                                if (buttonText) {
+
+                                    buttonText.textContent =
+                                        "Entrando...";
+
+                                }
+
+
+                                if (buttonIcon) {
+
+                                    buttonIcon.className =
+                                        "fa-solid fa-spinner fa-spin";
+
+                                }
+
+                            }
+
+                        },
+                        50
+                    );
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
 
 
 </body>
