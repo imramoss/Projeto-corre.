@@ -2986,3 +2986,94 @@ body.dashboard-body {
     }
 
 }
+/* =====================================================
+   BOTÃO SAIR
+===================================================== */
+
+.logout-button {
+
+    width: calc(100% - 30px);
+
+    margin: 20px 15px 0;
+
+    padding: 13px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: #888;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+
+.logout-button i {
+
+    font-size: 16px;
+
+}
+
+
+.logout-button:hover {
+
+    color: #ff5c5c;
+
+    border-color: rgba(255,92,92,.35);
+
+    background: rgba(255,92,92,.06);
+
+}
+
+
+/* =====================================================
+   CURSOR DOS ELEMENTOS CLICÁVEIS
+===================================================== */
+
+.dash-card,
+.course,
+.achievement {
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   TRANSIÇÕES
+===================================================== */
+
+.dash-card,
+.course,
+.achievement {
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+}
+
+
+.dash-card:hover,
+.course:hover,
+.achievement:hover {
+
+    transform: translateY(-3px);
+
+}
