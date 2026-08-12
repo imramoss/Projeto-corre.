@@ -4,87 +4,134 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Treinos | Projeto Corre</title>
+<title>Projeto Corre | Treinos</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
-* {
+*{
 box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-body {
-margin:0;
+body{
 background:#080808;
 color:white;
-font-family:Poppins,Arial,sans-serif;
+font-family:Poppins,sans-serif;
 }
 
-header {
-padding:20px 5%;
-border-bottom:1px solid #292929;
-}
-
-header a {
-color:#A3FF12;
+a{
 text-decoration:none;
+color:inherit;
 }
 
-main {
-width:min(1000px,92%);
-margin:auto;
-padding:50px 0;
-}
-
-h1 {
-font-size:40px;
-}
-
-p {
-color:#777;
-}
-
-.training {
-margin-top:30px;
-padding:30px;
-background:#151515;
-border:1px solid #292929;
-border-radius:20px;
-}
-
-.tag {
-color:#A3FF12;
-font-size:12px;
-font-weight:bold;
-}
-
-.training h2 {
-font-size:25px;
-}
-
-.item {
-padding:18px 0;
+header{
+height:75px;
 border-bottom:1px solid #292929;
+display:flex;
+align-items:center;
+padding:0 7%;
+justify-content:space-between;
+background:#0b0b0b;
 }
 
-.item strong {
-display:block;
+.logo{
+font-size:20px;
+font-weight:800;
 }
 
-.item span {
+.logo i{
+color:#A3FF12;
+margin-right:8px;
+}
+
+.logo span{
+color:#A3FF12;
+}
+
+.back{
 color:#777;
-font-size:13px;
+font-size:12px;
 }
 
-button {
-margin-top:25px;
+.back:hover{
+color:#A3FF12;
+}
+
+main{
+max-width:1000px;
+margin:auto;
+padding:45px 20px;
+}
+
+h1{
+font-size:30px;
+margin-bottom:8px;
+}
+
+.subtitle{
+color:#666;
+font-size:12px;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.card{
+background:#111;
+border:1px solid #292929;
+border-radius:18px;
+padding:25px;
+}
+
+.card i{
+color:#A3FF12;
+font-size:25px;
+margin-bottom:18px;
+}
+
+.card h2{
+font-size:16px;
+margin-bottom:8px;
+}
+
+.card p{
+color:#666;
+font-size:11px;
+line-height:1.7;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
 background:#A3FF12;
-border:0;
-padding:15px 25px;
-border-radius:12px;
-font-weight:bold;
+color:#080808;
+padding:10px 15px;
+border-radius:9px;
+font-size:11px;
+font-weight:700;
+}
+
+@media(max-width:700px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -95,88 +142,87 @@ font-weight:bold;
 
 <header>
 
-<a href="dashboard.html">
-← Voltar para o painel
+<a href="painel.html" class="logo">
+
+<i class="fa-solid fa-person-running"></i>
+
+Projeto <span>Corre</span>
+
+</a>
+
+<a href="painel.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+ Voltar
+
 </a>
 
 </header>
 
 <main>
 
-<h1>
-Meu treino
-</h1>
+<h1>Meus <span style="color:#A3FF12">treinos</span></h1>
 
-<p>
-Seu treino atual foi preparado para
-quem está começando.
+<p class="subtitle">
+Escolha seu treino e mantenha a constância.
 </p>
 
-<div class="training">
+<div class="grid">
 
-<div class="tag">
-TREINO 01
-</div>
+<div class="card">
 
-<h2>
-Começando a correr
-</h2>
+<i class="fa-solid fa-person-running"></i>
 
-<div class="item">
+<h2>Corrida leve</h2>
 
-<strong>
-5 minutos
-</strong>
+<p>
+Treino de recuperação para manter o corpo ativo sem sobrecarregar.
+</p>
 
-<span>
-Caminhada leve
-</span>
+<a href="#" class="btn">
+Começar
+</a>
 
 </div>
 
-<div class="item">
+<div class="card">
 
-<strong>
-1 minuto
-</strong>
+<i class="fa-solid fa-bolt"></i>
 
-<span>
-Corrida leve
-</span>
+<h2>Intervalado</h2>
 
-</div>
+<p>
+Alternância entre períodos rápidos e períodos de recuperação.
+</p>
 
-<div class="item">
-
-<strong>
-2 minutos
-</strong>
-
-<span>
-Caminhada
-</span>
+<a href="#" class="btn">
+Começar
+</a>
 
 </div>
 
-<div class="item">
+<div class="card">
 
-<strong>
-Repetir 4 vezes
-</strong>
+<i class="fa-solid fa-road"></i>
 
-<span>
-Mantenha um ritmo confortável.
-</span>
+<h2>Longão</h2>
+
+<p>
+Treino focado em resistência e construção de base aeróbica.
+</p>
+
+<a href="#" class="btn">
+Começar
+</a>
 
 </div>
-
-<button onclick="alert('Treino iniciado!')">
-Começar treino
-</button>
 
 </div>
 
 </main>
+
+<script src="script.js"></script>
 
 </body>
 
