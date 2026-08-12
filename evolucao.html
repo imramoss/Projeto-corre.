@@ -4,89 +4,140 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Minha evolução | Projeto Corre</title>
+<title>Projeto Corre | Evolução</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
-* {
+*{
 box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-body {
-margin:0;
+body{
 background:#080808;
 color:white;
-font-family:Poppins,Arial,sans-serif;
+font-family:Poppins,sans-serif;
 }
 
-header {
-padding:20px 5%;
+header{
+height:75px;
 border-bottom:1px solid #292929;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
 }
 
-header a {
-color:#A3FF12;
+a{
+color:inherit;
 text-decoration:none;
 }
 
-main {
-width:min(1100px,92%);
-margin:auto;
-padding:50px 0;
+.logo{
+font-size:20px;
+font-weight:800;
 }
 
-.cards {
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:30px;
-}
-
-.card {
-background:#151515;
-border:1px solid #292929;
-border-radius:20px;
-padding:25px;
-}
-
-.card strong {
-font-size:30px;
+.logo i,
+.logo span{
 color:#A3FF12;
 }
 
-.card p {
+.back{
+font-size:12px;
 color:#777;
-font-size:13px;
 }
 
-.progress {
-margin-top:30px;
-background:#151515;
-padding:30px;
-border-radius:20px;
+main{
+max-width:1000px;
+margin:auto;
+padding:45px 20px;
 }
 
-.bar {
-height:12px;
-background:#292929;
-border-radius:20px;
+h1{
+font-size:30px;
+}
+
+.subtitle{
+color:#666;
+font-size:12px;
+margin:8px 0 30px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.stat{
+background:#111;
+border:1px solid #292929;
+border-radius:18px;
+padding:25px;
+}
+
+.stat i{
+color:#A3FF12;
+font-size:22px;
+margin-bottom:15px;
+}
+
+.stat strong{
+font-size:25px;
+display:block;
+}
+
+.stat span{
+font-size:10px;
+color:#666;
+}
+
+.chart{
 margin-top:20px;
+padding:30px;
+background:#111;
+border:1px solid #292929;
+border-radius:18px;
+}
+
+.chart h2{
+font-size:15px;
+margin-bottom:25px;
+}
+
+.bar{
+height:35px;
+background:#1c1c1c;
+border-radius:8px;
 overflow:hidden;
+margin-bottom:12px;
 }
 
-.bar div {
+.bar div{
 height:100%;
-width:15%;
 background:#A3FF12;
+width:0;
+transition:1s;
 }
 
-@media(max-width:700px) {
-.cards {
+@media(max-width:650px){
+
+.stats{
 grid-template-columns:1fr;
 }
+
 }
 
 </style>
@@ -97,8 +148,19 @@ grid-template-columns:1fr;
 
 <header>
 
-<a href="dashboard.html">
-← Voltar para o painel
+<a href="painel.html" class="logo">
+
+<i class="fa-solid fa-person-running"></i>
+
+Projeto <span>Corre</span>
+
+</a>
+
+<a href="painel.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+Voltar
+
 </a>
 
 </header>
@@ -106,64 +168,68 @@ grid-template-columns:1fr;
 <main>
 
 <h1>
-Minha evolução
+Minha <span style="color:#A3FF12">evolução</span>
 </h1>
 
-<p style="color:#777">
-Acompanhe cada passo da sua jornada.
+<p class="subtitle">
+Acompanhe sua caminhada.
 </p>
 
-<div class="cards">
+<div class="stats">
 
-<div class="card">
+<div class="stat">
+
+<i class="fa-solid fa-road"></i>
 
 <strong>0 km</strong>
 
-<p>
-Distância total
-</p>
+<span>Distância total</span>
 
 </div>
 
-<div class="card">
+<div class="stat">
+
+<i class="fa-solid fa-person-running"></i>
 
 <strong>0</strong>
 
-<p>
-Treinos concluídos
-</p>
+<span>Treinos realizados</span>
 
 </div>
 
-<div class="card">
+<div class="stat">
 
-<strong>1</strong>
+<i class="fa-solid fa-trophy"></i>
 
-<p>
-Dia de jornada
-</p>
+<strong>0</strong>
 
-</div>
+<span>Conquistas</span>
 
 </div>
 
-<div class="progress">
+</div>
+
+<div class="chart">
 
 <h2>
-Jornada do iniciante
+Meta semanal
 </h2>
 
-<p style="color:#777">
-Você está apenas começando. Continue!
+<p style="color:#666;font-size:11px;margin-bottom:10px;">
+0 km de 5 km
 </p>
 
 <div class="bar">
-<div></div>
+
+<div style="width:0%"></div>
+
 </div>
 
 </div>
 
 </main>
+
+<script src="script.js"></script>
 
 </body>
 
