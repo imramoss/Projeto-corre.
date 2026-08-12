@@ -4,64 +4,1710 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
 <title>Projeto Corre | Transforme sua corrida</title>
 
-<meta name="description"
-content="Aprenda a correr do zero. Treinos, desafios, cursos e evolução em um só lugar.">
+<meta
+    name="description"
+    content="Aprenda a correr do zero. Treinos, aulas, desafios e evolução em um só lugar.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080909;
+    color: #f5f5f5;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   CORES
+===================================================== */
+
+:root {
+
+    --green: #c5ff3d;
+    --black: #080909;
+    --card: #111315;
+    --card2: #181b1e;
+    --border: #292d31;
+    --gray: #9ca1a7;
+    --white: #f5f5f5;
+
+}
+
+
+/* =====================================================
+   LANDING PAGE
+===================================================== */
+
+.container {
+
+    width: min(1100px, 92%);
+    margin: auto;
+
+}
+
+
+/* HEADER */
+
+header {
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(8,9,9,.92);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.navbar {
+
+    width: min(1200px, 92%);
+    height: 75px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+
+.logo i {
+
+    color: var(--green);
+    font-size: 23px;
+
+}
+
+
+.logo strong {
+
+    color: var(--green);
+
+}
+
+
+.menu {
+
+    list-style: none;
+
+    display: flex;
+    gap: 25px;
+
+}
+
+
+.menu a {
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    transition: .2s;
+
+}
+
+
+.menu a:hover {
+
+    color: var(--green);
+
+}
+
+
+.nav-buttons {
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+
+.btn-primary,
+.btn-login,
+.btn-secondary {
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .2s;
+
+}
+
+
+.btn-primary {
+
+    background: var(--green);
+    color: #080909;
+
+}
+
+
+.btn-primary:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.btn-login {
+
+    border: 1px solid var(--border);
+    color: white;
+
+}
+
+
+.btn-secondary {
+
+    border: 1px solid var(--border);
+    color: white;
+
+}
+
+
+.hamburger {
+
+    display: none;
+
+    cursor: pointer;
+
+}
+
+
+.hamburger span {
+
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    background: white;
+
+    margin: 5px;
+
+}
+
+
+/* HERO */
+
+.hero {
+
+    min-height: 700px;
+
+    width: min(1200px, 92%);
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+
+.tag {
+
+    display: inline-block;
+
+    padding: 8px 13px;
+
+    background: #151a0d;
+
+    border: 1px solid #33451b;
+
+    color: var(--green);
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    line-height: 1.02;
+
+    letter-spacing: -3px;
+
+}
+
+
+.hero p {
+
+    color: var(--gray);
+
+    margin-top: 25px;
+
+    line-height: 1.8;
+
+    max-width: 600px;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.hero-stats {
+
+    display: flex;
+
+    gap: 45px;
+
+    margin-top: 45px;
+
+}
+
+
+.hero-stats h2 {
+
+    color: var(--green);
+
+}
+
+
+.hero-stats p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+}
+
+
+.hero-right img {
+
+    width: 100%;
+    max-height: 560px;
+
+    object-fit: contain;
+
+}
+
+
+/* SEÇÕES */
+
+section:not(.hero):not(#correApp) {
+
+    padding: 90px 0;
+
+}
+
+
+.section-header {
+
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: auto auto 45px;
+
+}
+
+
+.section-header span {
+
+    color: var(--green);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.section-header h2 {
+
+    font-size: 38px;
+
+    margin: 12px 0;
+
+}
+
+
+.section-header p {
+
+    color: var(--gray);
+
+    line-height: 1.7;
+
+}
+
+
+/* BENEFÍCIOS */
+
+.benefits-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.benefit-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+}
+
+
+.benefit-card i {
+
+    color: var(--green);
+
+    font-size: 25px;
+
+}
+
+
+.benefit-card h3 {
+
+    margin: 15px 0 8px;
+
+}
+
+
+.benefit-card p {
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* COMO FUNCIONA */
+
+.steps {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 15px;
+
+}
+
+
+.step-card {
+
+    position: relative;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+}
+
+
+.step-number {
+
+    color: var(--green);
+
+    font-weight: 800;
+
+    font-size: 12px;
+
+}
+
+
+.step-card i {
+
+    margin: 30px 0 15px;
+
+    font-size: 25px;
+
+    color: var(--green);
+
+}
+
+
+.step-card h3 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.step-card p {
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/* PLANOS */
+
+.plans-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    max-width: 850px;
+
+    margin: auto;
+
+}
+
+
+.plan-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+}
+
+
+.plan-card h1 {
+
+    font-size: 42px;
+
+    margin: 15px 0;
+
+}
+
+
+.plan-card p {
+
+    color: var(--gray);
+
+}
+
+
+.plan-card ul {
+
+    list-style: none;
+
+    margin: 25px 0;
+
+}
+
+
+.plan-card li {
+
+    padding: 8px 0;
+
+    color: #ddd;
+
+}
+
+
+.premium {
+
+    border-color: var(--green);
+
+    position: relative;
+
+}
+
+
+.premium-tag {
+
+    position: absolute;
+
+    top: -13px;
+
+    right: 20px;
+
+    background: var(--green);
+
+    color: #080909;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+/* NÚMEROS */
+
+.numbers {
+
+    background: #101214;
+
+}
+
+
+.numbers-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    text-align: center;
+
+}
+
+
+.numbers h2 {
+
+    color: var(--green);
+
+    font-size: 30px;
+
+}
+
+
+.numbers p {
+
+    color: var(--gray);
+
+}
+
+
+/* DEPOIMENTOS */
+
+.testimonial-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 15px;
+
+}
+
+
+.testimonial {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+}
+
+
+.testimonial p {
+
+    color: #ddd;
+
+    line-height: 1.7;
+
+}
+
+
+.testimonial h4 {
+
+    color: var(--green);
+
+    margin: 18px 0 8px;
+
+}
+
+
+/* FAQ */
+
+.faq {
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+.faq-item {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin: 10px 0;
+
+}
+
+
+.faq-item h3 {
+
+    margin-bottom: 7px;
+
+}
+
+
+.faq-item p {
+
+    color: var(--gray);
+
+}
+
+
+/* CTA */
+
+.cta-final {
+
+    text-align: center;
+
+}
+
+
+.cta-final h2 {
+
+    font-size: 45px;
+
+}
+
+
+.cta-final p {
+
+    color: var(--gray);
+
+    margin: 15px 0 25px;
+
+}
+
+
+/* FOOTER */
+
+footer {
+
+    border-top: 1px solid var(--border);
+
+    padding: 50px 0;
+
+}
+
+
+.footer-logo h2 span {
+
+    color: var(--green);
+
+}
+
+
+.footer-logo p {
+
+    color: var(--gray);
+
+    margin-top: 8px;
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 20px;
+
+    margin: 25px 0;
+
+    flex-wrap: wrap;
+
+}
+
+
+.footer-links a {
+
+    color: var(--gray);
+
+}
+
+
+.copyright {
+
+    color: #666;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   CORRE APP
+===================================================== */
+
+#correApp {
+
+    display: none;
+
+    min-height: 100vh;
+
+    background: var(--black);
+
+    color: white;
+
+}
+
+
+#correApp * {
+
+    box-sizing: border-box;
+
+}
+
+
+.ca-bar {
+
+    height: 70px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(8,9,9,.94);
+
+    backdrop-filter: blur(14px);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 20;
+
+}
+
+
+.ca-inner {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    height: 100%;
+
+    padding: 0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.ca-logo {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+}
+
+
+.ca-logo span {
+
+    color: var(--green);
+
+}
+
+
+.ca-menu {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 11px;
+
+    border: 1px solid var(--border);
+
+    background: #111315;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+.ca-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+}
+
+
+.ca-avatar {
+
+    width: 37px;
+
+    height: 37px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--green);
+
+    color: #080909;
+
+    font-weight: 800;
+
+}
+
+
+.ca-main {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 30px 16px 70px;
+
+}
+
+
+.ca-view {
+
+    display: none;
+
+}
+
+
+.ca-view.active {
+
+    display: block;
+
+}
+
+
+.ca-ey {
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.ca-dash {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.ca-dash h1 {
+
+    font-size: 34px;
+
+    margin: 8px 0;
+
+}
+
+
+.ca-muted {
+
+    color: var(--gray);
+
+}
+
+
+.ca-grid2 {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 13px;
+
+}
+
+
+.ca-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+}
+
+
+.ca-card h2 {
+
+    margin: 8px 0;
+
+}
+
+
+.ca-btn {
+
+    border: 0;
+
+    border-radius: 11px;
+
+    padding: 12px 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+.ca-primary {
+
+    background: var(--green);
+
+    color: #080909;
+
+}
+
+
+.ca-ghost {
+
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    color: white;
+
+}
+
+
+.ca-notice {
+
+    background: var(--card2);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    color: #c5c9cc;
+
+    margin: 15px 0;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.ca-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 12px;
+
+    margin-top: 13px;
+
+}
+
+
+.ca-stat strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin-top: 5px;
+
+}
+
+
+.ca-train {
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+
+
+.ca-lessons {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.ca-lesson {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+
+.ca-num {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--card2);
+
+    color: var(--green);
+
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    flex: none;
+
+}
+
+
+.ca-profile input,
+.ca-chat input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    background: #0b0d0e;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    color: white;
+
+    outline: none;
+
+}
+
+
+.ca-profile input:focus,
+.ca-chat input:focus {
+
+    border-color: var(--green);
+
+}
+
+
+.ca-chat {
+
+    height: 520px;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.ca-msgs {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 5px;
+
+}
+
+
+.ca-msg {
+
+    max-width: 82%;
+
+    padding: 12px 14px;
+
+    border-radius: 13px;
+
+    margin: 8px 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.ca-bot {
+
+    background: var(--card2);
+
+}
+
+
+.ca-me {
+
+    background: var(--green);
+
+    color: #080909;
+
+    margin-left: auto;
+
+}
+
+
+.ca-chatrow {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.ca-drawer {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.75);
+
+    z-index: 50;
+
+}
+
+
+.ca-drawer.open {
+
+    display: block;
+
+}
+
+
+.ca-drawer aside {
+
+    width: min(330px,86vw);
+
+    height: 100%;
+
+    background: #101214;
+
+    padding: 20px 16px;
+
+    box-shadow: 10px 0 40px rgba(0,0,0,.4);
+
+}
+
+
+.ca-nav {
+
+    display: block;
+
+    width: 100%;
+
+    text-align: left;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #a5a9ad;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    margin: 3px 0;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.ca-nav:hover {
+
+    background: var(--card2);
+
+}
+
+
+.ca-nav.active {
+
+    background: var(--card2);
+
+    color: var(--green);
+
+}
+
+
+.ca-logout {
+
+    margin-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    padding-top: 20px;
+
+    color: #ff8d8d;
+
+}
+
+
+.ca-close {
+
+    float: right;
+
+    background: none;
+
+    border: 0;
+
+    color: #aaa;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.ca-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.8);
+
+    z-index: 60;
+
+    place-items: center;
+
+    padding: 18px;
+
+}
+
+
+.ca-modal.open {
+
+    display: grid;
+
+}
+
+
+.ca-modalbox {
+
+    width: min(650px,100%);
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+}
+
+
+.ca-toast {
+
+    position: fixed;
+
+    right: 15px;
+
+    bottom: 15px;
+
+    background: var(--green);
+
+    color: #080909;
+
+    padding: 13px 16px;
+
+    border-radius: 11px;
+
+    font-weight: 800;
+
+    display: none;
+
+    z-index: 100;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px) {
+
+    .menu,
+    .nav-buttons {
+
+        display: none;
+
+    }
+
+    .hamburger {
+
+        display: block;
+
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding: 60px 0;
+
+    }
+
+    .hero-right {
+
+        order: -1;
+
+    }
+
+    .hero h1 {
+
+        font-size: 48px;
+
+    }
+
+    .hero-stats {
+
+        gap: 20px;
+
+    }
+
+    .benefits-grid,
+    .steps,
+    .testimonial-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .plans-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .numbers-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
+
+    }
+
+    .ca-grid2 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .ca-lessons {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .ca-dash {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+@media(max-width:500px) {
+
+    .hero h1 {
+
+        font-size: 40px;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .hero-stats {
+
+        display: grid;
+
+        grid-template-columns: repeat(3,1fr);
+
+        gap: 10px;
+
+    }
+
+    .hero-stats h2 {
+
+        font-size: 21px;
+
+    }
+
+    .section-header h2 {
+
+        font-size: 29px;
+
+    }
+
+    .ca-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
 
 <header>
 
 <nav class="navbar">
 
-<a href="index.html" class="logo">
+<a
+    href="#inicio"
+    class="logo">
 
 <i class="fa-solid fa-person-running"></i>
 
-<span>Projeto <strong>Corre</strong></span>
+<span>
+Projeto <strong>Corre</strong>
+</span>
 
 </a>
 
+
 <ul class="menu">
 
-<li><a href="#inicio">Início</a></li>
+<li>
+<a href="#inicio">
+Início
+</a>
+</li>
 
-<li><a href="#sobre">Sobre</a></li>
+<li>
+<a href="#sobre">
+Sobre
+</a>
+</li>
 
-<li><a href="#beneficios">Benefícios</a></li>
+<li>
+<a href="#beneficios">
+Benefícios
+</a>
+</li>
 
-<li><a href="#planos">Planos</a></li>
+<li>
+<a href="#planos">
+Planos
+</a>
+</li>
 
-<li><a href="#depoimentos">Depoimentos</a></li>
+<li>
+<a href="#depoimentos">
+Depoimentos
+</a>
+</li>
 
-<li><a href="#faq">FAQ</a></li>
+<li>
+<a href="#faq">
+FAQ
+</a>
+</li>
 
 </ul>
 
+
 <div class="nav-buttons">
 
-<a href="login.html" class="btn-login">
+<a
+    href="#"
+    class="btn-login"
+    onclick="abrirLogin(event)">
 
 Entrar
 
 </a>
 
-<a href="cadastro.html" class="btn-primary">
+<a
+    href="#"
+    class="btn-primary"
+    onclick="abrirCadastro(event)">
 
 Começar Gratuitamente
 
@@ -69,12 +1715,13 @@ Começar Gratuitamente
 
 </div>
 
-<div class="hamburger">
+
+<div
+    class="hamburger"
+    onclick="toggleMenu()">
 
 <span></span>
-
 <span></span>
-
 <span></span>
 
 </div>
@@ -83,11 +1730,17 @@ Começar Gratuitamente
 
 </header>
 
+
+
 <!-- HERO -->
 
-<section class="hero" id="inicio">
+<section
+    class="hero"
+    id="inicio">
+
 
 <div class="hero-left">
+
 
 <div class="tag">
 
@@ -95,19 +1748,22 @@ Começar Gratuitamente
 
 </div>
 
+
 <h1>
 
-Corra melhor.
+Corra melhor.<br>
 
-Viva melhor.
+Viva melhor.<br>
 
 Evolua um passo de cada vez.
 
 </h1>
 
+
 <p>
 
-O Projeto Corre foi criado para mostrar que qualquer pessoa pode correr.
+O Projeto Corre foi criado para mostrar
+que qualquer pessoa pode correr.
 
 Mesmo sem experiência.
 
@@ -117,21 +1773,29 @@ Mesmo começando do zero.
 
 </p>
 
+
 <div class="hero-buttons">
 
-<a href="cadastro.html" class="btn-primary">
+<a
+    href="#"
+    class="btn-primary"
+    onclick="abrirCadastro(event)">
 
 Começar Agora
 
 </a>
 
-<a href="sobre.html" class="btn-secondary">
+
+<a
+    href="#sobre"
+    class="btn-secondary">
 
 Conhecer o Projeto
 
 </a>
 
 </div>
+
 
 <div class="hero-stats">
 
@@ -143,6 +1807,7 @@ Conhecer o Projeto
 
 </div>
 
+
 <div>
 
 <h2>120+</h2>
@@ -150,6 +1815,7 @@ Conhecer o Projeto
 <p>Vídeo Aulas</p>
 
 </div>
+
 
 <div>
 
@@ -161,30 +1827,35 @@ Conhecer o Projeto
 
 </div>
 
+
 </div>
+
 
 <div class="hero-right">
 
 <img
-src="28A4A849-09AD-460A-8E83-ABF14DE059E6.png"
-alt="Projeto Corre">
+    src="28A4A849-09AD-460A-8E83-ABF14DE059E6.png"
+    alt="Projeto Corre">
 
 </div>
 
+
 </section>
+
+
 
 <!-- SOBRE -->
 
-<section class="about" id="sobre">
+<section
+    class="about"
+    id="sobre">
 
 <div class="container">
 
 <div class="section-header">
 
 <span>
-
 QUEM SOMOS
-
 </span>
 
 <h2>
@@ -197,9 +1868,12 @@ Uma comunidade para transformar vidas.
 
 <p>
 
-O Projeto Corre nasceu para ensinar pessoas comuns a correrem com segurança, técnica e motivação.
+O Projeto Corre nasceu para ensinar pessoas
+comuns a correrem com segurança, técnica e motivação.
 
-Aqui você encontra treinos, aulas, desafios, acompanhamento e uma comunidade pronta para evoluir junto.
+Aqui você encontra treinos, aulas, desafios,
+acompanhamento e uma comunidade pronta
+para evoluir junto.
 
 </p>
 
@@ -208,6 +1882,8 @@ Aqui você encontra treinos, aulas, desafios, acompanhamento e uma comunidade pr
 </div>
 
 </section>
+
+
 
 <!-- BENEFÍCIOS -->
 
@@ -218,104 +1894,109 @@ Aqui você encontra treinos, aulas, desafios, acompanhamento e uma comunidade pr
 <div class="section-header">
 
 <span>
-
 BENEFÍCIOS
-
 </span>
 
 <h2>
-
 Tudo que você precisa em um único lugar.
-
 </h2>
 
 </div>
 
+
 <div class="benefits-grid">
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-heart-pulse"></i>
 
-<h3>Mais Saúde</h3>
+<h3>
+Mais Saúde
+</h3>
 
 <p>
-
-Melhore seu condicionamento físico e qualidade de vida.
-
+Melhore seu condicionamento físico
+e qualidade de vida.
 </p>
 
 </div>
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-person-running"></i>
 
-<h3>Treinos Inteligentes</h3>
+<h3>
+Treinos Inteligentes
+</h3>
 
 <p>
-
 Treinos adaptados ao seu nível.
-
 </p>
 
 </div>
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-video"></i>
 
-<h3>Vídeo Aulas</h3>
+<h3>
+Vídeo Aulas
+</h3>
 
 <p>
-
 Aprenda técnica, postura e respiração.
-
 </p>
 
 </div>
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-chart-line"></i>
 
-<h3>Evolução</h3>
+<h3>
+Evolução
+</h3>
 
 <p>
-
 Acompanhe cada quilômetro percorrido.
-
 </p>
 
 </div>
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-users"></i>
 
-<h3>Comunidade</h3>
+<h3>
+Comunidade
+</h3>
 
 <p>
-
 Treine junto com milhares de corredores.
-
 </p>
 
 </div>
+
 
 <div class="benefit-card">
 
 <i class="fa-solid fa-trophy"></i>
 
-<h3>Desafios</h3>
+<h3>
+Desafios
+</h3>
 
 <p>
-
 Ganhe medalhas e complete objetivos.
-
 </p>
 
 </div>
+
 
 </div>
 
@@ -323,33 +2004,34 @@ Ganhe medalhas e complete objetivos.
 
 </section>
 
-<!-- Continua na Parte 2 -->
 
-<script src="script.js"></script>
 
-</body>
-
-<!-- ========================================= -->
 <!-- COMO FUNCIONA -->
-<!-- ========================================= -->
 
-<section class="how-it-works" id="funciona">
+<section id="funciona">
 
 <div class="container">
 
 <div class="section-header">
 
-<span>COMO FUNCIONA</span>
+<span>
+COMO FUNCIONA
+</span>
 
-<h2>Comece sua evolução em apenas 4 passos</h2>
+<h2>
+Comece sua evolução em apenas 4 passos
+</h2>
 
 <p>
-Criamos um método simples para que qualquer pessoa consiga iniciar na corrida com segurança e constância.
+Criamos um método simples para que qualquer pessoa
+consiga iniciar na corrida com segurança e constância.
 </p>
 
 </div>
 
+
 <div class="steps">
+
 
 <div class="step-card">
 
@@ -359,13 +2041,17 @@ Criamos um método simples para que qualquer pessoa consiga iniciar na corrida c
 
 <i class="fa-solid fa-user-plus"></i>
 
-<h3>Crie sua conta</h3>
+<h3>
+Crie sua conta
+</h3>
 
 <p>
-Cadastre-se gratuitamente e personalize seu perfil de atleta.
+Cadastre-se gratuitamente e personalize
+seu perfil de atleta.
 </p>
 
 </div>
+
 
 <div class="step-card">
 
@@ -375,13 +2061,17 @@ Cadastre-se gratuitamente e personalize seu perfil de atleta.
 
 <i class="fa-solid fa-person-running"></i>
 
-<h3>Escolha seu objetivo</h3>
+<h3>
+Escolha seu objetivo
+</h3>
 
 <p>
-5 km, 10 km, emagrecimento, condicionamento ou alta performance.
+5 km, 10 km, condicionamento
+ou simplesmente começar.
 </p>
 
 </div>
+
 
 <div class="step-card">
 
@@ -391,13 +2081,17 @@ Cadastre-se gratuitamente e personalize seu perfil de atleta.
 
 <i class="fa-solid fa-book-open"></i>
 
-<h3>Aprenda</h3>
+<h3>
+Aprenda
+</h3>
 
 <p>
-Assista às aulas e siga os treinos elaborados para o seu nível.
+Assista às aulas e siga os treinos
+elaborados para o seu nível.
 </p>
 
 </div>
+
 
 <div class="step-card">
 
@@ -407,13 +2101,17 @@ Assista às aulas e siga os treinos elaborados para o seu nível.
 
 <i class="fa-solid fa-medal"></i>
 
-<h3>Evolua</h3>
+<h3>
+Evolua
+</h3>
 
 <p>
-Complete desafios, acompanhe suas estatísticas e conquiste medalhas.
+Complete desafios, acompanhe suas
+estatísticas e conquiste medalhas.
 </p>
 
 </div>
+
 
 </div>
 
@@ -421,49 +2119,76 @@ Complete desafios, acompanhe suas estatísticas e conquiste medalhas.
 
 </section>
 
-<!-- ========================================= -->
-<!-- PLANOS -->
-<!-- ========================================= -->
 
-<section class="plans" id="planos">
+
+<!-- PLANOS -->
+
+<section
+    class="plans"
+    id="planos">
 
 <div class="container">
 
 <div class="section-header">
 
-<span>PLANOS</span>
+<span>
+PLANOS
+</span>
 
-<h2>Escolha como deseja evoluir</h2>
+<h2>
+Escolha como deseja evoluir
+</h2>
 
 <p>
-Você pode começar gratuitamente e evoluir para o Premium quando quiser.
+Você pode começar gratuitamente
+e evoluir para o Premium quando quiser.
 </p>
 
 </div>
 
+
 <div class="plans-grid">
+
 
 <div class="plan-card">
 
-<h3>Gratuito</h3>
+<h3>
+Gratuito
+</h3>
 
-<h1>R$ 0</h1>
+<h1>
+R$ 0
+</h1>
 
-<p>Para quem está começando.</p>
+<p>
+Para quem está começando.
+</p>
 
 <ul>
 
-<li>✔ Treinos básicos</li>
+<li>
+✔ Treinos básicos
+</li>
 
-<li>✔ Comunidade</li>
+<li>
+✔ Comunidade
+</li>
 
-<li>✔ Desafios mensais</li>
+<li>
+✔ Desafios mensais
+</li>
 
-<li>✔ Registro de corridas</li>
+<li>
+✔ Registro de corridas
+</li>
 
 </ul>
 
-<a href="cadastro.html" class="btn-primary">
+
+<a
+    href="#"
+    class="btn-primary"
+    onclick="abrirCadastro(event)">
 
 Começar Agora
 
@@ -471,37 +2196,59 @@ Começar Agora
 
 </div>
 
+
+
 <div class="plan-card premium">
 
 <div class="premium-tag">
-
 MAIS ESCOLHIDO
-
 </div>
 
-<h3>Premium</h3>
+<h3>
+Premium
+</h3>
 
-<h1>R$ 29,90</h1>
+<h1>
+R$ 29,90
+</h1>
 
-<p>por mês</p>
+<p>
+por mês
+</p>
 
 <ul>
 
-<li>✔ Todos os cursos</li>
+<li>
+✔ Todos os cursos
+</li>
 
-<li>✔ Vídeos exclusivos</li>
+<li>
+✔ Vídeos exclusivos
+</li>
 
-<li>✔ Planilhas de treino</li>
+<li>
+✔ Planilhas de treino
+</li>
 
-<li>✔ Dashboard completo</li>
+<li>
+✔ Dashboard completo
+</li>
 
-<li>✔ Certificados</li>
+<li>
+✔ Certificados
+</li>
 
-<li>✔ Suporte prioritário</li>
+<li>
+✔ Suporte prioritário
+</li>
 
 </ul>
 
-<a href="planos.html" class="btn-primary">
+
+<a
+    href="#"
+    class="btn-primary"
+    onclick="abrirCadastro(event)">
 
 Assinar Premium
 
@@ -509,15 +2256,16 @@ Assinar Premium
 
 </div>
 
+
 </div>
 
 </div>
 
 </section>
 
-<!-- ========================================= -->
-<!-- CONTADORES -->
-<!-- ========================================= -->
+
+
+<!-- NÚMEROS -->
 
 <section class="numbers">
 
@@ -527,33 +2275,52 @@ Assinar Premium
 
 <div>
 
-<h2>15.000+</h2>
+<h2>
+15.000+
+</h2>
 
-<p>Corredores</p>
-
-</div>
-
-<div>
-
-<h2>500.000 km</h2>
-
-<p>Percorridos</p>
+<p>
+Corredores
+</p>
 
 </div>
 
+
 <div>
 
-<h2>120+</h2>
+<h2>
+500.000 km
+</h2>
 
-<p>Vídeo Aulas</p>
+<p>
+Percorridos
+</p>
 
 </div>
 
+
 <div>
 
-<h2>98%</h2>
+<h2>
+120+
+</h2>
 
-<p>Satisfação</p>
+<p>
+Vídeo Aulas
+</p>
+
+</div>
+
+
+<div>
+
+<h2>
+98%
+</h2>
+
+<p>
+Satisfação
+</p>
 
 </div>
 
@@ -563,65 +2330,85 @@ Assinar Premium
 
 </section>
 
-<!-- ========================================= -->
-<!-- DEPOIMENTOS -->
-<!-- ========================================= -->
 
-<section class="testimonials" id="depoimentos">
+
+<!-- DEPOIMENTOS -->
+
+<section
+    class="testimonials"
+    id="depoimentos">
 
 <div class="container">
 
 <div class="section-header">
 
-<span>DEPOIMENTOS</span>
+<span>
+DEPOIMENTOS
+</span>
 
-<h2>Histórias que inspiram</h2>
+<h2>
+Histórias que inspiram
+</h2>
 
 </div>
+
 
 <div class="testimonial-grid">
 
-<div class="testimonial">
-
-<p>
-
-"Comecei sem conseguir correr 500 metros. Hoje completei meus primeiros 10 km."
-
-</p>
-
-<h4>★★★★★</h4>
-
-<strong>Lucas M.</strong>
-
-</div>
 
 <div class="testimonial">
 
 <p>
-
-"As aulas mudaram completamente minha forma de correr."
-
+"Comecei sem conseguir correr 500 metros.
+Hoje completei meus primeiros 10 km."
 </p>
 
-<h4>★★★★★</h4>
+<h4>
+★★★★★
+</h4>
 
-<strong>Amanda S.</strong>
+<strong>
+Lucas M.
+</strong>
 
 </div>
+
 
 <div class="testimonial">
 
 <p>
-
-"O Projeto Corre me fez criar uma rotina saudável sem pressão."
-
+"As aulas mudaram completamente
+minha forma de correr."
 </p>
 
-<h4>★★★★★</h4>
+<h4>
+★★★★★
+</h4>
 
-<strong>Carlos R.</strong>
+<strong>
+Amanda S.
+</strong>
 
 </div>
+
+
+<div class="testimonial">
+
+<p>
+"O Projeto Corre me fez criar uma rotina
+saudável sem pressão."
+</p>
+
+<h4>
+★★★★★
+</h4>
+
+<strong>
+Carlos R.
+</strong>
+
+</div>
+
 
 </div>
 
@@ -629,71 +2416,95 @@ Assinar Premium
 
 </section>
 
-<!-- ========================================= -->
-<!-- FAQ -->
-<!-- ========================================= -->
 
-<section class="faq" id="faq">
+
+<!-- FAQ -->
+
+<section
+    class="faq"
+    id="faq">
 
 <div class="container">
 
 <div class="section-header">
 
-<span>DÚVIDAS</span>
+<span>
+DÚVIDAS
+</span>
 
-<h2>Perguntas Frequentes</h2>
+<h2>
+Perguntas Frequentes
+</h2>
 
 </div>
+
 
 <div class="faq-item">
 
-<h3>Preciso ter experiência?</h3>
+<h3>
+Preciso ter experiência?
+</h3>
 
-<p>Não. O Projeto Corre foi criado principalmente para iniciantes.</p>
+<p>
+Não. O Projeto Corre foi criado
+principalmente para iniciantes.
+</p>
 
 </div>
+
 
 <div class="faq-item">
 
-<h3>Existe versão gratuita?</h3>
+<h3>
+Existe versão gratuita?
+</h3>
 
-<p>Sim. Você pode começar gratuitamente e evoluir quando desejar.</p>
+<p>
+Sim. Você pode começar gratuitamente
+e evoluir quando desejar.
+</p>
 
 </div>
+
 
 <div class="faq-item">
 
-<h3>Posso acessar pelo celular?</h3>
+<h3>
+Posso acessar pelo celular?
+</h3>
 
-<p>Sim. Todo o sistema será responsivo e futuramente terá aplicativo próprio.</p>
+<p>
+Sim. Todo o sistema foi pensado
+para funcionar no celular.
+</p>
 
 </div>
+
 
 </div>
 
 </section>
 
-<!-- ========================================= -->
-<!-- CTA FINAL -->
-<!-- ========================================= -->
+
+
+<!-- CTA -->
 
 <section class="cta-final">
 
 <div class="container">
 
 <h2>
-
 Seu primeiro passo começa hoje.
-
 </h2>
 
 <p>
-
 Junte-se ao Projeto Corre e transforme sua rotina.
-
 </p>
 
-<a href="cadastro.html" class="btn-primary">
+<a
+    href="#"
+    class="btn-primary"
+    onclick="abrirCadastro(event)">
 
 Criar Conta Gratuitamente
 
@@ -703,9 +2514,9 @@ Criar Conta Gratuitamente
 
 </section>
 
-<!-- ========================================= -->
+
+
 <!-- FOOTER -->
-<!-- ========================================= -->
 
 <footer>
 
@@ -714,30 +2525,36 @@ Criar Conta Gratuitamente
 <div class="footer-logo">
 
 <h2>
-
 Projeto <span>Corre</span>
-
 </h2>
 
 <p>
-
 Treine. Evolua. Inspire.
-
 </p>
 
 </div>
 
+
 <div class="footer-links">
 
-<a href="sobre.html">Sobre</a>
+<a href="#sobre">
+Sobre
+</a>
 
-<a href="planos.html">Planos</a>
+<a href="#planos">
+Planos
+</a>
 
-<a href="login.html">Entrar</a>
+<a href="#" onclick="abrirLogin(event)">
+Entrar
+</a>
 
-<a href="cadastro.html">Cadastro</a>
+<a href="#" onclick="abrirCadastro(event)">
+Cadastro
+</a>
 
 </div>
+
 
 <p class="copyright">
 
@@ -748,3 +2565,2130 @@ Treine. Evolua. Inspire.
 </div>
 
 </footer>
+
+
+
+<!-- =====================================================
+     APP DO ATLETA
+===================================================== -->
+
+
+<section id="correApp">
+
+
+<header class="ca-bar">
+
+<div class="ca-inner">
+
+
+<button
+    class="ca-menu"
+    onclick="caDrawer(true)">
+
+☰
+
+</button>
+
+
+<div class="ca-logo">
+
+Projeto <span>Corre</span>
+
+</div>
+
+
+<div class="ca-user">
+
+<span id="caTopName">
+</span>
+
+<div
+    class="ca-avatar"
+    id="caAvatar">
+
+C
+
+</div>
+
+</div>
+
+
+</div>
+
+</header>
+
+
+
+<main class="ca-main">
+
+
+<!-- DASHBOARD -->
+
+<section
+    id="ca-dashboard"
+    class="ca-view active">
+
+
+<div class="ca-dash">
+
+
+<div>
+
+<div class="ca-ey">
+SUA JORNADA
+</div>
+
+<h1 id="caWelcome">
+Olá.
+</h1>
+
+<p class="ca-muted">
+Seu primeiro passo começa hoje.
+</p>
+
+</div>
+
+
+<button
+    class="ca-btn ca-primary"
+    onclick="caView('train')">
+
+Treino de hoje →
+
+</button>
+
+
+</div>
+
+
+
+<div class="ca-grid2">
+
+
+<div class="ca-card ca-train">
+
+<div>
+
+<div class="ca-ey">
+PRÓXIMO PASSO
+</div>
+
+<h2>
+Aula 01 — Você não precisa ser corredor
+</h2>
+
+<p class="ca-muted">
+Antes de correr, vamos entender como começar.
+</p>
+
+
+<div class="ca-notice">
+
+Hoje o objetivo não é correr rápido.
+
+É terminar sabendo que você
+consegue voltar amanhã.
+
+</div>
+
+</div>
+
+
+<button
+    class="ca-btn ca-primary"
+    onclick="caLesson(0)">
+
+Continuar jornada
+
+</button>
+
+</div>
+
+
+
+<div class="ca-card">
+
+<div class="ca-ey">
+PRIMEIRO PASSO
+</div>
+
+<h2>
+25%
+</h2>
+
+<p class="ca-muted">
+5 de 20 aulas iniciais.
+</p>
+
+<button
+    class="ca-btn ca-ghost"
+    onclick="caView('learn')">
+
+Ver aulas
+
+</button>
+
+</div>
+
+
+</div>
+
+
+
+<div class="ca-stats">
+
+
+<div class="ca-card ca-stat">
+
+Treinos
+
+<strong id="caW">
+0
+</strong>
+
+</div>
+
+
+<div class="ca-card ca-stat">
+
+Distância
+
+<strong id="caD">
+0,0 km
+</strong>
+
+</div>
+
+
+<div class="ca-card ca-stat">
+
+Nível
+
+<strong>
+Iniciante
+</strong>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- AULAS -->
+
+<section
+    id="ca-learn"
+    class="ca-view">
+
+
+<div class="ca-dash">
+
+<div>
+
+<div class="ca-ey">
+CURSO INICIAL
+</div>
+
+<h1>
+Primeiro Passo
+</h1>
+
+<p class="ca-muted">
+20 aulas para entrar na vida de corredor.
+</p>
+
+</div>
+
+</div>
+
+
+<div
+    id="caLessons"
+    class="ca-lessons">
+
+</div>
+
+
+</section>
+
+
+
+<!-- TREINO -->
+
+<section
+    id="ca-train"
+    class="ca-view">
+
+
+<div class="ca-dash">
+
+<div>
+
+<div class="ca-ey">
+TREINO DE HOJE
+</div>
+
+<h1>
+Corrida + caminhada
+</h1>
+
+<p class="ca-muted">
+25 minutos · intensidade leve
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="ca-card ca-train">
+
+
+<div>
+
+<div class="ca-ey">
+TREINO 01
+</div>
+
+<h2>
+Comece leve.
+</h2>
+
+<p class="ca-muted">
+
+5 min caminhada →
+
+1 min corrida →
+
+2 min caminhada × 5.
+
+</p>
+
+
+<div class="ca-notice">
+
+Se o esforço subir demais,
+caminhe.
+
+O treino foi feito para
+construir confiança.
+
+</div>
+
+</div>
+
+
+<button
+    class="ca-btn ca-primary"
+    onclick="caFinish()">
+
+✓ Registrar treino
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- EVOLUÇÃO -->
+
+<section
+    id="ca-progress"
+    class="ca-view">
+
+
+<div class="ca-ey">
+ACOMPANHAMENTO
+</div>
+
+<h1>
+Minha evolução
+</h1>
+
+
+<div class="ca-stats">
+
+
+<div class="ca-card ca-stat">
+
+Treinos
+
+<strong id="caPW">
+0
+</strong>
+
+</div>
+
+
+<div class="ca-card ca-stat">
+
+Distância
+
+<strong id="caPD">
+0,0 km
+</strong>
+
+</div>
+
+
+<div class="ca-card ca-stat">
+
+Aulas
+
+<strong>
+0/20
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<div
+    class="ca-card"
+    style="margin-top:13px">
+
+<h2>
+🏅 Primeiro passo
+</h2>
+
+<p class="ca-muted">
+
+Você criou sua jornada.
+
+Agora é continuar.
+
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<!-- PERFIL -->
+
+<section
+    id="ca-profile"
+    class="ca-view">
+
+
+<div class="ca-ey">
+ATLETA
+</div>
+
+<h1>
+Meu perfil
+</h1>
+
+
+<div class="ca-card">
+
+
+<label>
+Nome
+</label>
+
+<input
+    id="caEdit"
+    style="
+    width:100%;
+    margin-top:8px;
+    padding:13px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+br><br>
+
+<button
+    class="ca-btn ca-primary"
+    onclick="caSave()">
+
+Salvar alterações
+
+</button>
+
+</div>
+
+
+</section>
+
+
+
+<!-- COACH -->
+
+<section
+    id="ca-coach"
+    class="ca-view">
+
+
+<div class="ca-ey">
+COACH CORRE
+</div>
+
+<h1>
+Seu primeiro assistente de corrida
+</h1>
+
+
+<div class="ca-card ca-chat">
+
+
+<div
+    id="caMsgs"
+    class="ca-msgs">
+
+
+<div class="ca-msg ca-bot">
+
+Fala! 👊
+
+Como você está hoje?
+
+Me conte sobre seu treino
+ou sua rotina.
+
+</div>
+
+
+</div>
+
+
+<div class="ca-chatrow">
+
+
+<input
+    id="caChat"
+    placeholder="Ex.: estou cansado hoje..."
+    onkeydown="
+    if(event.key==='Enter')
+    caSend()
+    ">
+
+
+<button
+    class="ca-btn ca-primary"
+    onclick="caSend()">
+
+Enviar
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+</section>
+
+
+
+<!-- =====================================================
+     MENU LATERAL
+===================================================== -->
+
+
+<div
+    id="caDrawer"
+    class="ca-drawer"
+    onclick="
+    if(event.target===this)
+    caDrawer(false)
+    ">
+
+
+<aside>
+
+
+<div
+    style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    ">
+
+
+<div class="ca-logo">
+
+Projeto <span>Corre</span>
+
+</div>
+
+
+<button
+    onclick="caDrawer(false)"
+    class="ca-close">
+
+×
+
+</button>
+
+
+</div>
+
+
+<br>
+
+
+<button
+    class="ca-nav active"
+    data-ca="dashboard"
+    onclick="caView('dashboard')">
+
+🏠 Início
+
+</button>
+
+
+<button
+    class="ca-nav"
+    data-ca="learn"
+    onclick="caView('learn')">
+
+🎓 Aulas
+
+</button>
+
+
+<button
+    class="ca-nav"
+    data-ca="train"
+    onclick="caView('train')">
+
+🏃 Treinos
+
+</button>
+
+
+<button
+    class="ca-nav"
+    data-ca="progress"
+    onclick="caView('progress')">
+
+📈 Minha evolução
+
+</button>
+
+
+<button
+    class="ca-nav"
+    data-ca="coach"
+    onclick="caView('coach')">
+
+🤖 Coach CORRE
+
+</button>
+
+
+<button
+    class="ca-nav"
+    data-ca="profile"
+    onclick="caView('profile')">
+
+👤 Meu perfil
+
+</button>
+
+
+<button
+    class="ca-nav ca-logout"
+    onclick="caLogout()">
+
+🚪 Sair
+
+</button>
+
+
+</aside>
+
+</div>
+
+
+
+<!-- =====================================================
+     MODAL AULA
+===================================================== -->
+
+
+<div
+    id="caModal"
+    class="ca-modal">
+
+
+<div class="ca-modalbox">
+
+
+<button
+    class="ca-close"
+    onclick="caModal(false)">
+
+×
+
+</button>
+
+
+<div
+    class="ca-ey"
+    id="caMN">
+</div>
+
+
+<h2 id="caMT">
+</h2>
+
+
+<p
+    class="ca-muted"
+    id="caMD">
+</p>
+
+
+<div class="ca-notice">
+
+🎬 Espaço reservado para
+o vídeo desta aula.
+
+</div>
+
+
+<p
+    id="caMB"
+    style="
+    color:#bbb;
+    line-height:1.7;
+    margin:15px 0;
+    ">
+</p>
+
+
+<button
+    class="ca-btn ca-primary"
+    onclick="
+    caModal(false);
+    caToast('Aula marcada como concluída!')
+    ">
+
+✓ Marcar como concluída
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<div
+    id="caToast"
+    class="ca-toast">
+</div>
+
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+
+<div
+    id="authModal"
+    class="ca-modal">
+
+
+<div
+    class="ca-modalbox"
+    style="max-width:450px;">
+
+
+<button
+    class="ca-close"
+    onclick="fecharAuth()">
+
+×
+
+</button>
+
+
+<div class="ca-ey">
+PROJETO CORRE
+</div>
+
+
+<h2>
+Entrar
+</h2>
+
+
+<p
+    class="ca-muted"
+    style="margin-bottom:20px;">
+
+Entre na sua jornada.
+
+</p>
+
+
+<input
+    id="loginEmail"
+    type="email"
+    placeholder="Seu e-mail"
+    style="
+    width:100%;
+    padding:13px;
+    margin-bottom:10px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+<input
+    id="loginPassword"
+    type="password"
+    placeholder="Sua senha"
+    style="
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+<button
+    class="ca-btn ca-primary"
+    style="width:100%;"
+    onclick="fazerLogin()">
+
+Entrar
+
+</button>
+
+
+<p
+    style="
+    text-align:center;
+    margin-top:15px;
+    color:#999;
+    font-size:13px;
+    ">
+
+Ainda não possui conta?
+
+<a
+    href="#"
+    onclick="abrirCadastro(event)"
+    style="color:#c5ff3d;">
+
+Criar conta
+
+</a>
+
+</p>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     CADASTRO
+===================================================== -->
+
+
+<div
+    id="registerModal"
+    class="ca-modal">
+
+
+<div
+    class="ca-modalbox"
+    style="max-width:450px;">
+
+
+<button
+    class="ca-close"
+    onclick="fecharAuth()">
+
+×
+
+</button>
+
+
+<div class="ca-ey">
+PRIMEIRO PASSO
+</div>
+
+
+<h2>
+Crie sua conta
+</h2>
+
+
+<p
+    class="ca-muted"
+    style="margin-bottom:20px;">
+
+Vamos começar sua jornada.
+
+</p>
+
+
+<input
+    id="registerName"
+    placeholder="Seu nome"
+    style="
+    width:100%;
+    padding:13px;
+    margin-bottom:10px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+<input
+    id="registerEmail"
+    type="email"
+    placeholder="Seu e-mail"
+    style="
+    width:100%;
+    padding:13px;
+    margin-bottom:10px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+<input
+    id="registerPassword"
+    type="password"
+    placeholder="Crie uma senha"
+    style="
+    width:100%;
+    padding:13px;
+    margin-bottom:15px;
+    background:#0b0d0e;
+    border:1px solid #292d31;
+    border-radius:10px;
+    color:white;
+    ">
+
+
+<button
+    class="ca-btn ca-primary"
+    style="width:100%;"
+    onclick="criarConta()">
+
+Começar minha jornada
+
+</button>
+
+
+<p
+    style="
+    text-align:center;
+    margin-top:15px;
+    color:#999;
+    font-size:13px;
+    ">
+
+Já possui uma conta?
+
+<a
+    href="#"
+    onclick="abrirLogin(event)"
+    style="color:#c5ff3d;">
+
+Entrar
+
+</a>
+
+</p>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   DADOS DAS AULAS
+===================================================== */
+
+
+const CALESSONS = [
+
+[
+"01",
+"Você não precisa ser corredor",
+"Quebre a barreira psicológica.",
+"O objetivo é começar com segurança e criar uma relação sustentável com a corrida."
+],
+
+[
+"02",
+"O que é corrida?",
+"Caminhada, trote e corrida.",
+"Entenda como o movimento se desenvolve."
+],
+
+[
+"03",
+"O que acontece no seu corpo?",
+"Coração, pulmões e músculos.",
+"Seu corpo se adapta ao estímulo e à recuperação."
+],
+
+[
+"04",
+"Por que você fica cansado?",
+"Esforço e fadiga.",
+"Cansaço faz parte; excesso não é requisito para evoluir."
+],
+
+[
+"05",
+"Caminhar também é treinar",
+"A caminhada no começo.",
+"Caminhar ajuda a criar rotina."
+],
+
+[
+"06",
+"Como começar a correr",
+"Corrida + caminhada.",
+"Intervalos ajudam a controlar o esforço."
+],
+
+[
+"07",
+"Como respirar",
+"Respiração e esforço.",
+"Busque controle e conforto."
+],
+
+[
+"08",
+"O ritmo certo",
+"Percepção de esforço.",
+"Não compare seu ritmo com o dos outros."
+],
+
+[
+"09",
+"O que é pace?",
+"Minutos por quilômetro.",
+"Pace é tempo por unidade de distância."
+],
+
+[
+"10",
+"Seu corpo precisa de tempo",
+"Adaptação.",
+"Tecidos e sistemas precisam de progressão."
+],
+
+[
+"11",
+"Descanso também é treino",
+"Recuperação.",
+"Recuperação faz parte do processo."
+],
+
+[
+"12",
+"Sono e recuperação",
+"Rotina.",
+"Dormir bem ajuda a sustentar o treino."
+],
+
+[
+"13",
+"Alimentação para iniciantes",
+"Alimentação e hidratação.",
+"A base é equilíbrio e hidratação."
+],
+
+[
+"14",
+"O que você precisa?",
+"O essencial.",
+"Roupa confortável, calçado adequado e segurança."
+],
+
+[
+"15",
+"Dor e desconforto",
+"Sinais de atenção.",
+"Dor intensa, aguda ou persistente merece atenção."
+],
+
+[
+"16",
+"Técnica de corrida",
+"Postura e movimento.",
+"Busque conforto e eficiência."
+],
+
+[
+"17",
+"Como evitar exageros",
+"Erros comuns.",
+"Progrida gradualmente."
+],
+
+[
+"18",
+"Como criar rotina",
+"Corrida na vida real.",
+"Consistência é mais sustentável que planos impossíveis."
+],
+
+[
+"19",
+"Acompanhe sua evolução",
+"Tempo, distância e consistência.",
+"Evolução não é só velocidade."
+],
+
+[
+"20",
+"Seu primeiro desafio",
+"Fechamento.",
+"Transforme conhecimento em hábito."
+]
+
+];
+
+
+
+/* =====================================================
+   USUÁRIO
+===================================================== */
+
+
+function getUser() {
+
+    return JSON.parse(
+        localStorage.getItem("correUser") || "null"
+    );
+
+}
+
+
+
+function saveUser(user) {
+
+    localStorage.setItem(
+        "correUser",
+        JSON.stringify(user)
+    );
+
+}
+
+
+
+/* =====================================================
+   CADASTRO
+===================================================== */
+
+
+function abrirCadastro(event) {
+
+    if(event)
+        event.preventDefault();
+
+    fecharAuth();
+
+    document
+        .getElementById("registerModal")
+        .classList
+        .add("open");
+
+}
+
+
+
+function criarConta() {
+
+
+    const name =
+        document
+        .getElementById("registerName")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("registerEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("registerPassword")
+        .value;
+
+
+    if(!name || !email || !password) {
+
+        alert(
+            "Preencha todos os campos."
+        );
+
+        return;
+
+    }
+
+
+    const user = {
+
+        name: name,
+
+        email: email,
+
+        password: password,
+
+        workouts: 0,
+
+        distance: 0,
+
+        lessons: [],
+
+        createdAt: new Date().toISOString()
+
+    };
+
+
+    saveUser(user);
+
+
+    localStorage.setItem(
+        "correSession",
+        "1"
+    );
+
+
+    fecharAuth();
+
+    abrirApp();
+
+}
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+
+function abrirLogin(event) {
+
+    if(event)
+        event.preventDefault();
+
+    fecharAuth();
+
+    document
+        .getElementById("authModal")
+        .classList
+        .add("open");
+
+}
+
+
+
+function fazerLogin() {
+
+
+    const email =
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const user =
+        getUser();
+
+
+    if(
+        !user ||
+        user.email !== email ||
+        user.password !== password
+    ) {
+
+        alert(
+            "E-mail ou senha incorretos."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "correSession",
+        "1"
+    );
+
+
+    fecharAuth();
+
+    abrirApp();
+
+}
+
+
+
+/* =====================================================
+   FECHAR LOGIN
+===================================================== */
+
+
+function fecharAuth() {
+
+    document
+        .getElementById("authModal")
+        .classList
+        .remove("open");
+
+}
+
+
+
+/* =====================================================
+   ABRIR APP
+===================================================== */
+
+
+function abrirApp() {
+
+
+    const user =
+        getUser();
+
+
+    if(!user) {
+
+        abrirCadastro();
+
+        return;
+
+    }
+
+
+    /*
+       Esconde a página pública
+    */
+
+    document
+        .querySelector("header")
+        .style
+        .display = "none";
+
+
+    document
+        .querySelectorAll(
+            "body > section:not(#correApp), body > footer"
+        )
+        .forEach(
+            element => {
+
+                element.style.display =
+                    "none";
+
+            }
+        );
+
+
+    document
+        .getElementById("correApp")
+        .style
+        .display = "block";
+
+
+    document
+        .getElementById("caTopName")
+        .textContent =
+        user.name;
+
+
+    document
+        .getElementById("caAvatar")
+        .textContent =
+        user.name
+        ? user.name[0].toUpperCase()
+        : "C";
+
+
+    document
+        .getElementById("caWelcome")
+        .textContent =
+        "Olá, " + user.name + ".";
+
+
+    document
+        .getElementById("caEdit")
+        .value =
+        user.name;
+
+
+    caStats();
+
+    caRenderLessons();
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+
+function caDrawer(open) {
+
+    document
+        .getElementById("caDrawer")
+        .classList
+        .toggle(
+            "open",
+            open
+        );
+
+}
+
+
+
+/* =====================================================
+   TROCAR TELA
+===================================================== */
+
+
+function caView(view) {
+
+
+    document
+        .querySelectorAll(".ca-view")
+        .forEach(
+            element => {
+
+                element
+                .classList
+                .remove("active");
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "ca-" + view
+        )
+        .classList
+        .add("active");
+
+
+    document
+        .querySelectorAll(".ca-nav")
+        .forEach(
+            element => {
+
+                element
+                .classList
+                .toggle(
+                    "active",
+                    element.dataset.ca === view
+                );
+
+            }
+        );
+
+
+    caDrawer(false);
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* =====================================================
+   AULAS
+===================================================== */
+
+
+function caRenderLessons() {
+
+
+    document
+        .getElementById("caLessons")
+        .innerHTML =
+
+
+        CALESSONS
+        .map(
+            (lesson,index) => `
+
+            <div
+                class="ca-card ca-lesson"
+                onclick="caLesson(${index})">
+
+                <div class="ca-num">
+
+                    ${lesson[0]}
+
+                </div>
+
+                <div>
+
+                    <b>
+                        ${lesson[1]}
+                    </b>
+
+                    <div
+                        class="ca-muted"
+                        style="font-size:12px">
+
+                        ${lesson[2]}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `
+        )
+        .join("");
+
+}
+
+
+
+/* =====================================================
+   ABRIR AULA
+===================================================== */
+
+
+function caLesson(index) {
+
+
+    const lesson =
+        CALESSONS[index];
+
+
+    document
+        .getElementById("caMN")
+        .textContent =
+        "AULA " + lesson[0];
+
+
+    document
+        .getElementById("caMT")
+        .textContent =
+        lesson[1];
+
+
+    document
+        .getElementById("caMD")
+        .textContent =
+        lesson[2];
+
+
+    document
+        .getElementById("caMB")
+        .textContent =
+        lesson[3];
+
+
+    caModal(true);
+
+}
+
+
+
+/* =====================================================
+   CONCLUIR AULA
+===================================================== */
+
+
+function concluirAula() {
+
+    const user =
+        getUser();
+
+
+    const numero =
+        document
+        .getElementById("caMN")
+        .textContent
+        .replace("AULA ","");
+
+
+    if(!user.lessons)
+        user.lessons = [];
+
+
+    if(
+        !user.lessons.includes(numero)
+    ) {
+
+        user.lessons.push(numero);
+
+    }
+
+
+    saveUser(user);
+
+
+    caModal(false);
+
+    caToast(
+        "Aula concluída! 👊"
+    );
+
+}
+
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+
+function caModal(open) {
+
+    document
+        .getElementById("caModal")
+        .classList
+        .toggle(
+            "open",
+            open
+        );
+
+}
+
+
+
+/* =====================================================
+   TREINO
+===================================================== */
+
+
+function caFinish() {
+
+
+    const user =
+        getUser();
+
+
+    user.workouts =
+        (user.workouts || 0) + 1;
+
+
+    user.distance =
+        (user.distance || 0) + 2.1;
+
+
+    saveUser(user);
+
+
+    caStats();
+
+
+    caToast(
+        "Treino registrado. Mandou bem! 👊"
+    );
+
+}
+
+
+
+/* =====================================================
+   ESTATÍSTICAS
+===================================================== */
+
+
+function caStats() {
+
+
+    const user =
+        getUser() || {};
+
+
+    const workouts =
+        user.workouts || 0;
+
+
+    const distance =
+        user.distance || 0;
+
+
+    const lessons =
+        user.lessons
+        ? user.lessons.length
+        : 0;
+
+
+    document
+        .getElementById("caW")
+        .textContent =
+        workouts;
+
+
+    document
+        .getElementById("caPW")
+        .textContent =
+        workouts;
+
+
+    document
+        .getElementById("caD")
+        .textContent =
+        distance
+        .toFixed(1)
+        .replace(".",",")
+        + " km";
+
+
+    document
+        .getElementById("caPD")
+        .textContent =
+        document
+        .getElementById("caD")
+        .textContent;
+
+
+    const lessonNumber =
+        document
+        .querySelector(
+            "#ca-progress .ca-stats .ca-stat:nth-child(3) strong"
+        );
+
+
+    if(lessonNumber) {
+
+        lessonNumber.textContent =
+            lessons + "/20";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PERFIL
+===================================================== */
+
+
+function caSave() {
+
+
+    const user =
+        getUser();
+
+
+    const name =
+        document
+        .getElementById("caEdit")
+        .value
+        .trim();
+
+
+    if(!name)
+        return;
+
+
+    user.name =
+        name;
+
+
+    saveUser(user);
+
+
+    document
+        .getElementById("caTopName")
+        .textContent =
+        user.name;
+
+
+    document
+        .getElementById("caAvatar")
+        .textContent =
+        user.name[0]
+        .toUpperCase();
+
+
+    document
+        .getElementById("caWelcome")
+        .textContent =
+        "Olá, " + user.name + ".";
+
+
+    caToast(
+        "Perfil atualizado."
+    );
+
+}
+
+
+
+/* =====================================================
+   COACH
+===================================================== */
+
+
+function caSend() {
+
+
+    const input =
+        document
+        .getElementById("caChat");
+
+
+    const text =
+        input.value.trim();
+
+
+    if(!text)
+        return;
+
+
+    const msgs =
+        document
+        .getElementById("caMsgs");
+
+
+    msgs.innerHTML += `
+
+        <div class="ca-msg ca-me">
+
+            ${caSafe(text)}
+
+        </div>
+
+    `;
+
+
+    let response;
+
+
+    if(
+        /dor no peito|desmaio|tontura|falta de ar/i
+        .test(text)
+    ) {
+
+        response =
+        "Se houver esses sintomas, pare a atividade e procure avaliação profissional. Segurança vem primeiro.";
+
+    }
+
+    else if(
+        /cansad|exaust|sono/i
+        .test(text)
+    ) {
+
+        response =
+        "Se estiver muito cansado, reduza a intensidade ou priorize recuperação. Consistência vem antes de heroísmo.";
+
+    }
+
+    else if(
+        /corr|treino|pace|correr/i
+        .test(text)
+    ) {
+
+        response =
+        "Boa! Para quem está começando, o mais importante é controlar o esforço e manter constância. Me conte quanto tempo você correu e como se sentiu.";
+
+    }
+
+    else {
+
+        response =
+        "Boa. Me conte como foi seu último treino e como está sua recuperação.";
+
+    }
+
+
+    setTimeout(
+        () => {
+
+            msgs.innerHTML += `
+
+                <div class="ca-msg ca-bot">
+
+                    ${response}
+
+                </div>
+
+            `;
+
+
+            msgs.scrollTop =
+                msgs.scrollHeight;
+
+        },
+        300
+    );
+
+
+    input.value = "";
+
+}
+
+
+
+/* =====================================================
+   SEGURANÇA DO CHAT
+===================================================== */
+
+
+function caSafe(text) {
+
+    return text.replace(
+        /[&<>"']/g,
+        character => ({
+
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+
+        }[character])
+    );
+
+}
+
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+
+function caToast(text) {
+
+
+    const toast =
+        document
+        .getElementById("caToast");
+
+
+    toast.textContent =
+        text;
+
+
+    toast.style.display =
+        "block";
+
+
+    setTimeout(
+        () => {
+
+            toast.style.display =
+                "none";
+
+        },
+        2200
+    );
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+
+function caLogout() {
+
+
+    localStorage.removeItem(
+        "correSession"
+    );
+
+
+    document
+        .getElementById("correApp")
+        .style
+        .display = "none";
+
+
+    document
+        .querySelector("header")
+        .style
+        .display = "";
+
+
+    document
+        .querySelectorAll(
+            "body > section:not(#correApp), body > footer"
+        )
+        .forEach(
+            element => {
+
+                element.style.display =
+                    "";
+
+            }
+        );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+
+    caToast(
+        "Você saiu da sua conta."
+    );
+
+}
+
+
+
+/* =====================================================
+   MENU MOBILE DA LANDING
+===================================================== */
+
+
+function toggleMenu() {
+
+
+    const menu =
+        document.querySelector(".menu");
+
+
+    if(
+        menu.style.display === "flex"
+    ) {
+
+        menu.style.display =
+            "";
+
+    }
+
+    else {
+
+        menu.style.display =
+            "flex";
+
+        menu.style.position =
+            "absolute";
+
+        menu.style.top =
+            "75px";
+
+        menu.style.left =
+            "0";
+
+        menu.style.right =
+            "0";
+
+        menu.style.background =
+            "#080909";
+
+        menu.style.flexDirection =
+            "column";
+
+        menu.style.padding =
+            "20px";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SESSÃO AUTOMÁTICA
+===================================================== */
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+
+        if(
+            localStorage.getItem(
+                "correSession"
+            ) === "1"
+            &&
+            getUser()
+        ) {
+
+            abrirApp();
+
+        }
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
