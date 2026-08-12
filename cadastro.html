@@ -59,19 +59,14 @@
         :root {
 
             --green: #A3FF12;
-
             --green-dark: #78c400;
 
             --black: #080808;
-
             --dark: #101010;
-
             --dark-2: #151515;
-
             --dark-3: #1d1d1d;
 
             --gray: #888;
-
             --white: #fff;
 
             --border: #292929;
@@ -91,6 +86,7 @@
             font-family: "Poppins", sans-serif;
 
             background:
+
                 radial-gradient(
                     circle at 80% 20%,
                     rgba(163, 255, 18, .10),
@@ -360,6 +356,53 @@
 
 
         /* =====================================================
+           MENSAGEM
+        ===================================================== */
+
+        .message {
+
+            display: none;
+
+            padding: 12px 14px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: rgba(255,60,60,.08);
+
+            border: 1px solid rgba(255,60,60,.25);
+
+            color: #ff8585;
+
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background: rgba(163,255,18,.08);
+
+            border: 1px solid rgba(163,255,18,.25);
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
            CAMPOS
         ===================================================== */
 
@@ -516,6 +559,8 @@
 
             cursor: pointer;
 
+            flex-shrink: 0;
+
         }
 
 
@@ -535,6 +580,15 @@
         .terms a {
 
             color: var(--green);
+
+            font-weight: 600;
+
+        }
+
+
+        .terms a:hover {
+
+            text-decoration: underline;
 
         }
 
@@ -576,7 +630,7 @@
         }
 
 
-        .btn-submit:hover {
+        .btn-submit:hover:not(:disabled) {
 
             transform: translateY(-2px);
 
@@ -586,9 +640,38 @@
         }
 
 
-        .btn-submit:active {
+        .btn-submit:active:not(:disabled) {
 
             transform: translateY(0);
+
+        }
+
+
+        .btn-submit:disabled {
+
+            background: #343434;
+
+            color: #666;
+
+            cursor: not-allowed;
+
+            box-shadow: none;
+
+            transform: none;
+
+        }
+
+
+        .btn-submit i {
+
+            transition: .25s;
+
+        }
+
+
+        .btn-submit:hover:not(:disabled) i {
+
+            transform: translateX(4px);
 
         }
 
@@ -676,53 +759,6 @@
             color: #666;
 
             font-size: 9px;
-
-        }
-
-
-        /* =====================================================
-           MENSAGEM
-        ===================================================== */
-
-        .message {
-
-            display: none;
-
-            padding: 12px 14px;
-
-            margin-bottom: 18px;
-
-            border-radius: 10px;
-
-            font-size: 12px;
-
-            line-height: 1.5;
-
-        }
-
-
-        .message.error {
-
-            display: block;
-
-            background: rgba(255,60,60,.08);
-
-            border: 1px solid rgba(255,60,60,.25);
-
-            color: #ff8585;
-
-        }
-
-
-        .message.success {
-
-            display: block;
-
-            background: rgba(163,255,18,.08);
-
-            border: 1px solid rgba(163,255,18,.25);
-
-            color: var(--green);
 
         }
 
@@ -824,6 +860,29 @@
 
         }
 
+
+        /* =====================================================
+           ACESSIBILIDADE
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+            *,
+            *::before,
+            *::after {
+
+                transition-duration: 0.01ms !important;
+
+            }
+
+        }
+
     </style>
 
 </head>
@@ -842,7 +901,6 @@
     <header>
 
         <div class="header-content">
-
 
             <a
                 href="index.html"
@@ -869,7 +927,6 @@
 
             </a>
 
-
         </div>
 
     </header>
@@ -882,12 +939,10 @@
 
     <main class="signup-area">
 
-
         <div class="signup-container">
 
 
             <div class="signup-header">
-
 
                 <div class="signup-icon">
 
@@ -911,7 +966,6 @@
                     Projeto Corre.
 
                 </p>
-
 
             </div>
 
@@ -1011,6 +1065,10 @@
 
                         </div>
 
+                    </div>
+
+
+
                     <!-- CONFIRMAR SENHA -->
 
                     <div class="form-group">
@@ -1032,151 +1090,52 @@
                                 required>
 
                         </div>
-                        <!-- =====================================================
-     TERMOS DE USO
-===================================================== -->
-
-<div class="terms">
-
-    <input
-        type="checkbox"
-        id="aceiteTermos"
-        required>
-
-    <label for="aceiteTermos">
-
-        Li e concordo com os
-
-        <a
-            href="termos-de-uso.html"
-            target="_blank"
-            rel="noopener noreferrer">
-            Termos de Uso
-        </a>
-
-        e estou ciente das condições apresentadas.
-
-    </label>
-
-</div>
-<!-- =====================================================
-     BOTÃO
-===================================================== -->
-
-<button
-    type="submit"
-    class="btn-submit"
-    id="btnSubmit"
-    disabled>
-
-    Criar minha conta
-
-    <i class="fa-solid fa-arrow-right"></i>
-
-</button>
-<style>
-    .termos-container {
-        width: 100%;
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        font-family: Arial, sans-serif;
-    }
-
-    .link-termos {
-        display: block;
-        margin-bottom: 25px;
-        color: #e9e2e2;
-        font-weight: 900;
-        text-decoration: underline;
-    }
-
-    .aceite-termos {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 14px;
-        line-height: 1.5;
-        color: #333;
-        cursor: pointer;
-    }
-
-    .aceite-termos input {
-        width: 18px;
-        height: 18px;
-        margin-top: 2px;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
-
-    .aceite-termos a {
-        color: #111;
-        font-weight: 600;
-    }
-
-    #btnContinuar {
-        width: 100%;
-        margin-top: 20px;
-        padding: 13px;
-        border: none;
-        border-radius: 8px;
-        background: #111;
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    #btnContinuar:disabled {
-        background: #ccc;
-        cursor: not-allowed;
-    }
-
-    #btnContinuar:not(:disabled):hover {
-        background: #333;
-    }
-</style>
-
-<script>
-    const aceiteTermos = document.getElementById("aceiteTermos");
-    const btnContinuar = document.getElementById("btnContinuar");
-
-    aceiteTermos.addEventListener("change", function () {
-
-        if (this.checked) {
-            btnContinuar.disabled = false;
-        } else {
-            btnContinuar.disabled = true;
-        }
-
-    });
-
-    btnContinuar.addEventListener("click", function () {
-
-        if (!aceiteTermos.checked) {
-            return;
-        }
-
-        // COLOQUE AQUI A PÁGINA PARA ONDE O USUÁRIO DEVE IR
-
-        window.location.href = "proxima-pagina.html";
-
-    });
-</script>
 
                     </div>
 
 
 
-                    <!-- BOTÃO -->
+                    <!-- =====================================================
+                         TERMOS DE USO
+                    ===================================================== -->
+
+                    <div class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="aceiteTermos"
+                            required>
+
+                        <label for="aceiteTermos">
+
+                            Li e concordo com os
+
+                            <a
+                                href="termos-de-uso.html"
+                                target="_blank"
+                                rel="noopener noreferrer">
+
+                                Termos de Uso
+
+                            </a>
+
+                            e estou ciente das condições apresentadas.
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- =====================================================
+                         BOTÃO
+                    ===================================================== -->
 
                     <button
                         type="submit"
-                        class="btn-submit">
+                        class="btn-submit"
+                        id="btnSubmit"
+                        disabled>
 
                         Criar minha conta
 
@@ -1188,6 +1147,7 @@
                 </form>
 
 
+
                 <!-- LOGIN -->
 
                 <div class="login-link">
@@ -1195,7 +1155,9 @@
                     Já possui uma conta?
 
                     <a href="login.html">
+
                         Entrar
+
                     </a>
 
                 </div>
@@ -1205,7 +1167,9 @@
 
 
 
-            <!-- MINI BENEFÍCIOS -->
+            <!-- =====================================================
+                 MINI BENEFÍCIOS
+            ===================================================== -->
 
             <div class="mini-benefits">
 
@@ -1266,21 +1230,246 @@
 
 </div>
 
-<script src="script.js"></script>
-const aceiteTermos = document.getElementById("aceiteTermos");
-const btnSubmit = document.getElementById("btnSubmit");
-
-if (aceiteTermos && btnSubmit) {
-
-    aceiteTermos.addEventListener("change", function () {
-
-        btnSubmit.disabled = !this.checked;
-
-    });
-
-}
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =====================================================
+       ELEMENTOS
+    ===================================================== */
+
+    const signupForm =
+        document.getElementById("signupForm");
+
+    const aceiteTermos =
+        document.getElementById("aceiteTermos");
+
+    const btnSubmit =
+        document.getElementById("btnSubmit");
+
+    const password =
+        document.getElementById("password");
+
+    const confirmPassword =
+        document.getElementById("confirmPassword");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const message =
+        document.getElementById("message");
+
+
+    /* =====================================================
+       ACEITE DOS TERMOS
+    ===================================================== */
+
+    function atualizarBotao() {
+
+        btnSubmit.disabled =
+            !aceiteTermos.checked;
+
+    }
+
+
+    aceiteTermos.addEventListener(
+        "change",
+        atualizarBotao
+    );
+
+
+    /* =====================================================
+       MOSTRAR / OCULTAR SENHA
+    ===================================================== */
+
+    togglePassword.addEventListener(
+        "click",
+        function () {
+
+            const tipoAtual =
+                password.type === "password"
+                    ? "text"
+                    : "password";
+
+
+            password.type =
+                tipoAtual;
+
+            confirmPassword.type =
+                tipoAtual;
+
+
+            const icon =
+                this.querySelector("i");
+
+
+            if (tipoAtual === "text") {
+
+                icon.classList.remove(
+                    "fa-eye"
+                );
+
+                icon.classList.add(
+                    "fa-eye-slash"
+                );
+
+                this.setAttribute(
+                    "aria-label",
+                    "Ocultar senha"
+                );
+
+            } else {
+
+                icon.classList.remove(
+                    "fa-eye-slash"
+                );
+
+                icon.classList.add(
+                    "fa-eye"
+                );
+
+                this.setAttribute(
+                    "aria-label",
+                    "Mostrar senha"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
+    signupForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /* LIMPA MENSAGEM */
+
+            message.className =
+                "message";
+
+            message.textContent =
+                "";
+
+
+            /* VERIFICA TERMOS */
+
+            if (!aceiteTermos.checked) {
+
+                message.textContent =
+                    "Você precisa aceitar os Termos de Uso para continuar.";
+
+                message.classList.add(
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* VERIFICA SENHAS */
+
+            if (password.value.length < 6) {
+
+                message.textContent =
+                    "A senha precisa ter pelo menos 6 caracteres.";
+
+                message.classList.add(
+                    "error"
+                );
+
+                password.focus();
+
+                return;
+
+            }
+
+
+            if (
+                password.value !==
+                confirmPassword.value
+            ) {
+
+                message.textContent =
+                    "As senhas não coincidem.";
+
+                message.classList.add(
+                    "error"
+                );
+
+                confirmPassword.focus();
+
+                return;
+
+            }
+
+
+            /* VERIFICA NOME */
+
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+            if (name.length < 3) {
+
+                message.textContent =
+                    "Digite seu nome completo.";
+
+                message.classList.add(
+                    "error"
+                );
+
+                document
+                    .getElementById("name")
+                    .focus();
+
+                return;
+
+            }
+
+
+            /* =================================================
+               AQUI ENTRA O CADASTRO REAL
+               
+               Por enquanto apenas mostra uma mensagem.
+               Depois podemos conectar ao Supabase.
+            ================================================= */
+
+            message.textContent =
+                "Cadastro validado com sucesso!";
+
+            message.classList.add(
+                "success"
+            );
+
+
+            /*
+             * Exemplo para futuramente redirecionar:
+             *
+             * window.location.href = "dashboard.html";
+             */
+
+
+        }
+    );
+
+
+</script>
 
 
 </body>
