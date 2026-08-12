@@ -2,963 +2,486 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#A3FF12">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Projeto Corre | Painel</title>
 
-    <!-- GOOGLE FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- FONT AWESOME -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
 
-        /* =====================================================
-           RESET
-        ===================================================== */
-
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         :root {
             --green: #A3FF12;
-            --green-dark: #78c400;
-
             --black: #080808;
             --dark: #101010;
-            --dark-2: #151515;
-            --dark-3: #1d1d1d;
-
-            --gray: #777;
-            --white: #fff;
-
+            --dark2: #151515;
             --border: #292929;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --gray: #888;
+            --white: #fff;
         }
 
         body {
             min-height: 100vh;
-
-            font-family: "Poppins", sans-serif;
-
-            background:
-                radial-gradient(
-                    circle at 85% 10%,
-                    rgba(163,255,18,.08),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 5% 90%,
-                    rgba(163,255,18,.04),
-                    transparent 30%
-                ),
-
-                var(--black);
-
-            color: var(--white);
-
-            overflow-x: hidden;
+            background: var(--black);
+            color: white;
+            font-family: Poppins, sans-serif;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
-        button {
-            font-family: inherit;
-        }
-
-
-        /* =====================================================
-           LAYOUT
-        ===================================================== */
-
-        .app {
-            min-height: 100vh;
-
+        .layout {
             display: flex;
+            min-height: 100vh;
         }
-
-
-        /* =====================================================
-           SIDEBAR
-        ===================================================== */
 
         .sidebar {
-
             width: 250px;
-
-            min-height: 100vh;
-
+            background: #0d0d0d;
+            border-right: 1px solid var(--border);
+            padding: 25px 15px;
             position: fixed;
-
             left: 0;
             top: 0;
-
-            padding: 25px 16px;
-
-            background: rgba(12,12,12,.97);
-
-            border-right: 1px solid #202020;
-
-            z-index: 100;
+            bottom: 0;
         }
 
-
-        /* LOGO */
-
         .logo {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            padding: 8px 12px 30px;
-
-            font-size: 20px;
-
-            font-weight: 700;
+            font-size: 21px;
+            font-weight: 800;
+            padding: 10px 15px 35px;
         }
 
         .logo i {
             color: var(--green);
-
-            font-size: 25px;
+            margin-right: 8px;
         }
 
-        .logo strong {
+        .logo span {
             color: var(--green);
         }
 
-
-        /* MENU */
-
-        .menu-title {
-
-            padding: 0 12px;
-
-            margin-bottom: 10px;
-
-            color: #444;
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1.5px;
-        }
-
-        .menu {
-
+        .sidebar nav {
             display: flex;
-
             flex-direction: column;
-
-            gap: 5px;
+            gap: 7px;
         }
 
-        .menu a {
-
+        .sidebar nav a {
             display: flex;
-
             align-items: center;
-
             gap: 13px;
-
-            padding: 13px 14px;
-
-            border-radius: 11px;
-
+            padding: 14px;
+            border-radius: 12px;
             color: #777;
-
             font-size: 13px;
-
-            transition: .25s;
-        }
-
-        .menu a i {
-
-            width: 18px;
-
-            text-align: center;
-
-            font-size: 15px;
-        }
-
-        .menu a:hover {
-
-            background: #181818;
-
-            color: white;
-        }
-
-        .menu a.active {
-
-            background: rgba(163,255,18,.09);
-
-            color: var(--green);
-
-            border: 1px solid rgba(163,255,18,.12);
-        }
-
-
-        /* PERFIL SIDEBAR */
-
-        .sidebar-bottom {
-
-            position: absolute;
-
-            left: 16px;
-            right: 16px;
-
-            bottom: 20px;
-
-            padding-top: 18px;
-
-            border-top: 1px solid #202020;
-        }
-
-        .profile-mini {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            padding: 8px;
-        }
-
-        .profile-avatar {
-
-            width: 38px;
-            height: 38px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--green);
-
-            color: #080808;
-
-            font-weight: 800;
-        }
-
-        .profile-info {
-
-            min-width: 0;
-        }
-
-        .profile-info strong {
-
-            display: block;
-
-            font-size: 11px;
-
-            white-space: nowrap;
-
-            overflow: hidden;
-
-            text-overflow: ellipsis;
-        }
-
-        .profile-info span {
-
-            display: block;
-
-            color: #555;
-
-            font-size: 9px;
-        }
-
-
-        /* =====================================================
-           MAIN
-        ===================================================== */
-
-        .main {
-
-            width: calc(100% - 250px);
-
-            margin-left: 250px;
-
-            min-height: 100vh;
-
-            padding: 35px 45px;
-        }
-
-
-        /* =====================================================
-           TOPBAR
-        ===================================================== */
-
-        .topbar {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-bottom: 35px;
-        }
-
-        .page-title h1 {
-
-            font-size: 27px;
-
-            letter-spacing: -.7px;
-
-            margin-bottom: 4px;
-        }
-
-        .page-title p {
-
-            color: #666;
-
-            font-size: 12px;
-        }
-
-        .top-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-        }
-
-        .notification {
-
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 11px;
-
-            background: #111;
-
-            border: 1px solid #252525;
-
-            color: #777;
-
-            cursor: pointer;
-
             transition: .2s;
         }
 
-        .notification:hover {
-
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
             color: var(--green);
-
-            border-color: rgba(163,255,18,.3);
+            background: rgba(163,255,18,.08);
         }
 
-
-        /* =====================================================
-           WELCOME
-        ===================================================== */
-
-        .welcome {
-
-            position: relative;
-
-            overflow: hidden;
-
-            padding: 30px;
-
-            margin-bottom: 25px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #181818,
-                    #0d0d0d
-                );
-
-            border: 1px solid #272727;
+        .sidebar nav i {
+            width: 18px;
         }
 
-        .welcome::after {
-
-            content: "";
-
+        .logout {
             position: absolute;
-
-            width: 200px;
-            height: 200px;
-
-            right: -70px;
-            top: -80px;
-
-            border-radius: 50%;
-
-            background: rgba(163,255,18,.07);
+            bottom: 25px;
+            left: 15px;
+            right: 15px;
         }
 
-        .welcome small {
-
-            color: var(--green);
-
-            font-size: 10px;
-
-            font-weight: 700;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-        .welcome h2 {
-
-            margin-top: 7px;
-
-            font-size: 25px;
-        }
-
-        .welcome p {
-
-            max-width: 600px;
-
-            margin-top: 8px;
-
+        .logout button {
+            width: 100%;
+            border: 0;
+            background: transparent;
             color: #777;
-
-            font-size: 12px;
-
-            line-height: 1.7;
+            padding: 14px;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 12px;
         }
 
+        .logout button:hover {
+            color: #ff6464;
+            background: rgba(255,50,50,.08);
+        }
 
-        /* =====================================================
-           CARDS
-        ===================================================== */
+        main {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 35px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .topbar h1 {
+            font-size: 27px;
+        }
+
+        .topbar p {
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--green);
+        }
+
+        .profile strong {
+            font-size: 12px;
+        }
+
+        .profile small {
+            display: block;
+            color: #666;
+            font-size: 10px;
+        }
+
+        .hero {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background:
+                radial-gradient(
+                    circle at right,
+                    rgba(163,255,18,.12),
+                    transparent 40%
+                ),
+                #111;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #777;
+            font-size: 12px;
+        }
+
+        .green {
+            color: var(--green);
+        }
 
         .cards {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4,1fr);
             gap: 15px;
-
-            margin-bottom: 25px;
         }
 
         .card {
-
-            padding: 20px;
-
             background: #111;
-
-            border: 1px solid #242424;
-
-            border-radius: 16px;
-
-            transition: .25s;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            transition: .2s;
         }
 
         .card:hover {
-
             transform: translateY(-3px);
-
-            border-color: #333;
+            border-color: rgba(163,255,18,.3);
         }
 
-        .card-icon {
-
-            width: 40px;
-            height: 40px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            margin-bottom: 14px;
-
-            border-radius: 11px;
-
-            background: rgba(163,255,18,.08);
-
+        .card i {
             color: var(--green);
+            font-size: 20px;
+            margin-bottom: 15px;
         }
 
-        .card span {
+        .card h3 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
 
-            display: block;
-
-            color: #555;
-
+        .card p {
+            color: #666;
             font-size: 10px;
-
-            margin-bottom: 5px;
+            line-height: 1.6;
         }
 
-        .card strong {
-
-            font-size: 21px;
-        }
-
-
-        /* =====================================================
-           GRID PRINCIPAL
-        ===================================================== */
-
-        .dashboard-grid {
-
+        .quick {
+            margin-top: 25px;
             display: grid;
-
-            grid-template-columns:
-                1.4fr
-                1fr;
-
-            gap: 20px;
+            grid-template-columns: 2fr 1fr;
+            gap: 15px;
         }
 
         .panel {
-
-            padding: 23px;
-
             background: #111;
-
-            border: 1px solid #242424;
-
+            border: 1px solid var(--border);
             border-radius: 18px;
+            padding: 25px;
         }
 
-        .panel-header {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-bottom: 20px;
-        }
-
-        .panel-header h3 {
-
-            font-size: 14px;
-        }
-
-        .panel-header a {
-
-            color: var(--green);
-
-            font-size: 10px;
-        }
-
-
-        /* =====================================================
-           TREINO
-        ===================================================== */
-
-        .training {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            padding: 15px;
-
-            margin-bottom: 10px;
-
-            border-radius: 12px;
-
-            background: #161616;
-
-            border: 1px solid #202020;
-        }
-
-        .training-icon {
-
-            width: 42px;
-            height: 42px;
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 11px;
-
-            background: rgba(163,255,18,.08);
-
-            color: var(--green);
-        }
-
-        .training-info {
-
-            flex: 1;
-        }
-
-        .training-info strong {
-
-            display: block;
-
-            font-size: 12px;
-
-            margin-bottom: 3px;
-        }
-
-        .training-info span {
-
-            color: #555;
-
-            font-size: 9px;
-        }
-
-        .training-status {
-
-            padding: 5px 8px;
-
-            border-radius: 6px;
-
-            background: rgba(163,255,18,.08);
-
-            color: var(--green);
-
-            font-size: 8px;
-
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           PROGRESSO
-        ===================================================== */
-
-        .progress-item {
-
+        .panel h3 {
             margin-bottom: 18px;
+            font-size: 15px;
         }
 
-        .progress-top {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-bottom: 7px;
+        .progress {
+            height: 10px;
+            background: #222;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 15px;
         }
 
-        .progress-top span {
-
-            color: #777;
-
-            font-size: 10px;
+        .fill {
+            width: 0;
+            height: 100%;
+            background: var(--green);
+            transition: 1s;
         }
 
-        .progress-top strong {
+        .links {
+            display: grid;
+            gap: 10px;
+        }
 
-            font-size: 10px;
+        .links a {
+            padding: 13px;
+            border-radius: 10px;
+            background: #171717;
+            color: #aaa;
+            font-size: 12px;
+        }
 
+        .links a:hover {
             color: var(--green);
         }
 
-        .progress-bar {
-
-            width: 100%;
-
-            height: 7px;
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            background: #202020;
-        }
-
-        .progress-fill {
-
-            height: 100%;
-
-            border-radius: 20px;
-
-            background: var(--green);
-        }
-
-
-        /* =====================================================
-           RESPONSIVO
-        ===================================================== */
-
-        @media (max-width: 1000px) {
-
-            .cards {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .dashboard-grid {
-
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media (max-width: 700px) {
+        @media(max-width:900px) {
 
             .sidebar {
-
-                width: 70px;
-
-                padding: 20px 8px;
+                width: 75px;
             }
 
-            .logo {
-
-                justify-content: center;
-
-                padding: 8px 0 30px;
-            }
-
-            .logo span {
-
+            .logo span,
+            .sidebar nav span,
+            .logout span {
                 display: none;
             }
 
-            .menu-title {
-
-                display: none;
-            }
-
-            .menu a {
-
-                justify-content: center;
-
-                padding: 13px;
-            }
-
-            .menu a span {
-
-                display: none;
-            }
-
-            .sidebar-bottom {
-
-                left: 8px;
-                right: 8px;
-            }
-
-            .profile-mini {
-
+            .sidebar nav a {
                 justify-content: center;
             }
 
-            .profile-info {
-
-                display: none;
+            .logout button {
+                text-align: center;
             }
 
-            .main {
-
-                width: calc(100% - 70px);
-
-                margin-left: 70px;
-
-                padding: 25px 18px;
+            main {
+                margin-left: 75px;
+                width: calc(100% - 75px);
             }
 
             .cards {
-
-                grid-template-columns: 1fr 1fr;
-
-                gap: 10px;
+                grid-template-columns: repeat(2,1fr);
             }
 
-            .card {
-
-                padding: 15px;
-            }
-
-            .welcome {
-
-                padding: 23px;
-            }
         }
 
+        @media(max-width:600px) {
 
-        @media (max-width: 450px) {
+            main {
+                padding: 20px 15px;
+            }
 
-            .cards {
+            .topbar {
+                align-items: flex-start;
+            }
 
+            .profile div {
+                display: none;
+            }
+
+            .cards,
+            .quick {
                 grid-template-columns: 1fr;
             }
 
-            .page-title h1 {
-
-                font-size: 22px;
-            }
-
-            .welcome h2 {
-
-                font-size: 21px;
-            }
         }
 
     </style>
 
 </head>
 
-
 <body>
 
-
-<div class="app">
-
-
-    <!-- =====================================================
-         SIDEBAR
-    ===================================================== -->
+<div class="layout">
 
     <aside class="sidebar">
 
-
-        <!-- LOGO -->
-
-        <a href="painel.html" class="logo">
+        <div class="logo">
 
             <i class="fa-solid fa-person-running"></i>
 
-            <span>
-                Projeto <strong>Corre</strong>
-            </span>
+            Projeto <span>Corre</span>
 
-        </a>
-
-
-        <!-- MENU -->
-
-        <div class="menu-title">
-            Menu principal
         </div>
 
-
-        <nav class="menu">
+        <nav>
 
             <a
                 href="painel.html"
-                class="active">
+                data-page="painel.html">
 
                 <i class="fa-solid fa-house"></i>
 
-                <span>
-                    Início
-                </span>
+                <span>Painel</span>
 
             </a>
 
+            <a
+                href="treinos.html"
+                data-page="treinos.html">
 
-            <a href="treinos.html">
+                <i class="fa-solid fa-dumbbell"></i>
 
-                <i class="fa-solid fa-person-running"></i>
-
-                <span>
-                    Treinos
-                </span>
+                <span>Treinos</span>
 
             </a>
 
-
-            <a href="aulas.html">
+            <a
+                href="aulas.html"
+                data-page="aulas.html">
 
                 <i class="fa-solid fa-graduation-cap"></i>
 
-                <span>
-                    Aulas
-                </span>
+                <span>Aulas</span>
 
             </a>
 
-
-            <a href="evolucao.html">
+            <a
+                href="evolucao.html"
+                data-page="evolucao.html">
 
                 <i class="fa-solid fa-chart-line"></i>
 
-                <span>
-                    Evolução
-                </span>
+                <span>Evolução</span>
 
             </a>
 
-
-            <a href="perfil.html">
+            <a
+                href="perfil.html"
+                data-page="perfil.html">
 
                 <i class="fa-solid fa-user"></i>
 
-                <span>
-                    Perfil
-                </span>
+                <span>Perfil</span>
 
             </a>
 
         </nav>
 
+        <div class="logout">
 
-        <!-- PERFIL -->
+            <button id="logoutButton">
 
-        <div class="sidebar-bottom">
+                <i class="fa-solid fa-right-from-bracket"></i>
 
-            <a
-                href="perfil.html"
-                class="profile-mini">
+                <span>Sair</span>
 
-                <div class="profile-avatar">
-                    U
-                </div>
+            </button>
 
-                <div class="profile-info">
+        </div>
 
-                    <strong id="sidebarName">
-                        Usuário
-                    </strong>
+    </aside>
 
-                    <span>
-                        Meu perfil
+
+    <main>
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+
+                    Olá,
+                    <span
+                        class="green"
+                        data-user-name>
                     </span>
+                    👋
+
+                </h1>
+
+                <p>
+                    Pronto para mais um dia de evolução?
+                </p>
+
+            </div>
+
+            <a href="perfil.html">
+
+                <div class="profile">
+
+                    <img
+                        data-user-avatar
+                        alt="Foto do usuário">
+
+                    <div>
+
+                        <strong
+                            data-user-name>
+                        </strong>
+
+                        <small>
+                            Corredor
+                        </small>
+
+                    </div>
 
                 </div>
 
@@ -967,418 +490,129 @@
         </div>
 
 
-    </aside>
-
-
-
-    <!-- =====================================================
-         CONTEÚDO
-    ===================================================== -->
-
-    <main class="main">
-
-
-        <!-- TOPBAR -->
-
-        <div class="topbar">
-
-            <div class="page-title">
-
-                <h1>
-                    Painel
-                </h1>
-
-                <p>
-                    Acompanhe sua jornada de corrida.
-                </p>
-
-            </div>
-
-
-            <div class="top-actions">
-
-                <button
-                    class="notification"
-                    title="Notificações">
-
-                    <i class="fa-regular fa-bell"></i>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =================================================
-             BOAS-VINDAS
-        ================================================= -->
-
-        <section class="welcome">
-
-            <small>
-                Projeto Corre
-            </small>
+        <section class="hero">
 
             <h2>
-                Fala, <span id="userName">corredor</span>! 👋
+                Sua jornada começa <span class="green">agora.</span>
             </h2>
 
             <p>
-                Cada quilômetro conta. Mantenha o ritmo,
-                siga seus treinos e continue evoluindo.
+                Acompanhe seus treinos, suas aulas e sua evolução em um só lugar.
             </p>
 
         </section>
 
 
-
-        <!-- =================================================
-             CARDS
-        ================================================= -->
-
         <section class="cards">
 
+            <a href="treinos.html" class="card">
 
-            <div class="card">
+                <i class="fa-solid fa-person-running"></i>
 
-                <div class="card-icon">
+                <h3>Treinos</h3>
 
-                    <i class="fa-solid fa-person-running"></i>
+                <p>
+                    Veja seus próximos treinos e mantenha sua rotina.
+                </p>
 
-                </div>
-
-                <span>
-                    Distância total
-                </span>
-
-                <strong>
-                    0 km
-                </strong>
-
-            </div>
+            </a>
 
 
-            <div class="card">
+            <a href="aulas.html" class="card">
 
-                <div class="card-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
 
-                    <i class="fa-solid fa-stopwatch"></i>
+                <h3>Aulas</h3>
 
-                </div>
+                <p>
+                    Aprenda técnicas para melhorar sua corrida.
+                </p>
 
-                <span>
-                    Tempo corrido
-                </span>
-
-                <strong>
-                    0h
-                </strong>
-
-            </div>
+            </a>
 
 
-            <div class="card">
+            <a href="evolucao.html" class="card">
 
-                <div class="card-icon">
+                <i class="fa-solid fa-chart-line"></i>
 
-                    <i class="fa-solid fa-fire"></i>
+                <h3>Evolução</h3>
 
-                </div>
+                <p>
+                    Acompanhe seus quilômetros e resultados.
+                </p>
 
-                <span>
-                    Treinos realizados
-                </span>
-
-                <strong>
-                    0
-                </strong>
-
-            </div>
+            </a>
 
 
-            <div class="card">
+            <a href="perfil.html" class="card">
 
-                <div class="card-icon">
+                <i class="fa-solid fa-user"></i>
 
-                    <i class="fa-solid fa-medal"></i>
+                <h3>Perfil</h3>
 
-                </div>
+                <p>
+                    Consulte e atualize seus dados.
+                </p>
 
-                <span>
-                    Melhor ritmo
-                </span>
-
-                <strong>
-                    --
-                </strong>
-
-            </div>
-
+            </a>
 
         </section>
 
 
-
-        <!-- =================================================
-             GRID
-        ================================================= -->
-
-        <section class="dashboard-grid">
-
-
-            <!-- PRÓXIMOS TREINOS -->
+        <section class="quick">
 
             <div class="panel">
 
-                <div class="panel-header">
+                <h3>
+                    Meta semanal
+                </h3>
 
-                    <h3>
-                        Próximos treinos
-                    </h3>
+                <p style="color:#777;font-size:12px;">
+                    0 km de 5 km
+                </p>
+
+                <div class="progress">
+
+                    <div
+                        class="fill"
+                        style="width:0%">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>
+                    Acesso rápido
+                </h3>
+
+                <div class="links">
 
                     <a href="treinos.html">
-                        Ver todos
+                        <i class="fa-solid fa-play"></i>
+                        Começar treino
                     </a>
-
-                </div>
-
-
-                <div class="training">
-
-                    <div class="training-icon">
-
-                        <i class="fa-solid fa-person-running"></i>
-
-                    </div>
-
-                    <div class="training-info">
-
-                        <strong>
-                            Corrida leve
-                        </strong>
-
-                        <span>
-                            30 minutos · Ritmo confortável
-                        </span>
-
-                    </div>
-
-                    <div class="training-status">
-                        PRÓXIMO
-                    </div>
-
-                </div>
-
-
-                <div class="training">
-
-                    <div class="training-icon">
-
-                        <i class="fa-solid fa-bolt"></i>
-
-                    </div>
-
-                    <div class="training-info">
-
-                        <strong>
-                            Treino intervalado
-                        </strong>
-
-                        <span>
-                            5 × 400m · Ritmo forte
-                        </span>
-
-                    </div>
-
-                    <div class="training-status">
-                        FUTURO
-                    </div>
-
-                </div>
-
-
-                <div class="training">
-
-                    <div class="training-icon">
-
-                        <i class="fa-solid fa-road"></i>
-
-                    </div>
-
-                    <div class="training-info">
-
-                        <strong>
-                            Corrida longa
-                        </strong>
-
-                        <span>
-                            8 km · Ritmo moderado
-                        </span>
-
-                    </div>
-
-                    <div class="training-status">
-                        FUTURO
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- EVOLUÇÃO -->
-
-            <div class="panel">
-
-                <div class="panel-header">
-
-                    <h3>
-                        Minha evolução
-                    </h3>
 
                     <a href="evolucao.html">
-                        Detalhes
+                        <i class="fa-solid fa-chart-line"></i>
+                        Ver evolução
                     </a>
 
                 </div>
 
-
-                <div class="progress-item">
-
-                    <div class="progress-top">
-
-                        <span>
-                            Consistência
-                        </span>
-
-                        <strong>
-                            0%
-                        </strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width: 0%;">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="progress-item">
-
-                    <div class="progress-top">
-
-                        <span>
-                            Distância
-                        </span>
-
-                        <strong>
-                            0%
-                        </strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width: 0%;">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="progress-item">
-
-                    <div class="progress-top">
-
-                        <span>
-                            Ritmo
-                        </span>
-
-                        <strong>
-                            0%
-                        </strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div
-                            class="progress-fill"
-                            style="width: 0%;">
-                        </div>
-
-                    </div>
-
-                </div>
-
-
             </div>
 
-
         </section>
-
 
     </main>
 
 </div>
 
 
-
-<script>
-
-    /* =====================================================
-       CARREGAR NOME DO USUÁRIO
-    ===================================================== */
-
-    document.addEventListener("DOMContentLoaded", function () {
-
-        const userName =
-            localStorage.getItem("userName");
-
-        const nameElement =
-            document.getElementById("userName");
-
-        const sidebarName =
-            document.getElementById("sidebarName");
-
-
-        if (userName) {
-
-            const firstName =
-                userName.trim().split(" ")[0];
-
-            if (nameElement) {
-
-                nameElement.textContent =
-                    firstName;
-
-            }
-
-            if (sidebarName) {
-
-                sidebarName.textContent =
-                    firstName;
-
-            }
-
-        }
-
-    });
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
 
