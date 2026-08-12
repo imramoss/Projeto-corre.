@@ -2471,10 +2471,10 @@ window.setupLogoutButton =
    Configuração principal do Supabase
 ============================================================ */
 
-const SUPABASE_URL = "COLE_AQUI_A_URL_DO_SEU_PROJETO";
+const SUPABASE_URL = "https://mubzyyppizxuofitnysp.supabase.co/rest/v1/";
 
 const SUPABASE_PUBLISHABLE_KEY =
-    "COLE_AQUI_A_SUA_PUBLISHABLE_KEY";
+    "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
 
 
 const supabaseClient =

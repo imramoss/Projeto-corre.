@@ -42,10 +42,6 @@
 
     <style>
 
-        /* =====================================================
-           RESET
-        ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
@@ -104,10 +100,6 @@
             font-family: inherit;
         }
 
-        /* =====================================================
-           FUNDO
-        ===================================================== */
-
         .page {
             min-height: 100vh;
 
@@ -143,8 +135,6 @@
             align-items: center;
             justify-content: space-between;
         }
-
-        /* LOGO */
 
         .logo {
             display: flex;
@@ -652,9 +642,7 @@
 
 <div class="page">
 
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
+    <!-- HEADER -->
 
     <header>
 
@@ -689,9 +677,7 @@
     </header>
 
 
-    <!-- =====================================================
-         CADASTRO
-    ===================================================== -->
+    <!-- CADASTRO -->
 
     <main class="signup-area">
 
@@ -946,9 +932,7 @@
     </main>
 
 
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -960,21 +944,49 @@
 </div>
 
 
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
+       CONFIGURAÇÃO SUPABASE
+    ===================================================== */
+
+    const SUPABASE_URL =
+        "https://mubzyyppizxuofitnysp.supabase.co";
+
+    const SUPABASE_KEY =
+        "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    /* =====================================================
        ELEMENTOS
     ===================================================== */
 
-    const signupForm = document.getElementById("signupForm");
+    const signupForm =
+        document.getElementById("signupForm");
 
-    const nameInput = document.getElementById("name");
+    const nameInput =
+        document.getElementById("name");
 
-    const emailInput = document.getElementById("email");
+    const emailInput =
+        document.getElementById("email");
 
-    const passwordInput = document.getElementById("password");
+    const passwordInput =
+        document.getElementById("password");
 
     const confirmPasswordInput =
         document.getElementById("confirmPassword");
@@ -996,69 +1008,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const togglePassword =
         document.getElementById("togglePassword");
-
-
-    /* =====================================================
-       BUSCAR USUÁRIOS
-    ===================================================== */
-
-    function getUsers() {
-
-        try {
-
-            const savedUsers =
-                localStorage.getItem("correUsers");
-
-            if (!savedUsers) {
-                return [];
-            }
-
-            const users =
-                JSON.parse(savedUsers);
-
-            if (!Array.isArray(users)) {
-                return [];
-            }
-
-            return users;
-
-        } catch (error) {
-
-            console.error(
-                "Erro ao carregar usuários:",
-                error
-            );
-
-            return [];
-        }
-    }
-
-
-    /* =====================================================
-       SALVAR USUÁRIOS
-    ===================================================== */
-
-    function saveUsers(users) {
-
-        try {
-
-            localStorage.setItem(
-                "correUsers",
-                JSON.stringify(users)
-            );
-
-            return true;
-
-        } catch (error) {
-
-            console.error(
-                "Erro ao salvar usuários:",
-                error
-            );
-
-            return false;
-        }
-    }
 
 
     /* =====================================================
@@ -1092,13 +1041,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     "aria-label",
                     "Mostrar senha"
                 );
+
             }
+
         }
     );
 
 
     /* =====================================================
-       ATIVAR / DESATIVAR BOTÃO
+       ATIVAR BOTÃO
     ===================================================== */
 
     aceiteTermos.addEventListener(
@@ -1122,6 +1073,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         message.className =
             "message " + type;
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
     }
 
 
@@ -1134,16 +1091,17 @@ document.addEventListener("DOMContentLoaded", function () {
         message.textContent = "";
 
         message.className = "message";
+
     }
 
 
     /* =====================================================
-       CADASTRO
+       SUBMIT
     ===================================================== */
 
     signupForm.addEventListener(
         "submit",
-        function (event) {
+        async function (event) {
 
             event.preventDefault();
 
@@ -1246,161 +1204,300 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             /* =================================================
-               BUSCA USUÁRIOS
-            ================================================= */
-
-            const users = getUsers();
-
-
-            /* =================================================
-               VERIFICA EMAIL EXISTENTE
-            ================================================= */
-
-            const usuarioExistente =
-                users.find(function (usuario) {
-
-                    return String(
-                        usuario.email || ""
-                    )
-                    .toLowerCase() === email;
-
-                });
-
-
-            if (usuarioExistente) {
-
-                showMessage(
-                    "Este e-mail já possui uma conta. Entre pela área de login.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            /* =================================================
-               CRIA USUÁRIO
-            ================================================= */
-
-            const novoUsuario = {
-
-                id: Date.now(),
-
-                name: nome,
-
-                nome: nome,
-
-                email: email,
-
-                password: senha,
-
-                plan: "free",
-
-                createdAt:
-                    new Date().toISOString()
-
-            };
-
-
-            /* =================================================
-               ADICIONA À LISTA
-            ================================================= */
-
-            users.push(novoUsuario);
-
-
-            /* =================================================
-               SALVA
-            ================================================= */
-
-            const saved =
-                saveUsers(users);
-
-
-            if (!saved) {
-
-                showMessage(
-                    "Não foi possível salvar sua conta neste navegador.",
-                    "error"
-                );
-
-                return;
-            }
-
-
-            /* =================================================
-               CRIA SESSÃO
-            ================================================= */
-
-            localStorage.setItem(
-                "correUser",
-                JSON.stringify(novoUsuario)
-            );
-
-            localStorage.setItem(
-                "correSession",
-                "1"
-            );
-
-
-            /* =================================================
-               COMPATIBILIDADE COM PÁGINAS ANTIGAS
-            ================================================= */
-
-            localStorage.setItem(
-                "userName",
-                nome
-            );
-
-            localStorage.setItem(
-                "userEmail",
-                email
-            );
-
-            localStorage.setItem(
-                "projetoCorreUsuario",
-                JSON.stringify(novoUsuario)
-            );
-
-            localStorage.setItem(
-                "projetoCorreLogado",
-                "true"
-            );
-
-
-            /* =================================================
-               BOTÃO
+               BLOQUEIA BOTÃO
             ================================================= */
 
             btnSubmit.disabled = true;
 
             btnText.textContent =
-                "Conta criada!";
+                "Criando sua conta...";
 
             btnIcon.className =
-                "fa-solid fa-check";
+                "fa-solid fa-spinner fa-spin";
 
 
-            /* =================================================
-               MENSAGEM
-            ================================================= */
+            try {
 
-            showMessage(
-                "Cadastro realizado com sucesso! Redirecionando...",
-                "success"
-            );
+                /* =============================================
+                   CADASTRA NO SUPABASE AUTH
+                ============================================= */
+
+                const {
+                    data,
+                    error
+                } =
+                    await supabaseClient.auth.signUp({
+
+                        email: email,
+
+                        password: senha,
+
+                        options: {
+
+                            data: {
+
+                                name: nome,
+
+                                nome: nome
+
+                            }
+
+                        }
+
+                    });
 
 
-            /* =================================================
-               REDIRECIONAMENTO
-            ================================================= */
+                /* =============================================
+                   ERRO NO CADASTRO
+                ============================================= */
 
-            setTimeout(function () {
+                if (error) {
 
-                window.location.href =
-                    "painel.html";
+                    console.error(
+                        "Erro Supabase:",
+                        error
+                    );
 
-            }, 700);
+                    let mensagem =
+                        error.message ||
+                        "Não foi possível criar sua conta.";
+
+                    const lower =
+                        mensagem.toLowerCase();
+
+
+                    if (
+                        lower.includes("already registered") ||
+                        lower.includes("already been registered") ||
+                        lower.includes("user already registered")
+                    ) {
+
+                        mensagem =
+                            "Este e-mail já possui uma conta. Entre pela área de login.";
+
+                    }
+
+
+                    if (
+                        lower.includes("password")
+                    ) {
+
+                        mensagem =
+                            "A senha informada não atende aos requisitos.";
+
+                    }
+
+
+                    showMessage(
+                        mensagem,
+                        "error"
+                    );
+
+
+                    btnSubmit.disabled = false;
+
+                    btnText.textContent =
+                        "Criar minha conta";
+
+                    btnIcon.className =
+                        "fa-solid fa-arrow-right";
+
+                    return;
+
+                }
+
+
+                /* =============================================
+                   VERIFICA USUÁRIO
+                ============================================= */
+
+                const user =
+                    data?.user;
+
+
+                if (!user) {
+
+                    showMessage(
+                        "A conta não pôde ser criada. Tente novamente.",
+                        "error"
+                    );
+
+                    btnSubmit.disabled = false;
+
+                    btnText.textContent =
+                        "Criar minha conta";
+
+                    btnIcon.className =
+                        "fa-solid fa-arrow-right";
+
+                    return;
+
+                }
+
+
+                /* =============================================
+                   CRIA PERFIL
+                ============================================= */
+
+                const {
+                    error: profileError
+                } =
+                    await supabaseClient
+                        .from("profiles")
+                        .upsert({
+
+                            id: user.id,
+
+                            name: nome,
+
+                            email: email,
+
+                            plan: "free"
+
+                        });
+
+
+                /* =============================================
+                   ERRO NO PERFIL
+                ============================================= */
+
+                if (profileError) {
+
+                    console.error(
+                        "Erro ao criar perfil:",
+                        profileError
+                    );
+
+                    /*
+                       A conta Auth foi criada, então não
+                       apagamos o usuário.
+
+                       O perfil poderá ser criado novamente
+                       quando o usuário entrar.
+                    */
+
+                    showMessage(
+                        "Sua conta foi criada, mas houve um problema ao salvar seu perfil. Você poderá entrar normalmente.",
+                        "success"
+                    );
+
+                } else {
+
+                    showMessage(
+                        "Cadastro realizado com sucesso!",
+                        "success"
+                    );
+
+                }
+
+
+                /* =============================================
+                   COMPATIBILIDADE LOCAL
+                ============================================= */
+
+                /*
+                   Não armazenamos a senha.
+
+                   Guardamos somente algumas informações
+                   auxiliares para páginas antigas.
+                */
+
+                localStorage.setItem(
+                    "userName",
+                    nome
+                );
+
+                localStorage.setItem(
+                    "userEmail",
+                    email
+                );
+
+
+                /* =============================================
+                   BOTÃO
+                ============================================= */
+
+                btnText.textContent =
+                    "Conta criada!";
+
+                btnIcon.className =
+                    "fa-solid fa-check";
+
+
+                /* =============================================
+                   REDIRECIONAMENTO
+                ============================================= */
+
+                setTimeout(
+                    async function () {
+
+                        const {
+                            data: sessionData
+                        } =
+                            await supabaseClient
+                                .auth
+                                .getSession();
+
+
+                        /*
+                           Se a confirmação de e-mail estiver
+                           desativada, já teremos sessão.
+                        */
+
+                        if (
+                            sessionData?.session
+                        ) {
+
+                            window.location.replace(
+                                "painel.html"
+                            );
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Se a confirmação de e-mail estiver
+                           ativada, pedimos confirmação.
+                        */
+
+                        showMessage(
+                            "Conta criada! Verifique seu e-mail para confirmar a conta antes de entrar.",
+                            "success"
+                        );
+
+
+                        btnSubmit.disabled = true;
+
+                    },
+                    900
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Erro inesperado:",
+                    error
+                );
+
+
+                showMessage(
+                    "Ocorreu um erro inesperado. Verifique sua conexão e tente novamente.",
+                    "error"
+                );
+
+
+                btnSubmit.disabled = false;
+
+                btnText.textContent =
+                    "Criar minha conta";
+
+                btnIcon.className =
+                    "fa-solid fa-arrow-right";
+
+            }
 
         }
     );
