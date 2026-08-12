@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Crie sua conta gratuitamente no Projeto Corre.">
+
+    <meta
+        name="theme-color"
+        content="#A3FF12">
+
+    <title>Projeto Corre | Criar conta</title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --green: #A3FF12;
+
+            --green-dark: #78c400;
+
+            --black: #080808;
+
+            --dark: #101010;
+
+            --dark-2: #151515;
+
+            --dark-3: #1d1d1d;
+
+            --gray: #888;
+
+            --white: #fff;
+
+            --border: #292929;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: "Poppins", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(163, 255, 18, .10),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(163, 255, 18, .05),
+                    transparent 30%
+                ),
+
+                #080808;
+
+            color: var(--white);
+
+            overflow-x: hidden;
+
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           FUNDO
+        ===================================================== */
+
+        .page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+
+            width: 100%;
+
+            height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            background: rgba(8,8,8,.90);
+
+            backdrop-filter: blur(15px);
+
+        }
+
+
+        .header-content {
+
+            width: min(1180px, 92%);
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+        }
+
+
+        .logo i {
+
+            color: var(--green);
+
+            font-size: 25px;
+
+        }
+
+
+        .logo strong {
+
+            color: var(--green);
+
+        }
+
+
+        .back-home {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            transition: .25s;
+
+        }
+
+
+        .back-home:hover {
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        .signup-area {
+
+            flex: 1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 60px 20px;
+
+        }
+
+
+        .signup-container {
+
+            width: 100%;
+
+            max-width: 470px;
+
+        }
+
+
+        /* =====================================================
+           TÍTULO
+        ===================================================== */
+
+        .signup-header {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .signup-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: rgba(163,255,18,.08);
+
+            border: 1px solid rgba(163,255,18,.20);
+
+            color: var(--green);
+
+            font-size: 26px;
+
+        }
+
+
+        .signup-header h1 {
+
+            font-size: 34px;
+
+            line-height: 1.15;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .signup-header h1 span {
+
+            color: var(--green);
+
+        }
+
+
+        .signup-header p {
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .signup-card {
+
+            padding: 35px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(23,23,23,.98),
+                    rgba(13,13,13,.98)
+                );
+
+            border: 1px solid #292929;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.40);
+
+        }
+
+
+        /* =====================================================
+           CAMPOS
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #ddd;
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .input-wrapper > i {
+
+            position: absolute;
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #666;
+
+            font-size: 14px;
+
+            pointer-events: none;
+
+        }
+
+
+        .input-wrapper input {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding: 0 15px 0 43px;
+
+            background: #0c0c0c;
+
+            border: 1px solid #292929;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            color: #fff;
+
+            font-size: 13px;
+
+            transition: .25s;
+
+        }
+
+
+        .input-wrapper input::placeholder {
+
+            color: #555;
+
+        }
+
+
+        .input-wrapper input:focus {
+
+            border-color: var(--green);
+
+            box-shadow:
+                0 0 0 3px rgba(163,255,18,.06);
+
+        }
+
+
+        /* =====================================================
+           SENHA
+        ===================================================== */
+
+        .password-toggle {
+
+            position: absolute;
+
+            right: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #666;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+        }
+
+
+        .password-toggle:hover {
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
+           TERMOS
+        ===================================================== */
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin: 22px 0;
+
+        }
+
+
+        .terms input {
+
+            width: 16px;
+
+            height: 16px;
+
+            margin-top: 2px;
+
+            accent-color: var(--green);
+
+            cursor: pointer;
+
+        }
+
+
+        .terms label {
+
+            color: #777;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            cursor: pointer;
+
+        }
+
+
+        .terms a {
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
+           BOTÃO
+        ===================================================== */
+
+        .btn-submit {
+
+            width: 100%;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: var(--green);
+
+            color: #080808;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-submit:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 35px rgba(163,255,18,.18);
+
+        }
+
+
+        .btn-submit:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           LOGIN
+        ===================================================== */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 24px;
+
+            color: #666;
+
+            font-size: 12px;
+
+        }
+
+
+        .login-link a {
+
+            color: var(--green);
+
+            font-weight: 600;
+
+        }
+
+
+        .login-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =====================================================
+           BENEFÍCIOS
+        ===================================================== */
+
+        .mini-benefits {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .mini-benefit {
+
+            padding: 13px 8px;
+
+            text-align: center;
+
+            border: 1px solid #202020;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,.015);
+
+        }
+
+
+        .mini-benefit i {
+
+            display: block;
+
+            color: var(--green);
+
+            font-size: 15px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .mini-benefit span {
+
+            color: #666;
+
+            font-size: 9px;
+
+        }
+
+
+        /* =====================================================
+           MENSAGEM
+        ===================================================== */
+
+        .message {
+
+            display: none;
+
+            padding: 12px 14px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: rgba(255,60,60,.08);
+
+            border: 1px solid rgba(255,60,60,.25);
+
+            color: #ff8585;
+
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background: rgba(163,255,18,.08);
+
+            border: 1px solid rgba(163,255,18,.25);
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding: 22px;
+
+            text-align: center;
+
+            border-top: 1px solid #181818;
+
+            color: #444;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                height: 70px;
+
+            }
+
+
+            .signup-area {
+
+                padding: 40px 15px;
+
+            }
+
+
+            .signup-card {
+
+                padding: 25px 20px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .signup-header h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .signup-header p {
+
+                font-size: 12px;
+
+            }
+
+
+            .mini-benefits {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .mini-benefit {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                gap: 8px;
+
+            }
+
+
+            .mini-benefit i {
+
+                margin: 0;
+
+            }
+
+
+            .back-home span {
+
+                display: none;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <div class="header-content">
+
+
+            <a
+                href="index.html"
+                class="logo">
+
+                <i class="fa-solid fa-person-running"></i>
+
+                <span>
+                    Projeto <strong>Corre</strong>
+                </span>
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="back-home">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                <span>
+                    Voltar para o início
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CADASTRO
+    ===================================================== -->
+
+    <main class="signup-area">
+
+
+        <div class="signup-container">
+
+
+            <div class="signup-header">
+
+
+                <div class="signup-icon">
+
+                    <i class="fa-solid fa-person-running"></i>
+
+                </div>
+
+
+                <h1>
+
+                    Comece sua
+                    <span>jornada.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Crie sua conta gratuitamente
+                    e dê o primeiro passo com o
+                    Projeto Corre.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="signup-card">
+
+
+                <div
+                    id="message"
+                    class="message">
+                </div>
+
+
+                <form id="signupForm">
+
+
+                    <!-- NOME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Nome completo
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Como podemos te chamar?"
+                                autocomplete="name"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="seu@email.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SENHA -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Senha
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Crie uma senha"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required>
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Mostrar senha">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONFIRMAR SENHA -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirmar senha
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Digite a senha novamente"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TERMOS -->
+
+                    <div class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required>
+
+                        <label for="terms">
+
+                            Concordo com os termos de uso
+                            e com a política de privacidade
+                            do Projeto Corre.
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- BOTÃO -->
+
+                    <button
+                        type="submit"
+                        class="btn-submit">
+
+                        Criar minha conta
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- LOGIN -->
+
+                <div class="login-link">
+
+                    Já possui uma conta?
+
+                    <a href="login.html">
+                        Entrar
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MINI BENEFÍCIOS -->
+
+            <div class="mini-benefits">
+
+
+                <div class="mini-benefit">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    <span>
+                        Cadastro gratuito
+                    </span>
+
+                </div>
+
+
+                <div class="mini-benefit">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Seus dados protegidos
+                    </span>
+
+                </div>
+
+
+                <div class="mini-benefit">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <span>
+                        Comece agora
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        © 2026 Projeto Corre.
+        Feito para quem decidiu começar.
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       MOSTRAR / ESCONDER SENHA
+    ===================================================== */
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const password =
+        document.getElementById("password");
+
+
+    togglePassword.addEventListener(
+        "click",
+        function () {
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                this.innerHTML =
+                    '<i class="fa-solid fa-eye-slash"></i>';
+
+            } else {
+
+                password.type = "password";
+
+                this.innerHTML =
+                    '<i class="fa-solid fa-eye"></i>';
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CADASTRO
+    ===================================================== */
+
+    const form =
+        document.getElementById("signupForm");
+
+    const message =
+        document.getElementById("message");
+
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const passwordValue =
+                document
+                    .getElementById("password")
+                    .value;
+
+
+            const confirmPassword =
+                document
+                    .getElementById("confirmPassword")
+                    .value;
+
+
+            const terms =
+                document
+                    .getElementById("terms")
+                    .checked;
+
+
+
+            /* LIMPA MENSAGEM */
+
+            message.className = "message";
+
+            message.innerHTML = "";
+
+
+
+            /* VALIDA NOME */
+
+            if (name.length < 3) {
+
+                showError(
+                    "Digite seu nome completo."
+                );
+
+                return;
+
+            }
+
+
+
+            /* VALIDA SENHA */
+
+            if (passwordValue.length < 6) {
+
+                showError(
+                    "A senha precisa ter pelo menos 6 caracteres."
+                );
+
+                return;
+
+            }
+
+
+
+            /* CONFIRMA SENHA */
+
+            if (
+                passwordValue !==
+                confirmPassword
+            ) {
+
+                showError(
+                    "As senhas não são iguais."
+                );
+
+                return;
+
+            }
+
+
+
+            /* TERMOS */
+
+            if (!terms) {
+
+                showError(
+                    "Você precisa aceitar os termos para continuar."
+                );
+
+                return;
+
+            }
+
+
+
+            /* =================================================
+               CRIA USUÁRIO
+            ================================================= */
+
+            const user = {
+
+                name: name,
+
+                email: email,
+
+                createdAt:
+                    new Date().toISOString(),
+
+                plan: "free"
+
+            };
+
+
+            /*
+             * Salva usuário no navegador.
+             */
+
+            localStorage.setItem(
+                "correUser",
+                JSON.stringify(user)
+            );
+
+
+            /*
+             * Marca sessão ativa.
+             */
+
+            localStorage.setItem(
+                "correSession",
+                "1"
+            );
+
+
+            /*
+             * Mostra mensagem.
+             */
+
+            message.className =
+                "message success";
+
+            message.innerHTML =
+                '<i class="fa-solid fa-circle-check"></i> ' +
+                'Conta criada com sucesso! Entrando no seu painel...';
+
+
+
+            /*
+             * Aguarda um pouco
+             * antes de entrar no dashboard.
+             */
+
+            setTimeout(
+                function () {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                },
+                1200
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       FUNÇÃO DE ERRO
+    ===================================================== */
+
+    function showError(text) {
+
+        message.className =
+            "message error";
+
+        message.innerHTML =
+            '<i class="fa-solid fa-circle-exclamation"></i> ' +
+            text;
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
