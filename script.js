@@ -2464,3 +2464,32 @@ window.protectPage =
 
 window.setupLogoutButton =
     setupLogoutButton;
+
+    /* ============================================================
+   PROJETO CORRE
+   SUPABASE.JS
+   Configuração principal do Supabase
+============================================================ */
+
+const SUPABASE_URL = "COLE_AQUI_A_URL_DO_SEU_PROJETO";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "COLE_AQUI_A_SUA_PUBLISHABLE_KEY";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY,
+        {
+            auth: {
+                persistSession: true,
+                autoRefreshToken: true,
+                detectSessionInUrl: true
+            }
+        }
+    );
+
+
+window.supabaseClient =
+    supabaseClient;
