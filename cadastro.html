@@ -19,7 +19,6 @@
 
     <title>Projeto Corre | Criar conta</title>
 
-
     <!-- GOOGLE FONT -->
 
     <link
@@ -35,13 +34,11 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-
     <!-- FONT AWESOME -->
 
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
 
     <style>
 
@@ -55,9 +52,7 @@
             box-sizing: border-box;
         }
 
-
         :root {
-
             --green: #A3FF12;
             --green-dark: #78c400;
 
@@ -70,83 +65,66 @@
             --white: #fff;
 
             --border: #292929;
-
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             min-height: 100vh;
 
             font-family: "Poppins", sans-serif;
 
             background:
-
                 radial-gradient(
                     circle at 80% 20%,
                     rgba(163, 255, 18, .10),
                     transparent 30%
                 ),
-
                 radial-gradient(
                     circle at 10% 80%,
                     rgba(163, 255, 18, .05),
                     transparent 30%
                 ),
-
                 #080808;
 
             color: var(--white);
 
             overflow-x: hidden;
-
         }
-
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
-
         button,
         input {
             font-family: inherit;
         }
-
 
         /* =====================================================
            FUNDO
         ===================================================== */
 
         .page {
-
             min-height: 100vh;
 
             display: flex;
 
             flex-direction: column;
-
         }
-
 
         /* =====================================================
            HEADER
         ===================================================== */
 
         header {
-
             width: 100%;
-
             height: 78px;
 
             display: flex;
-
             align-items: center;
 
             border-bottom: 1px solid rgba(255,255,255,.06);
@@ -154,62 +132,41 @@
             background: rgba(8,8,8,.90);
 
             backdrop-filter: blur(15px);
-
         }
 
-
         .header-content {
-
             width: min(1180px, 92%);
 
             margin: auto;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
         }
-
 
         /* LOGO */
 
         .logo {
-
             display: flex;
-
             align-items: center;
 
             gap: 10px;
 
             font-size: 20px;
-
             font-weight: 700;
-
         }
-
 
         .logo i {
-
             color: var(--green);
-
             font-size: 25px;
-
         }
-
 
         .logo strong {
-
             color: var(--green);
-
         }
 
-
         .back-home {
-
             display: flex;
-
             align-items: center;
 
             gap: 8px;
@@ -219,70 +176,49 @@
             font-size: 13px;
 
             transition: .25s;
-
         }
-
 
         .back-home:hover {
-
             color: var(--green);
-
         }
-
 
         /* =====================================================
            CONTEÚDO
         ===================================================== */
 
         .signup-area {
-
             flex: 1;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             padding: 60px 20px;
-
         }
-
 
         .signup-container {
-
             width: 100%;
-
             max-width: 470px;
-
         }
-
 
         /* =====================================================
            TÍTULO
         ===================================================== */
 
         .signup-header {
-
             text-align: center;
 
             margin-bottom: 30px;
-
         }
 
-
         .signup-icon {
-
             width: 62px;
-
             height: 62px;
 
             margin: 0 auto 20px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             border-radius: 18px;
@@ -294,12 +230,9 @@
             color: var(--green);
 
             font-size: 26px;
-
         }
 
-
         .signup-header h1 {
-
             font-size: 34px;
 
             line-height: 1.15;
@@ -307,38 +240,28 @@
             letter-spacing: -1px;
 
             margin-bottom: 10px;
-
         }
-
 
         .signup-header h1 span {
-
             color: var(--green);
-
         }
 
-
         .signup-header p {
-
             color: #777;
 
             font-size: 13px;
 
             line-height: 1.7;
-
         }
-
 
         /* =====================================================
            CARD
         ===================================================== */
 
         .signup-card {
-
             padding: 35px;
 
             background:
-
                 linear-gradient(
                     145deg,
                     rgba(23,23,23,.98),
@@ -351,16 +274,13 @@
 
             box-shadow:
                 0 30px 80px rgba(0,0,0,.40);
-
         }
-
 
         /* =====================================================
            MENSAGEM
         ===================================================== */
 
         .message {
-
             display: none;
 
             padding: 12px 14px;
@@ -372,12 +292,9 @@
             font-size: 12px;
 
             line-height: 1.5;
-
         }
 
-
         .message.error {
-
             display: block;
 
             background: rgba(255,60,60,.08);
@@ -385,12 +302,9 @@
             border: 1px solid rgba(255,60,60,.25);
 
             color: #ff8585;
-
         }
 
-
         .message.success {
-
             display: block;
 
             background: rgba(163,255,18,.08);
@@ -398,23 +312,17 @@
             border: 1px solid rgba(163,255,18,.25);
 
             color: var(--green);
-
         }
-
 
         /* =====================================================
            CAMPOS
         ===================================================== */
 
         .form-group {
-
             margin-bottom: 18px;
-
         }
 
-
         .form-group label {
-
             display: block;
 
             margin-bottom: 8px;
@@ -424,23 +332,16 @@
             font-size: 12px;
 
             font-weight: 500;
-
         }
-
 
         .input-wrapper {
-
             position: relative;
-
         }
 
-
         .input-wrapper > i {
-
             position: absolute;
 
             left: 15px;
-
             top: 50%;
 
             transform: translateY(-50%);
@@ -450,14 +351,10 @@
             font-size: 14px;
 
             pointer-events: none;
-
         }
 
-
         .input-wrapper input {
-
             width: 100%;
-
             height: 50px;
 
             padding: 0 15px 0 43px;
@@ -475,37 +372,27 @@
             font-size: 13px;
 
             transition: .25s;
-
         }
-
 
         .input-wrapper input::placeholder {
-
             color: #555;
-
         }
 
-
         .input-wrapper input:focus {
-
             border-color: var(--green);
 
             box-shadow:
                 0 0 0 3px rgba(163,255,18,.06);
-
         }
-
 
         /* =====================================================
            SENHA
         ===================================================== */
 
         .password-toggle {
-
             position: absolute;
 
             right: 14px;
-
             top: 50%;
 
             transform: translateY(-50%);
@@ -519,23 +406,17 @@
             cursor: pointer;
 
             padding: 5px;
-
         }
-
 
         .password-toggle:hover {
-
             color: var(--green);
-
         }
-
 
         /* =====================================================
            TERMOS
         ===================================================== */
 
         .terms {
-
             display: flex;
 
             align-items: flex-start;
@@ -543,14 +424,10 @@
             gap: 10px;
 
             margin: 22px 0;
-
         }
 
-
         .terms input {
-
             width: 16px;
-
             height: 16px;
 
             margin-top: 2px;
@@ -560,12 +437,9 @@
             cursor: pointer;
 
             flex-shrink: 0;
-
         }
 
-
         .terms label {
-
             color: #777;
 
             font-size: 11px;
@@ -573,40 +447,29 @@
             line-height: 1.6;
 
             cursor: pointer;
-
         }
 
-
         .terms a {
-
             color: var(--green);
 
             font-weight: 600;
-
         }
-
 
         .terms a:hover {
-
             text-decoration: underline;
-
         }
-
 
         /* =====================================================
            BOTÃO
         ===================================================== */
 
         .btn-submit {
-
             width: 100%;
-
             height: 52px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             gap: 9px;
@@ -626,29 +489,20 @@
             cursor: pointer;
 
             transition: .25s;
-
         }
 
-
         .btn-submit:hover:not(:disabled) {
-
             transform: translateY(-2px);
 
             box-shadow:
                 0 15px 35px rgba(163,255,18,.18);
-
         }
-
 
         .btn-submit:active {
-
             transform: translateY(0);
-
         }
 
-
         .btn-submit:disabled {
-
             opacity: .45;
 
             cursor: not-allowed;
@@ -656,16 +510,13 @@
             transform: none;
 
             box-shadow: none;
-
         }
-
 
         /* =====================================================
            LOGIN
         ===================================================== */
 
         .login-link {
-
             text-align: center;
 
             margin-top: 24px;
@@ -673,32 +524,23 @@
             color: #666;
 
             font-size: 12px;
-
         }
 
-
         .login-link a {
-
             color: var(--green);
 
             font-weight: 600;
-
         }
-
 
         .login-link a:hover {
-
             text-decoration: underline;
-
         }
-
 
         /* =====================================================
            BENEFÍCIOS
         ===================================================== */
 
         .mini-benefits {
-
             display: grid;
 
             grid-template-columns: repeat(3, 1fr);
@@ -706,12 +548,9 @@
             gap: 10px;
 
             margin-top: 25px;
-
         }
 
-
         .mini-benefit {
-
             padding: 13px 8px;
 
             text-align: center;
@@ -721,12 +560,9 @@
             border-radius: 12px;
 
             background: rgba(255,255,255,.015);
-
         }
 
-
         .mini-benefit i {
-
             display: block;
 
             color: var(--green);
@@ -734,25 +570,19 @@
             font-size: 15px;
 
             margin-bottom: 6px;
-
         }
 
-
         .mini-benefit span {
-
             color: #666;
 
             font-size: 9px;
-
         }
-
 
         /* =====================================================
            FOOTER
         ===================================================== */
 
         footer {
-
             padding: 22px;
 
             text-align: center;
@@ -762,9 +592,7 @@
             color: #444;
 
             font-size: 10px;
-
         }
-
 
         /* =====================================================
            RESPONSIVO
@@ -773,87 +601,56 @@
         @media (max-width: 600px) {
 
             header {
-
                 height: 70px;
-
             }
-
 
             .signup-area {
-
                 padding: 40px 15px;
-
             }
 
-
             .signup-card {
-
                 padding: 25px 20px;
 
                 border-radius: 20px;
-
             }
-
 
             .signup-header h1 {
-
                 font-size: 29px;
-
             }
-
 
             .signup-header p {
-
                 font-size: 12px;
-
             }
-
 
             .mini-benefits {
-
                 grid-template-columns: 1fr;
-
             }
 
-
             .mini-benefit {
-
                 display: flex;
 
                 align-items: center;
-
                 justify-content: center;
 
                 gap: 8px;
-
             }
-
 
             .mini-benefit i {
-
                 margin: 0;
-
             }
-
 
             .back-home span {
-
                 display: none;
-
             }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
 
-
 <div class="page">
-
 
     <!-- =====================================================
          HEADER
@@ -862,7 +659,6 @@
     <header>
 
         <div class="header-content">
-
 
             <a
                 href="index.html"
@@ -876,7 +672,6 @@
 
             </a>
 
-
             <a
                 href="index.html"
                 class="back-home">
@@ -889,11 +684,9 @@
 
             </a>
 
-
         </div>
 
     </header>
-
 
 
     <!-- =====================================================
@@ -902,12 +695,9 @@
 
     <main class="signup-area">
 
-
         <div class="signup-container">
 
-
             <div class="signup-header">
-
 
                 <div class="signup-icon">
 
@@ -915,30 +705,21 @@
 
                 </div>
 
-
                 <h1>
-
                     Comece sua
                     <span>jornada.</span>
-
                 </h1>
 
-
                 <p>
-
                     Crie sua conta gratuitamente
                     e dê o primeiro passo com o
                     Projeto Corre.
-
                 </p>
-
 
             </div>
 
 
-
             <div class="signup-card">
-
 
                 <div
                     id="message"
@@ -947,7 +728,6 @@
 
 
                 <form id="signupForm">
-
 
                     <!-- NOME -->
 
@@ -973,7 +753,6 @@
                     </div>
 
 
-
                     <!-- EMAIL -->
 
                     <div class="form-group">
@@ -996,7 +775,6 @@
                         </div>
 
                     </div>
-
 
 
                     <!-- SENHA -->
@@ -1034,7 +812,6 @@
                     </div>
 
 
-
                     <!-- CONFIRMAR SENHA -->
 
                     <div class="form-group">
@@ -1058,7 +835,6 @@
                         </div>
 
                     </div>
-
 
 
                     <!-- TERMOS -->
@@ -1090,7 +866,6 @@
                     </div>
 
 
-
                     <!-- BOTÃO -->
 
                     <button
@@ -1110,9 +885,7 @@
 
                     </button>
 
-
                 </form>
-
 
 
                 <!-- LOGIN -->
@@ -1122,22 +895,17 @@
                     Já possui uma conta?
 
                     <a href="login.html">
-
                         Entrar
-
                     </a>
 
                 </div>
 
-
             </div>
-
 
 
             <!-- BENEFÍCIOS -->
 
             <div class="mini-benefits">
-
 
                 <div class="mini-benefit">
 
@@ -1171,14 +939,11 @@
 
                 </div>
 
-
             </div>
-
 
         </div>
 
     </main>
-
 
 
     <!-- =====================================================
@@ -1192,67 +957,45 @@
 
     </footer>
 
-
 </div>
 
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* =====================================================
        ELEMENTOS
     ===================================================== */
 
-    const signupForm =
-        document.getElementById("signupForm");
+    const signupForm = document.getElementById("signupForm");
 
+    const nameInput = document.getElementById("name");
 
-    const nameInput =
-        document.getElementById("name");
+    const emailInput = document.getElementById("email");
 
-
-    const emailInput =
-        document.getElementById("email");
-
-
-    const passwordInput =
-        document.getElementById("password");
-
+    const passwordInput = document.getElementById("password");
 
     const confirmPasswordInput =
         document.getElementById("confirmPassword");
 
-
     const aceiteTermos =
         document.getElementById("aceiteTermos");
-
 
     const btnSubmit =
         document.getElementById("btnSubmit");
 
-
     const btnText =
         document.getElementById("btnText");
-
 
     const btnIcon =
         document.getElementById("btnIcon");
 
-
     const message =
         document.getElementById("message");
 
-
     const togglePassword =
         document.getElementById("togglePassword");
-
 
 
     /* =====================================================
@@ -1267,18 +1010,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.getItem("correUsers");
 
             if (!savedUsers) {
-
                 return [];
-
             }
 
             const users =
                 JSON.parse(savedUsers);
 
             if (!Array.isArray(users)) {
-
                 return [];
-
             }
 
             return users;
@@ -1291,11 +1030,8 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             return [];
-
         }
-
     }
-
 
 
     /* =====================================================
@@ -1321,69 +1057,48 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             return false;
-
         }
-
     }
-
 
 
     /* =====================================================
        MOSTRAR / ESCONDER SENHA
     ===================================================== */
 
-    if (togglePassword) {
+    togglePassword.addEventListener(
+        "click",
+        function () {
 
-        togglePassword.addEventListener(
-            "click",
-            function () {
+            if (passwordInput.type === "password") {
 
+                passwordInput.type = "text";
 
-                if (
-                    passwordInput.type ===
-                    "password"
-                ) {
+                this.innerHTML =
+                    '<i class="fa-solid fa-eye-slash"></i>';
 
-                    passwordInput.type =
-                        "text";
+                this.setAttribute(
+                    "aria-label",
+                    "Ocultar senha"
+                );
 
+            } else {
 
-                    this.innerHTML =
-                        '<i class="fa-solid fa-eye-slash"></i>';
+                passwordInput.type = "password";
 
+                this.innerHTML =
+                    '<i class="fa-solid fa-eye"></i>';
 
-                    this.setAttribute(
-                        "aria-label",
-                        "Ocultar senha"
-                    );
-
-                } else {
-
-
-                    passwordInput.type =
-                        "password";
-
-
-                    this.innerHTML =
-                        '<i class="fa-solid fa-eye"></i>';
-
-
-                    this.setAttribute(
-                        "aria-label",
-                        "Mostrar senha"
-                    );
-
-                }
-
+                this.setAttribute(
+                    "aria-label",
+                    "Mostrar senha"
+                );
             }
-        );
-
-    }
-
+        }
+    );
 
 
     /* =====================================================
-       ATIVAR BOTÃO APÓS TERMOS
+       ATIVAR / DESATIVAR BOTÃO
     ===================================================== */
 
     aceiteTermos.addEventListener(
@@ -1397,24 +1112,17 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-
     /* =====================================================
        MENSAGEM
     ===================================================== */
 
-    function showMessage(
-        text,
-        type
-    ) {
+    function showMessage(text, type) {
 
-        message.textContent =
-            text;
+        message.textContent = text;
 
         message.className =
             "message " + type;
-
     }
-
 
 
     /* =====================================================
@@ -1423,18 +1131,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function clearMessage() {
 
-        message.textContent =
-            "";
+        message.textContent = "";
 
-        message.className =
-            "message";
-
+        message.className = "message";
     }
 
 
-
     /* =====================================================
-       SUBMIT ÚNICO DO CADASTRO
+       CADASTRO
     ===================================================== */
 
     signupForm.addEventListener(
@@ -1443,18 +1147,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
-
             clearMessage();
 
 
-
-            /* =============================================
+            /* =================================================
                TERMOS
-            ============================================= */
+            ================================================= */
 
-            if (
-                !aceiteTermos.checked
-            ) {
+            if (!aceiteTermos.checked) {
 
                 showMessage(
                     "Você precisa aceitar os Termos de Uso para continuar.",
@@ -1462,23 +1162,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 return;
-
             }
 
 
-
-            /* =============================================
+            /* =================================================
                NOME
-            ============================================= */
+            ================================================= */
 
             const nome =
-                nameInput.value
-                    .trim();
+                nameInput.value.trim();
 
-
-            if (
-                nome.length < 3
-            ) {
+            if (nome.length < 3) {
 
                 showMessage(
                     "Digite seu nome completo.",
@@ -1488,28 +1182,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 nameInput.focus();
 
                 return;
-
             }
 
 
-
-            /* =============================================
+            /* =================================================
                EMAIL
-            ============================================= */
+            ================================================= */
 
             const email =
-                emailInput.value
-                    .trim()
-                    .toLowerCase();
+                emailInput.value.trim().toLowerCase();
 
-
-            const emailRegex =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-            if (
-                !emailRegex.test(email)
-            ) {
+            if (!emailInput.checkValidity()) {
 
                 showMessage(
                     "Digite um e-mail válido.",
@@ -1519,22 +1202,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 emailInput.focus();
 
                 return;
-
             }
 
 
-
-            /* =============================================
+            /* =================================================
                SENHA
-            ============================================= */
+            ================================================= */
 
             const senha =
                 passwordInput.value;
 
-
-            if (
-                senha.length < 6
-            ) {
+            if (senha.length < 6) {
 
                 showMessage(
                     "A senha precisa ter pelo menos 6 caracteres.",
@@ -1544,23 +1222,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 passwordInput.focus();
 
                 return;
-
             }
 
 
-
-            /* =============================================
-               CONFIRMA SENHA
-            ============================================= */
+            /* =================================================
+               CONFIRMAÇÃO
+            ================================================= */
 
             const confirmacao =
                 confirmPasswordInput.value;
 
-
-            if (
-                senha !==
-                confirmacao
-            ) {
+            if (senha !== confirmacao) {
 
                 showMessage(
                     "As senhas não são iguais.",
@@ -1570,46 +1242,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 confirmPasswordInput.focus();
 
                 return;
-
             }
 
 
-
-            /* =============================================
+            /* =================================================
                BUSCA USUÁRIOS
-            ============================================= */
+            ================================================= */
 
-            const users =
-                getUsers();
-
+            const users = getUsers();
 
 
-            /* =============================================
+            /* =================================================
                VERIFICA EMAIL EXISTENTE
-            ============================================= */
+            ================================================= */
 
             const usuarioExistente =
-                users.find(
-                    function (usuario) {
+                users.find(function (usuario) {
 
-                        return (
+                    return String(
+                        usuario.email || ""
+                    )
+                    .toLowerCase() === email;
 
-                            String(
-                                usuario.email ||
-                                ""
-                            )
-                            .toLowerCase() ===
-                            email
-
-                        );
-
-                    }
-                );
+                });
 
 
-            if (
-                usuarioExistente
-            ) {
+            if (usuarioExistente) {
 
                 showMessage(
                     "Este e-mail já possui uma conta. Entre pela área de login.",
@@ -1617,61 +1275,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 return;
-
             }
 
 
-
-            /* =============================================
-               CRIA NOVO USUÁRIO
-            ============================================= */
+            /* =================================================
+               CRIA USUÁRIO
+            ================================================= */
 
             const novoUsuario = {
 
-                id:
-                    Date.now(),
+                id: Date.now(),
 
-                name:
-                    nome,
+                name: nome,
 
-                nome:
-                    nome,
+                nome: nome,
 
-                email:
-                    email,
+                email: email,
 
-                password:
-                    senha,
+                password: senha,
 
-                plan:
-                    "free",
+                plan: "free",
 
                 createdAt:
-                    new Date()
-                        .toISOString()
+                    new Date().toISOString()
 
             };
 
 
+            /* =================================================
+               ADICIONA À LISTA
+            ================================================= */
 
-            /* =============================================
-               ADICIONA USUÁRIO
-            ============================================= */
-
-            users.push(
-                novoUsuario
-            );
+            users.push(novoUsuario);
 
 
-
-            /* =============================================
-               SALVA USUÁRIO
-            ============================================= */
+            /* =================================================
+               SALVA
+            ================================================= */
 
             const saved =
-                saveUsers(
-                    users
-                );
+                saveUsers(users);
 
 
             if (!saved) {
@@ -1682,22 +1325,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 return;
-
             }
 
 
-
-            /* =============================================
+            /* =================================================
                CRIA SESSÃO
-            ============================================= */
+            ================================================= */
 
             localStorage.setItem(
                 "correUser",
-                JSON.stringify(
-                    novoUsuario
-                )
+                JSON.stringify(novoUsuario)
             );
-
 
             localStorage.setItem(
                 "correSession",
@@ -1705,45 +1343,47 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-
-            /* =============================================
-               COMPATIBILIDADE
-               COM PÁGINAS ANTIGAS
-            ============================================= */
+            /* =================================================
+               COMPATIBILIDADE COM PÁGINAS ANTIGAS
+            ================================================= */
 
             localStorage.setItem(
                 "userName",
                 nome
             );
 
-
             localStorage.setItem(
                 "userEmail",
                 email
             );
 
+            localStorage.setItem(
+                "projetoCorreUsuario",
+                JSON.stringify(novoUsuario)
+            );
+
+            localStorage.setItem(
+                "projetoCorreLogado",
+                "true"
+            );
 
 
-            /* =============================================
-               ALTERA BOTÃO
-            ============================================= */
+            /* =================================================
+               BOTÃO
+            ================================================= */
 
-            btnSubmit.disabled =
-                true;
-
+            btnSubmit.disabled = true;
 
             btnText.textContent =
                 "Conta criada!";
-
 
             btnIcon.className =
                 "fa-solid fa-check";
 
 
-
-            /* =============================================
+            /* =================================================
                MENSAGEM
-            ============================================= */
+            ================================================= */
 
             showMessage(
                 "Cadastro realizado com sucesso! Redirecionando...",
@@ -1751,21 +1391,16 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
+            /* =================================================
+               REDIRECIONAMENTO
+            ================================================= */
 
-            /* =============================================
-               REDIRECIONA
-               PARA O PAINEL
-            ============================================= */
+            setTimeout(function () {
 
-            setTimeout(
-                function () {
+                window.location.href =
+                    "painel.html";
 
-                    window.location.href =
-                        "painel.html";
-
-                },
-                700
-            );
+            }, 700);
 
         }
     );
@@ -1773,7 +1408,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-
 
 </body>
 
