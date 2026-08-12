@@ -1,12 +1,12 @@
 /* ============================================================
    PROJETO CORRE
    SCRIPT.JS
-   Sistema principal do site
+   Sistema principal
 ============================================================ */
 
 
 /* ============================================================
-   FUNÇÕES GERAIS
+   BANCO LOCAL
 ============================================================ */
 
 function getUsers() {
@@ -65,6 +65,10 @@ function isLoggedIn() {
 }
 
 
+/* ============================================================
+   LOGOUT
+============================================================ */
+
 function logout() {
 
     const confirmLogout = confirm(
@@ -84,1172 +88,149 @@ function logout() {
 
 }
 
+window.logout = logout;
+
 
 /* ============================================================
-   INICIALIZAÇÃO
+   PÁGINAS PROTEGIDAS
 ============================================================ */
 
-document.addEventListener("DOMContentLoaded", function () {
+const protectedPages = [
 
+    "painel.html",
+    "treinos.html",
+    "aulas.html",
+    "evolucao.html",
+    "perfil.html"
 
-    /* ========================================================
-       MENU MOBILE
-    ======================================================== */
+];
 
-    const hamburger =
-        document.querySelector(".hamburger");
 
-    const menu =
-        document.querySelector(".menu");
+function getCurrentPage() {
 
-    if (hamburger && menu) {
+    return window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
 
-        hamburger.addEventListener(
-            "click",
-            function () {
+}
 
-                hamburger.classList.toggle("active");
 
-                menu.classList.toggle("active");
+function protectPage() {
 
-            }
-        );
-
-        document
-            .querySelectorAll(".menu a")
-            .forEach(function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        menu.classList.remove("active");
-
-                        hamburger.classList.remove("active");
-
-                    }
-                );
-
-            });
-
-    }
-
-
-    /* ========================================================
-       NAVBAR AO ROLAR
-    ======================================================== */
-
-    const header =
-        document.querySelector("header");
-
-    if (header) {
-
-        window.addEventListener(
-            "scroll",
-            function () {
-
-                if (window.scrollY > 60) {
-
-                    header.style.background =
-                        "rgba(5,5,5,.95)";
-
-                    header.style.boxShadow =
-                        "0 10px 35px rgba(0,0,0,.35)";
-
-                } else {
-
-                    header.style.background =
-                        "rgba(5,5,5,.75)";
-
-                    header.style.boxShadow =
-                        "none";
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       SCROLL SUAVE
-    ======================================================== */
-
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach(function (anchor) {
-
-            anchor.addEventListener(
-                "click",
-                function (event) {
-
-                    const href =
-                        this.getAttribute("href");
-
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-
-                        return;
-
-                    }
-
-                    const destino =
-                        document.querySelector(href);
-
-                    if (destino) {
-
-                        event.preventDefault();
-
-                        destino.scrollIntoView({
-
-                            behavior: "smooth"
-
-                        });
-
-                    }
-
-                }
-            );
-
-        });
-
-
-    /* ========================================================
-       FAQ
-    ======================================================== */
-
-    document
-        .querySelectorAll(".faq-question")
-        .forEach(function (button) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    const item =
-                        this.closest(".faq-item");
-
-                    if (!item) {
-
-                        return;
-
-                    }
-
-                    document
-                        .querySelectorAll(".faq-item")
-                        .forEach(function (other) {
-
-                            if (other !== item) {
-
-                                other.classList.remove(
-                                    "active"
-                                );
-
-                            }
-
-                        });
-
-                    item.classList.toggle(
-                        "active"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* ========================================================
-       ANIMAÇÕES
-    ======================================================== */
-
-    const animatedElements =
-        document.querySelectorAll(
-            ".benefit-card," +
-            ".step-card," +
-            ".plan-card," +
-            ".testimonial," +
-            ".faq-item," +
-            ".hero-stats div"
-        );
+    const page = getCurrentPage();
 
     if (
-        animatedElements.length > 0 &&
-        "IntersectionObserver" in window
+        protectedPages.includes(page) &&
+        !isLoggedIn()
     ) {
 
-        const observer =
-            new IntersectionObserver(
-                function (entries) {
+        window.location.replace("login.html");
 
-                    entries.forEach(
-                        function (entry) {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "show"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.15
-                }
-            );
-
-        animatedElements.forEach(
-            function (element) {
-
-                element.classList.add(
-                    "fade-up"
-                );
-
-                observer.observe(
-                    element
-                );
-
-            }
-        );
+        return false;
 
     }
 
+    return true;
 
-    /* ========================================================
-       CONTADORES
-    ======================================================== */
+}
 
-    const numeros =
-        document.querySelectorAll(
-            ".numbers-grid h2"
-        );
 
-    if (
-        numeros.length > 0 &&
-        "IntersectionObserver" in window
-    ) {
+/* ============================================================
+   DOM
+============================================================ */
 
-        const contadorObserver =
-            new IntersectionObserver(
-                function (entries) {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-                    entries.forEach(
-                        function (entry) {
 
-                            if (
-                                !entry.isIntersecting
-                            ) {
+        /* ====================================================
+           PROTEÇÃO
+        ==================================================== */
 
-                                return;
-
-                            }
-
-                            const numero =
-                                entry.target;
-
-                            const texto =
-                                numero.innerText;
-
-                            const valor =
-                                parseInt(
-                                    texto.replace(
-                                        /\D/g,
-                                        ""
-                                    )
-                                );
-
-                            if (
-                                isNaN(valor)
-                            ) {
-
-                                return;
-
-                            }
-
-                            const sufixo =
-                                texto.replace(
-                                    /[0-9]/g,
-                                    ""
-                                );
-
-                            let atual = 0;
-
-                            const incremento =
-                                Math.max(
-                                    1,
-                                    Math.ceil(
-                                        valor / 120
-                                    )
-                                );
-
-                            function atualizar() {
-
-                                atual += incremento;
-
-                                if (
-                                    atual < valor
-                                ) {
-
-                                    numero.innerText =
-                                        atual +
-                                        sufixo;
-
-                                    requestAnimationFrame(
-                                        atualizar
-                                    );
-
-                                } else {
-
-                                    numero.innerText =
-                                        texto;
-
-                                }
-
-                            }
-
-                            atualizar();
-
-                            contadorObserver.unobserve(
-                                numero
-                            );
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.5
-                }
-            );
-
-        numeros.forEach(
-            function (numero) {
-
-                contadorObserver.observe(
-                    numero
-                );
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       BOTÃO VOLTAR AO TOPO
-    ======================================================== */
-
-    const topButton =
-        document.createElement("button");
-
-    topButton.innerHTML =
-        '<i class="fa-solid fa-arrow-up"></i>';
-
-    topButton.className =
-        "topButton";
-
-    topButton.setAttribute(
-        "aria-label",
-        "Voltar ao topo"
-    );
-
-    document.body.appendChild(
-        topButton
-    );
-
-    window.addEventListener(
-        "scroll",
-        function () {
-
-            if (
-                window.scrollY > 500
-            ) {
-
-                topButton.classList.add(
-                    "showTop"
-                );
-
-            } else {
-
-                topButton.classList.remove(
-                    "showTop"
-                );
-
-            }
-
-        }
-    );
-
-    topButton.addEventListener(
-        "click",
-        function () {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-        }
-    );
-
-
-    /* ========================================================
-       PARALLAX DO HERO
-    ======================================================== */
-
-    const heroImage =
-        document.querySelector(
-            ".hero-right img"
-        );
-
-    if (heroImage) {
-
-        window.addEventListener(
-            "mousemove",
-            function (event) {
-
-                const x =
-                    (
-                        window.innerWidth / 2 -
-                        event.clientX
-                    ) / 45;
-
-                const y =
-                    (
-                        window.innerHeight / 2 -
-                        event.clientY
-                    ) / 45;
-
-                heroImage.style.transform =
-                    `translate(${x}px, ${y}px)`;
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       LOADER
-    ======================================================== */
-
-    const loader =
-        document.querySelector(".loader");
-
-    if (loader) {
-
-        window.addEventListener(
-            "load",
-            function () {
-
-                loader.style.opacity = "0";
-
-                setTimeout(
-                    function () {
-
-                        loader.remove();
-
-                    },
-                    500
-                );
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       PÁGINA DE LOGIN
-    ======================================================== */
-
-    const loginForm =
-        document.getElementById("loginForm");
-
-    if (loginForm) {
-
-        loginForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-                const emailInput =
-                    document.getElementById("email");
-
-                const senhaInput =
-                    document.getElementById("senha");
-
-                const error =
-                    document.getElementById("error");
-
-                const email =
-                    emailInput
-                        ? emailInput.value
-                            .trim()
-                            .toLowerCase()
-                        : "";
-
-                const senha =
-                    senhaInput
-                        ? senhaInput.value
-                        : "";
-
-
-                if (error) {
-
-                    error.style.display =
-                        "none";
-
-                    error.innerHTML = "";
-
-                }
-
-
-                /* --------------------------------------------
-                   VALIDA CAMPOS
-                -------------------------------------------- */
-
-                if (
-                    !email ||
-                    !senha
-                ) {
-
-                    if (error) {
-
-                        error.innerHTML =
-                            "Preencha o e-mail e a senha.";
-
-                        error.style.display =
-                            "block";
-
-                    }
-
-                    return;
-
-                }
-
-
-                /* --------------------------------------------
-                   BUSCA USUÁRIO
-                -------------------------------------------- */
-
-                const users =
-                    getUsers();
-
-                const user =
-                    users.find(
-                        function (item) {
-
-                            return (
-                                item.email
-                                    .toLowerCase() ===
-                                email
-                            );
-
-                        }
-                    );
-
-
-                /* --------------------------------------------
-                   E-MAIL NÃO CADASTRADO
-                -------------------------------------------- */
-
-                if (!user) {
-
-                    if (error) {
-
-                        error.innerHTML =
-                            "Este e-mail não está cadastrado. " +
-                            "Crie uma conta gratuitamente para continuar.";
-
-                        error.style.display =
-                            "block";
-
-                    }
-
-                    return;
-
-                }
-
-
-                /* --------------------------------------------
-                   SENHA INCORRETA
-                -------------------------------------------- */
-
-                if (
-                    user.password !==
-                    senha
-                ) {
-
-                    if (error) {
-
-                        error.innerHTML =
-                            "A senha está incorreta. " +
-                            "Confira sua senha e tente novamente.";
-
-                        error.style.display =
-                            "block";
-
-                    }
-
-                    return;
-
-                }
-
-
-                /* --------------------------------------------
-                   LOGIN CORRETO
-                -------------------------------------------- */
-
-                localStorage.setItem(
-                    "correUser",
-                    JSON.stringify(user)
-                );
-
-                localStorage.setItem(
-                    "correSession",
-                    "1"
-                );
-
-
-                window.location.href =
-                    "dashboard.html";
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       LOGIN COM GOOGLE
-    ======================================================== */
-
-    window.loginGoogle =
-        function () {
-
-            alert(
-                "O login com Google ainda não está conectado. " +
-                "Por enquanto, utilize seu e-mail e senha cadastrados."
-            );
-
-        };
-
-
-    /* ========================================================
-       PÁGINA DE CADASTRO
-    ======================================================== */
-
-    const signupForm =
-        document.getElementById(
-            "signupForm"
-        );
-
-    if (signupForm) {
-
-        const togglePassword =
-            document.getElementById(
-                "togglePassword"
-            );
-
-        const passwordInput =
-            document.getElementById(
-                "password"
-            );
-
-
-        /* --------------------------------------------
-           MOSTRAR / ESCONDER SENHA
-        -------------------------------------------- */
-
-        if (
-            togglePassword &&
-            passwordInput
-        ) {
-
-            togglePassword.addEventListener(
-                "click",
-                function () {
-
-                    if (
-                        passwordInput.type ===
-                        "password"
-                    ) {
-
-                        passwordInput.type =
-                            "text";
-
-                        this.innerHTML =
-                            '<i class="fa-solid fa-eye-slash"></i>';
-
-                    } else {
-
-                        passwordInput.type =
-                            "password";
-
-                        this.innerHTML =
-                            '<i class="fa-solid fa-eye"></i>';
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* --------------------------------------------
-           FORMULÁRIO DE CADASTRO
-        -------------------------------------------- */
-
-        signupForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const name =
-                    document
-                        .getElementById("name")
-                        ?.value
-                        .trim();
-
-
-                const email =
-                    document
-                        .getElementById("email")
-                        ?.value
-                        .trim()
-                        .toLowerCase();
-
-
-                const password =
-                    document
-                        .getElementById("password")
-                        ?.value;
-
-
-                const confirmPassword =
-                    document
-                        .getElementById(
-                            "confirmPassword"
-                        )
-                        ?.value;
-
-
-                const terms =
-                    document
-                        .getElementById("terms")
-                        ?.checked;
-
-
-                const message =
-                    document.getElementById(
-                        "message"
-                    );
-
-
-                function showError(text) {
-
-                    if (!message) {
-
-                        return;
-
-                    }
-
-                    message.className =
-                        "message error";
-
-                    message.innerHTML =
-                        '<i class="fa-solid fa-circle-exclamation"></i> ' +
-                        text;
-
-                }
-
-
-                function showSuccess(text) {
-
-                    if (!message) {
-
-                        return;
-
-                    }
-
-                    message.className =
-                        "message success";
-
-                    message.innerHTML =
-                        '<i class="fa-solid fa-circle-check"></i> ' +
-                        text;
-
-                }
-
-
-                /* ----------------------------------------
-                   VALIDA NOME
-                ---------------------------------------- */
-
-                if (
-                    !name ||
-                    name.length < 3
-                ) {
-
-                    showError(
-                        "Digite seu nome completo."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   VALIDA E-MAIL
-                ---------------------------------------- */
-
-                const emailRegex =
-                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                if (
-                    !email ||
-                    !emailRegex.test(email)
-                ) {
-
-                    showError(
-                        "Digite um e-mail válido."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   VALIDA SENHA
-                ---------------------------------------- */
-
-                if (
-                    !password ||
-                    password.length < 6
-                ) {
-
-                    showError(
-                        "A senha precisa ter pelo menos 6 caracteres."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   CONFIRMA SENHA
-                ---------------------------------------- */
-
-                if (
-                    password !==
-                    confirmPassword
-                ) {
-
-                    showError(
-                        "As senhas não são iguais."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   TERMOS
-                ---------------------------------------- */
-
-                if (!terms) {
-
-                    showError(
-                        "Você precisa aceitar os termos para continuar."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   BUSCA USUÁRIOS EXISTENTES
-                ---------------------------------------- */
-
-                const users =
-                    getUsers();
-
-
-                const existingUser =
-                    users.find(
-                        function (user) {
-
-                            return (
-                                user.email
-                                    .toLowerCase() ===
-                                email
-                            );
-
-                        }
-                    );
-
-
-                /* ----------------------------------------
-                   E-MAIL JÁ EXISTENTE
-                ---------------------------------------- */
-
-                if (existingUser) {
-
-                    showError(
-                        "Este e-mail já possui uma conta. " +
-                        "Entre com sua conta existente."
-                    );
-
-                    return;
-
-                }
-
-
-                /* ----------------------------------------
-                   CRIA NOVO USUÁRIO
-                ---------------------------------------- */
-
-                const newUser = {
-
-                    id:
-                        Date.now(),
-
-                    name:
-                        name,
-
-                    nome:
-                        name,
-
-                    email:
-                        email,
-
-                    password:
-                        password,
-
-                    createdAt:
-                        new Date().toISOString(),
-
-                    plan:
-                        "free"
-
-                };
-
-
-                /* ----------------------------------------
-                   ADICIONA À BASE LOCAL
-                ---------------------------------------- */
-
-                users.push(
-                    newUser
-                );
-
-                saveUsers(
-                    users
-                );
-
-
-                /* ----------------------------------------
-                   CRIA SESSÃO
-                ---------------------------------------- */
-
-                localStorage.setItem(
-                    "correUser",
-                    JSON.stringify(
-                        newUser
-                    )
-                );
-
-                localStorage.setItem(
-                    "correSession",
-                    "1"
-                );
-
-
-                /* ----------------------------------------
-                   MENSAGEM
-                ---------------------------------------- */
-
-                showSuccess(
-                    "Conta criada com sucesso! " +
-                    "Entrando no seu painel..."
-                );
-
-
-                /* ----------------------------------------
-                   REDIRECIONA
-                ---------------------------------------- */
-
-                setTimeout(
-                    function () {
-
-                        window.location.href =
-                            "dashboard.html";
-
-                    },
-                    1000
-                );
-
-            }
-        );
-
-    }
-
-
-    /* ========================================================
-       PROTEÇÃO DAS PÁGINAS DO PAINEL
-    ======================================================== */
-
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-
-    const protectedPages = [
-
-        "dashboard.html",
-        "treinos.html",
-        "cursos.html",
-        "aulas.html",
-        "desafios.html",
-        "perfil.html",
-        "evolucao.html"
-
-    ];
-
-
-    if (
-        protectedPages.includes(
-            currentPage
-        )
-    ) {
-
-        if (!isLoggedIn()) {
-
-            window.location.href =
-                "login.html";
+        if (!protectPage()) {
 
             return;
 
         }
 
-    }
 
+        /* ====================================================
+           MENU MOBILE
+        ==================================================== */
 
-    /* ========================================================
-       DADOS DO USUÁRIO NO PAINEL
-    ======================================================== */
+        const hamburger =
+            document.querySelector(".hamburger");
 
-    if (
-        isLoggedIn() &&
-        protectedPages.includes(
-            currentPage
-        )
-    ) {
+        const menu =
+            document.querySelector(".menu");
 
-        const user =
-            getCurrentUser();
+        if (hamburger && menu) {
 
-
-        const userName =
-            user.nome ||
-            user.name ||
-            "Corredor";
-
-
-        /* --------------------------------------------
-           NOME DO USUÁRIO
-        -------------------------------------------- */
-
-        const title =
-            document.querySelector(
-                ".topbar h1"
-            );
-
-        if (title) {
-
-            title.innerHTML =
-                `Olá, ${userName} 👋`;
-
-        }
-
-
-        /* --------------------------------------------
-           AVATAR
-        -------------------------------------------- */
-
-        const avatar =
-            document.querySelector(
-                ".top-icons img"
-            );
-
-        if (avatar) {
-
-            avatar.style.cursor =
-                "pointer";
-
-            avatar.addEventListener(
+            hamburger.addEventListener(
                 "click",
                 function () {
 
-                    window.location.href =
-                        "perfil.html";
+                    hamburger.classList.toggle("active");
+
+                    menu.classList.toggle("active");
 
                 }
             );
 
-        }
 
+            document
+                .querySelectorAll(".menu a")
+                .forEach(function (link) {
 
-        /* --------------------------------------------
-           NOTIFICAÇÕES
-        -------------------------------------------- */
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-        const notification =
-            document.querySelector(
-                ".top-icons .fa-bell"
-            );
+                            menu.classList.remove("active");
 
-        if (notification) {
+                            hamburger.classList.remove("active");
 
-            notification.style.cursor =
-                "pointer";
-
-            notification.addEventListener(
-                "click",
-                function () {
-
-                    alert(
-                        "🔔 Você não possui novas notificações."
+                        }
                     );
 
+                });
+
+        }
+
+
+        /* ====================================================
+           HEADER
+        ==================================================== */
+
+        const header =
+            document.querySelector("header");
+
+        if (header) {
+
+            window.addEventListener(
+                "scroll",
+                function () {
+
+                    if (window.scrollY > 60) {
+
+                        header.style.background =
+                            "rgba(5,5,5,.95)";
+
+                        header.style.boxShadow =
+                            "0 10px 35px rgba(0,0,0,.35)";
+
+                    } else {
+
+                        header.style.background =
+                            "rgba(5,5,5,.75)";
+
+                        header.style.boxShadow =
+                            "none";
+
+                    }
+
                 }
             );
 
@@ -1257,156 +238,230 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* ====================================================
-           BOTÃO SAIR
+           SCROLL SUAVE
         ==================================================== */
 
-        const logoutButton =
-            document.getElementById(
-                "logoutButton"
-            );
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(function (anchor) {
 
-        if (logoutButton) {
+                anchor.addEventListener(
+                    "click",
+                    function (event) {
 
-            logoutButton.addEventListener(
-                "click",
-                logout
-            );
+                        const href =
+                            this.getAttribute("href");
 
-        }
+                        if (
+                            !href ||
+                            href === "#"
+                        ) {
+
+                            return;
+
+                        }
+
+                        const destino =
+                            document.querySelector(href);
+
+                        if (destino) {
+
+                            event.preventDefault();
+
+                            destino.scrollIntoView({
+                                behavior: "smooth"
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
 
 
         /* ====================================================
-           SIDEBAR
+           FAQ
         ==================================================== */
 
-        const sidebarLinks =
-            document.querySelectorAll(
-                ".sidebar nav a"
-            );
+        document
+            .querySelectorAll(".faq-question")
+            .forEach(function (button) {
 
-        sidebarLinks.forEach(
-            function (link) {
-
-                link.addEventListener(
+                button.addEventListener(
                     "click",
                     function () {
 
-                        sidebarLinks.forEach(
-                            function (item) {
+                        const item =
+                            this.closest(".faq-item");
 
-                                item.classList.remove(
-                                    "active"
-                                );
+                        if (!item) {
 
-                            }
-                        );
+                            return;
 
-                        this.classList.add(
+                        }
+
+                        document
+                            .querySelectorAll(".faq-item")
+                            .forEach(function (other) {
+
+                                if (other !== item) {
+
+                                    other.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+
+                            });
+
+                        item.classList.toggle(
                             "active"
                         );
 
                     }
                 );
 
-            }
-        );
+            });
 
 
         /* ====================================================
-           CARDS DO DASHBOARD
+           LOGIN
         ==================================================== */
 
-        const dashCards =
-            document.querySelectorAll(
-                ".dash-card"
-            );
+        const loginForm =
+            document.getElementById("loginForm");
 
+        if (loginForm) {
 
-        /* TREINO */
-
-        if (
-            dashCards[0]
-        ) {
-
-            dashCards[0].style.cursor =
-                "pointer";
-
-            dashCards[0].addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "treinos.html";
-
-                }
-            );
-
-        }
-
-
-        /* DISTÂNCIA */
-
-        if (
-            dashCards[2]
-        ) {
-
-            dashCards[2].style.cursor =
-                "pointer";
-
-            dashCards[2].addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "evolucao.html";
-
-                }
-            );
-
-        }
-
-
-        /* META */
-
-        if (
-            dashCards[3]
-        ) {
-
-            dashCards[3].style.cursor =
-                "pointer";
-
-            dashCards[3].addEventListener(
-                "click",
-                function () {
-
-                    window.location.href =
-                        "evolucao.html";
-
-                }
-            );
-
-        }
-
-
-        /* ====================================================
-           CALENDÁRIO
-        ==================================================== */
-
-        const calendarLink =
-            document.querySelector(
-                ".calendar-card .card-header a"
-            );
-
-        if (calendarLink) {
-
-            calendarLink.addEventListener(
-                "click",
+            loginForm.addEventListener(
+                "submit",
                 function (event) {
 
                     event.preventDefault();
 
+
+                    const emailInput =
+                        document.getElementById("email");
+
+                    const senhaInput =
+                        document.getElementById("senha");
+
+
+                    const error =
+                        document.getElementById("error");
+
+
+                    const email =
+                        emailInput
+                            ? emailInput.value
+                                .trim()
+                                .toLowerCase()
+                            : "";
+
+
+                    const senha =
+                        senhaInput
+                            ? senhaInput.value
+                            : "";
+
+
+                    if (error) {
+
+                        error.style.display = "none";
+
+                        error.innerHTML = "";
+
+                    }
+
+
+                    if (!email || !senha) {
+
+                        if (error) {
+
+                            error.innerHTML =
+                                "Preencha o e-mail e a senha.";
+
+                            error.style.display =
+                                "block";
+
+                        }
+
+                        return;
+
+                    }
+
+
+                    const users =
+                        getUsers();
+
+
+                    const user =
+                        users.find(
+                            function (item) {
+
+                                return (
+                                    item.email &&
+                                    item.email
+                                        .toLowerCase() ===
+                                    email
+                                );
+
+                            }
+                        );
+
+
+                    if (!user) {
+
+                        if (error) {
+
+                            error.innerHTML =
+                                "Este e-mail não está cadastrado.";
+
+                            error.style.display =
+                                "block";
+
+                        }
+
+                        return;
+
+                    }
+
+
+                    if (user.password !== senha) {
+
+                        if (error) {
+
+                            error.innerHTML =
+                                "A senha está incorreta.";
+
+                            error.style.display =
+                                "block";
+
+                        }
+
+                        return;
+
+                    }
+
+
+                    /* ================================
+                       CRIA SESSÃO
+                    ================================= */
+
+                    localStorage.setItem(
+                        "correUser",
+                        JSON.stringify(user)
+                    );
+
+                    localStorage.setItem(
+                        "correSession",
+                        "1"
+                    );
+
+
                     window.location.href =
-                        "treinos.html";
+                        "painel.html";
 
                 }
             );
@@ -1415,173 +470,649 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* ====================================================
-           CURSOS
+           LOGIN GOOGLE
         ==================================================== */
 
-        const coursesLink =
-            document.querySelector(
-                ".courses-card .card-header a"
-            );
+        window.loginGoogle =
+            function () {
 
-        if (coursesLink) {
+                alert(
+                    "O login com Google ainda não está conectado. " +
+                    "Utilize seu e-mail e senha."
+                );
 
-            coursesLink.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    window.location.href =
-                        "cursos.html";
-
-                }
-            );
-
-        }
+            };
 
 
-        const courses =
-            document.querySelectorAll(
-                ".course"
-            );
+        /* ====================================================
+           CADASTRO
+        ==================================================== */
 
-        courses.forEach(
-            function (course) {
+        const signupForm =
+            document.getElementById("signupForm");
 
-                course.style.cursor =
-                    "pointer";
 
-                course.addEventListener(
+        if (signupForm) {
+
+
+            const togglePassword =
+                document.getElementById(
+                    "togglePassword"
+                );
+
+
+            const passwordInput =
+                document.getElementById(
+                    "password"
+                );
+
+
+            /* ================================================
+               MOSTRAR SENHA
+            ================================================ */
+
+            if (
+                togglePassword &&
+                passwordInput
+            ) {
+
+                togglePassword.addEventListener(
                     "click",
                     function () {
 
-                        window.location.href =
-                            "aulas.html";
+                        if (
+                            passwordInput.type ===
+                            "password"
+                        ) {
+
+                            passwordInput.type =
+                                "text";
+
+                            this.innerHTML =
+                                '<i class="fa-solid fa-eye-slash"></i>';
+
+                        } else {
+
+                            passwordInput.type =
+                                "password";
+
+                            this.innerHTML =
+                                '<i class="fa-solid fa-eye"></i>';
+
+                        }
 
                     }
                 );
 
             }
-        );
 
 
-        /* ====================================================
-           CONQUISTAS
-        ==================================================== */
+            /* ================================================
+               CADASTRAR
+            ================================================ */
 
-        const achievements =
-            document.querySelectorAll(
-                ".achievement"
-            );
+            signupForm.addEventListener(
+                "submit",
+                function (event) {
 
-        achievements.forEach(
-            function (achievement) {
+                    event.preventDefault();
 
-                achievement.style.cursor =
-                    "pointer";
 
-                achievement.addEventListener(
-                    "click",
-                    function () {
+                    const name =
+                        document
+                            .getElementById("name")
+                            ?.value
+                            .trim();
 
-                        window.location.href =
-                            "desafios.html";
+
+                    const email =
+                        document
+                            .getElementById("email")
+                            ?.value
+                            .trim()
+                            .toLowerCase();
+
+
+                    const password =
+                        document
+                            .getElementById("password")
+                            ?.value;
+
+
+                    const confirmPassword =
+                        document
+                            .getElementById(
+                                "confirmPassword"
+                            )
+                            ?.value;
+
+
+                    /*
+                       IMPORTANTE:
+                       O ID correto é aceiteTermos
+                    */
+
+                    const terms =
+                        document
+                            .getElementById(
+                                "aceiteTermos"
+                            )
+                            ?.checked;
+
+
+                    const message =
+                        document.getElementById(
+                            "message"
+                        );
+
+
+                    function showError(text) {
+
+                        if (!message) {
+
+                            return;
+
+                        }
+
+                        message.className =
+                            "message error";
+
+                        message.innerHTML =
+                            '<i class="fa-solid fa-circle-exclamation"></i> ' +
+                            text;
 
                     }
-                );
 
-            }
-        );
+
+                    function showSuccess(text) {
+
+                        if (!message) {
+
+                            return;
+
+                        }
+
+                        message.className =
+                            "message success";
+
+                        message.innerHTML =
+                            '<i class="fa-solid fa-circle-check"></i> ' +
+                            text;
+
+                    }
+
+
+                    /* ========================================
+                       NOME
+                    ======================================== */
+
+                    if (
+                        !name ||
+                        name.length < 3
+                    ) {
+
+                        showError(
+                            "Digite seu nome completo."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       E-MAIL
+                    ======================================== */
+
+                    const emailRegex =
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                    if (
+                        !email ||
+                        !emailRegex.test(email)
+                    ) {
+
+                        showError(
+                            "Digite um e-mail válido."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       SENHA
+                    ======================================== */
+
+                    if (
+                        !password ||
+                        password.length < 6
+                    ) {
+
+                        showError(
+                            "A senha precisa ter pelo menos 6 caracteres."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       CONFIRMAR SENHA
+                    ======================================== */
+
+                    if (
+                        password !==
+                        confirmPassword
+                    ) {
+
+                        showError(
+                            "As senhas não são iguais."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       TERMOS
+                    ======================================== */
+
+                    if (!terms) {
+
+                        showError(
+                            "Você precisa aceitar os termos para continuar."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       USUÁRIOS EXISTENTES
+                    ======================================== */
+
+                    const users =
+                        getUsers();
+
+
+                    const existingUser =
+                        users.find(
+                            function (user) {
+
+                                return (
+                                    user.email &&
+                                    user.email
+                                        .toLowerCase() ===
+                                    email
+                                );
+
+                            }
+                        );
+
+
+                    if (existingUser) {
+
+                        showError(
+                            "Este e-mail já possui uma conta. Entre com ela."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* ========================================
+                       NOVO USUÁRIO
+                    ======================================== */
+
+                    const newUser = {
+
+                        id:
+                            Date.now(),
+
+                        name:
+                            name,
+
+                        nome:
+                            name,
+
+                        email:
+                            email,
+
+                        password:
+                            password,
+
+                        createdAt:
+                            new Date()
+                                .toISOString(),
+
+                        plan:
+                            "free",
+
+                        avatar:
+                            "",
+
+                        goal:
+                            "5 km",
+
+                        totalKm:
+                            0,
+
+                        workouts:
+                            0,
+
+                        classes:
+                            0
+
+                    };
+
+
+                    /* ========================================
+                       SALVA DEFINITIVAMENTE
+                    ======================================== */
+
+                    users.push(
+                        newUser
+                    );
+
+                    saveUsers(
+                        users
+                    );
+
+
+                    /* ========================================
+                       LOGIN AUTOMÁTICO
+                    ======================================== */
+
+                    localStorage.setItem(
+                        "correUser",
+                        JSON.stringify(
+                            newUser
+                        )
+                    );
+
+
+                    localStorage.setItem(
+                        "correSession",
+                        "1"
+                    );
+
+
+                    showSuccess(
+                        "Conta criada com sucesso! Entrando..."
+                    );
+
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "painel.html";
+
+                        },
+                        700
+                    );
+
+                }
+            );
+
+        }
 
 
         /* ====================================================
-           BARRAS DE EVOLUÇÃO
+           PÁGINAS LOGADAS
         ==================================================== */
 
-        const fills =
-            document.querySelectorAll(
-                ".progress .fill"
-            );
+        if (isLoggedIn()) {
 
-        fills.forEach(
-            function (fill) {
+            const user =
+                getCurrentUser();
 
-                const width =
-                    fill.style.width;
 
-                fill.style.width =
-                    "0";
+            if (!user) {
 
-                setTimeout(
-                    function () {
-
-                        fill.style.width =
-                            width;
-
-                    },
-                    300
-                );
+                return;
 
             }
-        );
+
+
+            const userName =
+                user.nome ||
+                user.name ||
+                "Corredor";
+
+
+            /* ================================================
+               NOME
+            ================================================ */
+
+            document
+                .querySelectorAll(
+                    "[data-user-name]"
+                )
+                .forEach(function (element) {
+
+                    element.textContent =
+                        userName;
+
+                });
+
+
+            /* ================================================
+               EMAIL
+            ================================================ */
+
+            document
+                .querySelectorAll(
+                    "[data-user-email]"
+                )
+                .forEach(function (element) {
+
+                    element.textContent =
+                        user.email || "";
+
+                });
+
+
+            /* ================================================
+               BOTÃO LOGOUT
+            ================================================ */
+
+            document
+                .querySelectorAll(
+                    "#logoutButton, [data-logout]"
+                )
+                .forEach(function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        logout
+                    );
+
+                });
+
+
+            /* ================================================
+               NAVEGAÇÃO
+            ================================================ */
+
+            document
+                .querySelectorAll(
+                    "[data-page]"
+                )
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            const page =
+                                this.dataset.page;
+
+                            if (page) {
+
+                                window.location.href =
+                                    page;
+
+                            }
+
+                        }
+                    );
+
+                });
+
+
+            /* ================================================
+               PÁGINA ATIVA
+            ================================================ */
+
+            const currentPage =
+                getCurrentPage();
+
+
+            document
+                .querySelectorAll(
+                    "[data-page]"
+                )
+                .forEach(function (link) {
+
+                    if (
+                        link.dataset.page ===
+                        currentPage
+                    ) {
+
+                        link.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                });
+
+
+            /* ================================================
+               AVATAR
+            ================================================ */
+
+            const avatar =
+                document.querySelector(
+                    "[data-user-avatar]"
+                );
+
+
+            if (avatar) {
+
+                if (user.avatar) {
+
+                    avatar.src =
+                        user.avatar;
+
+                } else {
+
+                    avatar.src =
+                        "https://ui-avatars.com/api/?name=" +
+                        encodeURIComponent(
+                            userName
+                        ) +
+                        "&background=A3FF12&color=080808";
+
+                }
+
+            }
+
+
+            /* ================================================
+               LINKS ANTIGOS
+            ================================================ */
+
+            document
+                .querySelectorAll(
+                    'a[href="dashboard.html"]'
+                )
+                .forEach(function (link) {
+
+                    link.setAttribute(
+                        "href",
+                        "painel.html"
+                    );
+
+                });
+
+
+            /* ================================================
+               NOME DO TOPO ANTIGO
+            ================================================ */
+
+            const title =
+                document.querySelector(
+                    ".topbar h1"
+                );
+
+
+            if (
+                title &&
+                !title.hasAttribute(
+                    "data-user-name"
+                )
+            ) {
+
+                title.innerHTML =
+                    `Olá, ${userName} 👋`;
+
+            }
+
+        }
+
 
     }
 
-
-});
+);
 
 
 /* ============================================================
-   PROTEÇÃO CONTRA VOLTAR AO PAINEL APÓS LOGOUT
+   VOLTAR AO PAINEL SE USUÁRIO TENTAR ABRIR LOGIN/CADASTRO
 ============================================================ */
 
 window.addEventListener(
     "pageshow",
     function () {
 
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase();
-
-
-        const protectedPages = [
-
-            "dashboard.html",
-            "treinos.html",
-            "cursos.html",
-            "aulas.html",
-            "desafios.html",
-            "perfil.html",
-            "evolucao.html"
-
-        ];
+        const page =
+            getCurrentPage();
 
 
         if (
-            protectedPages.includes(
-                currentPage
-            )
+            (
+                page === "login.html" ||
+                page === "cadastro.html"
+            ) &&
+            isLoggedIn()
         ) {
 
-            if (!isLoggedIn()) {
+            /*
+               Não bloqueia totalmente o cadastro,
+               mas permite entrar no painel.
+            */
 
-                window.location.replace(
-                    "login.html"
-                );
+        }
 
-            }
+
+        if (
+            protectedPages.includes(page) &&
+            !isLoggedIn()
+        ) {
+
+            window.location.replace(
+                "login.html"
+            );
 
         }
 
     }
 );
-
-
-/* ============================================================
-   DISPONIBILIZA LOGOUT GLOBALMENTE
-============================================================ */
-
-window.logout =
-    logout;
