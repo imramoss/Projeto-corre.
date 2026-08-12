@@ -4687,6 +4687,346 @@ window.addEventListener(
 
 
 </script>
+<script>
+/* =====================================================
+   CORRE — SISTEMA DE LOGIN V4
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById("onboardingModal");
+
+    const closeButtons = document.querySelectorAll(
+        ".modal-close, .close-modal, .ca-close, [data-close-modal]"
+    );
+
+    const registerForm = document.getElementById("registerForm");
+
+    const loginForm = document.getElementById("loginForm");
+
+    const logoutButtons = document.querySelectorAll(
+        "#logoutBtn, .logout-btn, [data-logout]"
+    );
+
+
+    /* =================================================
+       FECHAR MODAL
+    ================================================= */
+
+    function closeModal() {
+
+        if (!modal) return;
+
+        modal.style.display = "none";
+
+        modal.classList.remove("open");
+        modal.classList.remove("active");
+
+        document.body.classList.remove("modal-open");
+
+    }
+
+
+    /* =================================================
+       ABRIR MODAL
+    ================================================= */
+
+    function openModal() {
+
+        if (!modal) return;
+
+        modal.style.display = "grid";
+
+        modal.classList.add("open");
+
+        document.body.classList.add("modal-open");
+
+    }
+
+
+    /* =================================================
+       BOTÃO X
+    ================================================= */
+
+    closeButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            closeModal();
+
+        });
+
+    });
+
+
+    /* =================================================
+       CADASTRO
+    ================================================= */
+
+    if (registerForm) {
+
+        registerForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("registerName")?.value.trim();
+
+            const email =
+                document.getElementById("registerEmail")?.value.trim();
+
+            const password =
+                document.getElementById("registerPassword")?.value;
+
+
+            if (!name || !email || !password) {
+
+                alert("Preencha todos os campos.");
+
+                return;
+
+            }
+
+
+            /* Salva os dados do usuário */
+
+            const user = {
+
+                name: name,
+
+                email: email,
+
+                password: password,
+
+                createdAt: new Date().toISOString()
+
+            };
+
+
+            localStorage.setItem(
+                "corre_user",
+                JSON.stringify(user)
+            );
+
+
+            localStorage.setItem(
+                "corre_logged",
+                "true"
+            );
+
+
+            /* Fecha o modal */
+
+            closeModal();
+
+
+            /* Atualiza a interface */
+
+            updateUserInterface();
+
+
+            /* Mensagem */
+
+            showToast(
+                "Conta criada! Bora começar a correr 🏃"
+            );
+
+        });
+
+    }
+
+
+    /* =================================================
+       LOGIN
+    ================================================= */
+
+    if (loginForm) {
+
+        loginForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("loginEmail")?.value.trim();
+
+            const password =
+                document.getElementById("loginPassword")?.value;
+
+
+            const savedUser =
+                JSON.parse(
+                    localStorage.getItem("corre_user")
+                );
+
+
+            if (!savedUser) {
+
+                alert(
+                    "Nenhuma conta encontrada. Crie sua conta primeiro."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                email !== savedUser.email ||
+                password !== savedUser.password
+            ) {
+
+                alert("E-mail ou senha incorretos.");
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "corre_logged",
+                "true"
+            );
+
+
+            closeModal();
+
+            updateUserInterface();
+
+            showToast(
+                "Bem-vindo de volta! 👟"
+            );
+
+        });
+
+    }
+
+
+    /* =================================================
+       LOGOUT
+    ================================================= */
+
+    logoutButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            localStorage.removeItem("corre_logged");
+
+            location.reload();
+
+        });
+
+    });
+
+
+    /* =================================================
+       ATUALIZA USUÁRIO
+    ================================================= */
+
+    function updateUserInterface() {
+
+        const savedUser =
+            JSON.parse(
+                localStorage.getItem("corre_user")
+            );
+
+
+        if (!savedUser) return;
+
+
+        /* Nome */
+
+        document
+            .querySelectorAll(
+                "#userName, .user-name, [data-user-name]"
+            )
+            .forEach(element => {
+
+                element.textContent =
+                    savedUser.name;
+
+            });
+
+
+        /* Avatar */
+
+        document
+            .querySelectorAll(
+                "#userAvatar, .user-avatar, [data-user-avatar]"
+            )
+            .forEach(element => {
+
+                element.textContent =
+                    savedUser.name
+                        .charAt(0)
+                        .toUpperCase();
+
+            });
+
+    }
+
+
+    /* =================================================
+       TOAST
+    ================================================= */
+
+    function showToast(message) {
+
+        let toast =
+            document.getElementById("correToast");
+
+
+        if (!toast) {
+
+            toast =
+                document.createElement("div");
+
+            toast.id = "correToast";
+
+            toast.className = "ca-toast";
+
+            document.body.appendChild(toast);
+
+        }
+
+
+        toast.textContent = message;
+
+        toast.style.display = "block";
+
+
+        setTimeout(() => {
+
+            toast.style.display = "none";
+
+        }, 3000);
+
+    }
+
+
+    /* =================================================
+       VERIFICA LOGIN AO ABRIR
+    ================================================= */
+
+    const logged =
+        localStorage.getItem("corre_logged");
+
+    const savedUser =
+        localStorage.getItem("corre_user");
+
+
+    if (logged === "true" && savedUser) {
+
+        /* Usuário já está logado */
+
+        closeModal();
+
+        updateUserInterface();
+
+    }
+
+
+});
+</script>
 
 
 </body>
