@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Entrar | Projeto Corre</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            font-family: Poppins, sans-serif;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(163,255,18,.12),
+                    transparent 35%
+                ),
+                #080808;
+
+        }
+
+        .login-box {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 40px;
+
+            background: #151515;
+
+            border: 1px solid #292929;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.5);
+
+        }
+
+        .logo {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+        .logo i {
+
+            color: #A3FF12;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+
+        }
+
+        .logo h1 {
+
+            font-size: 30px;
+
+        }
+
+        .logo span {
+
+            color: #A3FF12;
+
+        }
+
+        .logo p {
+
+            color: #777;
+
+            margin-top: 8px;
+
+            font-size: 13px;
+
+        }
+
+        label {
+
+            display: block;
+
+            margin-top: 18px;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            color: #aaa;
+
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            border: 1px solid #292929;
+
+            background: #0f0f0f;
+
+            color: white;
+
+            font-family: inherit;
+
+            outline: none;
+
+        }
+
+        input:focus {
+
+            border-color: #A3FF12;
+
+        }
+
+        .btn {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 25px;
+
+            border: 0;
+
+            border-radius: 13px;
+
+            background: #A3FF12;
+
+            color: #080808;
+
+            font-family: inherit;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+        }
+
+        .google {
+
+            background: white;
+
+            color: #111;
+
+            margin-top: 12px;
+
+        }
+
+        .links {
+
+            margin-top: 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            font-size: 12px;
+
+        }
+
+        .links a {
+
+            color: #A3FF12;
+
+            text-decoration: none;
+
+        }
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 28px;
+
+            color: #777;
+
+            font-size: 12px;
+
+            text-decoration: none;
+
+        }
+
+        .error {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: rgba(255,50,50,.1);
+
+            color: #ff7777;
+
+            font-size: 12px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="login-box">
+
+
+    <div class="logo">
+
+        <i class="fa-solid fa-person-running"></i>
+
+        <h1>
+            Projeto <span>Corre</span>
+        </h1>
+
+        <p>
+            Entre para continuar sua jornada.
+        </p>
+
+    </div>
+
+
+    <form id="loginForm">
+
+
+        <label>
+            E-mail
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="seu@email.com"
+            required>
+
+
+        <label>
+            Senha
+        </label>
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Sua senha"
+            required>
+
+
+        <button
+            class="btn"
+            type="submit">
+
+            Entrar
+
+        </button>
+
+
+        <button
+            class="btn google"
+            type="button"
+            onclick="loginGoogle()">
+
+            <i class="fa-brands fa-google"></i>
+
+            Entrar com Google
+
+        </button>
+
+
+        <div
+            class="error"
+            id="error">
+
+            E-mail ou senha inválidos.
+
+        </div>
+
+
+        <div class="links">
+
+            <a href="#">
+                Esqueci minha senha
+            </a>
+
+            <a href="cadastro.html">
+                Criar conta
+            </a>
+
+        </div>
+
+
+    </form>
+
+
+    <a
+        href="index.html"
+        class="back">
+
+        ← Voltar para o início
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        function(e) {
+
+            e.preventDefault();
+
+            const email =
+                document.getElementById("email").value;
+
+            const senha =
+                document.getElementById("senha").value;
+
+
+            if (!email || !senha) {
+
+                document
+                    .getElementById("error")
+                    .style.display = "block";
+
+                return;
+
+            }
+
+
+            const user = {
+
+                name:
+                    email
+                        .split("@")[0]
+                        .replace(/\./g, " "),
+
+                email: email
+
+            };
+
+
+            localStorage.setItem(
+                "correUser",
+                JSON.stringify(user)
+            );
+
+
+            localStorage.setItem(
+                "correSession",
+                "1"
+            );
+
+
+            window.location.href =
+                "dashboard.html";
+
+        }
+    );
+
+
+function loginGoogle() {
+
+    alert(
+        "O login com Google será conectado ao sistema de autenticação na próxima etapa."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
