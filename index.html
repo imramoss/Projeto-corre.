@@ -3,1626 +3,1756 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>Projeto Corre | Transforme sua corrida</title>
+    <meta
+        name="description"
+        content="Projeto Corre — sua jornada para começar a correr, evoluir e transformar sua rotina.">
 
-<meta
-    name="description"
-    content="Aprenda a correr do zero. Treinos, aulas, desafios e evolução em um só lugar.">
+    <meta
+        name="theme-color"
+        content="#A3FF12">
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com">
+    <title>Projeto Corre | Comece sua jornada</title>
 
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+    <!-- GOOGLE FONT -->
 
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<style>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-/* =====================================================
-   RESET
-===================================================== */
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html {
-    scroll-behavior: smooth;
-}
+    <!-- FONT AWESOME -->
 
-body {
-    background: #080909;
-    color: #f5f5f5;
-    font-family: "Poppins", sans-serif;
-}
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
-button,
-input {
-    font-family: inherit;
-}
+    <!-- CSS PRINCIPAL -->
 
+    <link
+        rel="stylesheet"
+        href="style.css">
 
-/* =====================================================
-   CORES
-===================================================== */
 
-:root {
+    <style>
 
-    --green: #c5ff3d;
-    --black: #080909;
-    --card: #111315;
-    --card2: #181b1e;
-    --border: #292d31;
-    --gray: #9ca1a7;
-    --white: #f5f5f5;
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
 
-/* =====================================================
-   LANDING PAGE
-===================================================== */
+        html {
+            scroll-behavior: smooth;
+        }
 
-.container {
 
-    width: min(1100px, 92%);
-    margin: auto;
+        body {
 
-}
+            font-family: "Poppins", sans-serif;
 
+            background: #080808;
 
-/* HEADER */
+            color: #fff;
 
-header {
+            overflow-x: hidden;
 
-    position: sticky;
-    top: 0;
-    z-index: 100;
+        }
 
-    background: rgba(8,9,9,.92);
 
-    backdrop-filter: blur(15px);
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    border-bottom: 1px solid var(--border);
 
-}
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
 
-.navbar {
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
 
-    width: min(1200px, 92%);
-    height: 75px;
+        :root {
 
-    margin: auto;
+            --green: #A3FF12;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            --green-dark: #78c400;
 
-}
+            --black: #080808;
 
+            --dark: #101010;
 
-.logo {
+            --dark-2: #151515;
 
-    display: flex;
-    align-items: center;
-    gap: 10px;
+            --dark-3: #1d1d1d;
 
-    font-size: 20px;
-    font-weight: 700;
+            --gray: #9c9c9c;
 
-}
+            --white: #ffffff;
 
+            --border: #292929;
 
-.logo i {
+        }
 
-    color: var(--green);
-    font-size: 23px;
 
-}
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
 
+        .container {
 
-.logo strong {
+            width: min(1180px, 92%);
 
-    color: var(--green);
+            margin: auto;
 
-}
+        }
 
 
-.menu {
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-    list-style: none;
+        header {
 
-    display: flex;
-    gap: 25px;
+            position: fixed;
 
-}
+            top: 0;
 
+            left: 0;
 
-.menu a {
+            width: 100%;
 
-    color: #aaa;
+            z-index: 999;
 
-    font-size: 14px;
+            background: rgba(8, 8, 8, .88);
 
-    transition: .2s;
+            backdrop-filter: blur(15px);
 
-}
+            border-bottom: 1px solid rgba(255,255,255,.05);
 
+        }
 
-.menu a:hover {
 
-    color: var(--green);
+        .navbar {
 
-}
+            width: min(1200px, 94%);
 
+            height: 78px;
 
-.nav-buttons {
+            margin: auto;
 
-    display: flex;
-    gap: 10px;
-    align-items: center;
+            display: flex;
 
-}
+            align-items: center;
 
+            justify-content: space-between;
 
-.btn-primary,
-.btn-login,
-.btn-secondary {
+            gap: 25px;
 
-    padding: 12px 18px;
+        }
 
-    border-radius: 10px;
 
-    font-weight: 700;
+        /* LOGO */
 
-    display: inline-flex;
+        .logo {
 
-    align-items: center;
-    justify-content: center;
+            display: flex;
 
-    transition: .2s;
+            align-items: center;
 
-}
+            gap: 10px;
 
+            font-size: 20px;
 
-.btn-primary {
+            font-weight: 700;
 
-    background: var(--green);
-    color: #080909;
+            white-space: nowrap;
 
-}
+        }
 
 
-.btn-primary:hover {
+        .logo i {
 
-    transform: translateY(-2px);
+            color: var(--green);
 
-}
+            font-size: 25px;
 
+        }
 
-.btn-login {
 
-    border: 1px solid var(--border);
-    color: white;
+        .logo strong {
 
-}
+            color: var(--green);
 
+        }
 
-.btn-secondary {
 
-    border: 1px solid var(--border);
-    color: white;
+        /* MENU */
 
-}
+        .menu {
 
+            display: flex;
 
-.hamburger {
+            align-items: center;
 
-    display: none;
+            gap: 28px;
 
-    cursor: pointer;
+            list-style: none;
 
-}
+        }
 
 
-.hamburger span {
+        .menu a {
 
-    display: block;
+            color: #cfcfcf;
 
-    width: 25px;
-    height: 3px;
+            font-size: 14px;
 
-    background: white;
+            transition: .25s;
 
-    margin: 5px;
+        }
 
-}
 
+        .menu a:hover {
 
-/* HERO */
+            color: var(--green);
 
-.hero {
+        }
 
-    min-height: 700px;
 
-    width: min(1200px, 92%);
-    margin: auto;
+        /* BOTÕES */
 
-    display: grid;
+        .nav-buttons {
 
-    grid-template-columns: 1fr 1fr;
+            display: flex;
 
-    align-items: center;
+            align-items: center;
 
-    gap: 50px;
+            gap: 12px;
 
-}
+        }
 
 
-.tag {
+        .btn-login {
 
-    display: inline-block;
+            padding: 11px 20px;
 
-    padding: 8px 13px;
+            border: 1px solid #333;
 
-    background: #151a0d;
+            border-radius: 10px;
 
-    border: 1px solid #33451b;
+            color: #fff;
 
-    color: var(--green);
+            font-size: 14px;
 
-    border-radius: 30px;
+            transition: .25s;
 
-    font-size: 12px;
+        }
 
-    margin-bottom: 20px;
 
-}
+        .btn-login:hover {
 
+            border-color: var(--green);
 
-.hero h1 {
+            color: var(--green);
 
-    font-size: clamp(42px, 6vw, 76px);
+        }
 
-    line-height: 1.02;
 
-    letter-spacing: -3px;
+        .btn-primary {
 
-}
+            display: inline-flex;
 
+            align-items: center;
 
-.hero p {
+            justify-content: center;
 
-    color: var(--gray);
+            gap: 8px;
 
-    margin-top: 25px;
+            padding: 13px 22px;
 
-    line-height: 1.8;
+            border-radius: 12px;
 
-    max-width: 600px;
+            background: var(--green);
 
-}
+            color: #080808;
 
+            font-weight: 700;
 
-.hero-buttons {
+            font-size: 14px;
 
-    display: flex;
+            transition: .25s;
 
-    gap: 12px;
+        }
 
-    margin-top: 30px;
 
-}
+        .btn-primary:hover {
 
+            transform: translateY(-3px);
 
-.hero-stats {
+            box-shadow:
+                0 12px 30px rgba(163,255,18,.18);
 
-    display: flex;
+        }
 
-    gap: 45px;
 
-    margin-top: 45px;
+        .btn-secondary {
 
-}
+            display: inline-flex;
 
+            align-items: center;
 
-.hero-stats h2 {
+            justify-content: center;
 
-    color: var(--green);
+            padding: 13px 22px;
 
-}
+            border: 1px solid #333;
 
+            border-radius: 12px;
 
-.hero-stats p {
+            color: #fff;
 
-    margin: 0;
+            font-size: 14px;
 
-    font-size: 12px;
+            transition: .25s;
 
-}
+        }
 
 
-.hero-right img {
+        .btn-secondary:hover {
 
-    width: 100%;
-    max-height: 560px;
+            border-color: var(--green);
 
-    object-fit: contain;
+            color: var(--green);
 
-}
+        }
 
 
-/* SEÇÕES */
+        /* HAMBURGER */
 
-section:not(.hero):not(#correApp) {
+        .hamburger {
 
-    padding: 90px 0;
+            display: none;
 
-}
+            width: 42px;
 
+            height: 42px;
 
-.section-header {
+            border: 1px solid #333;
 
-    text-align: center;
+            border-radius: 10px;
 
-    max-width: 750px;
+            align-items: center;
 
-    margin: auto auto 45px;
+            justify-content: center;
 
-}
+            flex-direction: column;
 
+            gap: 5px;
 
-.section-header span {
+            cursor: pointer;
 
-    color: var(--green);
+        }
 
-    font-size: 12px;
 
-    font-weight: 800;
+        .hamburger span {
 
-    letter-spacing: 2px;
+            width: 20px;
 
-}
+            height: 2px;
 
+            background: #fff;
 
-.section-header h2 {
+            border-radius: 10px;
 
-    font-size: 38px;
+        }
 
-    margin: 12px 0;
 
-}
+        /* =====================================================
+           HERO
+        ===================================================== */
 
+        .hero {
 
-.section-header p {
+            min-height: 100vh;
 
-    color: var(--gray);
+            padding: 150px 5% 80px;
 
-    line-height: 1.7;
+            display: grid;
 
-}
+            grid-template-columns: 1.05fr .95fr;
 
+            align-items: center;
 
-/* BENEFÍCIOS */
+            gap: 70px;
 
-.benefits-grid {
+            position: relative;
 
-    display: grid;
+            overflow: hidden;
 
-    grid-template-columns: repeat(3, 1fr);
+            background:
 
-    gap: 15px;
+                radial-gradient(
+                    circle at 80% 40%,
+                    rgba(163,255,18,.12),
+                    transparent 35%
+                ),
 
-}
+                linear-gradient(
+                    135deg,
+                    #071000,
+                    #0c1208 50%,
+                    #080808
+                );
 
+        }
 
-.benefit-card {
 
-    background: var(--card);
+        .hero::before {
 
-    border: 1px solid var(--border);
+            content: "";
 
-    border-radius: 18px;
+            position: absolute;
 
-    padding: 28px;
+            width: 500px;
 
-}
+            height: 500px;
 
+            border-radius: 50%;
 
-.benefit-card i {
+            background: rgba(163,255,18,.04);
 
-    color: var(--green);
+            filter: blur(80px);
 
-    font-size: 25px;
+            right: -100px;
 
-}
+            top: 150px;
 
+        }
 
-.benefit-card h3 {
 
-    margin: 15px 0 8px;
+        .hero-left {
 
-}
+            position: relative;
 
+            z-index: 2;
 
-.benefit-card p {
+        }
 
-    color: var(--gray);
 
-    font-size: 14px;
+        .tag {
 
-    line-height: 1.6;
+            display: inline-flex;
 
-}
+            align-items: center;
 
+            gap: 8px;
 
-/* COMO FUNCIONA */
+            padding: 8px 13px;
 
-.steps {
+            border: 1px solid rgba(163,255,18,.2);
 
-    display: grid;
+            border-radius: 50px;
 
-    grid-template-columns: repeat(4,1fr);
+            color: var(--green);
 
-    gap: 15px;
+            background: rgba(163,255,18,.05);
 
-}
+            font-size: 12px;
 
+            margin-bottom: 22px;
 
-.step-card {
+        }
 
-    position: relative;
 
-    background: var(--card);
+        .hero h1 {
 
-    border: 1px solid var(--border);
+            font-size: clamp(42px, 6vw, 76px);
 
-    border-radius: 18px;
+            line-height: 1.03;
 
-    padding: 28px;
+            letter-spacing: -3px;
 
-}
+            max-width: 750px;
 
+        }
 
-.step-number {
 
-    color: var(--green);
+        .hero h1 span {
 
-    font-weight: 800;
+            color: var(--green);
 
-    font-size: 12px;
+        }
 
-}
 
+        .hero p {
 
-.step-card i {
+            color: #aaa;
 
-    margin: 30px 0 15px;
+            font-size: 17px;
 
-    font-size: 25px;
+            line-height: 1.8;
 
-    color: var(--green);
+            max-width: 650px;
 
-}
+            margin-top: 25px;
 
+        }
 
-.step-card h3 {
 
-    margin-bottom: 8px;
+        .hero-buttons {
 
-}
+            display: flex;
 
+            flex-wrap: wrap;
 
-.step-card p {
+            gap: 12px;
 
-    color: var(--gray);
+            margin-top: 32px;
 
-    font-size: 13px;
+        }
 
-    line-height: 1.6;
 
-}
+        .hero-stats {
 
+            display: flex;
 
-/* PLANOS */
+            flex-wrap: wrap;
 
-.plans-grid {
+            gap: 45px;
 
-    display: grid;
+            margin-top: 55px;
 
-    grid-template-columns: 1fr 1fr;
+        }
 
-    gap: 20px;
 
-    max-width: 850px;
+        .hero-stats h2 {
 
-    margin: auto;
+            color: var(--green);
 
-}
+            font-size: 28px;
 
+        }
 
-.plan-card {
 
-    background: var(--card);
+        .hero-stats p {
 
-    border: 1px solid var(--border);
+            margin: 0;
 
-    border-radius: 20px;
+            font-size: 12px;
 
-    padding: 35px;
+            color: #777;
 
-}
+        }
 
 
-.plan-card h1 {
+        /* HERO IMAGEM */
 
-    font-size: 42px;
+        .hero-right {
 
-    margin: 15px 0;
+            position: relative;
 
-}
+            z-index: 2;
 
+        }
 
-.plan-card p {
 
-    color: var(--gray);
+        .hero-image {
 
-}
+            width: 100%;
 
+            max-width: 560px;
 
-.plan-card ul {
+            margin-left: auto;
 
-    list-style: none;
+            border-radius: 35px;
 
-    margin: 25px 0;
+            border: 1px solid #292929;
 
-}
+            box-shadow:
 
+                0 30px 80px rgba(0,0,0,.5);
 
-.plan-card li {
+        }
 
-    padding: 8px 0;
 
-    color: #ddd;
+        .hero-card {
 
-}
+            position: absolute;
 
+            left: -30px;
 
-.premium {
+            bottom: 35px;
 
-    border-color: var(--green);
+            padding: 18px;
 
-    position: relative;
+            background: rgba(20,20,20,.9);
 
-}
+            backdrop-filter: blur(12px);
 
+            border: 1px solid #333;
 
-.premium-tag {
+            border-radius: 18px;
 
-    position: absolute;
+            min-width: 190px;
 
-    top: -13px;
+            box-shadow: 0 20px 40px rgba(0,0,0,.4);
 
-    right: 20px;
+        }
 
-    background: var(--green);
 
-    color: #080909;
+        .hero-card small {
 
-    padding: 5px 10px;
+            color: #888;
 
-    border-radius: 20px;
+            font-size: 11px;
 
-    font-size: 10px;
+        }
 
-    font-weight: 800;
 
-}
+        .hero-card strong {
 
+            display: block;
 
-/* NÚMEROS */
+            margin-top: 5px;
 
-.numbers {
+            font-size: 18px;
 
-    background: #101214;
+        }
 
-}
 
+        .hero-card i {
 
-.numbers-grid {
+            color: var(--green);
 
-    display: grid;
+            margin-right: 5px;
 
-    grid-template-columns: repeat(4,1fr);
+        }
 
-    text-align: center;
 
-}
+        /* =====================================================
+           SEÇÃO
+        ===================================================== */
 
+        section {
 
-.numbers h2 {
+            padding: 100px 0;
 
-    color: var(--green);
+        }
 
-    font-size: 30px;
 
-}
+        .section-title {
 
+            max-width: 700px;
 
-.numbers p {
+            margin-bottom: 50px;
 
-    color: var(--gray);
+        }
 
-}
 
+        .section-title span {
 
-/* DEPOIMENTOS */
+            color: var(--green);
 
-.testimonial-grid {
+            font-size: 12px;
 
-    display: grid;
+            font-weight: 700;
 
-    grid-template-columns: repeat(3,1fr);
+            text-transform: uppercase;
 
-    gap: 15px;
+            letter-spacing: 2px;
 
-}
+        }
 
 
-.testimonial {
+        .section-title h2 {
 
-    background: var(--card);
+            margin-top: 12px;
 
-    border: 1px solid var(--border);
+            font-size: clamp(32px, 4vw, 50px);
 
-    padding: 25px;
+            line-height: 1.1;
 
-    border-radius: 18px;
+        }
 
-}
 
+        .section-title p {
 
-.testimonial p {
+            color: #888;
 
-    color: #ddd;
+            line-height: 1.8;
 
-    line-height: 1.7;
+            margin-top: 15px;
 
-}
+        }
 
 
-.testimonial h4 {
+        /* =====================================================
+           SOBRE
+        ===================================================== */
 
-    color: var(--green);
+        .about {
 
-    margin: 18px 0 8px;
+            background: #0d0d0d;
 
-}
+        }
 
 
-/* FAQ */
+        .about-grid {
 
-.faq {
+            display: grid;
 
-    max-width: 900px;
+            grid-template-columns: 1fr 1fr;
 
-    margin: auto;
+            gap: 70px;
 
-}
+            align-items: center;
 
+        }
 
-.faq-item {
 
-    background: var(--card);
+        .about-text p {
 
-    border: 1px solid var(--border);
+            color: #999;
 
-    border-radius: 15px;
+            line-height: 1.9;
 
-    padding: 20px;
+            margin-bottom: 18px;
 
-    margin: 10px 0;
+        }
 
-}
 
+        .about-highlight {
 
-.faq-item h3 {
+            margin-top: 30px;
 
-    margin-bottom: 7px;
+            padding: 22px;
 
-}
+            border-left: 3px solid var(--green);
 
+            background: #151515;
 
-.faq-item p {
+            border-radius: 0 15px 15px 0;
 
-    color: var(--gray);
+        }
 
-}
 
+        .about-highlight strong {
 
-/* CTA */
+            display: block;
 
-.cta-final {
+            font-size: 18px;
 
-    text-align: center;
+            margin-bottom: 7px;
 
-}
+        }
 
 
-.cta-final h2 {
+        .about-highlight span {
 
-    font-size: 45px;
+            color: #888;
 
-}
+            font-size: 13px;
 
+        }
 
-.cta-final p {
 
-    color: var(--gray);
+        .about-box {
 
-    margin: 15px 0 25px;
+            padding: 40px;
 
-}
+            border-radius: 28px;
 
+            background:
 
-/* FOOTER */
+                linear-gradient(
+                    145deg,
+                    #171717,
+                    #0f0f0f
+                );
 
-footer {
+            border: 1px solid #292929;
 
-    border-top: 1px solid var(--border);
+        }
 
-    padding: 50px 0;
 
-}
+        .about-box i {
 
+            color: var(--green);
 
-.footer-logo h2 span {
+            font-size: 40px;
 
-    color: var(--green);
+            margin-bottom: 25px;
 
-}
+        }
 
 
-.footer-logo p {
+        .about-box h3 {
 
-    color: var(--gray);
+            font-size: 27px;
 
-    margin-top: 8px;
+            margin-bottom: 15px;
 
-}
+        }
 
 
-.footer-links {
+        .about-box p {
 
-    display: flex;
+            color: #888;
 
-    gap: 20px;
+            line-height: 1.8;
 
-    margin: 25px 0;
+        }
 
-    flex-wrap: wrap;
 
-}
+        /* =====================================================
+           BENEFÍCIOS
+        ===================================================== */
 
+        .benefits {
 
-.footer-links a {
+            background: #080808;
 
-    color: var(--gray);
+        }
 
-}
 
+        .benefits-grid {
 
-.copyright {
+            display: grid;
 
-    color: #666;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    font-size: 12px;
+            gap: 18px;
 
-}
+        }
 
 
-/* =====================================================
-   CORRE APP
-===================================================== */
+        .benefit-card {
 
-#correApp {
+            padding: 30px;
 
-    display: none;
+            background: #111;
 
-    min-height: 100vh;
+            border: 1px solid #242424;
 
-    background: var(--black);
+            border-radius: 20px;
 
-    color: white;
+            transition: .3s;
 
-}
+        }
 
 
-#correApp * {
+        .benefit-card:hover {
 
-    box-sizing: border-box;
+            transform: translateY(-6px);
 
-}
+            border-color: rgba(163,255,18,.35);
 
+        }
 
-.ca-bar {
 
-    height: 70px;
+        .benefit-icon {
 
-    border-bottom: 1px solid var(--border);
+            width: 48px;
 
-    background: rgba(8,9,9,.94);
+            height: 48px;
 
-    backdrop-filter: blur(14px);
+            display: flex;
 
-    position: sticky;
+            align-items: center;
 
-    top: 0;
+            justify-content: center;
 
-    z-index: 20;
+            border-radius: 14px;
 
-}
+            background: rgba(163,255,18,.08);
 
+            color: var(--green);
 
-.ca-inner {
+            font-size: 20px;
 
-    max-width: 1100px;
+            margin-bottom: 20px;
 
-    margin: auto;
+        }
 
-    height: 100%;
 
-    padding: 0 16px;
+        .benefit-card h3 {
 
-    display: flex;
+            margin-bottom: 10px;
 
-    align-items: center;
+            font-size: 18px;
 
-    justify-content: space-between;
+        }
 
-}
 
+        .benefit-card p {
 
-.ca-logo {
+            color: #777;
 
-    font-size: 24px;
+            font-size: 13px;
 
-    font-weight: 800;
+            line-height: 1.7;
 
-}
+        }
 
 
-.ca-logo span {
+        /* =====================================================
+           COMO FUNCIONA
+        ===================================================== */
 
-    color: var(--green);
+        .steps {
 
-}
+            background: #0d0d0d;
 
+        }
 
-.ca-menu {
 
-    width: 43px;
+        .steps-grid {
 
-    height: 43px;
+            display: grid;
 
-    border-radius: 11px;
+            grid-template-columns:
+                repeat(4, 1fr);
 
-    border: 1px solid var(--border);
+            gap: 18px;
 
-    background: #111315;
+        }
 
-    color: white;
 
-    font-size: 20px;
+        .step {
 
-    cursor: pointer;
+            position: relative;
 
-}
+            padding: 30px;
 
+            background: #151515;
 
-.ca-user {
+            border-radius: 20px;
 
-    display: flex;
+            border: 1px solid #292929;
 
-    align-items: center;
+        }
 
-    gap: 9px;
 
-    font-size: 13px;
+        .step-number {
 
-}
+            color: var(--green);
 
+            font-size: 13px;
 
-.ca-avatar {
+            font-weight: 700;
 
-    width: 37px;
+            margin-bottom: 25px;
 
-    height: 37px;
+        }
 
-    border-radius: 50%;
 
-    display: grid;
+        .step h3 {
 
-    place-items: center;
+            font-size: 18px;
 
-    background: var(--green);
+            margin-bottom: 10px;
 
-    color: #080909;
+        }
 
-    font-weight: 800;
 
-}
+        .step p {
 
+            color: #777;
 
-.ca-main {
+            font-size: 13px;
 
-    max-width: 1100px;
+            line-height: 1.7;
 
-    margin: auto;
+        }
 
-    padding: 30px 16px 70px;
 
-}
+        /* =====================================================
+           PLANOS
+        ===================================================== */
 
+        .plans {
 
-.ca-view {
+            background: #080808;
 
-    display: none;
+        }
 
-}
 
+        .plans-grid {
 
-.ca-view.active {
+            display: grid;
 
-    display: block;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-}
+            gap: 20px;
 
+            align-items: stretch;
 
-.ca-ey {
+        }
 
-    color: var(--green);
 
-    font-size: 11px;
+        .plan {
 
-    font-weight: 800;
+            padding: 35px;
 
-    letter-spacing: 1.5px;
+            border: 1px solid #292929;
 
-}
+            border-radius: 25px;
 
+            background: #111;
 
-.ca-dash {
+            display: flex;
 
-    display: flex;
+            flex-direction: column;
 
-    justify-content: space-between;
+        }
 
-    align-items: end;
 
-    gap: 15px;
+        .plan.featured {
 
-    margin-bottom: 20px;
+            border-color: var(--green);
 
-}
+            position: relative;
 
+            box-shadow:
+                0 20px 60px rgba(163,255,18,.06);
 
-.ca-dash h1 {
+        }
 
-    font-size: 34px;
 
-    margin: 8px 0;
+        .plan-badge {
 
-}
+            position: absolute;
 
+            top: -12px;
 
-.ca-muted {
+            right: 25px;
 
-    color: var(--gray);
+            padding: 5px 12px;
 
-}
+            border-radius: 20px;
 
+            background: var(--green);
 
-.ca-grid2 {
+            color: #080808;
 
-    display: grid;
+            font-size: 10px;
 
-    grid-template-columns: 1.5fr 1fr;
+            font-weight: 800;
 
-    gap: 13px;
+        }
 
-}
 
+        .plan h3 {
 
-.ca-card {
+            font-size: 22px;
 
-    background: var(--card);
+        }
 
-    border: 1px solid var(--border);
 
-    border-radius: 18px;
+        .plan-description {
 
-    padding: 20px;
+            color: #777;
 
-}
+            font-size: 13px;
 
+            margin-top: 7px;
 
-.ca-card h2 {
+        }
 
-    margin: 8px 0;
 
-}
+        .price {
 
+            font-size: 40px;
 
-.ca-btn {
+            font-weight: 800;
 
-    border: 0;
+            margin: 25px 0;
 
-    border-radius: 11px;
+        }
 
-    padding: 12px 17px;
 
-    font-weight: 800;
+        .price small {
 
-    cursor: pointer;
+            color: #777;
 
-}
+            font-size: 12px;
 
+            font-weight: 400;
 
-.ca-primary {
+        }
 
-    background: var(--green);
 
-    color: #080909;
+        .plan ul {
 
-}
+            list-style: none;
 
+            margin-bottom: 30px;
 
-.ca-ghost {
+            flex: 1;
 
-    background: transparent;
+        }
 
-    border: 1px solid var(--border);
 
-    color: white;
+        .plan li {
 
-}
+            color: #aaa;
 
+            font-size: 13px;
 
-.ca-notice {
+            padding: 9px 0;
 
-    background: var(--card2);
+        }
 
-    border: 1px solid var(--border);
 
-    border-radius: 12px;
+        .plan li i {
 
-    padding: 14px;
+            color: var(--green);
 
-    color: #c5c9cc;
+            margin-right: 8px;
 
-    margin: 15px 0;
+        }
 
-    font-size: 13px;
 
-    line-height: 1.6;
+        .plan .btn-primary,
+        .plan .btn-secondary {
 
-}
+            width: 100%;
 
+        }
 
-.ca-stats {
 
-    display: grid;
+        /* =====================================================
+           DEPOIMENTOS
+        ===================================================== */
 
-    grid-template-columns: repeat(3,1fr);
+        .testimonials {
 
-    gap: 12px;
+            background: #0d0d0d;
 
-    margin-top: 13px;
+        }
 
-}
 
+        .testimonials-grid {
 
-.ca-stat strong {
+            display: grid;
 
-    display: block;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    font-size: 25px;
+            gap: 18px;
 
-    margin-top: 5px;
+        }
 
-}
 
+        .testimonial {
 
-.ca-train {
+            padding: 28px;
 
-    min-height: 300px;
+            background: #151515;
 
-    display: flex;
+            border: 1px solid #282828;
 
-    flex-direction: column;
+            border-radius: 20px;
 
-    justify-content: space-between;
+        }
 
-}
 
+        .stars {
 
-.ca-lessons {
+            color: var(--green);
 
-    display: grid;
+            font-size: 12px;
 
-    grid-template-columns: 1fr 1fr;
+            margin-bottom: 18px;
 
-    gap: 12px;
+        }
 
-}
 
+        .testimonial p {
 
-.ca-lesson {
+            color: #aaa;
 
-    display: flex;
+            line-height: 1.8;
 
-    gap: 12px;
+            font-size: 13px;
 
-    align-items: center;
+        }
 
-    cursor: pointer;
 
-}
+        .person {
 
+            display: flex;
 
-.ca-num {
+            align-items: center;
 
-    width: 42px;
+            gap: 12px;
 
-    height: 42px;
+            margin-top: 22px;
 
-    display: grid;
+        }
 
-    place-items: center;
 
-    background: var(--card2);
+        .avatar {
 
-    color: var(--green);
+            width: 42px;
 
-    border-radius: 10px;
+            height: 42px;
 
-    font-weight: 800;
+            display: flex;
 
-    flex: none;
+            align-items: center;
 
-}
+            justify-content: center;
 
+            border-radius: 50%;
 
-.ca-profile input,
-.ca-chat input {
+            background: #222;
 
-    width: 100%;
+            color: var(--green);
 
-    padding: 13px;
+            font-weight: 700;
 
-    background: #0b0d0e;
+        }
 
-    border: 1px solid var(--border);
 
-    border-radius: 10px;
+        .person strong {
 
-    color: white;
+            display: block;
 
-    outline: none;
+            font-size: 13px;
 
-}
+        }
 
 
-.ca-profile input:focus,
-.ca-chat input:focus {
+        .person span {
 
-    border-color: var(--green);
+            color: #666;
 
-}
+            font-size: 11px;
 
+        }
 
-.ca-chat {
 
-    height: 520px;
+        /* =====================================================
+           FAQ
+        ===================================================== */
 
-    display: flex;
+        .faq {
 
-    flex-direction: column;
+            background: #080808;
 
-}
+        }
 
 
-.ca-msgs {
+        .faq-list {
 
-    flex: 1;
+            max-width: 850px;
 
-    overflow-y: auto;
+            margin: auto;
 
-    padding: 5px;
+        }
 
-}
 
+        .faq-item {
 
-.ca-msg {
+            border-bottom: 1px solid #292929;
 
-    max-width: 82%;
+        }
 
-    padding: 12px 14px;
 
-    border-radius: 13px;
+        .faq-question {
 
-    margin: 8px 0;
+            width: 100%;
 
-    font-size: 13px;
+            padding: 22px 0;
 
-    line-height: 1.5;
+            display: flex;
 
-}
+            justify-content: space-between;
 
+            align-items: center;
 
-.ca-bot {
+            background: none;
 
-    background: var(--card2);
+            border: none;
 
-}
+            color: #fff;
 
+            text-align: left;
 
-.ca-me {
+            font-family: inherit;
 
-    background: var(--green);
+            font-size: 15px;
 
-    color: #080909;
+            font-weight: 600;
 
-    margin-left: auto;
+            cursor: pointer;
 
-}
+        }
 
 
-.ca-chatrow {
+        .faq-question i {
 
-    display: flex;
+            color: var(--green);
 
-    gap: 8px;
+            transition: .3s;
 
-}
+        }
 
 
-.ca-drawer {
+        .faq-answer {
 
-    display: none;
+            max-height: 0;
 
-    position: fixed;
+            overflow: hidden;
 
-    inset: 0;
+            transition: .3s;
 
-    background: rgba(0,0,0,.75);
+        }
 
-    z-index: 50;
 
-}
+        .faq-answer p {
 
+            color: #777;
 
-.ca-drawer.open {
+            font-size: 13px;
 
-    display: block;
+            line-height: 1.8;
 
-}
+            padding-bottom: 20px;
 
+        }
 
-.ca-drawer aside {
 
-    width: min(330px,86vw);
+        .faq-item.active
+        .faq-answer {
 
-    height: 100%;
+            max-height: 300px;
 
-    background: #101214;
+        }
 
-    padding: 20px 16px;
 
-    box-shadow: 10px 0 40px rgba(0,0,0,.4);
+        .faq-item.active
+        .faq-question i {
 
-}
+            transform: rotate(180deg);
 
+        }
 
-.ca-nav {
 
-    display: block;
+        /* =====================================================
+           CTA
+        ===================================================== */
 
-    width: 100%;
+        .cta-final {
 
-    text-align: left;
+            padding: 110px 0;
 
-    border: 0;
+            text-align: center;
 
-    background: transparent;
+            background:
 
-    color: #a5a9ad;
+                radial-gradient(
+                    circle,
+                    rgba(163,255,18,.12),
+                    transparent 55%
+                ),
 
-    padding: 13px;
+                #101010;
 
-    border-radius: 11px;
+        }
 
-    margin: 3px 0;
 
-    font-weight: 700;
+        .cta-final h2 {
 
-    cursor: pointer;
+            font-size: clamp(35px, 5vw, 58px);
 
-}
+            line-height: 1.1;
 
+        }
 
-.ca-nav:hover {
 
-    background: var(--card2);
+        .cta-final p {
 
-}
+            color: #888;
 
+            margin: 18px auto 30px;
 
-.ca-nav.active {
+            max-width: 550px;
 
-    background: var(--card2);
+        }
 
-    color: var(--green);
 
-}
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
+        footer {
 
-.ca-logout {
+            padding: 60px 0 25px;
 
-    margin-top: 20px;
+            background: #050505;
 
-    border-top: 1px solid var(--border);
+            border-top: 1px solid #181818;
 
-    padding-top: 20px;
+        }
 
-    color: #ff8d8d;
 
-}
+        .footer-grid {
 
+            display: grid;
 
-.ca-close {
+            grid-template-columns:
+                1.5fr 1fr 1fr;
 
-    float: right;
+            gap: 50px;
 
-    background: none;
+            padding-bottom: 45px;
 
-    border: 0;
+        }
 
-    color: #aaa;
 
-    font-size: 25px;
+        .footer-brand p {
 
-    cursor: pointer;
+            color: #666;
 
-}
+            max-width: 350px;
 
+            font-size: 13px;
 
-.ca-modal {
+            line-height: 1.8;
 
-    display: none;
+            margin-top: 15px;
 
-    position: fixed;
+        }
 
-    inset: 0;
 
-    background: rgba(0,0,0,.8);
+        .footer-column h4 {
 
-    z-index: 60;
+            font-size: 14px;
 
-    place-items: center;
+            margin-bottom: 18px;
 
-    padding: 18px;
+        }
 
-}
 
+        .footer-column a {
 
-.ca-modal.open {
+            display: block;
 
-    display: grid;
+            color: #666;
 
-}
+            font-size: 13px;
 
+            margin: 10px 0;
 
-.ca-modalbox {
+            transition: .2s;
 
-    width: min(650px,100%);
+        }
 
-    background: var(--card);
 
-    border: 1px solid var(--border);
+        .footer-column a:hover {
 
-    border-radius: 18px;
+            color: var(--green);
 
-    padding: 25px;
+        }
 
-}
 
+        .footer-bottom {
 
-.ca-toast {
+            padding-top: 25px;
 
-    position: fixed;
+            border-top: 1px solid #181818;
 
-    right: 15px;
+            display: flex;
 
-    bottom: 15px;
+            justify-content: space-between;
 
-    background: var(--green);
+            gap: 20px;
 
-    color: #080909;
+            color: #555;
 
-    padding: 13px 16px;
+            font-size: 11px;
 
-    border-radius: 11px;
+        }
 
-    font-weight: 800;
 
-    display: none;
+        /* =====================================================
+           MENU MOBILE
+        ===================================================== */
 
-    z-index: 100;
+        .mobile-menu {
 
-}
+            display: none;
 
+            position: fixed;
 
-/* =====================================================
-   MOBILE
-===================================================== */
+            top: 78px;
 
-@media(max-width:800px) {
+            left: 0;
 
-    .menu,
-    .nav-buttons {
+            width: 100%;
 
-        display: none;
+            background: rgba(10,10,10,.98);
 
-    }
+            border-bottom: 1px solid #292929;
 
-    .hamburger {
+            padding: 20px;
 
-        display: block;
+            z-index: 998;
 
-    }
+        }
 
-    .hero {
 
-        grid-template-columns: 1fr;
+        .mobile-menu.active {
 
-        padding: 60px 0;
+            display: block;
 
-    }
+        }
 
-    .hero-right {
 
-        order: -1;
+        .mobile-menu a {
 
-    }
+            display: block;
 
-    .hero h1 {
+            padding: 14px 10px;
 
-        font-size: 48px;
+            border-bottom: 1px solid #202020;
 
-    }
+            color: #ddd;
 
-    .hero-stats {
+        }
 
-        gap: 20px;
 
-    }
+        .mobile-menu a:hover {
 
-    .benefits-grid,
-    .steps,
-    .testimonial-grid {
+            color: var(--green);
 
-        grid-template-columns: 1fr;
+        }
 
-    }
 
-    .plans-grid {
+        .mobile-buttons {
 
-        grid-template-columns: 1fr;
+            display: grid;
 
-    }
+            gap: 10px;
 
-    .numbers-grid {
+            margin-top: 15px;
 
-        grid-template-columns: 1fr 1fr;
+        }
 
-        gap: 35px;
 
-    }
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
-    .ca-grid2 {
+        @media(max-width: 950px) {
 
-        grid-template-columns: 1fr;
+            .menu,
+            .nav-buttons {
 
-    }
+                display: none;
 
-    .ca-lessons {
+            }
 
-        grid-template-columns: 1fr;
 
-    }
+            .hamburger {
 
-    .ca-dash {
+                display: flex;
 
-        flex-direction: column;
+            }
 
-        align-items: flex-start;
 
-    }
+            .hero {
 
-}
+                grid-template-columns: 1fr;
 
+                padding-top: 130px;
 
-@media(max-width:500px) {
+            }
 
-    .hero h1 {
 
-        font-size: 40px;
+            .hero-right {
 
-    }
+                max-width: 600px;
 
-    .hero-buttons {
+                margin: auto;
 
-        flex-direction: column;
+            }
 
-    }
 
-    .hero-stats {
+            .about-grid {
 
-        display: grid;
+                grid-template-columns: 1fr;
 
-        grid-template-columns: repeat(3,1fr);
+            }
 
-        gap: 10px;
 
-    }
+            .benefits-grid {
 
-    .hero-stats h2 {
+                grid-template-columns:
+                    repeat(2, 1fr);
 
-        font-size: 21px;
+            }
 
-    }
 
-    .section-header h2 {
+            .steps-grid {
 
-        font-size: 29px;
+                grid-template-columns:
+                    repeat(2, 1fr);
 
-    }
+            }
 
-    .ca-stats {
 
-        grid-template-columns: 1fr;
+            .plans-grid {
 
-    }
+                grid-template-columns: 1fr;
 
-}
+                max-width: 500px;
 
-</style>
+                margin: auto;
+
+            }
+
+
+            .testimonials-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            section {
+
+                padding: 75px 0;
+
+            }
+
+
+            .hero {
+
+                padding-left: 5%;
+
+                padding-right: 5%;
+
+                gap: 45px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 43px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .hero p {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-stats {
+
+                gap: 25px;
+
+                margin-top: 40px;
+
+            }
+
+
+            .hero-stats h2 {
+
+                font-size: 23px;
+
+            }
+
+
+            .hero-card {
+
+                left: 10px;
+
+                bottom: 15px;
+
+            }
+
+
+            .benefits-grid,
+            .steps-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .hero-buttons a {
+
+                width: 100%;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -1630,3403 +1760,1657 @@ footer {
 <body>
 
 
-<!-- =====================================================
-     LANDING PAGE
-===================================================== -->
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
+    <header>
 
-<header>
+        <nav class="navbar">
 
-<nav class="navbar">
 
-<a
-    href="#inicio"
-    class="logo">
+            <a
+                href="#inicio"
+                class="logo">
 
-<i class="fa-solid fa-person-running"></i>
+                <i class="fa-solid fa-person-running"></i>
 
-<span>
-Projeto <strong>Corre</strong>
-</span>
+                <span>
+                    Projeto <strong>Corre</strong>
+                </span>
 
-</a>
+            </a>
 
 
-<ul class="menu">
+            <!-- MENU DESKTOP -->
 
-<li>
-<a href="#inicio">
-Início
-</a>
-</li>
+            <ul class="menu">
 
-<li>
-<a href="#sobre">
-Sobre
-</a>
-</li>
+                <li>
+                    <a href="#inicio">
+                        Início
+                    </a>
+                </li>
 
-<li>
-<a href="#beneficios">
-Benefícios
-</a>
-</li>
+                <li>
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+                </li>
 
-<li>
-<a href="#planos">
-Planos
-</a>
-</li>
+                <li>
+                    <a href="#beneficios">
+                        Benefícios
+                    </a>
+                </li>
 
-<li>
-<a href="#depoimentos">
-Depoimentos
-</a>
-</li>
+                <li>
+                    <a href="#como-funciona">
+                        Como funciona
+                    </a>
+                </li>
 
-<li>
-<a href="#faq">
-FAQ
-</a>
-</li>
+                <li>
+                    <a href="#planos">
+                        Planos
+                    </a>
+                </li>
 
-</ul>
+                <li>
+                    <a href="#faq">
+                        FAQ
+                    </a>
+                </li>
 
+            </ul>
 
-<div class="nav-buttons">
 
-<a
-    href="#"
-    class="btn-login"
-    onclick="abrirLogin(event)">
+            <!-- BOTÕES -->
 
-Entrar
+            <div class="nav-buttons">
 
-</a>
+                <a
+                    href="login.html"
+                    class="btn-login">
 
-<a
-    href="#"
-    class="btn-primary"
-    onclick="abrirCadastro(event)">
+                    Entrar
 
-Começar Gratuitamente
+                </a>
 
-</a>
 
-</div>
+                <a
+                    href="cadastro.html"
+                    class="btn-primary">
 
+                    Começar Gratuitamente
 
-<div
-    class="hamburger"
-    onclick="toggleMenu()">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</nav>
-
-</header>
-
-
-
-<!-- HERO -->
-
-<section
-    class="hero"
-    id="inicio">
-
-
-<div class="hero-left">
-
-
-<div class="tag">
-
-🔥 Plataforma para corredores iniciantes
-
-</div>
-
-
-<h1>
-
-Corra melhor.<br>
-
-Viva melhor.<br>
-
-Evolua um passo de cada vez.
-
-</h1>
-
-
-<p>
-
-O Projeto Corre foi criado para mostrar
-que qualquer pessoa pode correr.
-
-Mesmo sem experiência.
-
-Mesmo com pouco tempo.
-
-Mesmo começando do zero.
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-    href="#"
-    class="btn-primary"
-    onclick="abrirCadastro(event)">
-
-Começar Agora
-
-</a>
-
-
-<a
-    href="#sobre"
-    class="btn-secondary">
-
-Conhecer o Projeto
-
-</a>
-
-</div>
-
-
-<div class="hero-stats">
-
-<div>
-
-<h2>+15k</h2>
-
-<p>Corredores</p>
-
-</div>
-
-
-<div>
-
-<h2>120+</h2>
-
-<p>Vídeo Aulas</p>
-
-</div>
-
-
-<div>
-
-<h2>365</h2>
-
-<p>Dias de Evolução</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="hero-right">
-
-<img
-    src="28A4A849-09AD-460A-8E83-ABF14DE059E6.png"
-    alt="Projeto Corre">
-
-</div>
-
-
-</section>
-
-
-
-<!-- SOBRE -->
-
-<section
-    class="about"
-    id="sobre">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-QUEM SOMOS
-</span>
-
-<h2>
-
-Muito mais que um aplicativo.
-
-Uma comunidade para transformar vidas.
-
-</h2>
-
-<p>
-
-O Projeto Corre nasceu para ensinar pessoas
-comuns a correrem com segurança, técnica e motivação.
-
-Aqui você encontra treinos, aulas, desafios,
-acompanhamento e uma comunidade pronta
-para evoluir junto.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- BENEFÍCIOS -->
-
-<section id="beneficios">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-BENEFÍCIOS
-</span>
-
-<h2>
-Tudo que você precisa em um único lugar.
-</h2>
-
-</div>
-
-
-<div class="benefits-grid">
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-heart-pulse"></i>
-
-<h3>
-Mais Saúde
-</h3>
-
-<p>
-Melhore seu condicionamento físico
-e qualidade de vida.
-</p>
-
-</div>
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-person-running"></i>
-
-<h3>
-Treinos Inteligentes
-</h3>
-
-<p>
-Treinos adaptados ao seu nível.
-</p>
-
-</div>
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-video"></i>
-
-<h3>
-Vídeo Aulas
-</h3>
-
-<p>
-Aprenda técnica, postura e respiração.
-</p>
-
-</div>
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-chart-line"></i>
-
-<h3>
-Evolução
-</h3>
-
-<p>
-Acompanhe cada quilômetro percorrido.
-</p>
-
-</div>
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-users"></i>
-
-<h3>
-Comunidade
-</h3>
-
-<p>
-Treine junto com milhares de corredores.
-</p>
-
-</div>
-
-
-<div class="benefit-card">
-
-<i class="fa-solid fa-trophy"></i>
-
-<h3>
-Desafios
-</h3>
-
-<p>
-Ganhe medalhas e complete objetivos.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- COMO FUNCIONA -->
-
-<section id="funciona">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-COMO FUNCIONA
-</span>
-
-<h2>
-Comece sua evolução em apenas 4 passos
-</h2>
-
-<p>
-Criamos um método simples para que qualquer pessoa
-consiga iniciar na corrida com segurança e constância.
-</p>
-
-</div>
-
-
-<div class="steps">
-
-
-<div class="step-card">
-
-<div class="step-number">
-01
-</div>
-
-<i class="fa-solid fa-user-plus"></i>
-
-<h3>
-Crie sua conta
-</h3>
-
-<p>
-Cadastre-se gratuitamente e personalize
-seu perfil de atleta.
-</p>
-
-</div>
-
-
-<div class="step-card">
-
-<div class="step-number">
-02
-</div>
-
-<i class="fa-solid fa-person-running"></i>
-
-<h3>
-Escolha seu objetivo
-</h3>
-
-<p>
-5 km, 10 km, condicionamento
-ou simplesmente começar.
-</p>
-
-</div>
-
-
-<div class="step-card">
-
-<div class="step-number">
-03
-</div>
-
-<i class="fa-solid fa-book-open"></i>
-
-<h3>
-Aprenda
-</h3>
-
-<p>
-Assista às aulas e siga os treinos
-elaborados para o seu nível.
-</p>
-
-</div>
-
-
-<div class="step-card">
-
-<div class="step-number">
-04
-</div>
-
-<i class="fa-solid fa-medal"></i>
-
-<h3>
-Evolua
-</h3>
-
-<p>
-Complete desafios, acompanhe suas
-estatísticas e conquiste medalhas.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- PLANOS -->
-
-<section
-    class="plans"
-    id="planos">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-PLANOS
-</span>
-
-<h2>
-Escolha como deseja evoluir
-</h2>
-
-<p>
-Você pode começar gratuitamente
-e evoluir para o Premium quando quiser.
-</p>
-
-</div>
-
-
-<div class="plans-grid">
-
-
-<div class="plan-card">
-
-<h3>
-Gratuito
-</h3>
-
-<h1>
-R$ 0
-</h1>
-
-<p>
-Para quem está começando.
-</p>
-
-<ul>
-
-<li>
-✔ Treinos básicos
-</li>
-
-<li>
-✔ Comunidade
-</li>
-
-<li>
-✔ Desafios mensais
-</li>
-
-<li>
-✔ Registro de corridas
-</li>
-
-</ul>
-
-
-<a
-    href="#"
-    class="btn-primary"
-    onclick="abrirCadastro(event)">
-
-Começar Agora
-
-</a>
-
-</div>
-
-
-
-<div class="plan-card premium">
-
-<div class="premium-tag">
-MAIS ESCOLHIDO
-</div>
-
-<h3>
-Premium
-</h3>
-
-<h1>
-R$ 29,90
-</h1>
-
-<p>
-por mês
-</p>
-
-<ul>
-
-<li>
-✔ Todos os cursos
-</li>
-
-<li>
-✔ Vídeos exclusivos
-</li>
-
-<li>
-✔ Planilhas de treino
-</li>
-
-<li>
-✔ Dashboard completo
-</li>
-
-<li>
-✔ Certificados
-</li>
-
-<li>
-✔ Suporte prioritário
-</li>
-
-</ul>
-
-
-<a
-    href="#"
-    class="btn-primary"
-    onclick="abrirCadastro(event)">
-
-Assinar Premium
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- NÚMEROS -->
-
-<section class="numbers">
-
-<div class="container">
-
-<div class="numbers-grid">
-
-<div>
-
-<h2>
-15.000+
-</h2>
-
-<p>
-Corredores
-</p>
-
-</div>
-
-
-<div>
-
-<h2>
-500.000 km
-</h2>
-
-<p>
-Percorridos
-</p>
-
-</div>
-
-
-<div>
-
-<h2>
-120+
-</h2>
-
-<p>
-Vídeo Aulas
-</p>
-
-</div>
-
-
-<div>
-
-<h2>
-98%
-</h2>
-
-<p>
-Satisfação
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- DEPOIMENTOS -->
-
-<section
-    class="testimonials"
-    id="depoimentos">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-DEPOIMENTOS
-</span>
-
-<h2>
-Histórias que inspiram
-</h2>
-
-</div>
-
-
-<div class="testimonial-grid">
-
-
-<div class="testimonial">
-
-<p>
-"Comecei sem conseguir correr 500 metros.
-Hoje completei meus primeiros 10 km."
-</p>
-
-<h4>
-★★★★★
-</h4>
-
-<strong>
-Lucas M.
-</strong>
-
-</div>
-
-
-<div class="testimonial">
-
-<p>
-"As aulas mudaram completamente
-minha forma de correr."
-</p>
-
-<h4>
-★★★★★
-</h4>
-
-<strong>
-Amanda S.
-</strong>
-
-</div>
-
-
-<div class="testimonial">
-
-<p>
-"O Projeto Corre me fez criar uma rotina
-saudável sem pressão."
-</p>
-
-<h4>
-★★★★★
-</h4>
-
-<strong>
-Carlos R.
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- FAQ -->
-
-<section
-    class="faq"
-    id="faq">
-
-<div class="container">
-
-<div class="section-header">
-
-<span>
-DÚVIDAS
-</span>
-
-<h2>
-Perguntas Frequentes
-</h2>
-
-</div>
-
-
-<div class="faq-item">
-
-<h3>
-Preciso ter experiência?
-</h3>
-
-<p>
-Não. O Projeto Corre foi criado
-principalmente para iniciantes.
-</p>
-
-</div>
-
-
-<div class="faq-item">
-
-<h3>
-Existe versão gratuita?
-</h3>
-
-<p>
-Sim. Você pode começar gratuitamente
-e evoluir quando desejar.
-</p>
-
-</div>
-
-
-<div class="faq-item">
-
-<h3>
-Posso acessar pelo celular?
-</h3>
-
-<p>
-Sim. Todo o sistema foi pensado
-para funcionar no celular.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- CTA -->
-
-<section class="cta-final">
-
-<div class="container">
-
-<h2>
-Seu primeiro passo começa hoje.
-</h2>
-
-<p>
-Junte-se ao Projeto Corre e transforme sua rotina.
-</p>
-
-<a
-    href="#"
-    class="btn-primary"
-    onclick="abrirCadastro(event)">
-
-Criar Conta Gratuitamente
-
-</a>
-
-</div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-logo">
-
-<h2>
-Projeto <span>Corre</span>
-</h2>
-
-<p>
-Treine. Evolua. Inspire.
-</p>
-
-</div>
-
-
-<div class="footer-links">
-
-<a href="#sobre">
-Sobre
-</a>
-
-<a href="#planos">
-Planos
-</a>
-
-<a href="#" onclick="abrirLogin(event)">
-Entrar
-</a>
-
-<a href="#" onclick="abrirCadastro(event)">
-Cadastro
-</a>
-
-</div>
-
-
-<p class="copyright">
-
-© 2026 Projeto Corre • Todos os direitos reservados.
-
-</p>
-
-</div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     APP DO ATLETA
-===================================================== -->
-
-
-<section id="correApp">
-
-
-<header class="ca-bar">
-
-<div class="ca-inner">
-
-
-<button
-    class="ca-menu"
-    onclick="caDrawer(true)">
-
-☰
-
-</button>
-
-
-<div class="ca-logo">
-
-Projeto <span>Corre</span>
-
-</div>
-
-
-<div class="ca-user">
-
-<span id="caTopName">
-</span>
-
-<div
-    class="ca-avatar"
-    id="caAvatar">
-
-C
-
-</div>
-
-</div>
-
-
-</div>
-
-</header>
-
-
-
-<main class="ca-main">
-
-
-<!-- DASHBOARD -->
-
-<section
-    id="ca-dashboard"
-    class="ca-view active">
-
-
-<div class="ca-dash">
-
-
-<div>
-
-<div class="ca-ey">
-SUA JORNADA
-</div>
-
-<h1 id="caWelcome">
-Olá.
-</h1>
-
-<p class="ca-muted">
-Seu primeiro passo começa hoje.
-</p>
-
-</div>
-
-
-<button
-    class="ca-btn ca-primary"
-    onclick="caView('train')">
-
-Treino de hoje →
-
-</button>
-
-
-</div>
-
-
-
-<div class="ca-grid2">
-
-
-<div class="ca-card ca-train">
-
-<div>
-
-<div class="ca-ey">
-PRÓXIMO PASSO
-</div>
-
-<h2>
-Aula 01 — Você não precisa ser corredor
-</h2>
-
-<p class="ca-muted">
-Antes de correr, vamos entender como começar.
-</p>
-
-
-<div class="ca-notice">
-
-Hoje o objetivo não é correr rápido.
-
-É terminar sabendo que você
-consegue voltar amanhã.
-
-</div>
-
-</div>
-
-
-<button
-    class="ca-btn ca-primary"
-    onclick="caLesson(0)">
-
-Continuar jornada
-
-</button>
-
-</div>
-
-
-
-<div class="ca-card">
-
-<div class="ca-ey">
-PRIMEIRO PASSO
-</div>
-
-<h2>
-25%
-</h2>
-
-<p class="ca-muted">
-5 de 20 aulas iniciais.
-</p>
-
-<button
-    class="ca-btn ca-ghost"
-    onclick="caView('learn')">
-
-Ver aulas
-
-</button>
-
-</div>
-
-
-</div>
-
-
-
-<div class="ca-stats">
-
-
-<div class="ca-card ca-stat">
-
-Treinos
-
-<strong id="caW">
-0
-</strong>
-
-</div>
-
-
-<div class="ca-card ca-stat">
-
-Distância
-
-<strong id="caD">
-0,0 km
-</strong>
-
-</div>
-
-
-<div class="ca-card ca-stat">
-
-Nível
-
-<strong>
-Iniciante
-</strong>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- AULAS -->
-
-<section
-    id="ca-learn"
-    class="ca-view">
-
-
-<div class="ca-dash">
-
-<div>
-
-<div class="ca-ey">
-CURSO INICIAL
-</div>
-
-<h1>
-Primeiro Passo
-</h1>
-
-<p class="ca-muted">
-20 aulas para entrar na vida de corredor.
-</p>
-
-</div>
-
-</div>
-
-
-<div
-    id="caLessons"
-    class="ca-lessons">
-
-</div>
-
-
-</section>
-
-
-
-<!-- TREINO -->
-
-<section
-    id="ca-train"
-    class="ca-view">
-
-
-<div class="ca-dash">
-
-<div>
-
-<div class="ca-ey">
-TREINO DE HOJE
-</div>
-
-<h1>
-Corrida + caminhada
-</h1>
-
-<p class="ca-muted">
-25 minutos · intensidade leve
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="ca-card ca-train">
-
-
-<div>
-
-<div class="ca-ey">
-TREINO 01
-</div>
-
-<h2>
-Comece leve.
-</h2>
-
-<p class="ca-muted">
-
-5 min caminhada →
-
-1 min corrida →
-
-2 min caminhada × 5.
-
-</p>
-
-
-<div class="ca-notice">
-
-Se o esforço subir demais,
-caminhe.
-
-O treino foi feito para
-construir confiança.
-
-</div>
-
-</div>
-
-
-<button
-    class="ca-btn ca-primary"
-    onclick="caFinish()">
-
-✓ Registrar treino
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- EVOLUÇÃO -->
-
-<section
-    id="ca-progress"
-    class="ca-view">
-
-
-<div class="ca-ey">
-ACOMPANHAMENTO
-</div>
-
-<h1>
-Minha evolução
-</h1>
-
-
-<div class="ca-stats">
-
-
-<div class="ca-card ca-stat">
-
-Treinos
-
-<strong id="caPW">
-0
-</strong>
-
-</div>
-
-
-<div class="ca-card ca-stat">
-
-Distância
-
-<strong id="caPD">
-0,0 km
-</strong>
-
-</div>
-
-
-<div class="ca-card ca-stat">
-
-Aulas
-
-<strong>
-0/20
-</strong>
-
-</div>
-
-
-</div>
-
-
-
-<div
-    class="ca-card"
-    style="margin-top:13px">
-
-<h2>
-🏅 Primeiro passo
-</h2>
-
-<p class="ca-muted">
-
-Você criou sua jornada.
-
-Agora é continuar.
-
-</p>
-
-</div>
-
-
-</section>
-
-
-
-<!-- PERFIL -->
-
-<section
-    id="ca-profile"
-    class="ca-view">
-
-
-<div class="ca-ey">
-ATLETA
-</div>
-
-<h1>
-Meu perfil
-</h1>
-
-
-<div class="ca-card">
-
-
-<label>
-Nome
-</label>
-
-<input
-    id="caEdit"
-    style="
-    width:100%;
-    margin-top:8px;
-    padding:13px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-br><br>
-
-<button
-    class="ca-btn ca-primary"
-    onclick="caSave()">
-
-Salvar alterações
-
-</button>
-
-</div>
-
-
-</section>
-
-
-
-<!-- COACH -->
-
-<section
-    id="ca-coach"
-    class="ca-view">
-
-
-<div class="ca-ey">
-COACH CORRE
-</div>
-
-<h1>
-Seu primeiro assistente de corrida
-</h1>
-
-
-<div class="ca-card ca-chat">
-
-
-<div
-    id="caMsgs"
-    class="ca-msgs">
-
-
-<div class="ca-msg ca-bot">
-
-Fala! 👊
-
-Como você está hoje?
-
-Me conte sobre seu treino
-ou sua rotina.
-
-</div>
-
-
-</div>
-
-
-<div class="ca-chatrow">
-
-
-<input
-    id="caChat"
-    placeholder="Ex.: estou cansado hoje..."
-    onkeydown="
-    if(event.key==='Enter')
-    caSend()
-    ">
-
-
-<button
-    class="ca-btn ca-primary"
-    onclick="caSend()">
-
-Enviar
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-</main>
-
-</section>
-
-
-
-<!-- =====================================================
-     MENU LATERAL
-===================================================== -->
-
-
-<div
-    id="caDrawer"
-    class="ca-drawer"
-    onclick="
-    if(event.target===this)
-    caDrawer(false)
-    ">
-
-
-<aside>
-
-
-<div
-    style="
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    ">
-
-
-<div class="ca-logo">
-
-Projeto <span>Corre</span>
-
-</div>
-
-
-<button
-    onclick="caDrawer(false)"
-    class="ca-close">
-
-×
-
-</button>
-
-
-</div>
-
-
-<br>
-
-
-<button
-    class="ca-nav active"
-    data-ca="dashboard"
-    onclick="caView('dashboard')">
-
-🏠 Início
-
-</button>
-
-
-<button
-    class="ca-nav"
-    data-ca="learn"
-    onclick="caView('learn')">
-
-🎓 Aulas
-
-</button>
-
-
-<button
-    class="ca-nav"
-    data-ca="train"
-    onclick="caView('train')">
-
-🏃 Treinos
-
-</button>
-
-
-<button
-    class="ca-nav"
-    data-ca="progress"
-    onclick="caView('progress')">
-
-📈 Minha evolução
-
-</button>
-
-
-<button
-    class="ca-nav"
-    data-ca="coach"
-    onclick="caView('coach')">
-
-🤖 Coach CORRE
-
-</button>
-
-
-<button
-    class="ca-nav"
-    data-ca="profile"
-    onclick="caView('profile')">
-
-👤 Meu perfil
-
-</button>
-
-
-<button
-    class="ca-nav ca-logout"
-    onclick="caLogout()">
-
-🚪 Sair
-
-</button>
-
-
-</aside>
-
-</div>
-
-
-
-<!-- =====================================================
-     MODAL AULA
-===================================================== -->
-
-
-<div
-    id="caModal"
-    class="ca-modal">
-
-
-<div class="ca-modalbox">
-
-
-<button
-    class="ca-close"
-    onclick="caModal(false)">
-
-×
-
-</button>
-
-
-<div
-    class="ca-ey"
-    id="caMN">
-</div>
-
-
-<h2 id="caMT">
-</h2>
-
-
-<p
-    class="ca-muted"
-    id="caMD">
-</p>
-
-
-<div class="ca-notice">
-
-🎬 Espaço reservado para
-o vídeo desta aula.
-
-</div>
-
-
-<p
-    id="caMB"
-    style="
-    color:#bbb;
-    line-height:1.7;
-    margin:15px 0;
-    ">
-</p>
-
-
-<button
-    class="ca-btn ca-primary"
-    onclick="
-    caModal(false);
-    caToast('Aula marcada como concluída!')
-    ">
-
-✓ Marcar como concluída
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<div
-    id="caToast"
-    class="ca-toast">
-</div>
-
-
-
-<!-- =====================================================
-     LOGIN
-===================================================== -->
-
-
-<div
-    id="authModal"
-    class="ca-modal">
-
-
-<div
-    class="ca-modalbox"
-    style="max-width:450px;">
-
-
-<button
-    class="ca-close"
-    onclick="fecharAuth()">
-
-×
-
-</button>
-
-
-<div class="ca-ey">
-PROJETO CORRE
-</div>
-
-
-<h2>
-Entrar
-</h2>
-
-
-<p
-    class="ca-muted"
-    style="margin-bottom:20px;">
-
-Entre na sua jornada.
-
-</p>
-
-
-<input
-    id="loginEmail"
-    type="email"
-    placeholder="Seu e-mail"
-    style="
-    width:100%;
-    padding:13px;
-    margin-bottom:10px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-<input
-    id="loginPassword"
-    type="password"
-    placeholder="Sua senha"
-    style="
-    width:100%;
-    padding:13px;
-    margin-bottom:15px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-<button
-    class="ca-btn ca-primary"
-    style="width:100%;"
-    onclick="fazerLogin()">
-
-Entrar
-
-</button>
-
-
-<p
-    style="
-    text-align:center;
-    margin-top:15px;
-    color:#999;
-    font-size:13px;
-    ">
-
-Ainda não possui conta?
-
-<a
-    href="#"
-    onclick="abrirCadastro(event)"
-    style="color:#c5ff3d;">
-
-Criar conta
-
-</a>
-
-</p>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     CADASTRO
-===================================================== -->
-
-
-<div
-    id="registerModal"
-    class="ca-modal">
-
-
-<div
-    class="ca-modalbox"
-    style="max-width:450px;">
-
-
-<button
-    class="ca-close"
-    onclick="fecharAuth()">
-
-×
-
-</button>
-
-
-<div class="ca-ey">
-PRIMEIRO PASSO
-</div>
-
-
-<h2>
-Crie sua conta
-</h2>
-
-
-<p
-    class="ca-muted"
-    style="margin-bottom:20px;">
-
-Vamos começar sua jornada.
-
-</p>
-
-
-<input
-    id="registerName"
-    placeholder="Seu nome"
-    style="
-    width:100%;
-    padding:13px;
-    margin-bottom:10px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-<input
-    id="registerEmail"
-    type="email"
-    placeholder="Seu e-mail"
-    style="
-    width:100%;
-    padding:13px;
-    margin-bottom:10px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-<input
-    id="registerPassword"
-    type="password"
-    placeholder="Crie uma senha"
-    style="
-    width:100%;
-    padding:13px;
-    margin-bottom:15px;
-    background:#0b0d0e;
-    border:1px solid #292d31;
-    border-radius:10px;
-    color:white;
-    ">
-
-
-<button
-    class="ca-btn ca-primary"
-    style="width:100%;"
-    onclick="criarConta()">
-
-Começar minha jornada
-
-</button>
-
-
-<p
-    style="
-    text-align:center;
-    margin-top:15px;
-    color:#999;
-    font-size:13px;
-    ">
-
-Já possui uma conta?
-
-<a
-    href="#"
-    onclick="abrirLogin(event)"
-    style="color:#c5ff3d;">
-
-Entrar
-
-</a>
-
-</p>
-
-
-</div>
-
-</div>
-
-
-
-<script>
-
-
-/* =====================================================
-   DADOS DAS AULAS
-===================================================== */
-
-
-const CALESSONS = [
-
-[
-"01",
-"Você não precisa ser corredor",
-"Quebre a barreira psicológica.",
-"O objetivo é começar com segurança e criar uma relação sustentável com a corrida."
-],
-
-[
-"02",
-"O que é corrida?",
-"Caminhada, trote e corrida.",
-"Entenda como o movimento se desenvolve."
-],
-
-[
-"03",
-"O que acontece no seu corpo?",
-"Coração, pulmões e músculos.",
-"Seu corpo se adapta ao estímulo e à recuperação."
-],
-
-[
-"04",
-"Por que você fica cansado?",
-"Esforço e fadiga.",
-"Cansaço faz parte; excesso não é requisito para evoluir."
-],
-
-[
-"05",
-"Caminhar também é treinar",
-"A caminhada no começo.",
-"Caminhar ajuda a criar rotina."
-],
-
-[
-"06",
-"Como começar a correr",
-"Corrida + caminhada.",
-"Intervalos ajudam a controlar o esforço."
-],
-
-[
-"07",
-"Como respirar",
-"Respiração e esforço.",
-"Busque controle e conforto."
-],
-
-[
-"08",
-"O ritmo certo",
-"Percepção de esforço.",
-"Não compare seu ritmo com o dos outros."
-],
-
-[
-"09",
-"O que é pace?",
-"Minutos por quilômetro.",
-"Pace é tempo por unidade de distância."
-],
-
-[
-"10",
-"Seu corpo precisa de tempo",
-"Adaptação.",
-"Tecidos e sistemas precisam de progressão."
-],
-
-[
-"11",
-"Descanso também é treino",
-"Recuperação.",
-"Recuperação faz parte do processo."
-],
-
-[
-"12",
-"Sono e recuperação",
-"Rotina.",
-"Dormir bem ajuda a sustentar o treino."
-],
-
-[
-"13",
-"Alimentação para iniciantes",
-"Alimentação e hidratação.",
-"A base é equilíbrio e hidratação."
-],
-
-[
-"14",
-"O que você precisa?",
-"O essencial.",
-"Roupa confortável, calçado adequado e segurança."
-],
-
-[
-"15",
-"Dor e desconforto",
-"Sinais de atenção.",
-"Dor intensa, aguda ou persistente merece atenção."
-],
-
-[
-"16",
-"Técnica de corrida",
-"Postura e movimento.",
-"Busque conforto e eficiência."
-],
-
-[
-"17",
-"Como evitar exageros",
-"Erros comuns.",
-"Progrida gradualmente."
-],
-
-[
-"18",
-"Como criar rotina",
-"Corrida na vida real.",
-"Consistência é mais sustentável que planos impossíveis."
-],
-
-[
-"19",
-"Acompanhe sua evolução",
-"Tempo, distância e consistência.",
-"Evolução não é só velocidade."
-],
-
-[
-"20",
-"Seu primeiro desafio",
-"Fechamento.",
-"Transforme conhecimento em hábito."
-]
-
-];
-
-
-
-/* =====================================================
-   USUÁRIO
-===================================================== */
-
-
-function getUser() {
-
-    return JSON.parse(
-        localStorage.getItem("correUser") || "null"
-    );
-
-}
-
-
-
-function saveUser(user) {
-
-    localStorage.setItem(
-        "correUser",
-        JSON.stringify(user)
-    );
-
-}
-
-
-
-/* =====================================================
-   CADASTRO
-===================================================== */
-
-
-function abrirCadastro(event) {
-
-    if(event)
-        event.preventDefault();
-
-    fecharAuth();
-
-    document
-        .getElementById("registerModal")
-        .classList
-        .add("open");
-
-}
-
-
-
-function criarConta() {
-
-
-    const name =
-        document
-        .getElementById("registerName")
-        .value
-        .trim();
-
-
-    const email =
-        document
-        .getElementById("registerEmail")
-        .value
-        .trim();
-
-
-    const password =
-        document
-        .getElementById("registerPassword")
-        .value;
-
-
-    if(!name || !email || !password) {
-
-        alert(
-            "Preencha todos os campos."
-        );
-
-        return;
-
-    }
-
-
-    const user = {
-
-        name: name,
-
-        email: email,
-
-        password: password,
-
-        workouts: 0,
-
-        distance: 0,
-
-        lessons: [],
-
-        createdAt: new Date().toISOString()
-
-    };
-
-
-    saveUser(user);
-
-
-    localStorage.setItem(
-        "correSession",
-        "1"
-    );
-
-
-    fecharAuth();
-
-    abrirApp();
-
-}
-
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-
-function abrirLogin(event) {
-
-    if(event)
-        event.preventDefault();
-
-    fecharAuth();
-
-    document
-        .getElementById("authModal")
-        .classList
-        .add("open");
-
-}
-
-
-
-function fazerLogin() {
-
-
-    const email =
-        document
-        .getElementById("loginEmail")
-        .value
-        .trim();
-
-
-    const password =
-        document
-        .getElementById("loginPassword")
-        .value;
-
-
-    const user =
-        getUser();
-
-
-    if(
-        !user ||
-        user.email !== email ||
-        user.password !== password
-    ) {
-
-        alert(
-            "E-mail ou senha incorretos."
-        );
-
-        return;
-
-    }
-
-
-    localStorage.setItem(
-        "correSession",
-        "1"
-    );
-
-
-    fecharAuth();
-
-    abrirApp();
-
-}
-
-
-
-/* =====================================================
-   FECHAR LOGIN
-===================================================== */
-
-
-function fecharAuth() {
-
-    document
-        .getElementById("authModal")
-        .classList
-        .remove("open");
-
-}
-
-
-
-/* =====================================================
-   ABRIR APP
-===================================================== */
-
-
-function abrirApp() {
-
-
-    const user =
-        getUser();
-
-
-    if(!user) {
-
-        abrirCadastro();
-
-        return;
-
-    }
-
-
-    /*
-       Esconde a página pública
-    */
-
-    document
-        .querySelector("header")
-        .style
-        .display = "none";
-
-
-    document
-        .querySelectorAll(
-            "body > section:not(#correApp), body > footer"
-        )
-        .forEach(
-            element => {
-
-                element.style.display =
-                    "none";
-
-            }
-        );
-
-
-    document
-        .getElementById("correApp")
-        .style
-        .display = "block";
-
-
-    document
-        .getElementById("caTopName")
-        .textContent =
-        user.name;
-
-
-    document
-        .getElementById("caAvatar")
-        .textContent =
-        user.name
-        ? user.name[0].toUpperCase()
-        : "C";
-
-
-    document
-        .getElementById("caWelcome")
-        .textContent =
-        "Olá, " + user.name + ".";
-
-
-    document
-        .getElementById("caEdit")
-        .value =
-        user.name;
-
-
-    caStats();
-
-    caRenderLessons();
-
-    window.scrollTo(
-        0,
-        0
-    );
-
-}
-
-
-
-/* =====================================================
-   MENU
-===================================================== */
-
-
-function caDrawer(open) {
-
-    document
-        .getElementById("caDrawer")
-        .classList
-        .toggle(
-            "open",
-            open
-        );
-
-}
-
-
-
-/* =====================================================
-   TROCAR TELA
-===================================================== */
-
-
-function caView(view) {
-
-
-    document
-        .querySelectorAll(".ca-view")
-        .forEach(
-            element => {
-
-                element
-                .classList
-                .remove("active");
-
-            }
-        );
-
-
-    document
-        .getElementById(
-            "ca-" + view
-        )
-        .classList
-        .add("active");
-
-
-    document
-        .querySelectorAll(".ca-nav")
-        .forEach(
-            element => {
-
-                element
-                .classList
-                .toggle(
-                    "active",
-                    element.dataset.ca === view
-                );
-
-            }
-        );
-
-
-    caDrawer(false);
-
-    window.scrollTo(
-        0,
-        0
-    );
-
-}
-
-
-
-/* =====================================================
-   AULAS
-===================================================== */
-
-
-function caRenderLessons() {
-
-
-    document
-        .getElementById("caLessons")
-        .innerHTML =
-
-
-        CALESSONS
-        .map(
-            (lesson,index) => `
-
-            <div
-                class="ca-card ca-lesson"
-                onclick="caLesson(${index})">
-
-                <div class="ca-num">
-
-                    ${lesson[0]}
-
-                </div>
-
-                <div>
-
-                    <b>
-                        ${lesson[1]}
-                    </b>
-
-                    <div
-                        class="ca-muted"
-                        style="font-size:12px">
-
-                        ${lesson[2]}
-
-                    </div>
-
-                </div>
+                </a>
 
             </div>
 
-            `
-        )
-        .join("");
 
-}
+            <!-- HAMBURGER -->
 
+            <div
+                class="hamburger"
+                id="hamburger">
 
+                <span></span>
+                <span></span>
+                <span></span>
 
-/* =====================================================
-   ABRIR AULA
-===================================================== */
+            </div>
 
+        </nav>
 
-function caLesson(index) {
+    </header>
 
 
-    const lesson =
-        CALESSONS[index];
 
+    <!-- =====================================================
+         MENU MOBILE
+    ===================================================== -->
 
-    document
-        .getElementById("caMN")
-        .textContent =
-        "AULA " + lesson[0];
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
 
 
-    document
-        .getElementById("caMT")
-        .textContent =
-        lesson[1];
+        <a href="#inicio">
+            Início
+        </a>
 
 
-    document
-        .getElementById("caMD")
-        .textContent =
-        lesson[2];
+        <a href="#sobre">
+            Sobre
+        </a>
 
 
-    document
-        .getElementById("caMB")
-        .textContent =
-        lesson[3];
+        <a href="#beneficios">
+            Benefícios
+        </a>
 
 
-    caModal(true);
+        <a href="#como-funciona">
+            Como funciona
+        </a>
 
-}
 
+        <a href="#planos">
+            Planos
+        </a>
 
 
-/* =====================================================
-   CONCLUIR AULA
-===================================================== */
+        <a href="#faq">
+            FAQ
+        </a>
 
 
-function concluirAula() {
+        <div class="mobile-buttons">
 
-    const user =
-        getUser();
+            <a
+                href="login.html"
+                class="btn-login">
 
+                Entrar
 
-    const numero =
-        document
-        .getElementById("caMN")
-        .textContent
-        .replace("AULA ","");
+            </a>
 
 
-    if(!user.lessons)
-        user.lessons = [];
+            <a
+                href="cadastro.html"
+                class="btn-primary">
 
+                Começar gratuitamente
 
-    if(
-        !user.lessons.includes(numero)
-    ) {
-
-        user.lessons.push(numero);
-
-    }
-
-
-    saveUser(user);
-
-
-    caModal(false);
-
-    caToast(
-        "Aula concluída! 👊"
-    );
-
-}
-
-
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-
-function caModal(open) {
-
-    document
-        .getElementById("caModal")
-        .classList
-        .toggle(
-            "open",
-            open
-        );
-
-}
-
-
-
-/* =====================================================
-   TREINO
-===================================================== */
-
-
-function caFinish() {
-
-
-    const user =
-        getUser();
-
-
-    user.workouts =
-        (user.workouts || 0) + 1;
-
-
-    user.distance =
-        (user.distance || 0) + 2.1;
-
-
-    saveUser(user);
-
-
-    caStats();
-
-
-    caToast(
-        "Treino registrado. Mandou bem! 👊"
-    );
-
-}
-
-
-
-/* =====================================================
-   ESTATÍSTICAS
-===================================================== */
-
-
-function caStats() {
-
-
-    const user =
-        getUser() || {};
-
-
-    const workouts =
-        user.workouts || 0;
-
-
-    const distance =
-        user.distance || 0;
-
-
-    const lessons =
-        user.lessons
-        ? user.lessons.length
-        : 0;
-
-
-    document
-        .getElementById("caW")
-        .textContent =
-        workouts;
-
-
-    document
-        .getElementById("caPW")
-        .textContent =
-        workouts;
-
-
-    document
-        .getElementById("caD")
-        .textContent =
-        distance
-        .toFixed(1)
-        .replace(".",",")
-        + " km";
-
-
-    document
-        .getElementById("caPD")
-        .textContent =
-        document
-        .getElementById("caD")
-        .textContent;
-
-
-    const lessonNumber =
-        document
-        .querySelector(
-            "#ca-progress .ca-stats .ca-stat:nth-child(3) strong"
-        );
-
-
-    if(lessonNumber) {
-
-        lessonNumber.textContent =
-            lessons + "/20";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   PERFIL
-===================================================== */
-
-
-function caSave() {
-
-
-    const user =
-        getUser();
-
-
-    const name =
-        document
-        .getElementById("caEdit")
-        .value
-        .trim();
-
-
-    if(!name)
-        return;
-
-
-    user.name =
-        name;
-
-
-    saveUser(user);
-
-
-    document
-        .getElementById("caTopName")
-        .textContent =
-        user.name;
-
-
-    document
-        .getElementById("caAvatar")
-        .textContent =
-        user.name[0]
-        .toUpperCase();
-
-
-    document
-        .getElementById("caWelcome")
-        .textContent =
-        "Olá, " + user.name + ".";
-
-
-    caToast(
-        "Perfil atualizado."
-    );
-
-}
-
-
-
-/* =====================================================
-   COACH
-===================================================== */
-
-
-function caSend() {
-
-
-    const input =
-        document
-        .getElementById("caChat");
-
-
-    const text =
-        input.value.trim();
-
-
-    if(!text)
-        return;
-
-
-    const msgs =
-        document
-        .getElementById("caMsgs");
-
-
-    msgs.innerHTML += `
-
-        <div class="ca-msg ca-me">
-
-            ${caSafe(text)}
+            </a>
 
         </div>
 
-    `;
+
+    </div>
 
 
-    let response;
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <main>
+
+        <section
+            class="hero"
+            id="inicio">
 
 
-    if(
-        /dor no peito|desmaio|tontura|falta de ar/i
-        .test(text)
-    ) {
-
-        response =
-        "Se houver esses sintomas, pare a atividade e procure avaliação profissional. Segurança vem primeiro.";
-
-    }
-
-    else if(
-        /cansad|exaust|sono/i
-        .test(text)
-    ) {
-
-        response =
-        "Se estiver muito cansado, reduza a intensidade ou priorize recuperação. Consistência vem antes de heroísmo.";
-
-    }
-
-    else if(
-        /corr|treino|pace|correr/i
-        .test(text)
-    ) {
-
-        response =
-        "Boa! Para quem está começando, o mais importante é controlar o esforço e manter constância. Me conte quanto tempo você correu e como se sentiu.";
-
-    }
-
-    else {
-
-        response =
-        "Boa. Me conte como foi seu último treino e como está sua recuperação.";
-
-    }
+            <div class="hero-left">
 
 
-    setTimeout(
-        () => {
+                <div class="tag">
 
-            msgs.innerHTML += `
+                    <i class="fa-solid fa-fire"></i>
 
-                <div class="ca-msg ca-bot">
-
-                    ${response}
+                    Plataforma para corredores iniciantes
 
                 </div>
 
-            `;
+
+                <h1>
+
+                    Corra melhor.
+                    <br>
+
+                    Viva melhor.
+                    <br>
+
+                    <span>
+                        Evolua.
+                    </span>
+
+                </h1>
 
 
-            msgs.scrollTop =
-                msgs.scrollHeight;
+                <p>
 
-        },
-        300
-    );
+                    O Projeto Corre foi criado para quem
+                    quer começar a correr, mas não sabe
+                    por onde começar.
 
+                    Aprenda, treine e evolua passo a passo
+                    até transformar a corrida em parte da
+                    sua vida.
 
-    input.value = "";
-
-}
-
-
-
-/* =====================================================
-   SEGURANÇA DO CHAT
-===================================================== */
+                </p>
 
 
-function caSafe(text) {
-
-    return text.replace(
-        /[&<>"']/g,
-        character => ({
-
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-
-        }[character])
-    );
-
-}
+                <div class="hero-buttons">
 
 
+                    <a
+                        href="cadastro.html"
+                        class="btn-primary">
 
-/* =====================================================
-   TOAST
-===================================================== */
+                        Começar Agora
 
+                        <i class="fa-solid fa-arrow-right"></i>
 
-function caToast(text) {
-
-
-    const toast =
-        document
-        .getElementById("caToast");
+                    </a>
 
 
-    toast.textContent =
-        text;
+                    <a
+                        href="#sobre"
+                        class="btn-secondary">
+
+                        Conhecer o Projeto
+
+                    </a>
 
 
-    toast.style.display =
-        "block";
+                </div>
 
 
-    setTimeout(
-        () => {
-
-            toast.style.display =
-                "none";
-
-        },
-        2200
-    );
-
-}
+                <div class="hero-stats">
 
 
+                    <div>
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+                        <h2>
+                            +15k
+                        </h2>
 
+                        <p>
+                            Corredores
+                        </p>
 
-function caLogout() {
-
-
-    localStorage.removeItem(
-        "correSession"
-    );
-
-
-    document
-        .getElementById("correApp")
-        .style
-        .display = "none";
+                    </div>
 
 
-    document
-        .querySelector("header")
-        .style
-        .display = "";
+                    <div>
+
+                        <h2>
+                            120+
+                        </h2>
+
+                        <p>
+                            Aulas
+                        </p>
+
+                    </div>
 
 
-    document
-        .querySelectorAll(
-            "body > section:not(#correApp), body > footer"
-        )
-        .forEach(
-            element => {
+                    <div>
 
-                element.style.display =
-                    "";
+                        <h2>
+                            365
+                        </h2>
+
+                        <p>
+                            Dias de evolução
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="hero-right">
+
+
+                <img
+                    src="28A4A849-09AD-460A-8E83-ABF14DE059E6.png"
+                    alt="Corredor do Projeto Corre"
+                    class="hero-image">
+
+
+                <div class="hero-card">
+
+                    <small>
+                        SUA JORNADA
+                    </small>
+
+                    <strong>
+
+                        <i class="fa-solid fa-fire"></i>
+
+                        Comece do zero
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOBRE
+        ===================================================== -->
+
+        <section
+            class="about"
+            id="sobre">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        SOBRE O CORRE
+                    </span>
+
+                    <h2>
+                        A corrida começa muito antes
+                        do primeiro quilômetro.
+                    </h2>
+
+                    <p>
+                        Antes de correr rápido, você precisa
+                        aprender a correr bem.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+
+                    <div class="about-text">
+
+                        <p>
+
+                            O Projeto Corre nasceu para
+                            aproximar pessoas comuns da
+                            corrida.
+
+                        </p>
+
+
+                        <p>
+
+                            Aqui você aprende desde os
+                            primeiros conceitos — como
+                            funciona a corrida, como preparar
+                            o corpo, como respirar e como
+                            criar uma rotina — até começar
+                            a construir sua evolução.
+
+                        </p>
+
+
+                        <p>
+
+                            Não importa se hoje você não
+                            consegue correr nem cinco
+                            minutos.
+
+                            O importante é começar.
+
+                        </p>
+
+
+                        <div class="about-highlight">
+
+                            <strong>
+                                Não buscamos atletas
+                                perfeitos.
+                            </strong>
+
+                            <span>
+                                Buscamos pessoas dispostas
+                                a dar o primeiro passo.
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="about-box">
+
+                        <i class="fa-solid fa-person-running"></i>
+
+
+                        <h3>
+                            Comece como você está.
+                        </h3>
+
+
+                        <p>
+
+                            O CORRE foi pensado para
+                            iniciantes.
+
+                            Você não precisa ter experiência,
+                            equipamentos caros ou uma
+                            grande rotina de treinamento.
+
+                            Precisa apenas começar.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BENEFÍCIOS
+        ===================================================== -->
+
+        <section
+            class="benefits"
+            id="beneficios">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        POR QUE CORRER?
+                    </span>
+
+                    <h2>
+                        Mais do que quilômetros.
+                        Uma nova rotina.
+                    </h2>
+
+                    <p>
+                        A corrida pode transformar a maneira
+                        como você cuida do corpo e encara
+                        seus próprios limites.
+                    </p>
+
+                </div>
+
+
+                <div class="benefits-grid">
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-heart-pulse"></i>
+
+                        </div>
+
+                        <h3>
+                            Condicionamento
+                        </h3>
+
+                        <p>
+                            Desenvolva seu condicionamento
+                            de forma gradual e consistente.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-brain"></i>
+
+                        </div>
+
+                        <h3>
+                            Mente mais forte
+                        </h3>
+
+                        <p>
+                            Aprenda a lidar com esforço,
+                            disciplina e constância.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+                        <h3>
+                            Rotina
+                        </h3>
+
+                        <p>
+                            Transforme pequenos treinos
+                            em um hábito duradouro.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                        </div>
+
+                        <h3>
+                            Evolução
+                        </h3>
+
+                        <p>
+                            Acompanhe sua jornada e perceba
+                            seu progresso ao longo do tempo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+                        <h3>
+                            Comunidade
+                        </h3>
+
+                        <p>
+                            Faça parte de uma comunidade
+                            que também está começando.
+                        </p>
+
+                    </article>
+
+
+                    <article class="benefit-card">
+
+                        <div class="benefit-icon">
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                        </div>
+
+                        <h3>
+                            Conquistas
+                        </h3>
+
+                        <p>
+                            Celebre cada distância, cada
+                            treino e cada novo objetivo.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             COMO FUNCIONA
+        ===================================================== -->
+
+        <section
+            class="steps"
+            id="como-funciona">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        COMO FUNCIONA
+                    </span>
+
+                    <h2>
+                        Um passo de cada vez.
+                    </h2>
+
+                    <p>
+                        O CORRE acompanha você desde
+                        o primeiro contato com a corrida.
+                    </p>
+
+                </div>
+
+
+                <div class="steps-grid">
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            01 — COMEÇAR
+                        </div>
+
+                        <h3>
+                            Conheça a corrida
+                        </h3>
+
+                        <p>
+                            Aulas gravadas para entender
+                            o esporte e entrar no universo
+                            da corrida.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            02 — APRENDER
+                        </div>
+
+                        <h3>
+                            Aprenda os fundamentos
+                        </h3>
+
+                        <p>
+                            Descubra como treinar, descansar,
+                            se preparar e criar consistência.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            03 — TREINAR
+                        </div>
+
+                        <h3>
+                            Coloque em prática
+                        </h3>
+
+                        <p>
+                            Comece com treinos adequados
+                            para quem está dando os
+                            primeiros passos.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            04 — EVOLUIR
+                        </div>
+
+                        <h3>
+                            Construa sua jornada
+                        </h3>
+
+                        <p>
+                            Acompanhe sua evolução e
+                            avance conforme seu corpo
+                            estiver preparado.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PLANOS
+        ===================================================== -->
+
+        <section
+            class="plans"
+            id="planos">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        PLANOS
+                    </span>
+
+                    <h2>
+                        Escolha como começar.
+                    </h2>
+
+                    <p>
+                        Comece gratuitamente e conheça
+                        o método CORRE.
+                    </p>
+
+                </div>
+
+
+                <div class="plans-grid">
+
+
+                    <!-- GRATUITO -->
+
+                    <div class="plan">
+
+                        <h3>
+                            Gratuito
+                        </h3>
+
+                        <p class="plan-description">
+                            Para dar o primeiro passo.
+                        </p>
+
+
+                        <div class="price">
+
+                            R$ 0
+
+                            <small>
+                                / sempre
+                            </small>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Aulas introdutórias
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Conteúdos para iniciantes
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Perfil de corredor
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Acompanhamento básico
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="cadastro.html"
+                            class="btn-secondary">
+
+                            Começar grátis
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- PREMIUM -->
+
+                    <div class="plan featured">
+
+
+                        <div class="plan-badge">
+                            MAIS ESCOLHIDO
+                        </div>
+
+
+                        <h3>
+                            Premium
+                        </h3>
+
+                        <p class="plan-description">
+                            Para quem quer evoluir.
+                        </p>
+
+
+                        <div class="price">
+
+                            R$ 29,90
+
+                            <small>
+                                / mês
+                            </small>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Curso completo
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Treinos personalizados
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                IA Coach CORRE
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Acompanhamento de evolução
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Desafios
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="cadastro.html"
+                            class="btn-primary">
+
+                            Começar Premium
+
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- FUTURO -->
+
+                    <div class="plan">
+
+                        <h3>
+                            Performance
+                        </h3>
+
+                        <p class="plan-description">
+                            Para quem quer ir além.
+                        </p>
+
+
+                        <div class="price">
+
+                            Em breve
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Tudo do Premium
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Análises avançadas
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Métricas de performance
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-check"></i>
+                                Recursos avançados
+                            </li>
+
+                        </ul>
+
+
+                        <a
+                            href="cadastro.html"
+                            class="btn-secondary">
+
+                            Quero saber mais
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DEPOIMENTOS
+        ===================================================== -->
+
+        <section
+            class="testimonials"
+            id="depoimentos">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        COMUNIDADE
+                    </span>
+
+                    <h2>
+                        Quem começa,
+                        não quer parar.
+                    </h2>
+
+                </div>
+
+
+                <div class="testimonials-grid">
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Eu nunca tinha corrido na vida.
+                            O CORRE me mostrou que eu não
+                            precisava começar rápido,
+                            precisava apenas começar."
+                        </p>
+
+
+                        <div class="person">
+
+                            <div class="avatar">
+                                M
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Mariana
+                                </strong>
+
+                                <span>
+                                    Corredora iniciante
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "O mais legal foi entender que
+                            corrida não é simplesmente sair
+                            correndo. Aprendi a respeitar
+                            meu processo."
+                        </p>
+
+
+                        <div class="person">
+
+                            <div class="avatar">
+                                R
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Rafael
+                                </strong>
+
+                                <span>
+                                    5 km
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="testimonial">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Comecei sem conseguir correr
+                            cinco minutos. Hoje tenho uma
+                            rotina e fico esperando o dia
+                            do treino."
+                        </p>
+
+
+                        <div class="person">
+
+                            <div class="avatar">
+                                L
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Lucas
+                                </strong>
+
+                                <span>
+                                    Corredor
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FAQ
+        ===================================================== -->
+
+        <section
+            class="faq"
+            id="faq">
+
+
+            <div class="container">
+
+
+                <div class="section-title">
+
+                    <span>
+                        DÚVIDAS
+                    </span>
+
+                    <h2>
+                        Perguntas frequentes.
+                    </h2>
+
+                </div>
+
+
+                <div class="faq-list">
+
+
+                    <div class="faq-item">
+
+                        <button
+                            class="faq-question">
+
+                            Preciso saber correr para começar?
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Não. O Projeto Corre foi
+                                pensado justamente para
+                                quem está começando.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="faq-item">
+
+                        <button
+                            class="faq-question">
+
+                            Posso começar mesmo estando parado?
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Sim. O objetivo é ensinar
+                                você a construir uma rotina
+                                progressivamente, respeitando
+                                seu nível atual.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="faq-item">
+
+                        <button
+                            class="faq-question">
+
+                            Preciso de equipamentos caros?
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Não. Para começar, o mais
+                                importante é ter disposição
+                                e um tênis adequado.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="faq-item">
+
+                        <button
+                            class="faq-question">
+
+                            O CORRE possui inteligência artificial?
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                A plataforma foi planejada
+                                para contar com o Coach CORRE,
+                                uma inteligência artificial
+                                voltada ao acompanhamento
+                                da jornada do corredor.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="faq-item">
+
+                        <button
+                            class="faq-question">
+
+                            Posso cancelar minha assinatura?
+
+                            <i class="fa-solid fa-chevron-down"></i>
+
+                        </button>
+
+
+                        <div class="faq-answer">
+
+                            <p>
+                                Sim. O plano Premium poderá
+                                ser cancelado conforme as
+                                condições apresentadas no
+                                momento da contratação.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CTA
+        ===================================================== -->
+
+        <section class="cta-final">
+
+
+            <div class="container">
+
+
+                <h2>
+                    Seu primeiro passo
+                    começa hoje.
+                </h2>
+
+
+                <p>
+                    Não precisa esperar segunda-feira.
+                    Não precisa esperar estar preparado.
+                    Comece com o que você tem.
+                </p>
+
+
+                <a
+                    href="cadastro.html"
+                    class="btn-primary">
+
+                    Criar Conta Gratuitamente
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+
+        <div class="container">
+
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+
+                    <a
+                        href="#inicio"
+                        class="logo">
+
+                        <i class="fa-solid fa-person-running"></i>
+
+                        <span>
+                            Projeto <strong>Corre</strong>
+                        </span>
+
+                    </a>
+
+
+                    <p>
+
+                        Uma plataforma criada para
+                        ajudar pessoas comuns a descobrir
+                        a corrida e construir uma rotina
+                        mais ativa.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Navegação
+                    </h4>
+
+                    <a href="#inicio">
+                        Início
+                    </a>
+
+                    <a href="#sobre">
+                        Sobre
+                    </a>
+
+                    <a href="#beneficios">
+                        Benefícios
+                    </a>
+
+                    <a href="#planos">
+                        Planos
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Conta
+                    </h4>
+
+                    <a href="login.html">
+                        Entrar
+                    </a>
+
+                    <a href="cadastro.html">
+                        Criar conta
+                    </a>
+
+                    <a href="dashboard.html">
+                        Meu painel
+                    </a>
+
+                    <a href="#faq">
+                        Ajuda
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Projeto Corre.
+                    Todos os direitos reservados.
+                </span>
+
+
+                <span>
+                    Feito para quem decidiu começar.
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* ==========================================
+           MENU MOBILE
+        ========================================== */
+
+        const hamburger =
+            document.getElementById("hamburger");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+
+        hamburger.addEventListener(
+            "click",
+            function () {
+
+                mobileMenu.classList.toggle("active");
 
             }
         );
 
 
-    window.scrollTo(
-        0,
-        0
-    );
-
-
-    caToast(
-        "Você saiu da sua conta."
-    );
-
-}
-
-
-
-/* =====================================================
-   MENU MOBILE DA LANDING
-===================================================== */
-
-
-function toggleMenu() {
-
-
-    const menu =
-        document.querySelector(".menu");
-
-
-    if(
-        menu.style.display === "flex"
-    ) {
-
-        menu.style.display =
-            "";
-
-    }
-
-    else {
-
-        menu.style.display =
-            "flex";
-
-        menu.style.position =
-            "absolute";
-
-        menu.style.top =
-            "75px";
-
-        menu.style.left =
-            "0";
-
-        menu.style.right =
-            "0";
-
-        menu.style.background =
-            "#080909";
-
-        menu.style.flexDirection =
-            "column";
-
-        menu.style.padding =
-            "20px";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   SESSÃO AUTOMÁTICA
-===================================================== */
-
-
-window.addEventListener(
-    "load",
-    () => {
-
-
-        if(
-            localStorage.getItem(
-                "correSession"
-            ) === "1"
-            &&
-            getUser()
-        ) {
-
-            abrirApp();
-
-        }
-
-    }
-);
-
-
-</script>
-<script>
-/* =====================================================
-   CORRE — SISTEMA DE LOGIN V4
-===================================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const modal = document.getElementById("onboardingModal");
-
-    const closeButtons = document.querySelectorAll(
-        ".modal-close, .close-modal, .ca-close, [data-close-modal]"
-    );
-
-    const registerForm = document.getElementById("registerForm");
-
-    const loginForm = document.getElementById("loginForm");
-
-    const logoutButtons = document.querySelectorAll(
-        "#logoutBtn, .logout-btn, [data-logout]"
-    );
-
-
-    /* =================================================
-       FECHAR MODAL
-    ================================================= */
-
-    function closeModal() {
-
-        if (!modal) return;
-
-        modal.style.display = "none";
-
-        modal.classList.remove("open");
-        modal.classList.remove("active");
-
-        document.body.classList.remove("modal-open");
-
-    }
-
-
-    /* =================================================
-       ABRIR MODAL
-    ================================================= */
-
-    function openModal() {
-
-        if (!modal) return;
-
-        modal.style.display = "grid";
-
-        modal.classList.add("open");
-
-        document.body.classList.add("modal-open");
-
-    }
-
-
-    /* =================================================
-       BOTÃO X
-    ================================================= */
-
-    closeButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            closeModal();
-
-        });
-
-    });
-
-
-    /* =================================================
-       CADASTRO
-    ================================================= */
-
-    if (registerForm) {
-
-        registerForm.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const name =
-                document.getElementById("registerName")?.value.trim();
-
-            const email =
-                document.getElementById("registerEmail")?.value.trim();
-
-            const password =
-                document.getElementById("registerPassword")?.value;
-
-
-            if (!name || !email || !password) {
-
-                alert("Preencha todos os campos.");
-
-                return;
-
-            }
-
-
-            /* Salva os dados do usuário */
-
-            const user = {
-
-                name: name,
-
-                email: email,
-
-                password: password,
-
-                createdAt: new Date().toISOString()
-
-            };
-
-
-            localStorage.setItem(
-                "corre_user",
-                JSON.stringify(user)
-            );
-
-
-            localStorage.setItem(
-                "corre_logged",
-                "true"
-            );
-
-
-            /* Fecha o modal */
-
-            closeModal();
-
-
-            /* Atualiza a interface */
-
-            updateUserInterface();
-
-
-            /* Mensagem */
-
-            showToast(
-                "Conta criada! Bora começar a correr 🏃"
-            );
-
-        });
-
-    }
-
-
-    /* =================================================
-       LOGIN
-    ================================================= */
-
-    if (loginForm) {
-
-        loginForm.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const email =
-                document.getElementById("loginEmail")?.value.trim();
-
-            const password =
-                document.getElementById("loginPassword")?.value;
-
-
-            const savedUser =
-                JSON.parse(
-                    localStorage.getItem("corre_user")
-                );
-
-
-            if (!savedUser) {
-
-                alert(
-                    "Nenhuma conta encontrada. Crie sua conta primeiro."
-                );
-
-                return;
-
-            }
-
-
-            if (
-                email !== savedUser.email ||
-                password !== savedUser.password
-            ) {
-
-                alert("E-mail ou senha incorretos.");
-
-                return;
-
-            }
-
-
-            localStorage.setItem(
-                "corre_logged",
-                "true"
-            );
-
-
-            closeModal();
-
-            updateUserInterface();
-
-            showToast(
-                "Bem-vindo de volta! 👟"
-            );
-
-        });
-
-    }
-
-
-    /* =================================================
-       LOGOUT
-    ================================================= */
-
-    logoutButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            localStorage.removeItem("corre_logged");
-
-            location.reload();
-
-        });
-
-    });
-
-
-    /* =================================================
-       ATUALIZA USUÁRIO
-    ================================================= */
-
-    function updateUserInterface() {
-
-        const savedUser =
-            JSON.parse(
-                localStorage.getItem("corre_user")
-            );
-
-
-        if (!savedUser) return;
-
-
-        /* Nome */
+        /*
+         * Fecha o menu ao clicar em um link
+         */
 
         document
             .querySelectorAll(
-                "#userName, .user-name, [data-user-name]"
+                "#mobileMenu a"
             )
-            .forEach(element => {
+            .forEach(function (link) {
 
-                element.textContent =
-                    savedUser.name;
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
 
             });
 
 
-        /* Avatar */
+
+        /* ==========================================
+           FAQ
+        ========================================== */
 
         document
-            .querySelectorAll(
-                "#userAvatar, .user-avatar, [data-user-avatar]"
-            )
-            .forEach(element => {
+            .querySelectorAll(".faq-question")
+            .forEach(function (button) {
 
-                element.textContent =
-                    savedUser.name
-                        .charAt(0)
-                        .toUpperCase();
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const item =
+                            this.parentElement;
+
+
+                        /*
+                         * Fecha os outros
+                         */
+
+                        document
+                            .querySelectorAll(
+                                ".faq-item"
+                            )
+                            .forEach(function (other) {
+
+                                if (
+                                    other !== item
+                                ) {
+
+                                    other.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+
+                            });
+
+
+                        /*
+                         * Abre/fecha atual
+                         */
+
+                        item.classList.toggle(
+                            "active"
+                        );
+
+                    }
+                );
 
             });
 
-    }
 
 
-    /* =================================================
-       TOAST
-    ================================================= */
+        /* ==========================================
+           HEADER AO ROLAR
+        ========================================== */
 
-    function showToast(message) {
+        window.addEventListener(
+            "scroll",
+            function () {
 
-        let toast =
-            document.getElementById("correToast");
-
-
-        if (!toast) {
-
-            toast =
-                document.createElement("div");
-
-            toast.id = "correToast";
-
-            toast.className = "ca-toast";
-
-            document.body.appendChild(toast);
-
-        }
+                const header =
+                    document.querySelector("header");
 
 
-        toast.textContent = message;
+                if (window.scrollY > 50) {
 
-        toast.style.display = "block";
+                    header.style.background =
+                        "rgba(5,5,5,.96)";
 
+                } else {
 
-        setTimeout(() => {
+                    header.style.background =
+                        "rgba(8,8,8,.88)";
 
-            toast.style.display = "none";
+                }
 
-        }, 3000);
-
-    }
-
-
-    /* =================================================
-       VERIFICA LOGIN AO ABRIR
-    ================================================= */
-
-    const logged =
-        localStorage.getItem("corre_logged");
-
-    const savedUser =
-        localStorage.getItem("corre_user");
+            }
+        );
 
 
-    if (logged === "true" && savedUser) {
 
-        /* Usuário já está logado */
+        /* ==========================================
+           VERIFICAÇÃO DE SESSÃO
+        ========================================== */
 
-        closeModal();
-
-        updateUserInterface();
-
-    }
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
 
-});
-</script>
+                const session =
+                    localStorage.getItem(
+                        "correSession"
+                    );
+
+
+                const user =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "correUser"
+                        ) || "null"
+                    );
+
+
+                /*
+                 * Se estiver logado,
+                 * muda os botões do site.
+                 */
+
+                if (
+                    session === "1" &&
+                    user
+                ) {
+
+
+                    document
+                        .querySelectorAll(
+                            'a[href="login.html"]'
+                        )
+                        .forEach(function (button) {
+
+                            button.href =
+                                "dashboard.html";
+
+                            button.innerHTML =
+                                '<i class="fa-solid fa-gauge-high"></i> Meu painel';
+
+                        });
+
+
+                    document
+                        .querySelectorAll(
+                            'a[href="cadastro.html"]'
+                        )
+                        .forEach(function (button) {
+
+                            /*
+                             * Não altera o CTA principal
+                             * do cadastro em todas as situações.
+                             */
+
+                        });
+
+                }
+
+            }
+        );
+
+    </script>
 
 
 </body>
