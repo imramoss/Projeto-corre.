@@ -1267,6 +1267,18 @@
 </div>
 
 <script src="script.js"></script>
+const aceiteTermos = document.getElementById("aceiteTermos");
+const btnSubmit = document.getElementById("btnSubmit");
+
+if (aceiteTermos && btnSubmit) {
+
+    aceiteTermos.addEventListener("change", function () {
+
+        btnSubmit.disabled = !this.checked;
+
+    });
+
+}
 
 
 
