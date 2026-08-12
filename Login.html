@@ -1,192 +1,597 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entrar | Projeto Corre</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
 
-<style>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-body{
+    <title>Entrar | Projeto Corre</title>
 
-margin:0;
-font-family:Poppins,sans-serif;
-background:linear-gradient(135deg,#071000,#0f1f00,#111);
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-.login-box{
+    <link
+        rel="stylesheet"
+        href="style.css">
 
-width:380px;
-max-width:92%;
-background:#151515;
-padding:45px;
-border-radius:25px;
-box-shadow:0 20px 50px rgba(0,0,0,.45);
+    <style>
 
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.logo{
+        body {
 
-text-align:center;
-margin-bottom:35px;
+            margin: 0;
 
-}
+            font-family: Poppins, sans-serif;
 
-.logo h1{
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #1c3500,
+                    transparent 40%
+                ),
+                linear-gradient(
+                    135deg,
+                    #071000,
+                    #0f1f00,
+                    #080808
+                );
 
-color:white;
-font-size:34px;
+            display: flex;
 
-}
+            justify-content: center;
 
-.logo span{
+            align-items: center;
 
-color:#A3FF12;
+            min-height: 100vh;
 
-}
+            color: white;
 
-input{
+            position: relative;
 
-width:100%;
-padding:16px;
-margin-top:15px;
-border:none;
-border-radius:12px;
-background:#242424;
-color:white;
-font-size:16px;
+        }
 
-}
 
-input:focus{
+        /* BOTÃO VOLTAR / X */
 
-outline:2px solid #A3FF12;
+        .close-login {
 
-}
+            position: fixed;
 
-button{
+            top: 25px;
 
-width:100%;
-padding:17px;
-margin-top:25px;
-border:none;
-border-radius:14px;
-background:#A3FF12;
-font-size:17px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
+            left: 25px;
 
-}
+            width: 48px;
 
-button:hover{
+            height: 48px;
 
-transform:translateY(-3px);
+            border-radius: 50%;
 
-}
+            border: 1px solid #30352b;
 
-.links{
+            background: rgba(20,20,20,.85);
 
-display:flex;
-justify-content:space-between;
-margin-top:20px;
+            color: white;
 
-}
+            font-size: 28px;
 
-.links a{
+            display: flex;
 
-color:#A3FF12;
-text-decoration:none;
-font-size:14px;
+            align-items: center;
 
-}
+            justify-content: center;
 
-.google{
+            cursor: pointer;
 
-margin-top:18px;
-background:#fff;
-color:#111;
+            transition: .25s;
 
-}
+            z-index: 10;
 
-</style>
+        }
+
+
+        .close-login:hover {
+
+            color: #A3FF12;
+
+            border-color: #A3FF12;
+
+            transform: rotate(90deg);
+
+        }
+
+
+        /* CAIXA */
+
+        .login-box {
+
+            width: 380px;
+
+            max-width: 92%;
+
+            background: rgba(21,21,21,.96);
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            border: 1px solid #292929;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45);
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .logo h1 {
+
+            color: white;
+
+            font-size: 34px;
+
+            margin: 0;
+
+        }
+
+
+        .logo span {
+
+            color: #A3FF12;
+
+        }
+
+
+        .logo p {
+
+            color: #aaa;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* CAMPOS */
+
+        .login-box input {
+
+            width: 100%;
+
+            padding: 16px;
+
+            margin-top: 15px;
+
+            border: 1px solid #303030;
+
+            border-radius: 12px;
+
+            background: #242424;
+
+            color: white;
+
+            font-size: 16px;
+
+        }
+
+
+        .login-box input:focus {
+
+            outline: none;
+
+            border-color: #A3FF12;
+
+            box-shadow:
+                0 0 0 2px rgba(163,255,18,.08);
+
+        }
+
+
+        /* BOTÃO ENTRAR */
+
+        .login-button {
+
+            width: 100%;
+
+            padding: 17px;
+
+            margin-top: 25px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #A3FF12;
+
+            color: #080808;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+        }
+
+
+        .login-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(163,255,18,.15);
+
+        }
+
+
+        /* GOOGLE */
+
+        .google {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 15px;
+
+            border: 1px solid #333;
+
+            border-radius: 14px;
+
+            background: white;
+
+            color: #111;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        /* LINKS */
+
+        .links {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .links a {
+
+            color: #A3FF12;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+        }
+
+
+        .links a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* MENSAGEM */
+
+        .login-message {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: #261414;
+
+            color: #ff8585;
+
+            font-size: 13px;
+
+            text-align: center;
+
+        }
+
+
+        @media(max-width:500px) {
+
+            .login-box {
+
+                padding: 30px 22px;
+
+            }
+
+            .close-login {
+
+                top: 15px;
+
+                left: 15px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="login-box">
 
-<div class="logo">
+    <!-- X PARA VOLTAR -->
 
-<h1>Projeto <span>Corre</span></h1>
+    <button
+        type="button"
+        class="close-login"
+        onclick="voltarInicio()"
+        aria-label="Voltar">
 
-<p style="color:#bbb">
-Bem-vindo de volta.
-</p>
+        ×
 
-</div>
+    </button>
 
-<form id="loginForm">
 
-<input
-type="email"
-placeholder="Seu e-mail"
-required>
 
-<input
-type="password"
-placeholder="Sua senha"
-required>
+    <div class="login-box">
 
-<button type="submit">
 
-Entrar
+        <div class="logo">
 
-</button>
+            <h1>
+                Projeto
+                <span>Corre</span>
+            </h1>
 
-<button
-type="button"
-class="google">
+            <p>
+                Bem-vindo de volta.
+            </p>
 
-Entrar com Google
+        </div>
 
-</button>
 
-<div class="links">
 
-<a href="#">Esqueci minha senha</a>
+        <form id="loginForm">
 
-<a href="cadastro.html">Criar conta</a>
 
-</div>
+            <input
+                id="email"
+                type="email"
+                placeholder="Seu e-mail"
+                autocomplete="email"
+                required>
 
-</form>
 
-</div>
+            <input
+                id="password"
+                type="password"
+                placeholder="Sua senha"
+                autocomplete="current-password"
+                required>
 
-<script>
 
-document
-.getElementById("loginForm")
-.addEventListener("submit",function(e){
+            <button
+                type="submit"
+                class="login-button">
 
-e.preventDefault();
+                Entrar
 
-window.location.href="dashboard.html";
+            </button>
 
-});
 
-</script>
+            <button
+                type="button"
+                class="google"
+                onclick="loginGoogle()">
+
+                Entrar com Google
+
+            </button>
+
+
+            <div
+                id="loginMessage"
+                class="login-message">
+
+            </div>
+
+
+            <div class="links">
+
+                <a href="#">
+                    Esqueci minha senha
+                </a>
+
+                <a href="cadastro.html">
+                    Criar conta
+                </a>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* ==========================================
+           VOLTAR PARA O INÍCIO
+        ========================================== */
+
+        function voltarInicio() {
+
+            window.location.href = "index.html";
+
+        }
+
+
+
+        /* ==========================================
+           LOGIN
+        ========================================== */
+
+        document
+            .getElementById("loginForm")
+            .addEventListener(
+                "submit",
+                function(e) {
+
+                    e.preventDefault();
+
+
+                    const email =
+                        document
+                            .getElementById("email")
+                            .value
+                            .trim();
+
+
+                    const password =
+                        document
+                            .getElementById("password")
+                            .value;
+
+
+                    const usuarioSalvo =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "corre_user"
+                            )
+                        );
+
+
+                    /*
+                     * Se ainda não existe conta
+                     */
+
+                    if (!usuarioSalvo) {
+
+                        mostrarMensagem(
+                            "Você ainda não possui uma conta. Crie sua conta primeiro."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /*
+                     * Confere os dados
+                     */
+
+                    if (
+                        email !== usuarioSalvo.email ||
+                        password !== usuarioSalvo.password
+                    ) {
+
+                        mostrarMensagem(
+                            "E-mail ou senha incorretos."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /*
+                     * LOGIN APROVADO
+                     */
+
+                    localStorage.setItem(
+                        "corre_logged",
+                        "true"
+                    );
+
+
+                    /*
+                     * Vai para o dashboard
+                     */
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }
+            );
+
+
+
+        /* ==========================================
+           MENSAGEM DE ERRO
+        ========================================== */
+
+        function mostrarMensagem(texto) {
+
+            const mensagem =
+                document.getElementById(
+                    "loginMessage"
+                );
+
+
+            mensagem.textContent = texto;
+
+            mensagem.style.display = "block";
+
+        }
+
+
+
+        /* ==========================================
+           GOOGLE
+        ========================================== */
+
+        function loginGoogle() {
+
+            alert(
+                "O login com Google será conectado ao sistema de autenticação na próxima versão."
+            );
+
+        }
+
+
+    </script>
+
 
 </body>
 
