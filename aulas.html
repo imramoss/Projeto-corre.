@@ -11,7 +11,7 @@
 
     <meta
         name="description"
-        content="Aulas e conteúdos para melhorar sua corrida no Projeto Corre.">
+        content="Aulas do Projeto Corre.">
 
     <meta
         name="theme-color"
@@ -19,9 +19,7 @@
 
     <title>Projeto Corre | Aulas</title>
 
-
     <!-- GOOGLE FONT -->
-
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -35,9 +33,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-
     <!-- FONT AWESOME -->
-
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -56,15 +52,19 @@
         }
 
 
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
         :root {
 
             --green: #A3FF12;
-            --green-dark: #78c400;
+            --green-dark: #7fc900;
 
             --black: #080808;
             --dark: #101010;
             --dark-2: #151515;
-            --dark-3: #1d1d1d;
+            --dark-3: #1c1c1c;
 
             --white: #ffffff;
 
@@ -73,29 +73,33 @@
 
             --border: #292929;
 
+            --danger: #ff5555;
+
         }
 
 
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* =====================================================
+           BODY
+        ===================================================== */
 
         body {
 
             min-height: 100vh;
 
             background:
-
                 radial-gradient(
-                    circle at 80% 10%,
-                    rgba(163,255,18,.08),
+                    circle at 85% 5%,
+                    rgba(163,255,18,.10),
                     transparent 30%
                 ),
+                radial-gradient(
+                    circle at 5% 90%,
+                    rgba(163,255,18,.04),
+                    transparent 30%
+                ),
+                var(--black);
 
-                #080808;
-
-            color: white;
+            color: var(--white);
 
             font-family: "Poppins", sans-serif;
 
@@ -110,9 +114,7 @@
         }
 
 
-        button,
-        input,
-        select {
+        button {
             font-family: inherit;
         }
 
@@ -122,6 +124,14 @@
         ===================================================== */
 
         header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            width: 100%;
 
             height: 75px;
 
@@ -133,17 +143,14 @@
 
             padding: 0 7%;
 
-            border-bottom: 1px solid rgba(255,255,255,.06);
+            background:
+                rgba(8,8,8,.90);
 
-            background: rgba(8,8,8,.92);
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
 
-            backdrop-filter: blur(15px);
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 100;
+            backdrop-filter:
+                blur(15px);
 
         }
 
@@ -156,9 +163,11 @@
 
             gap: 9px;
 
-            font-size: 19px;
+            font-size: 20px;
 
             font-weight: 800;
+
+            white-space: nowrap;
 
         }
 
@@ -167,13 +176,15 @@
 
             color: var(--green);
 
-            font-size: 23px;
+            font-size: 24px;
 
         }
 
 
         .logo span {
+
             color: var(--green);
+
         }
 
 
@@ -183,7 +194,7 @@
 
             align-items: center;
 
-            gap: 22px;
+            gap: 20px;
 
         }
 
@@ -206,7 +217,9 @@
 
 
         .back:hover {
+
             color: var(--green);
+
         }
 
 
@@ -220,7 +233,7 @@
 
             margin: auto;
 
-            padding: 48px 0 70px;
+            padding: 50px 0 80px;
 
         }
 
@@ -231,12 +244,27 @@
 
         .hero {
 
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
             margin-bottom: 35px;
 
         }
 
 
-        .hero-label {
+        .hero-text {
+
+            max-width: 650px;
+
+        }
+
+
+        .eyebrow {
 
             display: inline-flex;
 
@@ -244,46 +272,49 @@
 
             gap: 7px;
 
-            padding: 7px 11px;
-
-            border: 1px solid rgba(163,255,18,.18);
-
-            background: rgba(163,255,18,.06);
-
-            border-radius: 999px;
+            margin-bottom: 10px;
 
             color: var(--green);
 
-            font-size: 10px;
+            font-size: 11px;
 
             font-weight: 700;
 
-            margin-bottom: 15px;
+            text-transform: uppercase;
+
+            letter-spacing: .8px;
 
         }
 
 
-        .hero h1 {
+        .eyebrow i {
 
-            font-size: 36px;
+            font-size: 10px;
+
+        }
+
+
+        h1 {
+
+            font-size: 34px;
 
             line-height: 1.15;
 
-            letter-spacing: -1.2px;
+            letter-spacing: -1px;
 
-            margin-bottom: 9px;
+            margin-bottom: 10px;
 
         }
 
 
-        .hero h1 span {
+        h1 span {
+
             color: var(--green);
+
         }
 
 
-        .hero p {
-
-            max-width: 620px;
+        .subtitle {
 
             color: #666;
 
@@ -295,34 +326,85 @@
 
 
         /* =====================================================
-           CONTROLES
+           CONTADOR
         ===================================================== */
 
-        .controls {
+        .lesson-counter {
 
-            display: flex;
+            min-width: 130px;
 
-            gap: 12px;
+            padding: 15px 18px;
 
-            margin-bottom: 28px;
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid #222;
+
+            border-radius: 14px;
+
+            text-align: center;
 
         }
 
 
-        .search {
+        .lesson-counter strong {
+
+            display: block;
+
+            color: var(--green);
+
+            font-size: 23px;
+
+            line-height: 1;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .lesson-counter span {
+
+            color: #666;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================================
+           FILTROS
+        ===================================================== */
+
+        .toolbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .search-box {
 
             position: relative;
 
             flex: 1;
 
+            max-width: 400px;
+
         }
 
 
-        .search i {
+        .search-box i {
 
             position: absolute;
 
-            left: 15px;
+            left: 14px;
 
             top: 50%;
 
@@ -332,102 +414,88 @@
 
             font-size: 13px;
 
-            pointer-events: none;
-
         }
 
 
-        .search input {
+        .search-box input {
 
             width: 100%;
 
-            height: 46px;
+            height: 44px;
 
-            padding: 0 15px 0 42px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 11px;
-
-            outline: none;
+            padding: 0 15px 0 40px;
 
             background: #101010;
 
-            color: white;
-
-            font-size: 12px;
-
-        }
-
-
-        .search input::placeholder {
-            color: #555;
-        }
-
-
-        .search input:focus {
-            border-color: var(--green);
-        }
-
-
-        .filter {
-
-            width: 180px;
-
-            height: 46px;
-
-            padding: 0 12px;
-
-            border: 1px solid var(--border);
+            border: 1px solid #252525;
 
             border-radius: 11px;
 
             outline: none;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            transition: .2s;
+
+        }
+
+
+        .search-box input::placeholder {
+
+            color: #555;
+
+        }
+
+
+        .search-box input:focus {
+
+            border-color: var(--green);
+
+        }
+
+
+        .category-filter {
+
+            height: 44px;
+
+            padding: 0 14px;
 
             background: #101010;
 
             color: #aaa;
 
-            font-size: 12px;
+            border: 1px solid #252525;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 11px;
 
             cursor: pointer;
 
         }
 
 
-        .filter:focus {
+        .category-filter:focus {
+
             border-color: var(--green);
-        }
-
-
-        /* =====================================================
-           CONTADOR
-        ===================================================== */
-
-        .results-info {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-bottom: 16px;
 
         }
 
 
-        .results-info span {
+        .category-filter option {
 
-            color: #555;
+            background: #101010;
 
-            font-size: 11px;
+            color: white;
 
-        }
-
-
-        .results-info strong {
-            color: #aaa;
         }
 
 
@@ -435,14 +503,14 @@
            GRID
         ===================================================== */
 
-        .grid {
+        .lessons-grid {
 
             display: grid;
 
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
 
-            gap: 17px;
+            gap: 18px;
 
         }
 
@@ -451,25 +519,23 @@
            CARD
         ===================================================== */
 
-        .card {
+        .lesson-card {
 
             position: relative;
 
             overflow: hidden;
 
-            padding: 24px;
-
             background:
-
                 linear-gradient(
                     145deg,
-                    rgba(22,22,22,.98),
-                    rgba(13,13,13,.98)
+                    #151515,
+                    #0f0f0f
                 );
 
-            border: 1px solid var(--border);
+            border:
+                1px solid #292929;
 
-            border-radius: 18px;
+            border-radius: 19px;
 
             transition:
                 transform .25s,
@@ -479,39 +545,72 @@
         }
 
 
-        .card:hover {
+        .lesson-card:hover {
 
             transform: translateY(-4px);
 
             border-color:
-                rgba(163,255,18,.30);
+                rgba(163,255,18,.35);
 
             box-shadow:
-                0 18px 40px rgba(0,0,0,.30);
+                0 18px 45px rgba(0,0,0,.30);
 
         }
 
 
-        .card-top {
+        /* =====================================================
+           THUMBNAIL
+        ===================================================== */
 
-            display: flex;
+        .lesson-thumbnail {
 
-            align-items: flex-start;
+            position: relative;
 
-            justify-content: space-between;
+            width: 100%;
 
-            gap: 15px;
+            height: 205px;
 
-            margin-bottom: 18px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1b1b1b,
+                    #0d0d0d
+                );
 
         }
 
 
-        .card-icon {
+        .lesson-thumbnail img {
 
-            width: 49px;
+            width: 100%;
 
-            height: 49px;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform .4s;
+
+        }
+
+
+        .lesson-card:hover
+        .lesson-thumbnail img {
+
+            transform: scale(1.04);
+
+        }
+
+
+        .thumbnail-placeholder {
+
+            width: 100%;
+
+            height: 100%;
 
             display: flex;
 
@@ -519,136 +618,231 @@
 
             justify-content: center;
 
-            flex-shrink: 0;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(163,255,18,.10),
+                    transparent 55%
+                );
 
-            border-radius: 14px;
+        }
 
-            background: rgba(163,255,18,.08);
 
-            border: 1px solid rgba(163,255,18,.14);
+        .thumbnail-placeholder i {
+
+            color:
+                rgba(163,255,18,.65);
+
+            font-size: 42px;
+
+        }
+
+
+        /* =====================================================
+           PLAY
+        ===================================================== */
+
+        .play-button {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(163,255,18,.95);
+
+            color: #080808;
+
+            font-size: 17px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.4);
+
+            opacity: .95;
+
+            transition: .25s;
+
+        }
+
+
+        .lesson-card:hover
+        .play-button {
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.08);
+
+        }
+
+
+        /* =====================================================
+           CATEGORIA
+        ===================================================== */
+
+        .category-badge {
+
+            position: absolute;
+
+            left: 13px;
+
+            top: 13px;
+
+            padding: 6px 9px;
+
+            border-radius: 7px;
+
+            background:
+                rgba(0,0,0,.72);
+
+            border:
+                1px solid rgba(255,255,255,.08);
 
             color: var(--green);
 
-            font-size: 19px;
+            font-size: 9px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
+
+            backdrop-filter:
+                blur(8px);
 
         }
 
 
-        .level {
+        /* =====================================================
+           CONTEÚDO DO CARD
+        ===================================================== */
 
-            padding: 5px 9px;
+        .lesson-content {
 
-            border-radius: 999px;
+            padding: 21px;
 
-            background: rgba(255,255,255,.04);
+        }
 
-            border: 1px solid #292929;
 
-            color: #777;
+        .lesson-number {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #555;
 
             font-size: 9px;
 
-            white-space: nowrap;
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            letter-spacing: .7px;
 
         }
 
 
-        .card h2 {
+        .lesson-title {
 
-            font-size: 16px;
+            font-size: 17px;
 
-            line-height: 1.4;
+            line-height: 1.3;
 
             margin-bottom: 8px;
 
         }
 
 
-        .card p {
+        .lesson-description {
 
-            color: #666;
+            color: #707070;
 
             font-size: 11px;
 
             line-height: 1.7;
 
-            min-height: 57px;
+            min-height: 38px;
 
         }
 
 
-        /* =====================================================
-           META
-        ===================================================== */
-
-        .meta {
+        .lesson-footer {
 
             display: flex;
 
             align-items: center;
 
-            gap: 15px;
+            justify-content: space-between;
+
+            gap: 12px;
 
             margin-top: 18px;
 
             padding-top: 15px;
 
-            border-top: 1px solid #202020;
+            border-top:
+                1px solid #222;
 
         }
 
 
-        .meta span {
+        .lesson-info {
 
             display: flex;
 
             align-items: center;
 
-            gap: 6px;
+            gap: 5px;
 
-            color: #666;
+            color: #555;
 
-            font-size: 10px;
+            font-size: 9px;
 
         }
 
 
-        .meta i {
+        .lesson-info i {
 
             color: var(--green);
 
-            font-size: 10px;
-
         }
 
 
-        /* =====================================================
-           BOTÃO
-        ===================================================== */
+        .watch-button {
 
-        .btn {
-
-            width: 100%;
-
-            height: 43px;
-
-            display: flex;
+            display: inline-flex;
 
             align-items: center;
 
-            justify-content: center;
+            gap: 7px;
 
-            gap: 8px;
+            padding: 10px 14px;
 
-            margin-top: 17px;
-
-            border-radius: 10px;
+            border-radius: 9px;
 
             background: var(--green);
 
             color: #080808;
 
-            font-size: 11px;
+            font-size: 10px;
 
             font-weight: 800;
 
@@ -657,48 +851,68 @@
         }
 
 
-        .btn:hover {
+        .watch-button:hover {
 
-            transform: translateY(-1px);
+            background:
+                var(--green-dark);
 
-            box-shadow:
-                0 10px 25px rgba(163,255,18,.12);
-
-        }
-
-
-        .btn.disabled {
-
-            background: #202020;
-
-            color: #555;
-
-            cursor: not-allowed;
-
-            box-shadow: none;
+            transform:
+                translateY(-1px);
 
         }
 
 
         /* =====================================================
-           LOADING
+           ESTADOS
         ===================================================== */
 
-        .loading {
+        .state {
 
             grid-column: 1 / -1;
 
-            min-height: 260px;
+            padding: 60px 20px;
 
-            display: flex;
+            text-align: center;
 
-            flex-direction: column;
+            background: #101010;
 
-            align-items: center;
+            border:
+                1px solid #222;
 
-            justify-content: center;
+            border-radius: 18px;
+
+        }
+
+
+        .state i {
+
+            display: block;
+
+            margin-bottom: 15px;
 
             color: #555;
+
+            font-size: 32px;
+
+        }
+
+
+        .state h2 {
+
+            font-size: 16px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .state p {
+
+            color: #666;
+
+            font-size: 11px;
+
+            line-height: 1.6;
 
         }
 
@@ -707,64 +921,22 @@
 
             color: var(--green);
 
-            font-size: 25px;
+        }
 
-            margin-bottom: 12px;
+
+        .loading i {
+
+            animation:
+                spin 1s linear infinite;
 
         }
 
 
-        .loading span {
-            font-size: 11px;
-        }
+        @keyframes spin {
 
-
-        /* =====================================================
-           EMPTY
-        ===================================================== */
-
-        .empty {
-
-            grid-column: 1 / -1;
-
-            padding: 70px 20px;
-
-            text-align: center;
-
-            border: 1px solid #202020;
-
-            border-radius: 18px;
-
-            background: #101010;
-
-        }
-
-
-        .empty i {
-
-            color: #444;
-
-            font-size: 35px;
-
-            margin-bottom: 15px;
-
-        }
-
-
-        .empty h3 {
-
-            font-size: 15px;
-
-            margin-bottom: 6px;
-
-        }
-
-
-        .empty p {
-
-            color: #555;
-
-            font-size: 11px;
+            to {
+                transform: rotate(360deg);
+            }
 
         }
 
@@ -773,34 +945,38 @@
            ERRO
         ===================================================== */
 
-        .error-box {
+        .error-state i {
 
-            grid-column: 1 / -1;
-
-            padding: 22px;
-
-            border: 1px solid rgba(255,70,70,.20);
-
-            background: rgba(255,50,50,.06);
-
-            border-radius: 15px;
-
-            color: #ff7777;
-
-            font-size: 11px;
-
-            line-height: 1.7;
+            color: var(--danger);
 
         }
 
 
-        .error-box strong {
+        .retry-button {
 
-            display: block;
+            display: inline-flex;
 
-            margin-bottom: 5px;
+            align-items: center;
 
-            font-size: 13px;
+            gap: 7px;
+
+            margin-top: 17px;
+
+            padding: 10px 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--green);
+
+            color: #080808;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            cursor: pointer;
 
         }
 
@@ -809,60 +985,99 @@
            RESPONSIVO
         ===================================================== */
 
-        @media(max-width: 700px) {
+        @media (max-width: 700px) {
 
             header {
+
                 padding: 0 5%;
-            }
 
-
-            .header-right {
-                gap: 10px;
             }
 
 
             main {
+
                 width: 92%;
+
                 padding-top: 35px;
+
             }
 
 
-            .hero h1 {
-                font-size: 30px;
-            }
+            .hero {
 
+                align-items: flex-start;
 
-            .controls {
                 flex-direction: column;
+
             }
 
 
-            .filter {
+            .lesson-counter {
+
                 width: 100%;
+
             }
 
 
-            .grid {
+            .toolbar {
+
+                align-items: stretch;
+
+                flex-direction: column;
+
+            }
+
+
+            .search-box {
+
+                max-width: none;
+
+            }
+
+
+            .lessons-grid {
+
                 grid-template-columns: 1fr;
+
             }
 
         }
 
 
-        @media(max-width: 450px) {
+        @media (max-width: 450px) {
 
-            .back span {
-                display: none;
+            .logo {
+
+                font-size: 17px;
+
             }
 
 
-            .hero h1 {
-                font-size: 27px;
+            .back {
+
+                font-size: 0;
+
             }
 
 
-            .card {
-                padding: 20px;
+            .back i {
+
+                font-size: 14px;
+
+            }
+
+
+            h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .lesson-thumbnail {
+
+                height: 190px;
+
             }
 
         }
@@ -875,9 +1090,9 @@
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header>
 
@@ -900,7 +1115,7 @@
 
             <i class="fa-solid fa-arrow-left"></i>
 
-            <span>Voltar para o painel</span>
+            Voltar para o painel
 
         </a>
 
@@ -909,9 +1124,10 @@
 </header>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      CONTEÚDO
-===================================================== -->
+========================================================= -->
 
 <main>
 
@@ -920,127 +1136,43 @@
 
     <section class="hero">
 
-        <div class="hero-label">
+        <div class="hero-text">
 
-            <i class="fa-solid fa-graduation-cap"></i>
+            <div class="eyebrow">
 
-            ÁREA DE APRENDIZADO
+                <i class="fa-solid fa-graduation-cap"></i>
 
-        </div>
+                Área de aprendizado
 
-
-        <h1>
-
-            Aprenda a
-
-            <span>correr melhor.</span>
-
-        </h1>
+            </div>
 
 
-        <p>
+            <h1>
 
-            Conteúdos preparados para ajudar você a
-            melhorar sua técnica, controlar seu ritmo,
-            fortalecer o corpo e evoluir nos seus treinos.
+                Aulas do
+                <span>Projeto Corre.</span>
 
-        </p>
-
-    </section>
+            </h1>
 
 
-    <!-- CONTROLES -->
+            <p class="subtitle">
 
-    <section class="controls">
+                Aprenda a correr melhor, evolua seus treinos
+                e construa uma rotina mais eficiente.
 
-
-        <div class="search">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Pesquisar aula...">
+            </p>
 
         </div>
 
 
-        <select
-            class="filter"
-            id="categoryFilter">
+        <div class="lesson-counter">
 
-            <option value="all">
-                Todas as categorias
-            </option>
-
-            <option value="tecnica">
-                Técnica de corrida
-            </option>
-
-            <option value="respiracao">
-                Respiração
-            </option>
-
-            <option value="forca">
-                Fortalecimento
-            </option>
-
-            <option value="ritmo">
-                Ritmo e pace
-            </option>
-
-        </select>
-
-
-        <select
-            class="filter"
-            id="levelFilter">
-
-            <option value="all">
-                Todos os níveis
-            </option>
-
-            <option value="Iniciante">
-                Iniciante
-            </option>
-
-            <option value="Intermediário">
-                Intermediário
-            </option>
-
-            <option value="Avançado">
-                Avançado
-            </option>
-
-        </select>
-
-    </section>
-
-
-    <!-- INFORMAÇÕES -->
-
-    <div class="results-info">
-
-        <span id="resultsText">
-            Carregando aulas...
-        </span>
-
-    </div>
-
-
-    <!-- AULAS -->
-
-    <section
-        class="grid"
-        id="lessonsGrid">
-
-        <div class="loading">
-
-            <i class="fa-solid fa-spinner fa-spin"></i>
+            <strong id="lessonCount">
+                —
+            </strong>
 
             <span>
-                Carregando aulas...
+                aulas disponíveis
             </span>
 
         </div>
@@ -1048,42 +1180,98 @@
     </section>
 
 
+
+    <!-- =====================================================
+         FILTROS
+    ===================================================== -->
+
+    <section class="toolbar">
+
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Buscar uma aula..."
+                autocomplete="off">
+
+        </div>
+
+
+        <select
+            class="category-filter"
+            id="categoryFilter">
+
+            <option value="">
+                Todas as categorias
+            </option>
+
+        </select>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         AULAS
+    ===================================================== -->
+
+    <section
+        class="lessons-grid"
+        id="lessonsGrid">
+
+
+        <!-- CARREGANDO -->
+
+        <div
+            class="state loading">
+
+            <i class="fa-solid fa-spinner"></i>
+
+            <h2>
+                Carregando aulas...
+            </h2>
+
+            <p>
+                Buscando os conteúdos do Projeto Corre.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
 </main>
 
-
-<script src="script.js"></script>
 
 
 <script>
 
-document.addEventListener("DOMContentLoaded", async function () {
-
-    /* =====================================================
+    /* =========================================================
        CONFIGURAÇÃO SUPABASE
-    ===================================================== */
+    ========================================================= */
 
     const SUPABASE_URL =
         "https://mubzyyppizxuofitnysp.supabase.co";
-
-    /*
-       IMPORTANTE:
-
-       Esta é a chave pública do projeto.
-       Ela pode ficar no JavaScript do site.
-
-       NUNCA coloque aqui uma service_role key.
-    */
 
     const SUPABASE_KEY =
         "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
 
 
-    /* =====================================================
+    /* =========================================================
        ELEMENTOS
-    ===================================================== */
+    ========================================================= */
 
-    const grid =
+    const lessonsGrid =
         document.getElementById("lessonsGrid");
+
+    const lessonCount =
+        document.getElementById("lessonCount");
 
     const searchInput =
         document.getElementById("searchInput");
@@ -1091,197 +1279,297 @@ document.addEventListener("DOMContentLoaded", async function () {
     const categoryFilter =
         document.getElementById("categoryFilter");
 
-    const levelFilter =
-        document.getElementById("levelFilter");
 
-    const resultsText =
-        document.getElementById("resultsText");
+    /* =========================================================
+       DADOS
+    ========================================================= */
 
-
-    let lessons = [];
+    let allLessons = [];
 
 
-    /* =====================================================
-       ÍCONES
-    ===================================================== */
+    /* =========================================================
+       CABEÇALHOS
+    ========================================================= */
 
-    function getIcon(category) {
+    const headers = {
 
-        switch (category) {
+        "apikey":
+            SUPABASE_KEY,
 
-            case "tecnica":
-                return "fa-shoe-prints";
+        "Authorization":
+            "Bearer " + SUPABASE_KEY,
 
-            case "respiracao":
-                return "fa-heart-pulse";
+        "Content-Type":
+            "application/json"
 
-            case "forca":
-                return "fa-dumbbell";
-
-            case "ritmo":
-                return "fa-stopwatch";
-
-            default:
-                return "fa-person-running";
-
-        }
-
-    }
+    };
 
 
-    /* =====================================================
-       NOME DA CATEGORIA
-    ===================================================== */
-
-    function getCategoryName(category) {
-
-        switch (category) {
-
-            case "tecnica":
-                return "Técnica";
-
-            case "respiracao":
-                return "Respiração";
-
-            case "forca":
-                return "Fortalecimento";
-
-            case "ritmo":
-                return "Ritmo";
-
-            default:
-                return "Corrida";
-
-        }
-
-    }
-
-
-    /* =====================================================
-       ESCAPAR HTML
-       Proteção contra conteúdo HTML indevido
-    ===================================================== */
-
-    function escapeHTML(value) {
-
-        if (value === null || value === undefined) {
-            return "";
-        }
-
-        return String(value)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
-    }
-
-
-    /* =====================================================
-       FORMATAR DURAÇÃO
-    ===================================================== */
-
-    function formatDuration(minutes) {
-
-        const value =
-            Number(minutes) || 0;
-
-        if (value <= 0) {
-            return "Duração não informada";
-        }
-
-        return `${value} min`;
-
-    }
-
-
-    /* =====================================================
-       BUSCAR AULAS
-    ===================================================== */
+    /* =========================================================
+       CARREGAR AULAS
+    ========================================================= */
 
     async function loadLessons() {
+
+        showLoading();
+
 
         try {
 
             const response =
                 await fetch(
-                    `${SUPABASE_URL}/rest/v1/lessons?select=*&is_published=eq.true&order=sort_order.asc`,
+                    SUPABASE_URL +
+                    "/rest/v1/lessons" +
+                    "?select=*" +
+                    "&order=created_at.asc",
                     {
                         method: "GET",
-
-                        headers: {
-
-                            "apikey": SUPABASE_KEY,
-
-                            "Authorization":
-                                `Bearer ${SUPABASE_KEY}`,
-
-                            "Content-Type":
-                                "application/json"
-
-                        }
+                        headers: headers
                     }
                 );
 
 
             if (!response.ok) {
 
-                const errorText =
+                let errorText =
                     await response.text();
 
-                console.error(
-                    "Erro Supabase:",
-                    errorText
-                );
-
                 throw new Error(
-                    `Erro ${response.status} ao carregar as aulas.`
+                    errorText ||
+                    "Não foi possível carregar as aulas."
                 );
 
             }
 
 
-            lessons =
+            const data =
                 await response.json();
 
 
+            allLessons =
+                Array.isArray(data)
+                    ? data
+                    : [];
+
+
+            buildCategories();
+
             renderLessons();
+
 
         } catch (error) {
 
-            console.error(error);
+            console.error(
+                "Erro ao carregar aulas:",
+                error
+            );
 
-
-            grid.innerHTML = `
-
-                <div class="error-box">
-
-                    <strong>
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        Não foi possível carregar as aulas.
-                    </strong>
-
-                    Verifique sua conexão e tente novamente.
-
-                </div>
-
-            `;
-
-
-            resultsText.textContent =
-                "Erro ao carregar aulas.";
+            showError();
 
         }
 
     }
 
 
-    /* =====================================================
-       RENDERIZAR AULAS
-    ===================================================== */
+    /* =========================================================
+       CATEGORIAS
+    ========================================================= */
 
-    function renderLessons() {
+    function buildCategories() {
+
+        categoryFilter.innerHTML = `
+            <option value="">
+                Todas as categorias
+            </option>
+        `;
+
+
+        const categories =
+            [
+                ...new Set(
+                    allLessons
+                        .map(
+                            lesson =>
+                                getCategory(lesson)
+                        )
+                        .filter(Boolean)
+                )
+            ];
+
+
+        categories.sort(
+            (a, b) =>
+                a.localeCompare(b)
+        );
+
+
+        categories.forEach(
+            category => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    category;
+
+                option.textContent =
+                    category;
+
+                categoryFilter.appendChild(
+                    option
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       CATEGORIA
+    ========================================================= */
+
+    function getCategory(lesson) {
+
+        return (
+
+            lesson.category ||
+
+            lesson.categoria ||
+
+            lesson.type ||
+
+            lesson.tipo ||
+
+            ""
+
+        ).toString().trim();
+
+    }
+
+
+    /* =========================================================
+       TÍTULO
+    ========================================================= */
+
+    function getTitle(lesson) {
+
+        return (
+
+            lesson.title ||
+
+            lesson.titulo ||
+
+            lesson.name ||
+
+            lesson.nome ||
+
+            "Aula do Projeto Corre"
+
+        ).toString();
+
+    }
+
+
+    /* =========================================================
+       DESCRIÇÃO
+    ========================================================= */
+
+    function getDescription(lesson) {
+
+        return (
+
+            lesson.description ||
+
+            lesson.descricao ||
+
+            lesson.content ||
+
+            lesson.conteudo ||
+
+            "Conteúdo exclusivo do Projeto Corre."
+
+        ).toString();
+
+    }
+
+
+    /* =========================================================
+       IMAGEM
+    ========================================================= */
+
+    function getImage(lesson) {
+
+        return (
+
+            lesson.thumbnail_url ||
+
+            lesson.thumbnail ||
+
+            lesson.image_url ||
+
+            lesson.image ||
+
+            lesson.cover_url ||
+
+            lesson.cover ||
+
+            ""
+
+        ).toString().trim();
+
+    }
+
+
+    /* =========================================================
+       VÍDEO
+    ========================================================= */
+
+    function getVideo(lesson) {
+
+        return (
+
+            lesson.video_url ||
+
+            lesson.video ||
+
+            lesson.url ||
+
+            lesson.link ||
+
+            ""
+
+        ).toString().trim();
+
+    }
+
+
+    /* =========================================================
+       DURAÇÃO
+    ========================================================= */
+
+    function getDuration(lesson) {
+
+        return (
+
+            lesson.duration ||
+
+            lesson.duracao ||
+
+            ""
+
+        ).toString().trim();
+
+    }
+
+
+    /* =========================================================
+       FILTRAR
+    ========================================================= */
+
+    function getFilteredLessons() {
 
         const search =
             searchInput.value
@@ -1293,23 +1581,19 @@ document.addEventListener("DOMContentLoaded", async function () {
             categoryFilter.value;
 
 
-        const level =
-            levelFilter.value;
-
-
-        const filtered =
-            lessons.filter(function (lesson) {
+        return allLessons.filter(
+            lesson => {
 
                 const title =
-                    String(
-                        lesson.title || ""
-                    ).toLowerCase();
-
+                    getTitle(lesson)
+                        .toLowerCase();
 
                 const description =
-                    String(
-                        lesson.description || ""
-                    ).toLowerCase();
+                    getDescription(lesson)
+                        .toLowerCase();
+
+                const lessonCategory =
+                    getCategory(lesson);
 
 
                 const matchesSearch =
@@ -1319,227 +1603,416 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
                 const matchesCategory =
-                    category === "all" ||
-                    lesson.category === category;
-
-
-                const matchesLevel =
-                    level === "all" ||
-                    lesson.level === level;
+                    !category ||
+                    lessonCategory === category;
 
 
                 return (
                     matchesSearch &&
-                    matchesCategory &&
-                    matchesLevel
+                    matchesCategory
                 );
 
-            });
+            }
+        );
+
+    }
 
 
-        resultsText.innerHTML =
-            `<strong>${filtered.length}</strong> aula(s) encontrada(s)`;
+    /* =========================================================
+       RENDERIZAR
+    ========================================================= */
+
+    function renderLessons() {
+
+        const lessons =
+            getFilteredLessons();
 
 
-        if (filtered.length === 0) {
+        lessonCount.textContent =
+            allLessons.length;
 
-            grid.innerHTML = `
 
-                <div class="empty">
+        if (!lessons.length) {
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                    <h3>
-                        Nenhuma aula encontrada
-                    </h3>
-
-                    <p>
-                        Tente mudar os filtros ou pesquisar outro termo.
-                    </p>
-
-                </div>
-
-            `;
+            showEmpty(
+                allLessons.length
+                    ? "Nenhuma aula encontrada"
+                    : "Nenhuma aula disponível"
+            );
 
             return;
 
         }
 
 
-        grid.innerHTML =
-            filtered.map(createLessonCard).join("");
+        lessonsGrid.innerHTML = "";
+
+
+        lessons.forEach(
+            (lesson, index) => {
+
+                const card =
+                    createLessonCard(
+                        lesson,
+                        index
+                    );
+
+                lessonsGrid.appendChild(
+                    card
+                );
+
+            }
+        );
 
     }
 
 
-    /* =====================================================
+    /* =========================================================
        CRIAR CARD
-    ===================================================== */
+    ========================================================= */
 
-    function createLessonCard(lesson) {
+    function createLessonCard(
+        lesson,
+        index
+    ) {
 
-        const id =
-            encodeURIComponent(
-                lesson.id
+        const card =
+            document.createElement(
+                "article"
             );
+
+        card.className =
+            "lesson-card";
 
 
         const title =
-            escapeHTML(
-                lesson.title
-            );
-
+            getTitle(lesson);
 
         const description =
-            escapeHTML(
-                lesson.description ||
-                "Conteúdo exclusivo do Projeto Corre."
-            );
-
+            getDescription(lesson);
 
         const category =
-            escapeHTML(
-                getCategoryName(
-                    lesson.category
-                )
-            );
+            getCategory(lesson);
 
+        const image =
+            getImage(lesson);
 
-        const level =
-            escapeHTML(
-                lesson.level ||
-                "Iniciante"
-            );
-
+        const video =
+            getVideo(lesson);
 
         const duration =
-            escapeHTML(
-                formatDuration(
-                    lesson.duration
-                )
-            );
+            getDuration(lesson);
 
 
-        const icon =
-            getIcon(
-                lesson.category
-            );
+        const number =
+            String(index + 1)
+                .padStart(2, "0");
 
 
-        let button;
+        /* =====================================================
+           THUMBNAIL
+        ===================================================== */
+
+        let thumbnail;
 
 
-        if (lesson.video_url) {
+        if (image) {
 
-            button = `
+            thumbnail = `
+                <img
+                    src="${escapeAttribute(image)}"
+                    alt="${escapeAttribute(title)}"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 
-                <a
-                    href="aula.html?id=${id}"
-                    class="btn">
+                <div
+                    class="thumbnail-placeholder"
+                    style="display:none;">
 
-                    <i class="fa-solid fa-play"></i>
+                    <i class="fa-solid fa-person-running"></i>
 
-                    Assistir aula
-
-                </a>
-
+                </div>
             `;
 
         } else {
 
-            button = `
+            thumbnail = `
+                <div class="thumbnail-placeholder">
 
-                <a
-                    href="aula.html?id=${id}"
-                    class="btn">
+                    <i class="fa-solid fa-person-running"></i>
 
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                    Ver aula
-
-                </a>
-
+                </div>
             `;
 
         }
 
 
-        return `
+        /* =====================================================
+           CATEGORIA
+        ===================================================== */
 
-            <article class="card">
-
-
-                <div class="card-top">
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid ${icon}"></i>
-
-                    </div>
-
-
-                    <span class="level">
-
-                        ${level}
-
+        const categoryHTML =
+            category
+                ? `
+                    <span class="category-badge">
+                        ${escapeHTML(category)}
                     </span>
+                  `
+                : "";
 
+
+        /* =====================================================
+           DURAÇÃO
+        ===================================================== */
+
+        const durationHTML =
+            duration
+                ? `
+                    <span class="lesson-info">
+                        <i class="fa-regular fa-clock"></i>
+                        ${escapeHTML(duration)}
+                    </span>
+                  `
+                : `
+                    <span class="lesson-info">
+                        <i class="fa-solid fa-play"></i>
+                        Aula
+                    </span>
+                  `;
+
+
+        /* =====================================================
+           BOTÃO
+        ===================================================== */
+
+        let buttonHTML;
+
+
+        if (video) {
+
+            buttonHTML = `
+                <a
+                    class="watch-button"
+                    href="${escapeAttribute(video)}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Assistir
+
+                    <i class="fa-solid fa-play"></i>
+
+                </a>
+            `;
+
+        } else {
+
+            buttonHTML = `
+                <button
+                    class="watch-button"
+                    type="button"
+                    onclick="showVideoUnavailable()">
+
+                    Assistir
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
+            `;
+
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        card.innerHTML = `
+
+            <div class="lesson-thumbnail">
+
+                ${thumbnail}
+
+                ${categoryHTML}
+
+                <div class="play-button">
+
+                    <i class="fa-solid fa-play"></i>
 
                 </div>
 
+            </div>
 
-                <h2>
 
-                    ${title}
+            <div class="lesson-content">
 
+                <span class="lesson-number">
+                    AULA ${number}
+                </span>
+
+
+                <h2 class="lesson-title">
+                    ${escapeHTML(title)}
                 </h2>
 
 
-                <p>
-
-                    ${description}
-
+                <p class="lesson-description">
+                    ${escapeHTML(description)}
                 </p>
 
 
-                <div class="meta">
+                <div class="lesson-footer">
 
+                    ${durationHTML}
 
-                    <span>
-
-                        <i class="fa-solid fa-layer-group"></i>
-
-                        ${category}
-
-                    </span>
-
-
-                    <span>
-
-                        <i class="fa-regular fa-clock"></i>
-
-                        ${duration}
-
-                    </span>
-
+                    ${buttonHTML}
 
                 </div>
 
+            </div>
 
-                ${button}
+        `;
 
 
-            </article>
+        return card;
+
+    }
+
+
+    /* =========================================================
+       HTML SEGURO
+    ========================================================= */
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function escapeAttribute(value) {
+
+        return escapeHTML(value);
+
+    }
+
+
+    /* =========================================================
+       LOADING
+    ========================================================= */
+
+    function showLoading() {
+
+        lessonsGrid.innerHTML = `
+
+            <div class="state loading">
+
+                <i class="fa-solid fa-spinner"></i>
+
+                <h2>
+                    Carregando aulas...
+                </h2>
+
+                <p>
+                    Buscando os conteúdos do Projeto Corre.
+                </p>
+
+            </div>
 
         `;
 
     }
 
 
-    /* =====================================================
-       FILTROS
-    ===================================================== */
+    /* =========================================================
+       VAZIO
+    ========================================================= */
+
+    function showEmpty(title) {
+
+        lessonsGrid.innerHTML = `
+
+            <div class="state">
+
+                <i class="fa-solid fa-book-open"></i>
+
+                <h2>
+                    ${escapeHTML(title)}
+                </h2>
+
+                <p>
+                    Tente alterar os filtros ou volte mais tarde.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =========================================================
+       ERRO
+    ========================================================= */
+
+    function showError() {
+
+        lessonsGrid.innerHTML = `
+
+            <div class="state error-state">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h2>
+                    Não foi possível carregar as aulas
+                </h2>
+
+                <p>
+                    Verifique sua conexão e tente novamente.
+                </p>
+
+                <button
+                    class="retry-button"
+                    type="button"
+                    onclick="loadLessons()">
+
+                    <i class="fa-solid fa-rotate-right"></i>
+
+                    Tentar novamente
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        lessonCount.textContent =
+            "—";
+
+    }
+
+
+    /* =========================================================
+       VÍDEO NÃO DISPONÍVEL
+    ========================================================= */
+
+    function showVideoUnavailable() {
+
+        alert(
+            "O vídeo desta aula ainda não foi cadastrado."
+        );
+
+    }
+
+
+    /* =========================================================
+       BUSCA
+    ========================================================= */
 
     searchInput.addEventListener(
         "input",
@@ -1547,25 +2020,21 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
 
 
+    /* =========================================================
+       CATEGORIA
+    ========================================================= */
+
     categoryFilter.addEventListener(
         "change",
         renderLessons
     );
 
 
-    levelFilter.addEventListener(
-        "change",
-        renderLessons
-    );
-
-
-    /* =====================================================
+    /* =========================================================
        INICIAR
-    ===================================================== */
+    ========================================================= */
 
     loadLessons();
-
-});
 
 </script>
 
