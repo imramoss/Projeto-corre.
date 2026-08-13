@@ -43,12 +43,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 
-    <!-- SUPABASE -->
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
     <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
 
         * {
             margin: 0;
@@ -89,13 +88,13 @@
 
                 radial-gradient(
                     circle at 80% 20%,
-                    rgba(163, 255, 18, .10),
+                    rgba(163,255,18,.10),
                     transparent 30%
                 ),
 
                 radial-gradient(
                     circle at 10% 80%,
-                    rgba(163, 255, 18, .05),
+                    rgba(163,255,18,.05),
                     transparent 30%
                 ),
 
@@ -119,6 +118,10 @@
         }
 
 
+        /* =====================================================
+           PÁGINA
+        ===================================================== */
+
         .page {
 
             min-height: 100vh;
@@ -129,14 +132,18 @@
         }
 
 
-        /* HEADER */
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
         header {
 
             width: 100%;
+
             height: 78px;
 
             display: flex;
+
             align-items: center;
 
             border-bottom:
@@ -145,13 +152,15 @@
             background:
                 rgba(8,8,8,.90);
 
-            backdrop-filter: blur(15px);
+            backdrop-filter:
+                blur(15px);
         }
 
 
         .header-content {
 
-            width: min(1180px, 92%);
+            width:
+                min(1180px, 92%);
 
             margin: auto;
 
@@ -213,7 +222,9 @@
         }
 
 
-        /* CONTEÚDO */
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
 
         .signup-area {
 
@@ -237,7 +248,9 @@
         }
 
 
-        /* TÍTULO */
+        /* =====================================================
+           CABEÇALHO DO CADASTRO
+        ===================================================== */
 
         .signup-header {
 
@@ -250,9 +263,11 @@
         .signup-icon {
 
             width: 62px;
+
             height: 62px;
 
-            margin: 0 auto 20px;
+            margin:
+                0 auto 20px;
 
             display: flex;
 
@@ -302,7 +317,9 @@
         }
 
 
-        /* CARD */
+        /* =====================================================
+           CARD
+        ===================================================== */
 
         .signup-card {
 
@@ -326,27 +343,33 @@
         }
 
 
-        /* MENSAGEM */
+        /* =====================================================
+           MENSAGEM
+        ===================================================== */
 
         .message {
 
             display: none;
 
-            padding: 12px 14px;
+            padding: 13px 15px;
 
-            margin-bottom: 18px;
+            margin-bottom: 20px;
 
             border-radius: 10px;
 
             font-size: 12px;
 
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+
+        .message.show {
+
+            display: block;
         }
 
 
         .message.error {
-
-            display: block;
 
             background:
                 rgba(255,60,60,.08);
@@ -360,8 +383,6 @@
 
         .message.success {
 
-            display: block;
-
             background:
                 rgba(163,255,18,.08);
 
@@ -374,8 +395,6 @@
 
         .message.warning {
 
-            display: block;
-
             background:
                 rgba(255,180,0,.08);
 
@@ -386,7 +405,9 @@
         }
 
 
-        /* CAMPOS */
+        /* =====================================================
+           CAMPOS
+        ===================================================== */
 
         .form-group {
 
@@ -430,6 +451,8 @@
             font-size: 14px;
 
             pointer-events: none;
+
+            z-index: 2;
         }
 
 
@@ -476,7 +499,9 @@
         }
 
 
-        /* SENHA */
+        /* =====================================================
+           BOTÃO MOSTRAR SENHA
+        ===================================================== */
 
         .password-toggle {
 
@@ -498,6 +523,8 @@
             cursor: pointer;
 
             padding: 5px;
+
+            z-index: 3;
         }
 
 
@@ -507,7 +534,9 @@
         }
 
 
-        /* TERMOS */
+        /* =====================================================
+           TERMOS
+        ===================================================== */
 
         .terms {
 
@@ -524,6 +553,7 @@
         .terms input {
 
             width: 16px;
+
             height: 16px;
 
             margin-top: 2px;
@@ -551,8 +581,7 @@
 
         .terms a {
 
-            color:
-                var(--green);
+            color: var(--green);
 
             font-weight: 600;
         }
@@ -560,12 +589,13 @@
 
         .terms a:hover {
 
-            text-decoration:
-                underline;
+            text-decoration: underline;
         }
 
 
-        /* BOTÃO */
+        /* =====================================================
+           BOTÃO
+        ===================================================== */
 
         .btn-submit {
 
@@ -588,8 +618,7 @@
             background:
                 var(--green);
 
-            color:
-                #080808;
+            color: #080808;
 
             font-size: 14px;
 
@@ -612,12 +641,18 @@
         }
 
 
+        .btn-submit:active {
+
+            transform:
+                translateY(0);
+        }
+
+
         .btn-submit:disabled {
 
             opacity: .45;
 
-            cursor:
-                not-allowed;
+            cursor: not-allowed;
 
             transform: none;
 
@@ -625,7 +660,9 @@
         }
 
 
-        /* LOGIN */
+        /* =====================================================
+           LOGIN
+        ===================================================== */
 
         .login-link {
 
@@ -641,8 +678,7 @@
 
         .login-link a {
 
-            color:
-                var(--green);
+            color: var(--green);
 
             font-weight: 600;
         }
@@ -650,12 +686,13 @@
 
         .login-link a:hover {
 
-            text-decoration:
-                underline;
+            text-decoration: underline;
         }
 
 
-        /* BENEFÍCIOS */
+        /* =====================================================
+           BENEFÍCIOS
+        ===================================================== */
 
         .mini-benefits {
 
@@ -690,8 +727,7 @@
 
             display: block;
 
-            color:
-                var(--green);
+            color: var(--green);
 
             font-size: 15px;
 
@@ -707,7 +743,9 @@
         }
 
 
-        /* FOOTER */
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
         footer {
 
@@ -724,34 +762,51 @@
         }
 
 
-        /* RESPONSIVO */
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
         @media (max-width: 600px) {
 
             header {
+
                 height: 70px;
             }
 
+
             .signup-area {
-                padding: 40px 15px;
+
+                padding:
+                    40px 15px;
             }
 
+
             .signup-card {
-                padding: 25px 20px;
+
+                padding:
+                    25px 20px;
+
                 border-radius: 20px;
             }
 
+
             .signup-header h1 {
+
                 font-size: 29px;
             }
 
+
             .signup-header p {
+
                 font-size: 12px;
             }
 
+
             .mini-benefits {
+
                 grid-template-columns: 1fr;
             }
+
 
             .mini-benefit {
 
@@ -764,11 +819,15 @@
                 gap: 8px;
             }
 
+
             .mini-benefit i {
+
                 margin: 0;
             }
 
+
             .back-home span {
+
                 display: none;
             }
         }
@@ -784,11 +843,14 @@
 <div class="page">
 
 
-    <!-- HEADER -->
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
     <header>
 
         <div class="header-content">
+
 
             <a
                 href="index.html"
@@ -799,8 +861,10 @@
                 </i>
 
                 <span>
+
                     Projeto
                     <strong>Corre</strong>
+
                 </span>
 
             </a>
@@ -820,19 +884,24 @@
 
             </a>
 
+
         </div>
 
     </header>
 
 
-    <!-- CADASTRO -->
+    <!-- =====================================================
+         CADASTRO
+    ===================================================== -->
 
     <main class="signup-area">
+
 
         <div class="signup-container">
 
 
             <div class="signup-header">
+
 
                 <div class="signup-icon">
 
@@ -859,42 +928,58 @@
 
                 </p>
 
+
             </div>
 
+
+            <!-- CARD -->
 
             <div class="signup-card">
 
 
+                <!-- MENSAGEM -->
+
                 <div
                     id="message"
-                    class="message">
+                    class="message"
+                    role="alert"
+                    aria-live="polite">
                 </div>
 
 
+                <!-- FORM -->
+
                 <form
-                    id="signupForm">
+                    id="signupForm"
+                    novalidate>
 
 
                     <!-- NOME -->
 
                     <div class="form-group">
 
+
                         <label for="name">
                             Nome completo
                         </label>
 
+
                         <div class="input-wrapper">
+
 
                             <i
                                 class="fa-solid fa-user">
                             </i>
+
 
                             <input
                                 type="text"
                                 id="name"
                                 placeholder="Como podemos te chamar?"
                                 autocomplete="name"
+                                maxlength="100"
                                 required>
+
 
                         </div>
 
@@ -905,22 +990,28 @@
 
                     <div class="form-group">
 
+
                         <label for="email">
                             E-mail
                         </label>
 
+
                         <div class="input-wrapper">
+
 
                             <i
                                 class="fa-solid fa-envelope">
                             </i>
+
 
                             <input
                                 type="email"
                                 id="email"
                                 placeholder="seu@email.com"
                                 autocomplete="email"
+                                maxlength="255"
                                 required>
+
 
                         </div>
 
@@ -931,15 +1022,19 @@
 
                     <div class="form-group">
 
+
                         <label for="password">
                             Senha
                         </label>
 
+
                         <div class="input-wrapper">
+
 
                             <i
                                 class="fa-solid fa-lock">
                             </i>
+
 
                             <input
                                 type="password"
@@ -962,6 +1057,7 @@
 
                             </button>
 
+
                         </div>
 
                     </div>
@@ -971,15 +1067,19 @@
 
                     <div class="form-group">
 
+
                         <label for="confirmPassword">
                             Confirmar senha
                         </label>
 
+
                         <div class="input-wrapper">
+
 
                             <i
                                 class="fa-solid fa-lock">
                             </i>
+
 
                             <input
                                 type="password"
@@ -998,13 +1098,15 @@
 
                     <div class="terms">
 
+
                         <input
                             type="checkbox"
                             id="aceiteTermos"
                             required>
 
 
-                        <label for="aceiteTermos">
+                        <label
+                            for="aceiteTermos">
 
                             Li e concordo com os
 
@@ -1022,6 +1124,7 @@
 
                         </label>
 
+
                     </div>
 
 
@@ -1035,6 +1138,7 @@
                         <span id="btnText">
                             Criar minha conta
                         </span>
+
 
                         <i
                             class="fa-solid fa-arrow-right"
@@ -1109,6 +1213,7 @@
 
             </div>
 
+
         </div>
 
     </main>
@@ -1127,11 +1232,18 @@
 </div>
 
 
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    async function () {
 
 
         /* =====================================================
@@ -1146,10 +1258,17 @@ document.addEventListener(
             "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
 
 
-        const supabase =
+        const supabaseClient =
             window.supabase.createClient(
                 SUPABASE_URL,
-                SUPABASE_KEY
+                SUPABASE_KEY,
+                {
+                    auth: {
+                        persistSession: true,
+                        autoRefreshToken: true,
+                        detectSessionInUrl: true
+                    }
+                }
             );
 
 
@@ -1157,60 +1276,48 @@ document.addEventListener(
            ELEMENTOS
         ===================================================== */
 
-        const form =
-            document.getElementById(
-                "signupForm"
-            );
+        const signupForm =
+            document.getElementById("signupForm");
+
 
         const nameInput =
-            document.getElementById(
-                "name"
-            );
+            document.getElementById("name");
+
 
         const emailInput =
-            document.getElementById(
-                "email"
-            );
+            document.getElementById("email");
+
 
         const passwordInput =
-            document.getElementById(
-                "password"
-            );
+            document.getElementById("password");
+
 
         const confirmPasswordInput =
-            document.getElementById(
-                "confirmPassword"
-            );
+            document.getElementById("confirmPassword");
+
 
         const aceiteTermos =
-            document.getElementById(
-                "aceiteTermos"
-            );
+            document.getElementById("aceiteTermos");
 
-        const button =
-            document.getElementById(
-                "btnSubmit"
-            );
 
-        const buttonText =
-            document.getElementById(
-                "btnText"
-            );
+        const btnSubmit =
+            document.getElementById("btnSubmit");
 
-        const buttonIcon =
-            document.getElementById(
-                "btnIcon"
-            );
+
+        const btnText =
+            document.getElementById("btnText");
+
+
+        const btnIcon =
+            document.getElementById("btnIcon");
+
 
         const message =
-            document.getElementById(
-                "message"
-            );
+            document.getElementById("message");
+
 
         const togglePassword =
-            document.getElementById(
-                "togglePassword"
-            );
+            document.getElementById("togglePassword");
 
 
         /* =====================================================
@@ -1222,11 +1329,11 @@ document.addEventListener(
             type = "error"
         ) {
 
-            message.textContent =
-                text;
+            message.textContent = text;
 
             message.className =
-                "message " + type;
+                "message show " + type;
+
         }
 
 
@@ -1236,29 +1343,64 @@ document.addEventListener(
 
             message.className =
                 "message";
+
         }
 
 
         /* =====================================================
-           MOSTRAR SENHA
+           BOTÃO
+        ===================================================== */
+
+        function setLoading(
+            loading
+        ) {
+
+            if (loading) {
+
+                btnSubmit.disabled = true;
+
+                btnText.textContent =
+                    "Criando conta...";
+
+                btnIcon.className =
+                    "fa-solid fa-spinner fa-spin";
+
+            } else {
+
+                btnSubmit.disabled = false;
+
+                btnText.textContent =
+                    "Criar minha conta";
+
+                btnIcon.className =
+                    "fa-solid fa-arrow-right";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOSTRAR / ESCONDER SENHA
         ===================================================== */
 
         togglePassword.addEventListener(
             "click",
             function () {
 
-                const showing =
+
+                const mostrando =
                     passwordInput.type === "password";
 
 
                 passwordInput.type =
-                    showing
+                    mostrando
                         ? "text"
                         : "password";
 
 
                 this.innerHTML =
-                    showing
+                    mostrando
 
                         ? '<i class="fa-solid fa-eye-slash"></i>'
 
@@ -1267,7 +1409,7 @@ document.addEventListener(
 
                 this.setAttribute(
                     "aria-label",
-                    showing
+                    mostrando
                         ? "Ocultar senha"
                         : "Mostrar senha"
                 );
@@ -1277,10 +1419,147 @@ document.addEventListener(
 
 
         /* =====================================================
+           VERIFICAR RETORNO DO E-MAIL
+        ===================================================== */
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const errorCode =
+            urlParams.get("error_code");
+
+
+        const errorDescription =
+            urlParams.get(
+                "error_description"
+            );
+
+
+        if (errorCode) {
+
+            showMessage(
+                decodeURIComponent(
+                    errorDescription ||
+                    "O link de confirmação é inválido ou expirou."
+                ),
+                "error"
+            );
+
+        }
+
+
+        /* =====================================================
+           VERIFICAR SESSÃO ATUAL
+        ===================================================== */
+
+        try {
+
+            const {
+                data: {
+                    session
+                }
+            } =
+                await supabaseClient.auth.getSession();
+
+
+            /*
+                Se o usuário acabou de confirmar
+                o e-mail e o Supabase criou uma
+                sessão, podemos continuar.
+            */
+
+            if (
+                session &&
+                !errorCode
+            ) {
+
+                showMessage(
+                    "E-mail confirmado com sucesso! Preparando sua conta...",
+                    "success"
+                );
+
+
+                /*
+                    Criar/atualizar perfil
+                */
+
+                const user =
+                    session.user;
+
+
+                const nome =
+                    user.user_metadata?.name ||
+                    user.user_metadata?.nome ||
+                    "";
+
+
+                if (nome) {
+
+                    const {
+                        error: profileError
+                    } =
+                        await supabaseClient
+                            .from("profiles")
+                            .upsert(
+                                {
+                                    id: user.id,
+                                    name: nome,
+                                    email: user.email,
+                                    plan: "free"
+                                },
+                                {
+                                    onConflict: "id"
+                                }
+                            );
+
+
+                    if (profileError) {
+
+                        console.warn(
+                            "Perfil não pôde ser criado:",
+                            profileError
+                        );
+
+                    }
+
+                }
+
+
+                /*
+                    Pequeno atraso para
+                    mostrar a mensagem.
+                */
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "painel.html";
+
+                    },
+                    1000
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao verificar sessão:",
+                error
+            );
+
+        }
+
+
+        /* =====================================================
            CADASTRO
         ===================================================== */
 
-        form.addEventListener(
+        signupForm.addEventListener(
             "submit",
             async function (event) {
 
@@ -1289,24 +1568,12 @@ document.addEventListener(
                 clearMessage();
 
 
-                /* VALIDAÇÃO */
+                /* =============================================
+                   NOME
+                ============================================= */
 
                 const nome =
                     nameInput.value.trim();
-
-
-                const email =
-                    emailInput.value
-                        .trim()
-                        .toLowerCase();
-
-
-                const senha =
-                    passwordInput.value;
-
-
-                const confirmacao =
-                    confirmPasswordInput.value;
 
 
                 if (nome.length < 3) {
@@ -1322,7 +1589,19 @@ document.addEventListener(
                 }
 
 
-                if (!emailInput.checkValidity()) {
+                /* =============================================
+                   EMAIL
+                ============================================= */
+
+                const email =
+                    emailInput.value
+                        .trim()
+                        .toLowerCase();
+
+
+                if (
+                    !emailInput.checkValidity()
+                ) {
 
                     showMessage(
                         "Digite um e-mail válido.",
@@ -1333,6 +1612,14 @@ document.addEventListener(
 
                     return;
                 }
+
+
+                /* =============================================
+                   SENHA
+                ============================================= */
+
+                const senha =
+                    passwordInput.value;
 
 
                 if (senha.length < 6) {
@@ -1348,7 +1635,17 @@ document.addEventListener(
                 }
 
 
-                if (senha !== confirmacao) {
+                /* =============================================
+                   CONFIRMAÇÃO
+                ============================================= */
+
+                const confirmacao =
+                    confirmPasswordInput.value;
+
+
+                if (
+                    senha !== confirmacao
+                ) {
 
                     showMessage(
                         "As senhas não são iguais.",
@@ -1361,7 +1658,13 @@ document.addEventListener(
                 }
 
 
-                if (!aceiteTermos.checked) {
+                /* =============================================
+                   TERMOS
+                ============================================= */
+
+                if (
+                    !aceiteTermos.checked
+                ) {
 
                     showMessage(
                         "Você precisa aceitar os Termos de Uso para continuar.",
@@ -1372,266 +1675,370 @@ document.addEventListener(
                 }
 
 
-                /* =================================================
-                   BLOQUEAR BOTÃO
-                ================================================= */
+                /* =============================================
+                   LOADING
+                ============================================= */
 
-                button.disabled = true;
-
-                buttonText.textContent =
-                    "Criando conta...";
-
-                buttonIcon.className =
-                    "fa-solid fa-spinner fa-spin";
+                setLoading(true);
 
 
                 try {
 
 
-                    /* =================================================
-                       CRIAR USUÁRIO NO SUPABASE AUTH
-                    ================================================= */
+                    /* =========================================
+                       URL DE RETORNO
+                    ========================================= */
+
+                    const redirectUrl =
+                        window.location.origin +
+                        "/cadastro.html";
+
+
+                    console.log(
+                        "URL de confirmação:",
+                        redirectUrl
+                    );
+
+
+                    /* =========================================
+                       CADASTRO SUPABASE AUTH
+                    ========================================= */
 
                     const {
                         data,
                         error
-                    } = await supabase.auth.signUp({
+                    } =
+                        await supabaseClient.auth.signUp({
 
-                        email: email,
+                            email: email,
 
-                        password: senha,
+                            password: senha,
 
-                        options: {
+                            options: {
 
-                            data: {
+                                emailRedirectTo:
+                                    redirectUrl,
 
-                                name: nome
+                                data: {
+
+                                    name: nome,
+
+                                    nome: nome
+
+                                }
 
                             }
 
-                        }
+                        });
 
-                    });
 
+                    /* =========================================
+                       ERRO
+                    ========================================= */
 
                     if (error) {
 
                         console.error(
-                            "Erro Supabase Auth:",
+                            "Erro Supabase:",
                             error
                         );
 
-                        throw error;
+
+                        const msg =
+                            error.message ||
+                            "";
+
+
+                        if (
+                            msg.toLowerCase()
+                                .includes(
+                                    "already registered"
+                                )
+                        ) {
+
+                            showMessage(
+                                "Este e-mail já possui uma conta. Entre pela área de login.",
+                                "error"
+                            );
+
+                        }
+
+                        else if (
+                            msg.toLowerCase()
+                                .includes(
+                                    "password"
+                                )
+                        ) {
+
+                            showMessage(
+                                "A senha não atende aos requisitos do Supabase.",
+                                "error"
+                            );
+
+                        }
+
+                        else if (
+                            msg.toLowerCase()
+                                .includes(
+                                    "email"
+                                )
+                        ) {
+
+                            showMessage(
+                                "Verifique o endereço de e-mail informado.",
+                                "error"
+                            );
+
+                        }
+
+                        else {
+
+                            showMessage(
+                                "Não foi possível criar sua conta: " +
+                                msg,
+                                "error"
+                            );
+
+                        }
+
+
+                        setLoading(false);
+
+                        return;
                     }
 
 
-                    if (!data.user) {
+                    /* =========================================
+                       USUÁRIO
+                    ========================================= */
 
-                        throw new Error(
-                            "O Supabase não retornou o usuário."
+                    const user =
+                        data?.user;
+
+
+                    if (!user) {
+
+                        showMessage(
+                            "Não foi possível concluir o cadastro. Tente novamente.",
+                            "error"
                         );
+
+                        setLoading(false);
+
+                        return;
                     }
 
 
-                    /* =================================================
-                       CRIAR PERFIL
-                    ================================================= */
-
-                    /*
-                       Só fazemos INSERT diretamente
-                       quando existe sessão.
-
-                       Isso respeita as políticas RLS
-                       que você criou no Supabase.
-                    */
+                    /* =========================================
+                       CASO JÁ TENHA SESSÃO
+                    ========================================= */
 
                     if (data.session) {
 
+
+                        /*
+                            Se a confirmação de e-mail
+                            estiver desativada no Supabase,
+                            a sessão já será criada.
+                        */
+
                         const {
                             error:
+                                profileError
+                        } =
+                            await supabaseClient
+                                .from("profiles")
+                                .upsert(
+                                    {
+                                        id:
+                                            user.id,
+
+                                        name:
+                                            nome,
+
+                                        email:
+                                            email,
+
+                                        plan:
+                                            "free"
+                                    },
+                                    {
+                                        onConflict:
+                                            "id"
+                                    }
+                                );
+
+
+                        if (
                             profileError
-                        } = await supabase
-                            .from("profiles")
-                            .insert({
+                        ) {
 
-                                id:
-                                    data.user.id,
-
-                                name:
-                                    nome,
-
-                                email:
-                                    email,
-
-                                plan:
-                                    "free"
-
-                            });
-
-
-                        if (profileError) {
-
-                            console.error(
+                            console.warn(
                                 "Erro ao criar perfil:",
                                 profileError
                             );
 
-                            /*
-                               Se o usuário foi criado
-                               mas o perfil falhou,
-                               mostramos o erro.
-                            */
-
-                            throw new Error(
-                                "Sua conta foi criada, mas não foi possível criar seu perfil. " +
-                                profileError.message
-                            );
                         }
-
-                    }
-
-
-                    /* =================================================
-                       CADASTRO COM CONFIRMAÇÃO DE E-MAIL
-                    ================================================= */
-
-                    if (!data.session) {
-
-                        buttonText.textContent =
-                            "Cadastro realizado!";
-
-                        buttonIcon.className =
-                            "fa-solid fa-check";
 
 
                         showMessage(
-                            "Conta criada com sucesso! Verifique seu e-mail para confirmar a conta antes de entrar.",
+                            "Conta criada com sucesso! Entrando...",
                             "success"
                         );
 
 
-                        form.reset();
+                        btnText.textContent =
+                            "Conta criada!";
+
+
+                        btnIcon.className =
+                            "fa-solid fa-check";
+
+
+                        setTimeout(
+                            function () {
+
+                                window.location.href =
+                                    "painel.html";
+
+                            },
+                            800
+                        );
 
 
                         return;
                     }
 
 
-                    /* =================================================
-                       LOGIN AUTOMÁTICO
-                    ================================================= */
-
-                    buttonText.textContent =
-                        "Conta criada!";
-
-                    buttonIcon.className =
-                        "fa-solid fa-check";
-
+                    /* =========================================
+                       CONFIRMAÇÃO POR E-MAIL
+                    ========================================= */
 
                     showMessage(
-                        "Cadastro realizado com sucesso! Redirecionando...",
+                        "Conta criada! Enviamos um link de confirmação para " +
+                        email +
+                        ". Abra o e-mail e clique no link para ativar sua conta.",
                         "success"
                     );
 
 
-                    /*
-                       Mantemos algumas informações locais
-                       apenas para compatibilidade visual
-                       com páginas antigas.
-
-                       Elas NÃO são usadas como banco
-                       de usuários.
-                    */
-
-                    localStorage.setItem(
-                        "userName",
-                        nome
-                    );
-
-                    localStorage.setItem(
-                        "userEmail",
-                        email
-                    );
+                    btnSubmit.disabled = true;
 
 
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "painel.html";
-
-                        },
-                        1000
-                    );
+                    btnText.textContent =
+                        "E-mail enviado";
 
 
-                } catch (error) {
+                    btnIcon.className =
+                        "fa-solid fa-envelope-circle-check";
+
+
+                }
+
+                catch (error) {
 
                     console.error(
-                        "Erro no cadastro:",
+                        "Erro inesperado:",
                         error
                     );
 
 
-                    let mensagem =
-                        error.message ||
-                        "Não foi possível criar sua conta.";
-
-
-                    /* ERROS COMUNS */
-
-                    if (
-                        mensagem
-                            .toLowerCase()
-                            .includes("user already registered")
-                    ) {
-
-                        mensagem =
-                            "Este e-mail já possui uma conta. Tente entrar pela página de login.";
-                    }
-
-
-                    else if (
-                        mensagem
-                            .toLowerCase()
-                            .includes("password")
-                    ) {
-
-                        mensagem =
-                            "A senha não atende aos requisitos do Supabase.";
-                    }
-
-
-                    else if (
-                        mensagem
-                            .toLowerCase()
-                            .includes("email")
-                    ) {
-
-                        mensagem =
-                            "Verifique o endereço de e-mail informado.";
-                    }
-
-
                     showMessage(
-                        mensagem,
+                        "Ocorreu um erro inesperado. Tente novamente.",
                         "error"
                     );
 
 
-                    button.disabled =
-                        false;
-
-                    buttonText.textContent =
-                        "Criar minha conta";
-
-                    buttonIcon.className =
-                        "fa-solid fa-arrow-right";
+                    setLoading(false);
 
                 }
 
             }
         );
+
+
+        /* =====================================================
+           MONITORAR ALTERAÇÕES DE AUTENTICAÇÃO
+        ===================================================== */
+
+        supabaseClient.auth.onAuthStateChange(
+            async function (
+                event,
+                session
+            ) {
+
+
+                console.log(
+                    "Auth event:",
+                    event
+                );
+
+
+                /*
+                    Quando o usuário confirma o e-mail,
+                    o Supabase pode disparar
+                    SIGNED_IN.
+                */
+
+                if (
+                    event === "SIGNED_IN" &&
+                    session
+                ) {
+
+                    const user =
+                        session.user;
+
+
+                    const nome =
+                        user.user_metadata?.name ||
+                        user.user_metadata?.nome ||
+                        "";
+
+
+                    if (nome) {
+
+                        const {
+                            error
+                        } =
+                            await supabaseClient
+                                .from("profiles")
+                                .upsert(
+                                    {
+                                        id:
+                                            user.id,
+
+                                        name:
+                                            nome,
+
+                                        email:
+                                            user.email,
+
+                                        plan:
+                                            "free"
+                                    },
+                                    {
+                                        onConflict:
+                                            "id"
+                                    }
+                                );
+
+
+                        if (error) {
+
+                            console.warn(
+                                "Erro ao sincronizar perfil:",
+                                error
+                            );
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
 
     });
 
