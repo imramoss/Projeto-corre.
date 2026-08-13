@@ -6,131 +6,832 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta
+    name="theme-color"
+    content="#A3FF12">
+
 <title>Projeto Corre | Treinos</title>
 
 <link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
 
 <link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+
+    --green:#A3FF12;
+    --green-dark:#78c400;
+
+    --black:#080808;
+    --dark:#0d0d0d;
+    --card:#111;
+    --card-2:#151515;
+
+    --border:#292929;
+
+    --gray:#777;
+    --gray-light:#aaa;
+
+    --white:#fff;
+
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#080808;
-color:white;
-font-family:Poppins,sans-serif;
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(163,255,18,.08),
+            transparent 28%
+        ),
+        var(--black);
+
+    color:white;
+
+    font-family:"Poppins",sans-serif;
+
+    overflow-x:hidden;
+
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header{
-height:75px;
-border-bottom:1px solid #292929;
-display:flex;
-align-items:center;
-padding:0 7%;
-justify-content:space-between;
-background:#0b0b0b;
+
+    width:100%;
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(11,11,11,.94);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    backdrop-filter:blur(15px);
+
 }
 
 .logo{
-font-size:20px;
-font-weight:800;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:20px;
+
+    font-weight:800;
+
 }
 
 .logo i{
-color:#A3FF12;
-margin-right:8px;
+    color:var(--green);
 }
 
 .logo span{
-color:#A3FF12;
+    color:var(--green);
 }
 
 .back{
-color:#777;
-font-size:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#777;
+
+    font-size:12px;
+
+    transition:.2s;
+
 }
 
 .back:hover{
-color:#A3FF12;
+    color:var(--green);
 }
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
 
 main{
-max-width:1000px;
-margin:auto;
-padding:45px 20px;
+
+    width:min(1050px,92%);
+
+    margin:auto;
+
+    padding:45px 0 60px;
+
 }
 
-h1{
-font-size:30px;
-margin-bottom:8px;
+
+/* =========================================================
+   CABEÇALHO DA PÁGINA
+========================================================= */
+
+.page-header{
+
+    margin-bottom:25px;
+
+}
+
+.page-header h1{
+
+    font-size:30px;
+
+    line-height:1.2;
+
+    letter-spacing:-.7px;
+
+}
+
+.green{
+    color:var(--green);
 }
 
 .subtitle{
-color:#666;
-font-size:12px;
-margin-bottom:30px;
+
+    margin-top:8px;
+
+    color:#666;
+
+    font-size:12px;
+
+    line-height:1.6;
+
 }
+
+
+/* =========================================================
+   RESUMO
+========================================================= */
+
+.summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+}
+
+.summary-card{
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #101010
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+}
+
+.summary-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    background:rgba(163,255,18,.08);
+
+    border:1px solid rgba(163,255,18,.15);
+
+    color:var(--green);
+
+}
+
+.summary-info strong{
+
+    display:block;
+
+    font-size:17px;
+
+    line-height:1.2;
+
+}
+
+.summary-info span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#666;
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   TÍTULO DOS TREINOS
+========================================================= */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+}
+
+.section-title h2{
+
+    font-size:17px;
+
+}
+
+.section-title span{
+
+    color:#555;
+
+    font-size:10px;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
 }
+
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .card{
-background:#111;
-border:1px solid #292929;
-border-radius:18px;
-padding:25px;
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:300px;
+
+    padding:23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,20,20,.98),
+            rgba(13,13,13,.98)
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:19px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
 }
 
-.card i{
-color:#A3FF12;
-font-size:25px;
-margin-bottom:18px;
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    right:-50px;
+
+    top:-50px;
+
+    background:rgba(163,255,18,.06);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
 }
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(163,255,18,.30);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+}
+
+
+/* =========================================================
+   ÍCONE
+========================================================= */
+
+.card-icon{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:rgba(163,255,18,.08);
+
+    border:1px solid rgba(163,255,18,.15);
+
+    color:var(--green);
+
+    font-size:20px;
+
+    margin-bottom:18px;
+
+}
+
+
+/* =========================================================
+   TIPO
+========================================================= */
+
+.tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:max-content;
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+    background:#1b1b1b;
+
+    color:#777;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
 
 .card h2{
-font-size:16px;
-margin-bottom:8px;
+
+    font-size:16px;
+
+    margin-bottom:8px;
+
 }
 
 .card p{
-color:#666;
-font-size:11px;
-line-height:1.7;
+
+    color:#666;
+
+    font-size:11px;
+
+    line-height:1.7;
+
 }
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.details{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:8px;
+
+    margin-top:18px;
+
+}
+
+.detail{
+
+    padding:9px;
+
+    background:#171717;
+
+    border-radius:9px;
+
+}
+
+.detail i{
+
+    color:var(--green);
+
+    margin-right:5px;
+
+}
+
+.detail span{
+
+    color:#777;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   BOTÃO
+========================================================= */
 
 .btn{
-display:inline-block;
-margin-top:20px;
-background:#A3FF12;
-color:#080808;
-padding:10px 15px;
-border-radius:9px;
-font-size:11px;
-font-weight:700;
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:auto;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    background:var(--green);
+
+    color:#080808;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    transition:.2s;
+
 }
 
-@media(max-width:700px){
+.btn:hover{
 
-.grid{
-grid-template-columns:1fr;
+    background:#b4ff3e;
+
+    transform:translateY(-1px);
+
 }
+
+
+/* =========================================================
+   META SEMANAL
+========================================================= */
+
+.weekly{
+
+    margin-top:30px;
+
+    padding:23px;
+
+    background:#111;
+
+    border:1px solid var(--border);
+
+    border-radius:19px;
+
+}
+
+.weekly-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.weekly-header h2{
+
+    font-size:15px;
+
+}
+
+.weekly-header span{
+
+    color:var(--green);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.weekly p{
+
+    color:#666;
+
+    font-size:10px;
+
+    margin-top:5px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:9px;
+
+    margin-top:16px;
+
+    background:#222;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:var(--green);
+
+    border-radius:20px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    main{
+        width:min(92%,650px);
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+
+        height:68px;
+
+        padding:0 18px;
+
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .back{
+        font-size:11px;
+    }
+
+    main{
+
+        width:100%;
+
+        padding:30px 15px 45px;
+
+    }
+
+    .page-header h1{
+        font-size:26px;
+    }
+
+    .subtitle{
+        font-size:11px;
+    }
+
+    .summary{
+
+        grid-template-columns:1fr;
+
+        gap:9px;
+
+        margin-bottom:25px;
+
+    }
+
+    .summary-card{
+
+        padding:15px;
+
+    }
+
+    .summary-icon{
+
+        width:40px;
+        height:40px;
+
+    }
+
+    .section-title h2{
+        font-size:15px;
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+
+    }
+
+    .card{
+
+        min-height:auto;
+
+        padding:20px;
+
+    }
+
+    .card-icon{
+
+        width:45px;
+        height:45px;
+
+    }
+
+    .card h2{
+        font-size:15px;
+    }
+
+    .card p{
+        font-size:11px;
+    }
+
+    .details{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn{
+
+        min-height:46px;
+
+        font-size:11px;
+
+        margin-top:20px;
+
+    }
+
+    .weekly{
+
+        padding:19px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
+@media(max-width:360px){
+
+    main{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .back{
+        font-size:10px;
+    }
+
+    .page-header h1{
+        font-size:23px;
+    }
+
+    .card{
+        padding:17px;
+    }
 
 }
 
@@ -138,91 +839,517 @@ grid-template-columns:1fr;
 
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
-<a href="painel.html" class="logo">
+    <a
+        href="painel.html"
+        class="logo">
 
-<i class="fa-solid fa-person-running"></i>
+        <i class="fa-solid fa-person-running"></i>
 
-Projeto <span>Corre</span>
+        <span style="color:white;">
+            Projeto
+        </span>
 
-</a>
+        <span>
+            Corre
+        </span>
 
-<a href="painel.html" class="back">
+    </a>
 
-<i class="fa-solid fa-arrow-left"></i>
 
- Voltar
+    <a
+        href="painel.html"
+        class="back">
 
-</a>
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Voltar
+
+    </a>
 
 </header>
 
+
+
+<!-- =========================================================
+     CONTEÚDO
+========================================================= -->
+
 <main>
 
-<h1>Meus <span style="color:#A3FF12">treinos</span></h1>
 
-<p class="subtitle">
-Escolha seu treino e mantenha a constância.
-</p>
+    <section class="page-header">
 
-<div class="grid">
+        <h1>
 
-<div class="card">
+            Meus
+            <span class="green">
+                treinos
+            </span>
 
-<i class="fa-solid fa-person-running"></i>
+        </h1>
 
-<h2>Corrida leve</h2>
+        <p class="subtitle">
 
-<p>
-Treino de recuperação para manter o corpo ativo sem sobrecarregar.
-</p>
+            Escolha seu treino e mantenha a constância.
+            Cada quilômetro conta.
 
-<a href="#" class="btn">
-Começar
-</a>
+        </p>
 
-</div>
+    </section>
 
-<div class="card">
 
-<i class="fa-solid fa-bolt"></i>
 
-<h2>Intervalado</h2>
+    <!-- =====================================================
+         RESUMO
+    ====================================================== -->
 
-<p>
-Alternância entre períodos rápidos e períodos de recuperação.
-</p>
+    <section class="summary">
 
-<a href="#" class="btn">
-Começar
-</a>
 
-</div>
+        <div class="summary-card">
 
-<div class="card">
+            <div class="summary-icon">
 
-<i class="fa-solid fa-road"></i>
+                <i class="fa-solid fa-person-running"></i>
 
-<h2>Longão</h2>
+            </div>
 
-<p>
-Treino focado em resistência e construção de base aeróbica.
-</p>
+            <div class="summary-info">
 
-<a href="#" class="btn">
-Começar
-</a>
+                <strong>0 km</strong>
 
-</div>
+                <span>
+                    Corridos esta semana
+                </span>
 
-</div>
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa-solid fa-fire"></i>
+
+            </div>
+
+            <div class="summary-info">
+
+                <strong>0</strong>
+
+                <span>
+                    Treinos concluídos
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+            </div>
+
+            <div class="summary-info">
+
+                <strong>5 km</strong>
+
+                <span>
+                    Meta semanal
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TREINOS
+    ====================================================== -->
+
+    <section>
+
+
+        <div class="section-title">
+
+            <h2>
+                Escolha seu treino
+            </h2>
+
+            <span>
+                3 opções disponíveis
+            </span>
+
+        </div>
+
+
+
+        <div class="grid">
+
+
+            <!-- CORRIDA LEVE -->
+
+            <article class="card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-person-running"></i>
+
+                </div>
+
+                <span class="tag">
+                    RECUPERAÇÃO
+                </span>
+
+                <h2>
+                    Corrida leve
+                </h2>
+
+                <p>
+
+                    Treino de recuperação para
+                    manter o corpo ativo sem
+                    sobrecarregar.
+
+                </p>
+
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-route"></i>
+
+                        <span>
+                            3 km
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        <span>
+                            20 min
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <span>
+                            Leve
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-signal"></i>
+
+                        <span>
+                            Iniciante
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="btn">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Começar treino
+
+                </a>
+
+            </article>
+
+
+
+            <!-- INTERVALADO -->
+
+            <article class="card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                </div>
+
+                <span class="tag">
+                    VELOCIDADE
+                </span>
+
+                <h2>
+                    Intervalado
+                </h2>
+
+                <p>
+
+                    Alterne períodos rápidos
+                    com períodos de recuperação
+                    para desenvolver velocidade.
+
+                </p>
+
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-route"></i>
+
+                        <span>
+                            4 km
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        <span>
+                            30 min
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <span>
+                            Moderado
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-signal"></i>
+
+                        <span>
+                            Intermediário
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="btn">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Começar treino
+
+                </a>
+
+            </article>
+
+
+
+            <!-- LONGÃO -->
+
+            <article class="card">
+
+                <div class="card-icon">
+
+                    <i class="fa-solid fa-road"></i>
+
+                </div>
+
+                <span class="tag">
+                    RESISTÊNCIA
+                </span>
+
+                <h2>
+                    Longão
+                </h2>
+
+                <p>
+
+                    Treino focado em resistência
+                    e construção de uma boa
+                    base aeróbica.
+
+                </p>
+
+
+                <div class="details">
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-route"></i>
+
+                        <span>
+                            5 km
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        <span>
+                            35 min
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <span>
+                            Moderado
+                        </span>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <i class="fa-solid fa-signal"></i>
+
+                        <span>
+                            Intermediário
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="btn">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Começar treino
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         META SEMANAL
+    ====================================================== -->
+
+    <section class="weekly">
+
+        <div class="weekly-header">
+
+            <div>
+
+                <h2>
+                    Meta semanal
+                </h2>
+
+                <p>
+                    Continue treinando para alcançar seu objetivo.
+                </p>
+
+            </div>
+
+            <span>
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                class="progress-fill">
+            </div>
+
+        </div>
+
+    </section>
+
 
 </main>
 
+
 <script src="script.js"></script>
+
+
+<script>
+
+/* =========================================================
+   INFORMAÇÕES DOS TREINOS
+========================================================= */
+
+const treinoBotoes =
+    document.querySelectorAll(".card .btn");
+
+
+treinoBotoes.forEach(function(botao){
+
+    botao.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+            const card =
+                this.closest(".card");
+
+            const nome =
+                card.querySelector("h2").textContent.trim();
+
+            alert(
+                "Treino selecionado: " + nome +
+                "\n\nEm breve vamos transformar esta área em um treino interativo."
+            );
+
+        }
+    );
+
+});
+
+</script>
+
 
 </body>
 
