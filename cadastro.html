@@ -19,7 +19,9 @@
 
     <title>Projeto Corre | Criar conta</title>
 
+
     <!-- GOOGLE FONT -->
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -33,12 +35,16 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+
     <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+
     <!-- SUPABASE -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
@@ -50,7 +56,9 @@
             box-sizing: border-box;
         }
 
+
         :root {
+
             --green: #A3FF12;
             --green-dark: #78c400;
 
@@ -65,26 +73,32 @@
             --border: #292929;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             min-height: 100vh;
 
             font-family: "Poppins", sans-serif;
 
             background:
+
                 radial-gradient(
                     circle at 80% 20%,
                     rgba(163, 255, 18, .10),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 10% 80%,
                     rgba(163, 255, 18, .05),
                     transparent 30%
                 ),
+
                 #080808;
 
             color: var(--white);
@@ -92,10 +106,12 @@
             overflow-x: hidden;
         }
 
+
         a {
             color: inherit;
             text-decoration: none;
         }
+
 
         button,
         input {
@@ -103,11 +119,8 @@
         }
 
 
-        /* =====================================================
-           PAGE
-        ===================================================== */
-
         .page {
+
             min-height: 100vh;
 
             display: flex;
@@ -116,55 +129,72 @@
         }
 
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+        /* HEADER */
 
         header {
+
             width: 100%;
             height: 78px;
 
             display: flex;
             align-items: center;
 
-            border-bottom: 1px solid rgba(255,255,255,.06);
+            border-bottom:
+                1px solid rgba(255,255,255,.06);
 
-            background: rgba(8,8,8,.90);
+            background:
+                rgba(8,8,8,.90);
 
             backdrop-filter: blur(15px);
         }
 
+
         .header-content {
+
             width: min(1180px, 92%);
 
             margin: auto;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         .logo {
+
             display: flex;
+
             align-items: center;
 
             gap: 10px;
 
             font-size: 20px;
+
             font-weight: 700;
         }
 
+
         .logo i {
+
             color: var(--green);
+
             font-size: 25px;
         }
 
+
         .logo strong {
+
             color: var(--green);
         }
 
+
         .back-home {
+
             display: flex;
+
             align-items: center;
 
             gap: 8px;
@@ -176,63 +206,76 @@
             transition: .25s;
         }
 
+
         .back-home:hover {
+
             color: var(--green);
         }
 
 
-        /* =====================================================
-           CONTEÚDO
-        ===================================================== */
+        /* CONTEÚDO */
 
         .signup-area {
+
             flex: 1;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             padding: 60px 20px;
         }
 
+
         .signup-container {
+
             width: 100%;
+
             max-width: 470px;
         }
 
 
-        /* =====================================================
-           TÍTULO
-        ===================================================== */
+        /* TÍTULO */
 
         .signup-header {
+
             text-align: center;
 
             margin-bottom: 30px;
         }
 
+
         .signup-icon {
+
             width: 62px;
             height: 62px;
 
             margin: 0 auto 20px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             border-radius: 18px;
 
-            background: rgba(163,255,18,.08);
+            background:
+                rgba(163,255,18,.08);
 
-            border: 1px solid rgba(163,255,18,.20);
+            border:
+                1px solid rgba(163,255,18,.20);
 
             color: var(--green);
 
             font-size: 26px;
         }
 
+
         .signup-header h1 {
+
             font-size: 34px;
 
             line-height: 1.15;
@@ -242,11 +285,15 @@
             margin-bottom: 10px;
         }
 
+
         .signup-header h1 span {
+
             color: var(--green);
         }
 
+
         .signup-header p {
+
             color: #777;
 
             font-size: 13px;
@@ -255,21 +302,22 @@
         }
 
 
-        /* =====================================================
-           CARD
-        ===================================================== */
+        /* CARD */
 
         .signup-card {
+
             padding: 35px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(23,23,23,.98),
                     rgba(13,13,13,.98)
                 );
 
-            border: 1px solid #292929;
+            border:
+                1px solid #292929;
 
             border-radius: 24px;
 
@@ -278,11 +326,10 @@
         }
 
 
-        /* =====================================================
-           MENSAGEM
-        ===================================================== */
+        /* MENSAGEM */
 
         .message {
+
             display: none;
 
             padding: 12px 14px;
@@ -296,46 +343,59 @@
             line-height: 1.5;
         }
 
+
         .message.error {
+
             display: block;
 
-            background: rgba(255,60,60,.08);
+            background:
+                rgba(255,60,60,.08);
 
-            border: 1px solid rgba(255,60,60,.25);
+            border:
+                1px solid rgba(255,60,60,.25);
 
             color: #ff8585;
         }
 
+
         .message.success {
+
             display: block;
 
-            background: rgba(163,255,18,.08);
+            background:
+                rgba(163,255,18,.08);
 
-            border: 1px solid rgba(163,255,18,.25);
+            border:
+                1px solid rgba(163,255,18,.25);
 
             color: var(--green);
         }
 
+
         .message.warning {
+
             display: block;
 
-            background: rgba(255,180,0,.08);
+            background:
+                rgba(255,180,0,.08);
 
-            border: 1px solid rgba(255,180,0,.20);
+            border:
+                1px solid rgba(255,180,0,.20);
 
             color: #ffc44d;
         }
 
 
-        /* =====================================================
-           CAMPOS
-        ===================================================== */
+        /* CAMPOS */
 
         .form-group {
+
             margin-bottom: 18px;
         }
 
+
         .form-group label {
+
             display: block;
 
             margin-bottom: 8px;
@@ -347,17 +407,23 @@
             font-weight: 500;
         }
 
+
         .input-wrapper {
+
             position: relative;
         }
 
+
         .input-wrapper > i {
+
             position: absolute;
 
             left: 15px;
+
             top: 50%;
 
-            transform: translateY(-50%);
+            transform:
+                translateY(-50%);
 
             color: #666;
 
@@ -366,15 +432,20 @@
             pointer-events: none;
         }
 
+
         .input-wrapper input {
+
             width: 100%;
+
             height: 50px;
 
-            padding: 0 15px 0 43px;
+            padding:
+                0 15px 0 43px;
 
             background: #0c0c0c;
 
-            border: 1px solid #292929;
+            border:
+                1px solid #292929;
 
             border-radius: 11px;
 
@@ -387,33 +458,36 @@
             transition: .25s;
         }
 
+
         .input-wrapper input::placeholder {
+
             color: #555;
         }
 
+
         .input-wrapper input:focus {
-            border-color: var(--green);
+
+            border-color:
+                var(--green);
 
             box-shadow:
-                0 0 0 3px rgba(163,255,18,.06);
+                0 0 0 3px
+                rgba(163,255,18,.06);
         }
 
 
-        /* =====================================================
-           SENHA
-        ===================================================== */
-
-        .password-wrapper input {
-            padding-right: 50px;
-        }
+        /* SENHA */
 
         .password-toggle {
+
             position: absolute;
 
             right: 14px;
+
             top: 50%;
 
-            transform: translateY(-50%);
+            transform:
+                translateY(-50%);
 
             border: none;
 
@@ -426,16 +500,17 @@
             padding: 5px;
         }
 
+
         .password-toggle:hover {
+
             color: var(--green);
         }
 
 
-        /* =====================================================
-           TERMOS
-        ===================================================== */
+        /* TERMOS */
 
         .terms {
+
             display: flex;
 
             align-items: flex-start;
@@ -445,20 +520,25 @@
             margin: 22px 0;
         }
 
+
         .terms input {
+
             width: 16px;
             height: 16px;
 
             margin-top: 2px;
 
-            accent-color: var(--green);
+            accent-color:
+                var(--green);
 
             cursor: pointer;
 
             flex-shrink: 0;
         }
 
+
         .terms label {
+
             color: #777;
 
             font-size: 11px;
@@ -468,28 +548,35 @@
             cursor: pointer;
         }
 
+
         .terms a {
-            color: var(--green);
+
+            color:
+                var(--green);
 
             font-weight: 600;
         }
 
+
         .terms a:hover {
-            text-decoration: underline;
+
+            text-decoration:
+                underline;
         }
 
 
-        /* =====================================================
-           BOTÃO
-        ===================================================== */
+        /* BOTÃO */
 
         .btn-submit {
+
             width: 100%;
+
             height: 52px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             gap: 9px;
@@ -498,9 +585,11 @@
 
             border-radius: 12px;
 
-            background: var(--green);
+            background:
+                var(--green);
 
-            color: #080808;
+            color:
+                #080808;
 
             font-size: 14px;
 
@@ -511,21 +600,24 @@
             transition: .25s;
         }
 
+
         .btn-submit:hover:not(:disabled) {
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
 
             box-shadow:
-                0 15px 35px rgba(163,255,18,.18);
+                0 15px 35px
+                rgba(163,255,18,.18);
         }
 
-        .btn-submit:active {
-            transform: translateY(0);
-        }
 
         .btn-submit:disabled {
+
             opacity: .45;
 
-            cursor: not-allowed;
+            cursor:
+                not-allowed;
 
             transform: none;
 
@@ -533,11 +625,10 @@
         }
 
 
-        /* =====================================================
-           LOGIN
-        ===================================================== */
+        /* LOGIN */
 
         .login-link {
+
             text-align: center;
 
             margin-top: 24px;
@@ -547,70 +638,85 @@
             font-size: 12px;
         }
 
+
         .login-link a {
-            color: var(--green);
+
+            color:
+                var(--green);
 
             font-weight: 600;
         }
 
+
         .login-link a:hover {
-            text-decoration: underline;
+
+            text-decoration:
+                underline;
         }
 
 
-        /* =====================================================
-           BENEFÍCIOS
-        ===================================================== */
+        /* BENEFÍCIOS */
 
         .mini-benefits {
+
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 10px;
 
             margin-top: 25px;
         }
 
+
         .mini-benefit {
+
             padding: 13px 8px;
 
             text-align: center;
 
-            border: 1px solid #202020;
+            border:
+                1px solid #202020;
 
             border-radius: 12px;
 
-            background: rgba(255,255,255,.015);
+            background:
+                rgba(255,255,255,.015);
         }
 
+
         .mini-benefit i {
+
             display: block;
 
-            color: var(--green);
+            color:
+                var(--green);
 
             font-size: 15px;
 
             margin-bottom: 6px;
         }
 
+
         .mini-benefit span {
+
             color: #666;
 
             font-size: 9px;
         }
 
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+        /* FOOTER */
 
         footer {
+
             padding: 22px;
 
             text-align: center;
 
-            border-top: 1px solid #181818;
+            border-top:
+                1px solid #181818;
 
             color: #444;
 
@@ -618,9 +724,7 @@
         }
 
 
-        /* =====================================================
-           RESPONSIVO
-        ===================================================== */
+        /* RESPONSIVO */
 
         @media (max-width: 600px) {
 
@@ -634,7 +738,6 @@
 
             .signup-card {
                 padding: 25px 20px;
-
                 border-radius: 20px;
             }
 
@@ -651,9 +754,11 @@
             }
 
             .mini-benefit {
+
                 display: flex;
 
                 align-items: center;
+
                 justify-content: center;
 
                 gap: 8px;
@@ -679,9 +784,7 @@
 <div class="page">
 
 
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
+    <!-- HEADER -->
 
     <header>
 
@@ -691,10 +794,13 @@
                 href="index.html"
                 class="logo">
 
-                <i class="fa-solid fa-person-running"></i>
+                <i
+                    class="fa-solid fa-person-running">
+                </i>
 
                 <span>
-                    Projeto <strong>Corre</strong>
+                    Projeto
+                    <strong>Corre</strong>
                 </span>
 
             </a>
@@ -704,7 +810,9 @@
                 href="index.html"
                 class="back-home">
 
-                <i class="fa-solid fa-arrow-left"></i>
+                <i
+                    class="fa-solid fa-arrow-left">
+                </i>
 
                 <span>
                     Voltar para o início
@@ -717,9 +825,7 @@
     </header>
 
 
-    <!-- =====================================================
-         CADASTRO
-    ===================================================== -->
+    <!-- CADASTRO -->
 
     <main class="signup-area">
 
@@ -730,19 +836,27 @@
 
                 <div class="signup-icon">
 
-                    <i class="fa-solid fa-person-running"></i>
+                    <i
+                        class="fa-solid fa-person-running">
+                    </i>
 
                 </div>
 
+
                 <h1>
+
                     Comece sua
                     <span>jornada.</span>
+
                 </h1>
 
+
                 <p>
+
                     Crie sua conta gratuitamente
                     e dê o primeiro passo com o
                     Projeto Corre.
+
                 </p>
 
             </div>
@@ -757,7 +871,8 @@
                 </div>
 
 
-                <form id="signupForm">
+                <form
+                    id="signupForm">
 
 
                     <!-- NOME -->
@@ -770,7 +885,9 @@
 
                         <div class="input-wrapper">
 
-                            <i class="fa-solid fa-user"></i>
+                            <i
+                                class="fa-solid fa-user">
+                            </i>
 
                             <input
                                 type="text"
@@ -794,7 +911,9 @@
 
                         <div class="input-wrapper">
 
-                            <i class="fa-solid fa-envelope"></i>
+                            <i
+                                class="fa-solid fa-envelope">
+                            </i>
 
                             <input
                                 type="email"
@@ -816,9 +935,11 @@
                             Senha
                         </label>
 
-                        <div class="input-wrapper password-wrapper">
+                        <div class="input-wrapper">
 
-                            <i class="fa-solid fa-lock"></i>
+                            <i
+                                class="fa-solid fa-lock">
+                            </i>
 
                             <input
                                 type="password"
@@ -828,13 +949,16 @@
                                 minlength="6"
                                 required>
 
+
                             <button
                                 type="button"
                                 class="password-toggle"
                                 id="togglePassword"
                                 aria-label="Mostrar senha">
 
-                                <i class="fa-solid fa-eye"></i>
+                                <i
+                                    class="fa-solid fa-eye">
+                                </i>
 
                             </button>
 
@@ -853,7 +977,9 @@
 
                         <div class="input-wrapper">
 
-                            <i class="fa-solid fa-lock"></i>
+                            <i
+                                class="fa-solid fa-lock">
+                            </i>
 
                             <input
                                 type="password"
@@ -877,6 +1003,7 @@
                             id="aceiteTermos"
                             required>
 
+
                         <label for="aceiteTermos">
 
                             Li e concordo com os
@@ -890,7 +1017,8 @@
 
                             </a>
 
-                            e estou ciente das condições apresentadas.
+                            e estou ciente das
+                            condições apresentadas.
 
                         </label>
 
@@ -902,8 +1030,7 @@
                     <button
                         type="submit"
                         class="btn-submit"
-                        id="btnSubmit"
-                        disabled>
+                        id="btnSubmit">
 
                         <span id="btnText">
                             Criar minha conta
@@ -915,6 +1042,7 @@
                         </i>
 
                     </button>
+
 
                 </form>
 
@@ -931,6 +1059,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -938,9 +1067,12 @@
 
             <div class="mini-benefits">
 
+
                 <div class="mini-benefit">
 
-                    <i class="fa-solid fa-check"></i>
+                    <i
+                        class="fa-solid fa-check">
+                    </i>
 
                     <span>
                         Cadastro gratuito
@@ -951,7 +1083,9 @@
 
                 <div class="mini-benefit">
 
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <i
+                        class="fa-solid fa-shield-halved">
+                    </i>
 
                     <span>
                         Seus dados protegidos
@@ -962,13 +1096,16 @@
 
                 <div class="mini-benefit">
 
-                    <i class="fa-solid fa-bolt"></i>
+                    <i
+                        class="fa-solid fa-bolt">
+                    </i>
 
                     <span>
                         Comece agora
                     </span>
 
                 </div>
+
 
             </div>
 
@@ -977,9 +1114,7 @@
     </main>
 
 
-    <!-- =====================================================
-         FOOTER
-    ===================================================== -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -988,504 +1123,517 @@
 
     </footer>
 
-</div>
 
+</div>
 
 
 <script>
 
-/* =========================================================
-   CONFIGURAÇÃO DO SUPABASE
-========================================================= */
-
-const SUPABASE_URL =
-    "https://mubzyyppizxuofitnysp.supabase.co";
-
-const SUPABASE_ANON_KEY =
-    "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
-
-
-/* =========================================================
-   CONEXÃO
-========================================================= */
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_ANON_KEY
-    );
-
-
-/* =========================================================
-   ELEMENTOS
-========================================================= */
-
-const signupForm =
-    document.getElementById("signupForm");
-
-const nameInput =
-    document.getElementById("name");
-
-const emailInput =
-    document.getElementById("email");
-
-const passwordInput =
-    document.getElementById("password");
-
-const confirmPasswordInput =
-    document.getElementById("confirmPassword");
-
-const aceiteTermos =
-    document.getElementById("aceiteTermos");
-
-const btnSubmit =
-    document.getElementById("btnSubmit");
-
-const btnText =
-    document.getElementById("btnText");
-
-const btnIcon =
-    document.getElementById("btnIcon");
-
-const message =
-    document.getElementById("message");
-
-const togglePassword =
-    document.getElementById("togglePassword");
-
-
-/* =========================================================
-   MENSAGENS
-========================================================= */
-
-function showMessage(text, type) {
-
-    message.textContent = text;
-
-    message.className =
-        "message " + type;
-
-}
-
-
-function clearMessage() {
-
-    message.textContent = "";
-
-    message.className = "message";
-
-}
-
-
-/* =========================================================
-   MOSTRAR / OCULTAR SENHA
-========================================================= */
-
-togglePassword.addEventListener(
-    "click",
+document.addEventListener(
+    "DOMContentLoaded",
     function () {
 
-        const mostrar =
-            passwordInput.type === "password";
-
-        passwordInput.type =
-            mostrar ? "text" : "password";
-
-        this.innerHTML =
-            mostrar
-                ? '<i class="fa-solid fa-eye-slash"></i>'
-                : '<i class="fa-solid fa-eye"></i>';
-
-        this.setAttribute(
-            "aria-label",
-            mostrar
-                ? "Ocultar senha"
-                : "Mostrar senha"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ATIVAR BOTÃO
-========================================================= */
-
-aceiteTermos.addEventListener(
-    "change",
-    function () {
-
-        btnSubmit.disabled =
-            !this.checked;
-
-    }
-);
-
-
-/* =========================================================
-   CADASTRO
-========================================================= */
-
-signupForm.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
-
-        clearMessage();
-
 
         /* =====================================================
-           TERMOS
+           CONFIGURAÇÃO SUPABASE
         ===================================================== */
 
-        if (!aceiteTermos.checked) {
+        const SUPABASE_URL =
+            "https://mubzyyppizxuofitnysp.supabase.co";
 
-            showMessage(
-                "Você precisa aceitar os Termos de Uso para continuar.",
-                "error"
+
+        const SUPABASE_KEY =
+            "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
+
+
+        const supabase =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
             );
 
-            return;
-        }
-
 
         /* =====================================================
-           NOME
+           ELEMENTOS
         ===================================================== */
 
-        const nome =
-            nameInput.value.trim();
-
-        if (nome.length < 3) {
-
-            showMessage(
-                "Digite seu nome completo.",
-                "error"
+        const form =
+            document.getElementById(
+                "signupForm"
             );
 
-            nameInput.focus();
-
-            return;
-        }
-
-
-        /* =====================================================
-           EMAIL
-        ===================================================== */
-
-        const email =
-            emailInput.value
-                .trim()
-                .toLowerCase();
-
-        if (!emailInput.checkValidity()) {
-
-            showMessage(
-                "Digite um e-mail válido.",
-                "error"
+        const nameInput =
+            document.getElementById(
+                "name"
             );
 
-            emailInput.focus();
-
-            return;
-        }
-
-
-        /* =====================================================
-           SENHA
-        ===================================================== */
-
-        const senha =
-            passwordInput.value;
-
-        if (senha.length < 6) {
-
-            showMessage(
-                "A senha precisa ter pelo menos 6 caracteres.",
-                "error"
+        const emailInput =
+            document.getElementById(
+                "email"
             );
 
-            passwordInput.focus();
+        const passwordInput =
+            document.getElementById(
+                "password"
+            );
 
-            return;
-        }
+        const confirmPasswordInput =
+            document.getElementById(
+                "confirmPassword"
+            );
+
+        const aceiteTermos =
+            document.getElementById(
+                "aceiteTermos"
+            );
+
+        const button =
+            document.getElementById(
+                "btnSubmit"
+            );
+
+        const buttonText =
+            document.getElementById(
+                "btnText"
+            );
+
+        const buttonIcon =
+            document.getElementById(
+                "btnIcon"
+            );
+
+        const message =
+            document.getElementById(
+                "message"
+            );
+
+        const togglePassword =
+            document.getElementById(
+                "togglePassword"
+            );
 
 
         /* =====================================================
-           CONFIRMAÇÃO
+           MENSAGENS
         ===================================================== */
 
-        if (
-            senha !==
-            confirmPasswordInput.value
+        function showMessage(
+            text,
+            type = "error"
         ) {
 
-            showMessage(
-                "As senhas não são iguais.",
-                "error"
-            );
+            message.textContent =
+                text;
 
-            confirmPasswordInput.focus();
+            message.className =
+                "message " + type;
+        }
 
-            return;
+
+        function clearMessage() {
+
+            message.textContent = "";
+
+            message.className =
+                "message";
         }
 
 
         /* =====================================================
-           BLOQUEAR BOTÃO
+           MOSTRAR SENHA
         ===================================================== */
 
-        btnSubmit.disabled = true;
+        togglePassword.addEventListener(
+            "click",
+            function () {
 
-        btnText.textContent =
-            "Criando conta...";
-
-        btnIcon.className =
-            "fa-solid fa-spinner fa-spin";
-
-
-        try {
+                const showing =
+                    passwordInput.type === "password";
 
 
-            /* =================================================
-               CRIAR USUÁRIO NO SUPABASE AUTH
-            ================================================= */
-
-            const {
-                data,
-                error
-            } =
-                await supabaseClient.auth.signUp({
-
-                    email: email,
-
-                    password: senha,
-
-                    options: {
-
-                        data: {
-
-                            name: nome,
-
-                            nome: nome
-
-                        }
-
-                    }
-
-                });
+                passwordInput.type =
+                    showing
+                        ? "text"
+                        : "password";
 
 
-            /* =================================================
-               ERRO
-            ================================================= */
+                this.innerHTML =
+                    showing
 
-            if (error) {
+                        ? '<i class="fa-solid fa-eye-slash"></i>'
 
-                console.error(
-                    "Erro Supabase:",
-                    error
+                        : '<i class="fa-solid fa-eye"></i>';
+
+
+                this.setAttribute(
+                    "aria-label",
+                    showing
+                        ? "Ocultar senha"
+                        : "Mostrar senha"
                 );
 
-                let mensagem =
-                    "Não foi possível criar sua conta.";
+            }
+        );
 
-                if (
-                    error.message
-                        .toLowerCase()
-                        .includes("already registered")
-                ) {
 
-                    mensagem =
-                        "Este e-mail já possui uma conta. Tente entrar.";
+        /* =====================================================
+           CADASTRO
+        ===================================================== */
 
-                } else if (
-                    error.message
-                        .toLowerCase()
-                        .includes("password")
-                ) {
+        form.addEventListener(
+            "submit",
+            async function (event) {
 
-                    mensagem =
-                        "A senha informada não atende aos requisitos.";
+                event.preventDefault();
 
-                } else if (
-                    error.message
-                        .toLowerCase()
-                        .includes("email")
-                ) {
+                clearMessage();
 
-                    mensagem =
-                        "Verifique o e-mail informado.";
 
+                /* VALIDAÇÃO */
+
+                const nome =
+                    nameInput.value.trim();
+
+
+                const email =
+                    emailInput.value
+                        .trim()
+                        .toLowerCase();
+
+
+                const senha =
+                    passwordInput.value;
+
+
+                const confirmacao =
+                    confirmPasswordInput.value;
+
+
+                if (nome.length < 3) {
+
+                    showMessage(
+                        "Digite seu nome completo.",
+                        "error"
+                    );
+
+                    nameInput.focus();
+
+                    return;
                 }
 
-                showMessage(
-                    mensagem,
-                    "error"
-                );
 
-                btnSubmit.disabled = false;
+                if (!emailInput.checkValidity()) {
 
-                btnText.textContent =
-                    "Criar minha conta";
+                    showMessage(
+                        "Digite um e-mail válido.",
+                        "error"
+                    );
 
-                btnIcon.className =
-                    "fa-solid fa-arrow-right";
+                    emailInput.focus();
 
-                return;
-            }
+                    return;
+                }
 
 
-            /* =================================================
-               VERIFICAR USUÁRIO
-            ================================================= */
+                if (senha.length < 6) {
 
-            if (!data || !data.user) {
+                    showMessage(
+                        "A senha precisa ter pelo menos 6 caracteres.",
+                        "error"
+                    );
 
-                throw new Error(
-                    "O Supabase não retornou o usuário criado."
-                );
+                    passwordInput.focus();
 
-            }
-
-
-            /* =================================================
-               SALVAR PERFIL
-            ================================================= */
-
-            const userId =
-                data.user.id;
+                    return;
+                }
 
 
-            const {
-                error: profileError
-            } =
-                await supabaseClient
-                    .from("profiles")
-                    .upsert({
+                if (senha !== confirmacao) {
 
-                        id: userId,
+                    showMessage(
+                        "As senhas não são iguais.",
+                        "error"
+                    );
 
-                        name: nome,
+                    confirmPasswordInput.focus();
+
+                    return;
+                }
+
+
+                if (!aceiteTermos.checked) {
+
+                    showMessage(
+                        "Você precisa aceitar os Termos de Uso para continuar.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                /* =================================================
+                   BLOQUEAR BOTÃO
+                ================================================= */
+
+                button.disabled = true;
+
+                buttonText.textContent =
+                    "Criando conta...";
+
+                buttonIcon.className =
+                    "fa-solid fa-spinner fa-spin";
+
+
+                try {
+
+
+                    /* =================================================
+                       CRIAR USUÁRIO NO SUPABASE AUTH
+                    ================================================= */
+
+                    const {
+                        data,
+                        error
+                    } = await supabase.auth.signUp({
 
                         email: email,
 
-                        plan: "free"
+                        password: senha,
+
+                        options: {
+
+                            data: {
+
+                                name: nome
+
+                            }
+
+                        }
 
                     });
 
 
-            /* =================================================
-               ERRO PERFIL
-            ================================================= */
+                    if (error) {
 
-            if (profileError) {
+                        console.error(
+                            "Erro Supabase Auth:",
+                            error
+                        );
 
-                console.error(
-                    "Erro ao salvar perfil:",
-                    profileError
-                );
+                        throw error;
+                    }
 
-                /*
-                   A conta do Auth foi criada,
-                   mas o perfil não conseguiu ser salvo.
-                */
 
-                showMessage(
-                    "Sua conta foi criada, mas houve um problema ao salvar seu perfil. Tente entrar novamente.",
-                    "warning"
-                );
+                    if (!data.user) {
 
-                btnSubmit.disabled = false;
+                        throw new Error(
+                            "O Supabase não retornou o usuário."
+                        );
+                    }
 
-                btnText.textContent =
-                    "Criar minha conta";
 
-                btnIcon.className =
-                    "fa-solid fa-arrow-right";
+                    /* =================================================
+                       CRIAR PERFIL
+                    ================================================= */
 
-                return;
+                    /*
+                       Só fazemos INSERT diretamente
+                       quando existe sessão.
+
+                       Isso respeita as políticas RLS
+                       que você criou no Supabase.
+                    */
+
+                    if (data.session) {
+
+                        const {
+                            error:
+                            profileError
+                        } = await supabase
+                            .from("profiles")
+                            .insert({
+
+                                id:
+                                    data.user.id,
+
+                                name:
+                                    nome,
+
+                                email:
+                                    email,
+
+                                plan:
+                                    "free"
+
+                            });
+
+
+                        if (profileError) {
+
+                            console.error(
+                                "Erro ao criar perfil:",
+                                profileError
+                            );
+
+                            /*
+                               Se o usuário foi criado
+                               mas o perfil falhou,
+                               mostramos o erro.
+                            */
+
+                            throw new Error(
+                                "Sua conta foi criada, mas não foi possível criar seu perfil. " +
+                                profileError.message
+                            );
+                        }
+
+                    }
+
+
+                    /* =================================================
+                       CADASTRO COM CONFIRMAÇÃO DE E-MAIL
+                    ================================================= */
+
+                    if (!data.session) {
+
+                        buttonText.textContent =
+                            "Cadastro realizado!";
+
+                        buttonIcon.className =
+                            "fa-solid fa-check";
+
+
+                        showMessage(
+                            "Conta criada com sucesso! Verifique seu e-mail para confirmar a conta antes de entrar.",
+                            "success"
+                        );
+
+
+                        form.reset();
+
+
+                        return;
+                    }
+
+
+                    /* =================================================
+                       LOGIN AUTOMÁTICO
+                    ================================================= */
+
+                    buttonText.textContent =
+                        "Conta criada!";
+
+                    buttonIcon.className =
+                        "fa-solid fa-check";
+
+
+                    showMessage(
+                        "Cadastro realizado com sucesso! Redirecionando...",
+                        "success"
+                    );
+
+
+                    /*
+                       Mantemos algumas informações locais
+                       apenas para compatibilidade visual
+                       com páginas antigas.
+
+                       Elas NÃO são usadas como banco
+                       de usuários.
+                    */
+
+                    localStorage.setItem(
+                        "userName",
+                        nome
+                    );
+
+                    localStorage.setItem(
+                        "userEmail",
+                        email
+                    );
+
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "painel.html";
+
+                        },
+                        1000
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Erro no cadastro:",
+                        error
+                    );
+
+
+                    let mensagem =
+                        error.message ||
+                        "Não foi possível criar sua conta.";
+
+
+                    /* ERROS COMUNS */
+
+                    if (
+                        mensagem
+                            .toLowerCase()
+                            .includes("user already registered")
+                    ) {
+
+                        mensagem =
+                            "Este e-mail já possui uma conta. Tente entrar pela página de login.";
+                    }
+
+
+                    else if (
+                        mensagem
+                            .toLowerCase()
+                            .includes("password")
+                    ) {
+
+                        mensagem =
+                            "A senha não atende aos requisitos do Supabase.";
+                    }
+
+
+                    else if (
+                        mensagem
+                            .toLowerCase()
+                            .includes("email")
+                    ) {
+
+                        mensagem =
+                            "Verifique o endereço de e-mail informado.";
+                    }
+
+
+                    showMessage(
+                        mensagem,
+                        "error"
+                    );
+
+
+                    button.disabled =
+                        false;
+
+                    buttonText.textContent =
+                        "Criar minha conta";
+
+                    buttonIcon.className =
+                        "fa-solid fa-arrow-right";
+
+                }
+
             }
+        );
 
-
-            /* =================================================
-               COMPATIBILIDADE LOCAL
-            ================================================= */
-
-            localStorage.setItem(
-                "userName",
-                nome
-            );
-
-            localStorage.setItem(
-                "userEmail",
-                email
-            );
-
-            localStorage.setItem(
-                "projetoCorreLogado",
-                "true"
-            );
-
-
-            /* =================================================
-               SUCESSO
-            ================================================= */
-
-            btnText.textContent =
-                "Conta criada!";
-
-            btnIcon.className =
-                "fa-solid fa-check";
-
-
-            showMessage(
-                "Cadastro realizado com sucesso! Redirecionando...",
-                "success"
-            );
-
-
-            /* =================================================
-               REDIRECIONAMENTO
-            ================================================= */
-
-            setTimeout(
-                function () {
-
-                    window.location.href =
-                        "painel.html";
-
-                },
-                1000
-            );
-
-
-        } catch (error) {
-
-            console.error(
-                "Erro inesperado:",
-                error
-            );
-
-            showMessage(
-                "Ocorreu um erro inesperado. Verifique sua conexão e tente novamente.",
-                "error"
-            );
-
-
-            btnSubmit.disabled = false;
-
-            btnText.textContent =
-                "Criar minha conta";
-
-            btnIcon.className =
-                "fa-solid fa-arrow-right";
-
-        }
-
-    }
-);
+    });
 
 </script>
 
