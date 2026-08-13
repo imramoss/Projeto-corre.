@@ -9,7 +9,7 @@
 <title>Projeto Corre | Evolução</title>
 
 <link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
 rel="stylesheet">
 
 <link
@@ -18,124 +18,1078 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
 }
 
-body{
-background:#080808;
-color:white;
-font-family:Poppins,sans-serif;
+:root{
+
+--green:#A3FF12;
+--black:#080808;
+--dark:#111;
+--dark2:#171717;
+--border:#292929;
+--gray:#777;
+--gray2:#aaa;
+--white:#fff;
+
 }
 
-header{
-height:75px;
-border-bottom:1px solid #292929;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 7%;
+body{
+
+background:var(--black);
+
+color:white;
+
+font-family:Poppins,sans-serif;
+
+min-height:100vh;
+
 }
 
 a{
+
 color:inherit;
+
 text-decoration:none;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+height:75px;
+
+border-bottom:1px solid var(--border);
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 7%;
+
+background:#0b0b0b;
+
+position:sticky;
+
+top:0;
+
+z-index:20;
+
 }
 
 .logo{
+
 font-size:20px;
+
 font-weight:800;
+
+white-space:nowrap;
+
 }
 
-.logo i,
+.logo i{
+
+color:var(--green);
+
+margin-right:8px;
+
+}
+
 .logo span{
-color:#A3FF12;
+
+color:var(--green);
+
 }
 
 .back{
+
 font-size:12px;
-color:#777;
+
+color:var(--gray);
+
+transition:.2s;
+
 }
+
+.back:hover{
+
+color:var(--green);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 main{
-max-width:1000px;
+
+max-width:1100px;
+
 margin:auto;
-padding:45px 20px;
+
+padding:40px 20px 60px;
+
 }
 
-h1{
+.title{
+
+margin-bottom:30px;
+
+}
+
+.title h1{
+
 font-size:30px;
+
+font-weight:700;
+
+line-height:1.2;
+
+}
+
+.title h1 span{
+
+color:var(--green);
+
 }
 
 .subtitle{
+
 color:#666;
+
 font-size:12px;
-margin:8px 0 30px;
+
+margin-top:8px;
+
 }
 
+
+/* =====================================================
+   RESUMO
+===================================================== */
+
 .stats{
+
 display:grid;
-grid-template-columns:repeat(3,1fr);
+
+grid-template-columns:
+repeat(4,1fr);
+
 gap:15px;
+
 }
 
 .stat{
-background:#111;
-border:1px solid #292929;
+
+background:var(--dark);
+
+border:1px solid var(--border);
+
 border-radius:18px;
-padding:25px;
+
+padding:22px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.2s;
+
 }
 
-.stat i{
-color:#A3FF12;
-font-size:22px;
-margin-bottom:15px;
+.stat:hover{
+
+transform:translateY(-3px);
+
+border-color:
+rgba(163,255,18,.3);
+
+}
+
+.stat::after{
+
+content:"";
+
+position:absolute;
+
+width:80px;
+
+height:80px;
+
+right:-30px;
+
+top:-30px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(163,255,18,.10),
+transparent 70%
+);
+
+}
+
+.stat-icon{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:12px;
+
+background:
+rgba(163,255,18,.08);
+
+margin-bottom:16px;
+
+}
+
+.stat-icon i{
+
+color:var(--green);
+
+font-size:18px;
+
 }
 
 .stat strong{
-font-size:25px;
+
 display:block;
+
+font-size:24px;
+
+font-weight:700;
+
+line-height:1.2;
+
 }
 
 .stat span{
+
+display:block;
+
+margin-top:5px;
+
 font-size:10px;
+
 color:#666;
+
+}
+
+
+/* =====================================================
+   GRID PRINCIPAL
+===================================================== */
+
+.dashboard-grid{
+
+display:grid;
+
+grid-template-columns:
+1.6fr 1fr;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+
+/* =====================================================
+   PAINEL
+===================================================== */
+
+.panel{
+
+background:var(--dark);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+padding:25px;
+
+}
+
+.panel-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:22px;
+
+}
+
+.panel-header h2{
+
+font-size:15px;
+
+font-weight:600;
+
+}
+
+.panel-header span{
+
+font-size:10px;
+
+color:#666;
+
+}
+
+
+/* =====================================================
+   GRÁFICO
+===================================================== */
+
+.chart{
+
+height:220px;
+
+display:flex;
+
+align-items:flex-end;
+
+justify-content:space-between;
+
+gap:12px;
+
+padding-top:20px;
+
+border-bottom:1px solid #292929;
+
+position:relative;
+
+}
+
+.chart::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+right:0;
+
+top:25%;
+
+border-top:1px dashed #222;
+
+}
+
+.chart::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+right:0;
+
+top:50%;
+
+border-top:1px dashed #222;
+
+}
+
+.chart-column{
+
+height:100%;
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:flex-end;
+
+align-items:center;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chart-bar{
+
+width:100%;
+
+max-width:42px;
+
+height:var(--height);
+
+background:
+
+linear-gradient(
+to top,
+#72b600,
+var(--green)
+);
+
+border-radius:8px 8px 3px 3px;
+
+transition:
+height .8s ease;
+
+position:relative;
+
+}
+
+.chart-bar:hover{
+
+filter:brightness(1.15);
+
+}
+
+.chart-value{
+
+position:absolute;
+
+top:-21px;
+
+font-size:9px;
+
+color:#999;
+
+}
+
+.chart-day{
+
+margin-top:9px;
+
+font-size:9px;
+
+color:#555;
+
+}
+
+
+/* =====================================================
+   META SEMANAL
+===================================================== */
+
+.goal{
+
+margin-top:20px;
+
+}
+
+.goal-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:10px;
+
+}
+
+.goal-title{
+
+font-size:12px;
+
+font-weight:600;
+
+}
+
+.goal-value{
+
+font-size:11px;
+
+color:var(--green);
+
+font-weight:600;
+
+}
+
+.progress{
+
+width:100%;
+
+height:10px;
+
+background:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+width:0%;
+
+background:var(--green);
+
+border-radius:20px;
+
+transition:
+width 1s ease;
+
+}
+
+.goal-info{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:8px;
+
+font-size:9px;
+
+color:#555;
+
+}
+
+
+/* =====================================================
+   MELHOR MARCA
+===================================================== */
+
+.best{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.best-item{
+
+display:flex;
+
+align-items:center;
+
+gap:13px;
+
+padding:14px;
+
+border-radius:12px;
+
+background:var(--dark2);
+
+border:1px solid #202020;
+
+}
+
+.best-icon{
+
+width:38px;
+
+height:38px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:10px;
+
+background:
+rgba(163,255,18,.08);
+
+color:var(--green);
+
+}
+
+.best-info strong{
+
+display:block;
+
+font-size:13px;
+
+}
+
+.best-info span{
+
+display:block;
+
+font-size:9px;
+
+color:#666;
+
+margin-top:2px;
+
+}
+
+
+/* =====================================================
+   HISTÓRICO
+===================================================== */
+
+.history{
+
+margin-top:20px;
+
+}
+
+.history-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:9px;
+
+}
+
+.history-item{
+
+display:grid;
+
+grid-template-columns:
+45px 1fr auto;
+
+align-items:center;
+
+gap:13px;
+
+padding:13px;
+
+border-radius:12px;
+
+background:var(--dark2);
+
+border:1px solid #202020;
+
+}
+
+.history-icon{
+
+width:38px;
+
+height:38px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:10px;
+
+background:
+rgba(163,255,18,.08);
+
+color:var(--green);
+
+}
+
+.history-info strong{
+
+display:block;
+
+font-size:11px;
+
+}
+
+.history-info span{
+
+display:block;
+
+font-size:9px;
+
+color:#666;
+
+margin-top:2px;
+
+}
+
+.history-distance{
+
+font-size:11px;
+
+font-weight:600;
+
+color:var(--green);
+
+}
+
+
+/* =====================================================
+   MOTIVAÇÃO
+===================================================== */
+
+.motivation{
+
+margin-top:20px;
+
+padding:28px;
+
+border-radius:18px;
+
+border:1px solid var(--border);
+
+background:
+
+radial-gradient(
+circle at right,
+rgba(163,255,18,.12),
+transparent 45%
+),
+
+#111;
+
+}
+
+.motivation i{
+
+font-size:22px;
+
+color:var(--green);
+
+margin-bottom:15px;
+
+}
+
+.motivation h2{
+
+font-size:17px;
+
+margin-bottom:6px;
+
+}
+
+.motivation p{
+
+font-size:11px;
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.action{
+
+display:flex;
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+padding:12px 17px;
+
+border-radius:10px;
+
+background:var(--green);
+
+color:#080808;
+
+font-size:11px;
+
+font-weight:700;
+
+transition:.2s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 25px
+rgba(163,255,18,.15);
+
+}
+
+.btn.secondary{
+
+background:#1b1b1b;
+
+color:#aaa;
+
+border:1px solid #292929;
+
+}
+
+.btn.secondary:hover{
+
+color:var(--green);
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:900px){
+
+.stats{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+@media(max-width:600px){
+
+header{
+
+height:65px;
+
+padding:0 18px;
+
+}
+
+.logo{
+
+font-size:17px;
+
+}
+
+.back{
+
+font-size:11px;
+
+}
+
+main{
+
+padding:
+28px 15px 45px;
+
+}
+
+.title{
+
+margin-bottom:22px;
+
+}
+
+.title h1{
+
+font-size:25px;
+
+}
+
+.subtitle{
+
+font-size:11px;
+
+}
+
+.stats{
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:10px;
+
+}
+
+.stat{
+
+padding:17px;
+
+border-radius:15px;
+
+}
+
+.stat-icon{
+
+width:36px;
+
+height:36px;
+
+margin-bottom:12px;
+
+}
+
+.stat-icon i{
+
+font-size:15px;
+
+}
+
+.stat strong{
+
+font-size:20px;
+
+}
+
+.stat span{
+
+font-size:9px;
+
+}
+
+.panel{
+
+padding:18px;
+
+border-radius:15px;
+
 }
 
 .chart{
-margin-top:20px;
-padding:30px;
-background:#111;
-border:1px solid #292929;
-border-radius:18px;
+
+height:190px;
+
+gap:6px;
+
 }
 
-.chart h2{
+.chart-bar{
+
+max-width:28px;
+
+}
+
+.history-item{
+
+grid-template-columns:
+38px 1fr auto;
+
+gap:9px;
+
+padding:11px;
+
+}
+
+.history-icon{
+
+width:34px;
+
+height:34px;
+
+font-size:12px;
+
+}
+
+.history-info strong{
+
+font-size:10px;
+
+}
+
+.history-info span{
+
+font-size:8px;
+
+}
+
+.history-distance{
+
+font-size:10px;
+
+}
+
+.motivation{
+
+padding:20px;
+
+}
+
+.motivation h2{
+
 font-size:15px;
-margin-bottom:25px;
+
 }
 
-.bar{
-height:35px;
-background:#1c1c1c;
-border-radius:8px;
-overflow:hidden;
-margin-bottom:12px;
+.motivation p{
+
+font-size:10px;
+
 }
 
-.bar div{
-height:100%;
-background:#A3FF12;
-width:0;
-transition:1s;
+.action{
+
+flex-direction:column;
+
 }
 
-@media(max-width:650px){
+.btn{
+
+width:100%;
+
+}
+
+}
+
+
+@media(max-width:380px){
 
 .stats{
+
 grid-template-columns:1fr;
+
+}
+
+.chart{
+
+height:170px;
+
+}
+
+.chart-bar{
+
+max-width:22px;
+
 }
 
 }
@@ -144,11 +1098,19 @@ grid-template-columns:1fr;
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-<a href="painel.html" class="logo">
+<a
+href="painel.html"
+class="logo">
 
 <i class="fa-solid fa-person-running"></i>
 
@@ -156,80 +1118,672 @@ Projeto <span>Corre</span>
 
 </a>
 
-<a href="painel.html" class="back">
+
+<a
+href="painel.html"
+class="back">
 
 <i class="fa-solid fa-arrow-left"></i>
-Voltar
+
+ Voltar
 
 </a>
 
 </header>
 
+
+<!-- =====================================================
+     CONTEÚDO
+===================================================== -->
+
 <main>
 
+
+<div class="title">
+
 <h1>
-Minha <span style="color:#A3FF12">evolução</span>
+
+Minha
+<span>evolução</span>
+
 </h1>
 
 <p class="subtitle">
-Acompanhe sua caminhada.
+
+Acompanhe seus treinos, suas marcas e o progresso da sua jornada.
+
 </p>
 
-<div class="stats">
+</div>
+
+
+<!-- =====================================================
+     ESTATÍSTICAS
+===================================================== -->
+
+<section class="stats">
+
 
 <div class="stat">
+
+<div class="stat-icon">
 
 <i class="fa-solid fa-road"></i>
 
-<strong>0 km</strong>
+</div>
 
-<span>Distância total</span>
+<strong id="totalKm">
+
+0 km
+
+</strong>
+
+<span>
+
+Distância total
+
+</span>
 
 </div>
 
+
 <div class="stat">
+
+<div class="stat-icon">
 
 <i class="fa-solid fa-person-running"></i>
 
-<strong>0</strong>
+</div>
 
-<span>Treinos realizados</span>
+<strong id="totalTreinos">
+
+0
+
+</strong>
+
+<span>
+
+Treinos realizados
+
+</span>
 
 </div>
+
 
 <div class="stat">
 
-<i class="fa-solid fa-trophy"></i>
+<div class="stat-icon">
 
-<strong>0</strong>
-
-<span>Conquistas</span>
+<i class="fa-solid fa-stopwatch"></i>
 
 </div>
 
+<strong id="paceMedio">
+
+--:--
+
+</strong>
+
+<span>
+
+Pace médio
+
+</span>
+
 </div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+
+<i class="fa-solid fa-fire"></i>
+
+</div>
+
+<strong id="sequencia">
+
+0 dias
+
+</strong>
+
+<span>
+
+Sequência atual
+
+</span>
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     GRÁFICO + MARCAS
+===================================================== -->
+
+<section class="dashboard-grid">
+
+
+<div class="panel">
+
+<div class="panel-header">
+
+<h2>
+
+Distância por dia
+
+</h2>
+
+<span>
+
+Últimos 7 dias
+
+</span>
+
+</div>
+
 
 <div class="chart">
 
-<h2>
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:12px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+SEG
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:25px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+TER
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:18px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+QUA
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:40px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+QUI
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:30px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+SEX
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:55px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+SÁB
+
+</span>
+
+</div>
+
+
+<div class="chart-column">
+
+<div
+class="chart-bar"
+style="--height:20px">
+
+<span class="chart-value">
+
+0 km
+
+</span>
+
+</div>
+
+<span class="chart-day">
+
+DOM
+
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="goal">
+
+<div class="goal-top">
+
+<span class="goal-title">
+
 Meta semanal
+
+</span>
+
+<span
+class="goal-value"
+id="goalValue">
+
+0%
+
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div
+class="progress-fill"
+id="goalProgress">
+
+</div>
+
+</div>
+
+
+<div class="goal-info">
+
+<span>
+
+0 km realizados
+
+</span>
+
+<span>
+
+Meta: 5 km
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MELHORES MARCAS
+===================================================== -->
+
+<div class="panel">
+
+<div class="panel-header">
+
+<h2>
+
+Melhores marcas
+
 </h2>
 
-<p style="color:#666;font-size:11px;margin-bottom:10px;">
-0 km de 5 km
+<span>
+
+Seu desempenho
+
+</span>
+
+</div>
+
+
+<div class="best">
+
+
+<div class="best-item">
+
+<div class="best-icon">
+
+<i class="fa-solid fa-route"></i>
+
+</div>
+
+<div class="best-info">
+
+<strong>
+
+Maior distância
+
+</strong>
+
+<span>
+
+Ainda não registrado
+
+</span>
+
+</div>
+
+</div>
+
+
+<div class="best-item">
+
+<div class="best-icon">
+
+<i class="fa-solid fa-bolt"></i>
+
+</div>
+
+<div class="best-info">
+
+<strong>
+
+Melhor pace
+
+</strong>
+
+<span>
+
+Ainda não registrado
+
+</span>
+
+</div>
+
+</div>
+
+
+<div class="best-item">
+
+<div class="best-icon">
+
+<i class="fa-solid fa-medal"></i>
+
+</div>
+
+<div class="best-info">
+
+<strong>
+
+Melhor treino
+
+</strong>
+
+<span>
+
+Ainda não registrado
+
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     HISTÓRICO
+===================================================== -->
+
+<section class="panel history">
+
+<div class="panel-header">
+
+<h2>
+
+Histórico recente
+
+</h2>
+
+<span>
+
+Últimos treinos
+
+</span>
+
+</div>
+
+
+<div
+class="history-list"
+id="historyList">
+
+
+<div class="history-item">
+
+<div class="history-icon">
+
+<i class="fa-solid fa-person-running"></i>
+
+</div>
+
+<div class="history-info">
+
+<strong>
+
+Nenhum treino registrado
+
+</strong>
+
+<span>
+
+Comece seu primeiro treino para acompanhar sua evolução.
+
+</span>
+
+</div>
+
+<div class="history-distance">
+
+0 km
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MOTIVAÇÃO
+===================================================== -->
+
+<section class="motivation">
+
+<i class="fa-solid fa-quote-left"></i>
+
+<h2>
+
+Cada quilômetro conta.
+
+</h2>
+
+<p>
+
+Não importa se hoje foram 2 km ou 10 km.
+O importante é continuar. A constância de hoje
+é o resultado que você vai colher amanhã.
+
 </p>
 
-<div class="bar">
 
-<div style="width:0%"></div>
+<div class="action">
+
+<a
+href="treinos.html"
+class="btn">
+
+<i class="fa-solid fa-play"></i>
+
+Começar um treino
+
+</a>
+
+
+<a
+href="painel.html"
+class="btn secondary">
+
+<i class="fa-solid fa-house"></i>
+
+Voltar ao painel
+
+</a>
 
 </div>
 
-</div>
+</section>
+
 
 </main>
 
+
 <script src="script.js"></script>
+
+
+<script>
+
+/* =====================================================
+   ANIMAÇÃO DA BARRA
+===================================================== */
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+const progress =
+document.getElementById(
+"goalProgress"
+);
+
+const value =
+document.getElementById(
+"goalValue"
+);
+
+if(progress && value){
+
+setTimeout(
+function(){
+
+progress.style.width =
+"0%";
+
+value.textContent =
+"0%";
+
+},
+300
+);
+
+}
+
+});
+
+</script>
+
 
 </body>
 
