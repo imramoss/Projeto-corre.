@@ -3,1006 +3,871 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<meta
-    name="description"
-    content="Aulas e conteúdos para melhorar sua corrida no Projeto Corre."
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#A3FF12">
+    <meta
+        name="description"
+        content="Aulas e conteúdos para melhorar sua corrida no Projeto Corre.">
 
-<title>Projeto Corre | Aulas</title>
+    <meta
+        name="theme-color"
+        content="#A3FF12">
 
-<!-- GOOGLE FONT -->
+    <title>Projeto Corre | Aulas</title>
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
 
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
+    <!-- GOOGLE FONT -->
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<!-- FONT AWESOME -->
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
 
-<style>
+    <!-- FONT AWESOME -->
 
-/* =====================================================
-   RESET
-===================================================== */
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
+    <style>
 
-/* =====================================================
-   VARIÁVEIS
-===================================================== */
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-:root {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    --green: #A3FF12;
-    --green-dark: #78c400;
 
-    --black: #080808;
-    --dark: #101010;
-    --dark-2: #151515;
-    --dark-3: #1d1d1d;
+        :root {
 
-    --white: #ffffff;
+            --green: #A3FF12;
+            --green-dark: #78c400;
 
-    --gray: #777;
-    --gray-light: #aaa;
+            --black: #080808;
+            --dark: #101010;
+            --dark-2: #151515;
+            --dark-3: #1d1d1d;
 
-    --border: #292929;
+            --white: #ffffff;
 
-}
+            --gray: #777;
+            --gray-light: #aaa;
 
+            --border: #292929;
 
-/* =====================================================
-   BODY
-===================================================== */
+        }
 
-body {
 
-    min-height: 100vh;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    background:
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(163,255,18,.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 10% 80%,
-            rgba(163,255,18,.04),
-            transparent 30%
-        ),
-        var(--black);
 
-    color: var(--white);
+        body {
 
-    font-family: "Poppins", sans-serif;
+            min-height: 100vh;
 
-    overflow-x: hidden;
+            background:
 
-}
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(163,255,18,.08),
+                    transparent 30%
+                ),
 
+                #080808;
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+            color: white;
 
+            font-family: "Poppins", sans-serif;
 
-/* =====================================================
-   HEADER
-===================================================== */
+            overflow-x: hidden;
 
-header {
+        }
 
-    height: 76px;
 
-    border-bottom:
-        1px solid rgba(255,255,255,.06);
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    background:
-        rgba(8,8,8,.88);
 
-    backdrop-filter:
-        blur(15px);
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
 
-    display: flex;
 
-    align-items: center;
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-    justify-content: space-between;
+        header {
 
-    padding: 0 7%;
+            height: 75px;
 
-    position: sticky;
+            display: flex;
 
-    top: 0;
+            align-items: center;
 
-    z-index: 100;
+            justify-content: space-between;
 
-}
+            padding: 0 7%;
 
+            border-bottom: 1px solid rgba(255,255,255,.06);
 
-/* LOGO */
+            background: rgba(8,8,8,.92);
 
-.logo {
+            backdrop-filter: blur(15px);
 
-    display: flex;
+            position: sticky;
 
-    align-items: center;
+            top: 0;
 
-    gap: 9px;
+            z-index: 100;
 
-    font-size: 19px;
+        }
 
-    font-weight: 700;
 
-}
+        .logo {
 
-.logo i {
+            display: flex;
 
-    color: var(--green);
+            align-items: center;
 
-    font-size: 23px;
+            gap: 9px;
 
-}
+            font-size: 19px;
 
-.logo span {
+            font-weight: 800;
 
-    color: var(--green);
+        }
 
-}
 
+        .logo i {
 
-/* VOLTAR */
+            color: var(--green);
 
-.back {
+            font-size: 23px;
 
-    display: flex;
+        }
 
-    align-items: center;
 
-    gap: 8px;
+        .logo span {
+            color: var(--green);
+        }
 
-    color: #777;
 
-    font-size: 12px;
+        .header-right {
 
-    transition: .2s;
+            display: flex;
 
-}
+            align-items: center;
 
-.back:hover {
+            gap: 22px;
 
-    color: var(--green);
+        }
 
-}
 
+        .back {
 
-/* =====================================================
-   MAIN
-===================================================== */
+            display: flex;
 
-main {
+            align-items: center;
 
-    width: min(1100px, 92%);
+            gap: 7px;
 
-    margin: auto;
+            color: #777;
 
-    padding:
-        50px 0 70px;
+            font-size: 12px;
 
-}
+            transition: .2s;
 
+        }
 
-/* =====================================================
-   CABEÇALHO
-===================================================== */
 
-.page-header {
+        .back:hover {
+            color: var(--green);
+        }
 
-    margin-bottom: 35px;
 
-}
+        /* =====================================================
+           MAIN
+        ===================================================== */
 
+        main {
 
-.page-label {
+            width: min(1100px, 92%);
 
-    display: inline-flex;
+            margin: auto;
 
-    align-items: center;
+            padding: 48px 0 70px;
 
-    gap: 7px;
+        }
 
-    color: var(--green);
 
-    font-size: 10px;
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-    font-weight: 700;
+        .hero {
 
-    text-transform: uppercase;
+            margin-bottom: 35px;
 
-    letter-spacing: 1px;
+        }
 
-    margin-bottom: 10px;
 
-}
+        .hero-label {
 
+            display: inline-flex;
 
-.page-label i {
+            align-items: center;
 
-    font-size: 11px;
+            gap: 7px;
 
-}
+            padding: 7px 11px;
 
+            border: 1px solid rgba(163,255,18,.18);
 
-.page-header h1 {
+            background: rgba(163,255,18,.06);
 
-    font-size: 34px;
+            border-radius: 999px;
 
-    line-height: 1.15;
+            color: var(--green);
 
-    letter-spacing: -1px;
+            font-size: 10px;
 
-    margin-bottom: 10px;
+            font-weight: 700;
 
-}
+            margin-bottom: 15px;
 
+        }
 
-.page-header h1 span {
 
-    color: var(--green);
+        .hero h1 {
 
-}
+            font-size: 36px;
 
+            line-height: 1.15;
 
-.page-header p {
+            letter-spacing: -1.2px;
 
-    color: #666;
+            margin-bottom: 9px;
 
-    font-size: 13px;
+        }
 
-    max-width: 550px;
 
-    line-height: 1.7;
+        .hero h1 span {
+            color: var(--green);
+        }
 
-}
 
+        .hero p {
 
-/* =====================================================
-   AULA DESTAQUE
-===================================================== */
+            max-width: 620px;
 
-.featured {
+            color: #666;
 
-    position: relative;
+            font-size: 13px;
 
-    min-height: 270px;
+            line-height: 1.7;
 
-    overflow: hidden;
+        }
 
-    border-radius: 22px;
 
-    border:
-        1px solid var(--border);
+        /* =====================================================
+           CONTROLES
+        ===================================================== */
 
-    background:
+        .controls {
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(163,255,18,.16),
-            transparent 35%
-        ),
+            display: flex;
 
-        linear-gradient(
-            135deg,
-            #171717,
-            #0d0d0d
-        );
+            gap: 12px;
 
-    padding: 35px;
+            margin-bottom: 28px;
 
-    margin-bottom: 35px;
+        }
 
-}
 
+        .search {
 
-/* DECORAÇÃO */
+            position: relative;
 
-.featured::after {
+            flex: 1;
 
-    content: "";
+        }
 
-    position: absolute;
 
-    width: 260px;
+        .search i {
 
-    height: 260px;
+            position: absolute;
 
-    right: -100px;
+            left: 15px;
 
-    bottom: -120px;
+            top: 50%;
 
-    border-radius: 50%;
+            transform: translateY(-50%);
 
-    border:
-        1px solid rgba(163,255,18,.12);
+            color: #555;
 
-}
+            font-size: 13px;
 
+            pointer-events: none;
 
-.featured-content {
+        }
 
-    position: relative;
 
-    z-index: 2;
+        .search input {
 
-    max-width: 620px;
+            width: 100%;
 
-}
+            height: 46px;
 
+            padding: 0 15px 0 42px;
 
-.featured-tag {
+            border: 1px solid var(--border);
 
-    display: inline-flex;
+            border-radius: 11px;
 
-    align-items: center;
+            outline: none;
 
-    gap: 6px;
+            background: #101010;
 
-    padding: 6px 10px;
+            color: white;
 
-    border-radius: 7px;
+            font-size: 12px;
 
-    background:
-        rgba(163,255,18,.10);
+        }
 
-    border:
-        1px solid rgba(163,255,18,.18);
 
-    color: var(--green);
+        .search input::placeholder {
+            color: #555;
+        }
 
-    font-size: 9px;
 
-    font-weight: 700;
+        .search input:focus {
+            border-color: var(--green);
+        }
 
-    text-transform: uppercase;
 
-    letter-spacing: .5px;
+        .filter {
 
-    margin-bottom: 15px;
+            width: 180px;
 
-}
+            height: 46px;
 
+            padding: 0 12px;
 
-.featured h2 {
+            border: 1px solid var(--border);
 
-    font-size: 25px;
+            border-radius: 11px;
 
-    line-height: 1.25;
+            outline: none;
 
-    margin-bottom: 10px;
+            background: #101010;
 
-}
+            color: #aaa;
 
+            font-size: 12px;
 
-.featured p {
+            cursor: pointer;
 
-    color: #777;
+        }
 
-    font-size: 12px;
 
-    line-height: 1.7;
+        .filter:focus {
+            border-color: var(--green);
+        }
 
-    max-width: 520px;
 
-}
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
 
+        .results-info {
 
-/* META */
+            display: flex;
 
-.featured-meta {
+            align-items: center;
 
-    display: flex;
+            justify-content: space-between;
 
-    align-items: center;
+            margin-bottom: 16px;
 
-    gap: 18px;
+        }
 
-    margin-top: 18px;
 
-    color: #666;
+        .results-info span {
 
-    font-size: 10px;
+            color: #555;
 
-}
+            font-size: 11px;
 
+        }
 
-.featured-meta span {
 
-    display: flex;
+        .results-info strong {
+            color: #aaa;
+        }
 
-    align-items: center;
 
-    gap: 6px;
+        /* =====================================================
+           GRID
+        ===================================================== */
 
-}
+        .grid {
 
+            display: grid;
 
-.featured-meta i {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
-    color: var(--green);
+            gap: 17px;
 
-}
+        }
 
 
-/* BOTÃO */
+        /* =====================================================
+           CARD
+        ===================================================== */
 
-.featured-button {
+        .card {
 
-    display: inline-flex;
+            position: relative;
 
-    align-items: center;
+            overflow: hidden;
 
-    gap: 9px;
+            padding: 24px;
 
-    margin-top: 22px;
+            background:
 
-    padding: 12px 17px;
+                linear-gradient(
+                    145deg,
+                    rgba(22,22,22,.98),
+                    rgba(13,13,13,.98)
+                );
 
-    border-radius: 10px;
+            border: 1px solid var(--border);
 
-    background: var(--green);
+            border-radius: 18px;
 
-    color: #080808;
+            transition:
+                transform .25s,
+                border-color .25s,
+                box-shadow .25s;
 
-    font-size: 11px;
+        }
 
-    font-weight: 800;
 
-    transition: .25s;
+        .card:hover {
 
-}
+            transform: translateY(-4px);
 
+            border-color:
+                rgba(163,255,18,.30);
 
-.featured-button:hover {
+            box-shadow:
+                0 18px 40px rgba(0,0,0,.30);
 
-    transform: translateY(-2px);
+        }
 
-    box-shadow:
-        0 12px 30px
-        rgba(163,255,18,.15);
 
-}
+        .card-top {
 
+            display: flex;
 
-/* ÍCONE DE CORRIDA */
+            align-items: flex-start;
 
-.featured-runner {
+            justify-content: space-between;
 
-    position: absolute;
+            gap: 15px;
 
-    right: 70px;
+            margin-bottom: 18px;
 
-    bottom: 35px;
+        }
 
-    font-size: 130px;
 
-    color:
-        rgba(163,255,18,.07);
+        .card-icon {
 
-    transform: rotate(-5deg);
+            width: 49px;
 
-}
+            height: 49px;
 
+            display: flex;
 
-/* =====================================================
-   CATEGORIAS
-===================================================== */
+            align-items: center;
 
-.section-header {
+            justify-content: center;
 
-    display: flex;
+            flex-shrink: 0;
 
-    align-items: center;
+            border-radius: 14px;
 
-    justify-content: space-between;
+            background: rgba(163,255,18,.08);
 
-    margin-bottom: 18px;
+            border: 1px solid rgba(163,255,18,.14);
 
-}
+            color: var(--green);
 
+            font-size: 19px;
 
-.section-header h2 {
+        }
 
-    font-size: 18px;
 
-}
+        .level {
 
+            padding: 5px 9px;
 
-.section-header span {
+            border-radius: 999px;
 
-    color: #555;
+            background: rgba(255,255,255,.04);
 
-    font-size: 10px;
+            border: 1px solid #292929;
 
-}
+            color: #777;
 
+            font-size: 9px;
 
-/* FILTROS */
+            white-space: nowrap;
 
-.categories {
+        }
 
-    display: flex;
 
-    gap: 8px;
+        .card h2 {
 
-    flex-wrap: wrap;
+            font-size: 16px;
 
-    margin-bottom: 22px;
+            line-height: 1.4;
 
-}
+            margin-bottom: 8px;
 
+        }
 
-.category {
 
-    border:
-        1px solid #252525;
+        .card p {
 
-    background:
-        #111;
+            color: #666;
 
-    color: #777;
+            font-size: 11px;
 
-    border-radius: 9px;
+            line-height: 1.7;
 
-    padding: 9px 13px;
+            min-height: 57px;
 
-    font-family: inherit;
+        }
 
-    font-size: 10px;
 
-    cursor: pointer;
+        /* =====================================================
+           META
+        ===================================================== */
 
-    transition: .2s;
+        .meta {
 
-}
+            display: flex;
 
+            align-items: center;
 
-.category:hover {
+            gap: 15px;
 
-    border-color:
-        rgba(163,255,18,.35);
+            margin-top: 18px;
 
-    color: var(--green);
+            padding-top: 15px;
 
-}
+            border-top: 1px solid #202020;
 
+        }
 
-.category.active {
 
-    background: var(--green);
+        .meta span {
 
-    border-color: var(--green);
+            display: flex;
 
-    color: #080808;
+            align-items: center;
 
-    font-weight: 700;
+            gap: 6px;
 
-}
+            color: #666;
 
+            font-size: 10px;
 
-/* =====================================================
-   GRID
-===================================================== */
+        }
 
-.lessons-grid {
 
-    display: grid;
+        .meta i {
 
-    grid-template-columns:
-        repeat(2, 1fr);
+            color: var(--green);
 
-    gap: 15px;
+            font-size: 10px;
 
-}
+        }
 
 
-/* =====================================================
-   CARD
-===================================================== */
+        /* =====================================================
+           BOTÃO
+        ===================================================== */
 
-.lesson {
+        .btn {
 
-    position: relative;
+            width: 100%;
 
-    overflow: hidden;
+            height: 43px;
 
-    padding: 22px;
+            display: flex;
 
-    border:
-        1px solid var(--border);
+            align-items: center;
 
-    border-radius: 18px;
+            justify-content: center;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #101010
-        );
+            gap: 8px;
 
-    transition: .25s;
+            margin-top: 17px;
 
-}
+            border-radius: 10px;
 
+            background: var(--green);
 
-.lesson:hover {
+            color: #080808;
 
-    transform: translateY(-3px);
+            font-size: 11px;
 
-    border-color:
-        rgba(163,255,18,.25);
+            font-weight: 800;
 
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,.25);
+            transition: .2s;
 
-}
+        }
 
 
-/* ÍCONE */
+        .btn:hover {
 
-.lesson-icon {
+            transform: translateY(-1px);
 
-    width: 48px;
+            box-shadow:
+                0 10px 25px rgba(163,255,18,.12);
 
-    height: 48px;
+        }
 
-    display: flex;
 
-    align-items: center;
+        .btn.disabled {
 
-    justify-content: center;
+            background: #202020;
 
-    border-radius: 13px;
+            color: #555;
 
-    background:
-        rgba(163,255,18,.08);
+            cursor: not-allowed;
 
-    border:
-        1px solid
-        rgba(163,255,18,.15);
+            box-shadow: none;
 
-    color: var(--green);
+        }
 
-    font-size: 19px;
 
-    margin-bottom: 18px;
+        /* =====================================================
+           LOADING
+        ===================================================== */
 
-}
+        .loading {
 
+            grid-column: 1 / -1;
 
-.lesson h3 {
+            min-height: 260px;
 
-    font-size: 15px;
+            display: flex;
 
-    margin-bottom: 7px;
+            flex-direction: column;
 
-}
+            align-items: center;
 
+            justify-content: center;
 
-.lesson p {
+            color: #555;
 
-    color: #666;
+        }
 
-    font-size: 11px;
 
-    line-height: 1.7;
+        .loading i {
 
-}
+            color: var(--green);
 
+            font-size: 25px;
 
-/* META */
+            margin-bottom: 12px;
 
-.lesson-info {
+        }
 
-    display: flex;
 
-    align-items: center;
+        .loading span {
+            font-size: 11px;
+        }
 
-    gap: 13px;
 
-    margin-top: 15px;
+        /* =====================================================
+           EMPTY
+        ===================================================== */
 
-    color: #555;
+        .empty {
 
-    font-size: 9px;
+            grid-column: 1 / -1;
 
-}
+            padding: 70px 20px;
 
+            text-align: center;
 
-.lesson-info span {
+            border: 1px solid #202020;
 
-    display: flex;
+            border-radius: 18px;
 
-    align-items: center;
+            background: #101010;
 
-    gap: 5px;
+        }
 
-}
 
+        .empty i {
 
-.lesson-info i {
+            color: #444;
 
-    color: var(--green);
+            font-size: 35px;
 
-}
+            margin-bottom: 15px;
 
+        }
 
-/* BOTÃO */
 
-.lesson-button {
+        .empty h3 {
 
-    display: flex;
+            font-size: 15px;
 
-    align-items: center;
+            margin-bottom: 6px;
 
-    justify-content: center;
+        }
 
-    gap: 7px;
 
-    width: 100%;
+        .empty p {
 
-    margin-top: 18px;
+            color: #555;
 
-    padding: 10px;
+            font-size: 11px;
 
-    border-radius: 9px;
+        }
 
-    background:
-        #1c1c1c;
 
-    border:
-        1px solid #292929;
+        /* =====================================================
+           ERRO
+        ===================================================== */
 
-    color: #aaa;
+        .error-box {
 
-    font-size: 10px;
+            grid-column: 1 / -1;
 
-    font-weight: 600;
+            padding: 22px;
 
-    transition: .2s;
+            border: 1px solid rgba(255,70,70,.20);
 
-}
+            background: rgba(255,50,50,.06);
 
+            border-radius: 15px;
 
-.lesson-button:hover {
+            color: #ff7777;
 
-    background: var(--green);
+            font-size: 11px;
 
-    border-color: var(--green);
+            line-height: 1.7;
 
-    color: #080808;
+        }
 
-}
 
+        .error-box strong {
 
-/* =====================================================
-   PROGRESSO
-===================================================== */
+            display: block;
 
-.progress {
+            margin-bottom: 5px;
 
-    margin-top: 15px;
+            font-size: 13px;
 
-}
+        }
 
 
-.progress-top {
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
 
-    display: flex;
+        @media(max-width: 700px) {
 
-    justify-content: space-between;
+            header {
+                padding: 0 5%;
+            }
 
-    color: #555;
 
-    font-size: 8px;
+            .header-right {
+                gap: 10px;
+            }
 
-    margin-bottom: 6px;
 
-}
+            main {
+                width: 92%;
+                padding-top: 35px;
+            }
 
 
-.progress-bar {
+            .hero h1 {
+                font-size: 30px;
+            }
 
-    width: 100%;
 
-    height: 4px;
+            .controls {
+                flex-direction: column;
+            }
 
-    background: #252525;
 
-    border-radius: 10px;
+            .filter {
+                width: 100%;
+            }
 
-    overflow: hidden;
 
-}
+            .grid {
+                grid-template-columns: 1fr;
+            }
 
+        }
 
-.progress-fill {
 
-    height: 100%;
+        @media(max-width: 450px) {
 
-    background: var(--green);
+            .back span {
+                display: none;
+            }
 
-    border-radius: 10px;
 
-}
+            .hero h1 {
+                font-size: 27px;
+            }
 
 
-/* =====================================================
-   ESTADO VAZIO
-===================================================== */
+            .card {
+                padding: 20px;
+            }
 
-.no-results {
+        }
 
-    display: none;
-
-    text-align: center;
-
-    padding: 50px 20px;
-
-    border:
-        1px dashed #292929;
-
-    border-radius: 18px;
-
-    color: #555;
-
-    font-size: 11px;
-
-}
-
-
-.no-results i {
-
-    display: block;
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
-
-    color: #333;
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    text-align: center;
-
-    padding: 25px;
-
-    border-top:
-        1px solid #181818;
-
-    color: #444;
-
-    font-size: 9px;
-
-}
-
-
-/* =====================================================
-   RESPONSIVO
-===================================================== */
-
-@media(max-width: 750px) {
-
-    main {
-
-        padding-top: 35px;
-
-    }
-
-
-    .featured {
-
-        padding: 25px;
-
-    }
-
-
-    .featured-runner {
-
-        opacity: .4;
-
-        right: -10px;
-
-        bottom: 15px;
-
-    }
-
-
-    .lessons-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-
-@media(max-width: 500px) {
-
-    header {
-
-        padding: 0 5%;
-
-    }
-
-
-    .page-header h1 {
-
-        font-size: 28px;
-
-    }
-
-
-    .featured h2 {
-
-        font-size: 21px;
-
-    }
-
-
-    .featured-meta {
-
-        flex-wrap: wrap;
-
-        gap: 10px;
-
-    }
-
-
-    .featured-runner {
-
-        display: none;
-
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -1027,15 +892,19 @@ footer {
     </a>
 
 
-    <a
-        href="painel.html"
-        class="back">
+    <div class="header-right">
 
-        <i class="fa-solid fa-arrow-left"></i>
+        <a
+            href="painel.html"
+            class="back">
 
-        Voltar ao painel
+            <i class="fa-solid fa-arrow-left"></i>
 
-    </a>
+            <span>Voltar para o painel</span>
+
+        </a>
+
+    </div>
 
 </header>
 
@@ -1047,15 +916,15 @@ footer {
 <main>
 
 
-    <!-- CABEÇALHO -->
+    <!-- HERO -->
 
-    <section class="page-header">
+    <section class="hero">
 
-        <div class="page-label">
+        <div class="hero-label">
 
             <i class="fa-solid fa-graduation-cap"></i>
 
-            Área de aprendizado
+            ÁREA DE APRENDIZADO
 
         </div>
 
@@ -1071,913 +940,634 @@ footer {
 
         <p>
 
-            Conteúdos desenvolvidos para ajudar você
-            a melhorar sua técnica, resistência,
-            velocidade e desempenho na corrida.
+            Conteúdos preparados para ajudar você a
+            melhorar sua técnica, controlar seu ritmo,
+            fortalecer o corpo e evoluir nos seus treinos.
 
         </p>
 
     </section>
 
 
-    <!-- =================================================
-         AULA DESTAQUE
-    ================================================== -->
+    <!-- CONTROLES -->
 
-    <section class="featured">
-
-        <div class="featured-content">
-
-            <div class="featured-tag">
-
-                <i class="fa-solid fa-star"></i>
-
-                Aula em destaque
-
-            </div>
+    <section class="controls">
 
 
-            <h2>
+        <div class="search">
 
-                Fundamentos da técnica
-                de corrida
+            <i class="fa-solid fa-magnifying-glass"></i>
 
-            </h2>
-
-
-            <p>
-
-                Aprenda os principais fundamentos
-                para correr de forma mais eficiente,
-                econômica e segura.
-
-            </p>
-
-
-            <div class="featured-meta">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    18 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Iniciante
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-video"></i>
-
-                    Vídeo
-
-                </span>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="featured-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Pesquisar aula...">
 
         </div>
 
 
-        <i
-            class="fa-solid fa-person-running featured-runner">
-        </i>
+        <select
+            class="filter"
+            id="categoryFilter">
+
+            <option value="all">
+                Todas as categorias
+            </option>
+
+            <option value="tecnica">
+                Técnica de corrida
+            </option>
+
+            <option value="respiracao">
+                Respiração
+            </option>
+
+            <option value="forca">
+                Fortalecimento
+            </option>
+
+            <option value="ritmo">
+                Ritmo e pace
+            </option>
+
+        </select>
+
+
+        <select
+            class="filter"
+            id="levelFilter">
+
+            <option value="all">
+                Todos os níveis
+            </option>
+
+            <option value="Iniciante">
+                Iniciante
+            </option>
+
+            <option value="Intermediário">
+                Intermediário
+            </option>
+
+            <option value="Avançado">
+                Avançado
+            </option>
+
+        </select>
 
     </section>
 
 
-    <!-- =================================================
-         CATEGORIAS
-    ================================================== -->
+    <!-- INFORMAÇÕES -->
 
-    <div class="section-header">
+    <div class="results-info">
 
-        <h2>
-
-            Todas as aulas
-
-        </h2>
-
-
-        <span id="lessonCount">
-
-            6 aulas
-
+        <span id="resultsText">
+            Carregando aulas...
         </span>
 
     </div>
 
 
-    <div class="categories">
+    <!-- AULAS -->
 
-        <button
-            class="category active"
-            data-category="all">
+    <section
+        class="grid"
+        id="lessonsGrid">
 
-            Todas
+        <div class="loading">
 
-        </button>
+            <i class="fa-solid fa-spinner fa-spin"></i>
 
+            <span>
+                Carregando aulas...
+            </span>
 
-        <button
-            class="category"
-            data-category="tecnica">
+        </div>
 
-            Técnica
-
-        </button>
-
-
-        <button
-            class="category"
-            data-category="respiracao">
-
-            Respiração
-
-        </button>
-
-
-        <button
-            class="category"
-            data-category="forca">
-
-            Fortalecimento
-
-        </button>
-
-
-        <button
-            class="category"
-            data-category="ritmo">
-
-            Ritmo
-
-        </button>
-
-    </div>
-
-
-    <!-- =================================================
-         AULAS
-    ================================================== -->
-
-    <div class="lessons-grid" id="lessonsGrid">
-
-
-        <!-- AULA 1 -->
-
-        <article
-            class="lesson"
-            data-category="tecnica">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-shoe-prints"></i>
-
-            </div>
-
-
-            <h3>
-
-                Técnica de corrida
-
-            </h3>
-
-
-            <p>
-
-                Aprenda como posicionar o corpo,
-                movimentar os braços e melhorar
-                sua passada.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    18 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Iniciante
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-        <!-- AULA 2 -->
-
-        <article
-            class="lesson"
-            data-category="respiracao">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-lungs"></i>
-
-            </div>
-
-
-            <h3>
-
-                Respiração durante a corrida
-
-            </h3>
-
-
-            <p>
-
-                Entenda como controlar sua
-                respiração e encontrar um ritmo
-                confortável durante o treino.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    14 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Iniciante
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-        <!-- AULA 3 -->
-
-        <article
-            class="lesson"
-            data-category="forca">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-dumbbell"></i>
-
-            </div>
-
-
-            <h3>
-
-                Fortalecimento para corredores
-
-            </h3>
-
-
-            <p>
-
-                Exercícios fundamentais para
-                melhorar estabilidade, força e
-                resistência muscular.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    22 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Intermediário
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-        <!-- AULA 4 -->
-
-        <article
-            class="lesson"
-            data-category="ritmo">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-gauge-high"></i>
-
-            </div>
-
-
-            <h3>
-
-                Entendendo seu pace
-
-            </h3>
-
-
-            <p>
-
-                Aprenda a controlar seu ritmo e
-                distribuir melhor sua energia
-                durante os treinos.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    16 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Iniciante
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-        <!-- AULA 5 -->
-
-        <article
-            class="lesson"
-            data-category="tecnica">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-person-running"></i>
-
-            </div>
-
-
-            <h3>
-
-                Como melhorar sua passada
-
-            </h3>
-
-
-            <p>
-
-                Entenda frequência, comprimento
-                da passada e como encontrar uma
-                movimentação mais eficiente.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    20 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Intermediário
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-        <!-- AULA 6 -->
-
-        <article
-            class="lesson"
-            data-category="ritmo">
-
-            <div class="lesson-icon">
-
-                <i class="fa-solid fa-stopwatch"></i>
-
-            </div>
-
-
-            <h3>
-
-                Como correr 5 km melhor
-
-            </h3>
-
-
-            <p>
-
-                Estratégias para controlar o ritmo,
-                evitar começar rápido demais e
-                terminar forte.
-
-            </p>
-
-
-            <div class="lesson-info">
-
-                <span>
-
-                    <i class="fa-regular fa-clock"></i>
-
-                    25 min
-
-                </span>
-
-
-                <span>
-
-                    <i class="fa-solid fa-signal"></i>
-
-                    Intermediário
-
-                </span>
-
-            </div>
-
-
-            <div class="progress">
-
-                <div class="progress-top">
-
-                    <span>
-
-                        Progresso
-
-                    </span>
-
-                    <span>
-
-                        0%
-
-                    </span>
-
-                </div>
-
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:0%">
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <a
-                href="#"
-                class="lesson-button">
-
-                <i class="fa-solid fa-play"></i>
-
-                Assistir aula
-
-            </a>
-
-        </article>
-
-
-    </div>
-
-
-    <!-- SEM RESULTADOS -->
-
-    <div
-        class="no-results"
-        id="noResults">
-
-        <i class="fa-solid fa-person-running"></i>
-
-        Nenhuma aula encontrada nessa categoria.
-
-    </div>
+    </section>
 
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<script src="script.js"></script>
 
-<footer>
-
-    © 2026 Projeto Corre.
-    Feito para quem decidiu começar.
-
-</footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
 
 <script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", async function () {
+
+    /* =====================================================
+       CONFIGURAÇÃO SUPABASE
+    ===================================================== */
+
+    const SUPABASE_URL =
+        "https://mubzyyppizxuofitnysp.supabase.co";
+
+    /*
+       IMPORTANTE:
+
+       Esta é a chave pública do projeto.
+       Ela pode ficar no JavaScript do site.
+
+       NUNCA coloque aqui uma service_role key.
+    */
+
+    const SUPABASE_KEY =
+        "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
 
 
-        const categories =
-            document.querySelectorAll(
-                ".category"
-            );
+    /* =====================================================
+       ELEMENTOS
+    ===================================================== */
+
+    const grid =
+        document.getElementById("lessonsGrid");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    const levelFilter =
+        document.getElementById("levelFilter");
+
+    const resultsText =
+        document.getElementById("resultsText");
 
 
-        const lessons =
-            document.querySelectorAll(
-                ".lesson"
-            );
+    let lessons = [];
 
 
-        const noResults =
-            document.getElementById(
-                "noResults"
-            );
+    /* =====================================================
+       ÍCONES
+    ===================================================== */
+
+    function getIcon(category) {
+
+        switch (category) {
+
+            case "tecnica":
+                return "fa-shoe-prints";
+
+            case "respiracao":
+                return "fa-heart-pulse";
+
+            case "forca":
+                return "fa-dumbbell";
+
+            case "ritmo":
+                return "fa-stopwatch";
+
+            default:
+                return "fa-person-running";
+
+        }
+
+    }
 
 
-        const lessonCount =
-            document.getElementById(
-                "lessonCount"
-            );
+    /* =====================================================
+       NOME DA CATEGORIA
+    ===================================================== */
+
+    function getCategoryName(category) {
+
+        switch (category) {
+
+            case "tecnica":
+                return "Técnica";
+
+            case "respiracao":
+                return "Respiração";
+
+            case "forca":
+                return "Fortalecimento";
+
+            case "ritmo":
+                return "Ritmo";
+
+            default:
+                return "Corrida";
+
+        }
+
+    }
 
 
-        categories.forEach(
-            function (button) {
+    /* =====================================================
+       ESCAPAR HTML
+       Proteção contra conteúdo HTML indevido
+    ===================================================== */
+
+    function escapeHTML(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
 
 
-                button.addEventListener(
-                    "click",
-                    function () {
+    /* =====================================================
+       FORMATAR DURAÇÃO
+    ===================================================== */
+
+    function formatDuration(minutes) {
+
+        const value =
+            Number(minutes) || 0;
+
+        if (value <= 0) {
+            return "Duração não informada";
+        }
+
+        return `${value} min`;
+
+    }
 
 
-                        categories.forEach(
-                            function (item) {
+    /* =====================================================
+       BUSCAR AULAS
+    ===================================================== */
 
-                                item.classList.remove(
-                                    "active"
-                                );
+    async function loadLessons() {
 
-                            }
-                        );
+        try {
 
+            const response =
+                await fetch(
+                    `${SUPABASE_URL}/rest/v1/lessons?select=*&is_published=eq.true&order=sort_order.asc`,
+                    {
+                        method: "GET",
 
-                        this.classList.add(
-                            "active"
-                        );
+                        headers: {
 
+                            "apikey": SUPABASE_KEY,
 
-                        const category =
-                            this.dataset.category;
+                            "Authorization":
+                                `Bearer ${SUPABASE_KEY}`,
 
-
-                        let visible =
-                            0;
-
-
-                        lessons.forEach(
-                            function (lesson) {
-
-
-                                const lessonCategory =
-                                    lesson.dataset.category;
-
-
-                                if (
-                                    category === "all" ||
-                                    lessonCategory === category
-                                ) {
-
-                                    lesson.style.display =
-                                        "block";
-
-                                    visible++;
-
-                                } else {
-
-                                    lesson.style.display =
-                                        "none";
-
-                                }
-
-                            }
-                        );
-
-
-                        if (visible === 0) {
-
-                            noResults.style.display =
-                                "block";
-
-                        } else {
-
-                            noResults.style.display =
-                                "none";
+                            "Content-Type":
+                                "application/json"
 
                         }
-
-
-                        lessonCount.textContent =
-                            visible +
-                            (
-                                visible === 1
-                                    ? " aula"
-                                    : " aulas"
-                            );
-
                     }
+                );
 
+
+            if (!response.ok) {
+
+                const errorText =
+                    await response.text();
+
+                console.error(
+                    "Erro Supabase:",
+                    errorText
+                );
+
+                throw new Error(
+                    `Erro ${response.status} ao carregar as aulas.`
                 );
 
             }
-        );
+
+
+            lessons =
+                await response.json();
+
+
+            renderLessons();
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            grid.innerHTML = `
+
+                <div class="error-box">
+
+                    <strong>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Não foi possível carregar as aulas.
+                    </strong>
+
+                    Verifique sua conexão e tente novamente.
+
+                </div>
+
+            `;
+
+
+            resultsText.textContent =
+                "Erro ao carregar aulas.";
+
+        }
 
     }
-);
+
+
+    /* =====================================================
+       RENDERIZAR AULAS
+    ===================================================== */
+
+    function renderLessons() {
+
+        const search =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        const category =
+            categoryFilter.value;
+
+
+        const level =
+            levelFilter.value;
+
+
+        const filtered =
+            lessons.filter(function (lesson) {
+
+                const title =
+                    String(
+                        lesson.title || ""
+                    ).toLowerCase();
+
+
+                const description =
+                    String(
+                        lesson.description || ""
+                    ).toLowerCase();
+
+
+                const matchesSearch =
+                    !search ||
+                    title.includes(search) ||
+                    description.includes(search);
+
+
+                const matchesCategory =
+                    category === "all" ||
+                    lesson.category === category;
+
+
+                const matchesLevel =
+                    level === "all" ||
+                    lesson.level === level;
+
+
+                return (
+                    matchesSearch &&
+                    matchesCategory &&
+                    matchesLevel
+                );
+
+            });
+
+
+        resultsText.innerHTML =
+            `<strong>${filtered.length}</strong> aula(s) encontrada(s)`;
+
+
+        if (filtered.length === 0) {
+
+            grid.innerHTML = `
+
+                <div class="empty">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <h3>
+                        Nenhuma aula encontrada
+                    </h3>
+
+                    <p>
+                        Tente mudar os filtros ou pesquisar outro termo.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        grid.innerHTML =
+            filtered.map(createLessonCard).join("");
+
+    }
+
+
+    /* =====================================================
+       CRIAR CARD
+    ===================================================== */
+
+    function createLessonCard(lesson) {
+
+        const id =
+            encodeURIComponent(
+                lesson.id
+            );
+
+
+        const title =
+            escapeHTML(
+                lesson.title
+            );
+
+
+        const description =
+            escapeHTML(
+                lesson.description ||
+                "Conteúdo exclusivo do Projeto Corre."
+            );
+
+
+        const category =
+            escapeHTML(
+                getCategoryName(
+                    lesson.category
+                )
+            );
+
+
+        const level =
+            escapeHTML(
+                lesson.level ||
+                "Iniciante"
+            );
+
+
+        const duration =
+            escapeHTML(
+                formatDuration(
+                    lesson.duration
+                )
+            );
+
+
+        const icon =
+            getIcon(
+                lesson.category
+            );
+
+
+        let button;
+
+
+        if (lesson.video_url) {
+
+            button = `
+
+                <a
+                    href="aula.html?id=${id}"
+                    class="btn">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Assistir aula
+
+                </a>
+
+            `;
+
+        } else {
+
+            button = `
+
+                <a
+                    href="aula.html?id=${id}"
+                    class="btn">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                    Ver aula
+
+                </a>
+
+            `;
+
+        }
+
+
+        return `
+
+            <article class="card">
+
+
+                <div class="card-top">
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid ${icon}"></i>
+
+                    </div>
+
+
+                    <span class="level">
+
+                        ${level}
+
+                    </span>
+
+
+                </div>
+
+
+                <h2>
+
+                    ${title}
+
+                </h2>
+
+
+                <p>
+
+                    ${description}
+
+                </p>
+
+
+                <div class="meta">
+
+
+                    <span>
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        ${category}
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        ${duration}
+
+                    </span>
+
+
+                </div>
+
+
+                ${button}
+
+
+            </article>
+
+        `;
+
+    }
+
+
+    /* =====================================================
+       FILTROS
+    ===================================================== */
+
+    searchInput.addEventListener(
+        "input",
+        renderLessons
+    );
+
+
+    categoryFilter.addEventListener(
+        "change",
+        renderLessons
+    );
+
+
+    levelFilter.addEventListener(
+        "change",
+        renderLessons
+    );
+
+
+    /* =====================================================
+       INICIAR
+    ===================================================== */
+
+    loadLessons();
+
+});
 
 </script>
-
-
-<!-- SCRIPT PRINCIPAL -->
-
-<script src="script.js"></script>
 
 
 </body>
