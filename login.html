@@ -19,7 +19,9 @@
 
     <title>Entrar | Projeto Corre</title>
 
+
     <!-- GOOGLE FONT -->
+
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -33,17 +35,15 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+
     <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 
     <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
 
         * {
             box-sizing: border-box;
@@ -52,15 +52,9 @@
         }
 
 
-        /* =====================================================
-           VARIÁVEIS
-        ===================================================== */
-
         :root {
 
             --green: #A3FF12;
-            --green-dark: #78c400;
-
             --black: #080808;
             --dark: #101010;
             --dark-2: #151515;
@@ -74,10 +68,6 @@
 
         }
 
-
-        /* =====================================================
-           BODY
-        ===================================================== */
 
         body {
 
@@ -115,10 +105,6 @@
 
         }
 
-
-        /* =====================================================
-           CONTAINER
-        ===================================================== */
 
         .login-box {
 
@@ -248,6 +234,8 @@
 
             pointer-events: none;
 
+            z-index: 2;
+
         }
 
 
@@ -327,6 +315,8 @@
             padding: 6px;
 
             font-size: 14px;
+
+            z-index: 3;
 
         }
 
@@ -432,7 +422,7 @@
            MENSAGEM
         ===================================================== */
 
-        .error {
+        .message {
 
             display: none;
 
@@ -442,6 +432,17 @@
 
             border-radius: 10px;
 
+            font-size: 12px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .message.error {
+
+            display: block;
+
             background:
                 rgba(255,50,50,.10);
 
@@ -450,41 +451,50 @@
 
             color: #ff7777;
 
-            font-size: 12px;
-
-            line-height: 1.5;
-
         }
 
 
-        .error.success {
+        .message.success {
 
             display: block;
 
             background:
                 rgba(163,255,18,.08);
 
-            border-color:
-                rgba(163,255,18,.25);
+            border:
+                1px solid rgba(163,255,18,.25);
 
-            color:
-                var(--green);
+            color: var(--green);
 
         }
 
 
-        .error.warning {
+        .message.warning {
 
             display: block;
 
             background:
                 rgba(255,180,0,.08);
 
-            border-color:
-                rgba(255,180,0,.20);
+            border:
+                1px solid rgba(255,180,0,.20);
 
-            color:
-                #ffc44d;
+            color: #ffc44d;
+
+        }
+
+
+        .message.info {
+
+            display: block;
+
+            background:
+                rgba(80,160,255,.08);
+
+            border:
+                1px solid rgba(80,160,255,.20);
+
+            color: #75b8ff;
 
         }
 
@@ -745,8 +755,7 @@
         <button
             class="btn google"
             id="googleLoginButton"
-            type="button"
-            onclick="loginGoogle()">
+            type="button">
 
             <i class="fa-brands fa-google"></i>
 
@@ -760,11 +769,10 @@
         <!-- MENSAGEM -->
 
         <div
-            class="error"
-            id="error"
+            class="message"
+            id="message"
             role="alert"
             aria-live="polite">
-
         </div>
 
 
@@ -810,201 +818,663 @@
 </div>
 
 
-<script src="script.js"></script>
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
 
-        /* =================================================
-           MOSTRAR / OCULTAR SENHA
-        ================================================= */
+    /* =====================================================
+       CONFIGURAÇÃO SUPABASE
+    ===================================================== */
 
-        const togglePassword =
-            document.getElementById(
-                "toggleLoginPassword"
-            );
+    const SUPABASE_URL =
+        "https://mubzyyppizxuofitnysp.supabase.co";
 
 
-        const passwordInput =
-            document.getElementById(
-                "senha"
-            );
+    const SUPABASE_ANON_KEY =
+        "sb_publishable_7TMsNk3z-oks9HQjTfi6ug_dy0Rvaw0";
 
 
-        if (
-            togglePassword &&
-            passwordInput
-        ) {
-
-            togglePassword.addEventListener(
-                "click",
-                function () {
-
-                    const isPassword =
-                        passwordInput.type === "password";
+    const {
+        createClient
+    } = window.supabase;
 
 
-                    passwordInput.type =
-                        isPassword
-                            ? "text"
-                            : "password";
+    const supabaseClient =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
 
 
-                    this.innerHTML =
-                        isPassword
+    /* =====================================================
+       ELEMENTOS
+    ===================================================== */
 
-                            ? '<i class="fa-solid fa-eye-slash"></i>'
+    const loginForm =
+        document.getElementById("loginForm");
 
-                            : '<i class="fa-solid fa-eye"></i>';
+
+    const emailInput =
+        document.getElementById("email");
 
 
-                    this.setAttribute(
-                        "aria-label",
-                        isPassword
-                            ? "Ocultar senha"
-                            : "Mostrar senha"
-                    );
+    const passwordInput =
+        document.getElementById("senha");
 
-                }
-            );
+
+    const loginButton =
+        document.getElementById("loginButton");
+
+
+    const loginButtonText =
+        document.getElementById("loginButtonText");
+
+
+    const loginButtonIcon =
+        document.getElementById("loginButtonIcon");
+
+
+    const googleLoginButton =
+        document.getElementById("googleLoginButton");
+
+
+    const message =
+        document.getElementById("message");
+
+
+    const forgotPassword =
+        document.getElementById("forgotPassword");
+
+
+    const togglePassword =
+        document.getElementById("toggleLoginPassword");
+
+
+    /* =====================================================
+       MENSAGEM
+    ===================================================== */
+
+    function showMessage(text, type = "error") {
+
+        message.textContent = text;
+
+        message.className =
+            "message " + type;
+
+    }
+
+
+    function clearMessage() {
+
+        message.textContent = "";
+
+        message.className = "message";
+
+    }
+
+
+    /* =====================================================
+       BOTÃO
+    ===================================================== */
+
+    function setLoading(loading) {
+
+        if (loading) {
+
+            loginButton.disabled = true;
+
+            googleLoginButton.disabled = true;
+
+            loginButtonText.textContent =
+                "Entrando...";
+
+            loginButtonIcon.className =
+                "fa-solid fa-spinner fa-spin";
+
+        } else {
+
+            loginButton.disabled = false;
+
+            googleLoginButton.disabled = false;
+
+            loginButtonText.textContent =
+                "Entrar";
+
+            loginButtonIcon.className =
+                "fa-solid fa-arrow-right";
 
         }
 
+    }
 
-        /* =================================================
-           ESQUECI MINHA SENHA
-        ================================================= */
 
-        const forgotPassword =
-            document.getElementById(
-                "forgotPassword"
+    /* =====================================================
+       MOSTRAR / OCULTAR SENHA
+    ===================================================== */
+
+    togglePassword.addEventListener(
+        "click",
+        function () {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+
+            passwordInput.type =
+                isPassword
+                    ? "text"
+                    : "password";
+
+
+            this.innerHTML =
+                isPassword
+                    ? '<i class="fa-solid fa-eye-slash"></i>'
+                    : '<i class="fa-solid fa-eye"></i>';
+
+
+            this.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Ocultar senha"
+                    : "Mostrar senha"
             );
 
-
-        if (forgotPassword) {
-
-            forgotPassword.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
+        }
+    );
 
 
-                    const error =
-                        document.getElementById(
-                            "error"
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    loginForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            clearMessage();
+
+
+            const email =
+                emailInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const password =
+                passwordInput.value;
+
+
+            if (!email) {
+
+                showMessage(
+                    "Digite seu e-mail.",
+                    "error"
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+
+            if (!password) {
+
+                showMessage(
+                    "Digite sua senha.",
+                    "error"
+                );
+
+                passwordInput.focus();
+
+                return;
+
+            }
+
+
+            setLoading(true);
+
+
+            try {
+
+                /*
+                 * LOGIN REAL NO SUPABASE
+                 */
+
+                const {
+                    data,
+                    error
+                } = await supabaseClient.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+                if (error) {
+
+                    console.error(
+                        "Erro Supabase:",
+                        error
+                    );
+
+
+                    /*
+                     * E-MAIL AINDA NÃO CONFIRMADO
+                     */
+
+                    if (
+                        error.message
+                            .toLowerCase()
+                            .includes("email not confirmed")
+                    ) {
+
+                        showMessage(
+                            "Seu e-mail ainda não foi confirmado. Abra o e-mail enviado pelo Projeto Corre e confirme sua conta antes de entrar.",
+                            "warning"
                         );
 
+                        setLoading(false);
 
-                    if (!error) {
                         return;
+
                     }
 
 
-                    error.className =
-                        "error warning";
+                    /*
+                     * LOGIN INCORRETO
+                     */
+
+                    if (
+                        error.message
+                            .toLowerCase()
+                            .includes("invalid login credentials")
+                    ) {
+
+                        showMessage(
+                            "E-mail ou senha incorretos.",
+                            "error"
+                        );
+
+                        setLoading(false);
+
+                        return;
+
+                    }
 
 
-                    error.innerHTML =
-                        '<i class="fa-solid fa-circle-info"></i> ' +
-                        'A recuperação de senha ainda não está disponível. Entre em contato com o suporte para recuperar sua conta.';
+                    showMessage(
+                        "Não foi possível entrar: " +
+                        error.message,
+                        "error"
+                    );
+
+                    setLoading(false);
+
+                    return;
 
                 }
-            );
+
+
+                if (!data || !data.user) {
+
+                    showMessage(
+                        "Não foi possível identificar sua conta.",
+                        "error"
+                    );
+
+                    setLoading(false);
+
+                    return;
+
+                }
+
+
+                /* =================================================
+                   USUÁRIO AUTENTICADO
+                ================================================= */
+
+                const user =
+                    data.user;
+
+
+                /*
+                 * Salva compatibilidade com páginas antigas
+                 */
+
+                localStorage.setItem(
+                    "userEmail",
+                    user.email || email
+                );
+
+
+                localStorage.setItem(
+                    "userName",
+                    user.user_metadata?.name ||
+                    user.user_metadata?.full_name ||
+                    user.email?.split("@")[0] ||
+                    "Corredor"
+                );
+
+
+                localStorage.setItem(
+                    "projetoCorreLogado",
+                    "true"
+                );
+
+
+                localStorage.setItem(
+                    "correSession",
+                    "1"
+                );
+
+
+                localStorage.setItem(
+                    "correUser",
+                    JSON.stringify({
+
+                        id: user.id,
+
+                        email: user.email,
+
+                        name:
+                            user.user_metadata?.name ||
+                            user.user_metadata?.full_name ||
+                            user.email?.split("@")[0]
+
+                    })
+                );
+
+
+                /* =================================================
+                   SUCESSO
+                ================================================= */
+
+                loginButtonText.textContent =
+                    "Login realizado!";
+
+
+                loginButtonIcon.className =
+                    "fa-solid fa-check";
+
+
+                showMessage(
+                    "Login realizado com sucesso! Redirecionando...",
+                    "success"
+                );
+
+
+                /*
+                 * Pequeno intervalo para mostrar
+                 * a mensagem de sucesso.
+                 */
+
+                setTimeout(function () {
+
+                    window.location.href =
+                        "painel.html";
+
+                }, 700);
+
+
+            } catch (error) {
+
+                console.error(
+                    "Erro inesperado:",
+                    error
+                );
+
+
+                showMessage(
+                    "Ocorreu um erro inesperado ao tentar entrar.",
+                    "error"
+                );
+
+
+                setLoading(false);
+
+            }
 
         }
+    );
 
 
-        /* =================================================
-           ENTER NO FORMULÁRIO
-        ================================================= */
+    /* =====================================================
+       ESQUECI MINHA SENHA
+    ===================================================== */
 
-        const loginForm =
-            document.getElementById(
-                "loginForm"
-            );
+    forgotPassword.addEventListener(
+        "click",
+        async function (event) {
 
+            event.preventDefault();
 
-        const loginButton =
-            document.getElementById(
-                "loginButton"
-            );
+            clearMessage();
 
 
-        if (
-            loginForm &&
-            loginButton
-        ) {
-
-            loginForm.addEventListener(
-                "submit",
-                function () {
-
-                    /*
-                       O processamento principal do login
-                       continua no script.js.
-
-                       Aqui apenas evitamos cliques
-                       múltiplos enquanto o script processa.
-                    */
-
-                    setTimeout(
-                        function () {
-
-                            if (
-                                loginButton &&
-                                isLoggedIn()
-                            ) {
-
-                                loginButton.disabled =
-                                    true;
-
-                                const buttonText =
-                                    document.getElementById(
-                                        "loginButtonText"
-                                    );
+            const email =
+                emailInput.value
+                    .trim()
+                    .toLowerCase();
 
 
-                                const buttonIcon =
-                                    document.getElementById(
-                                        "loginButtonIcon"
-                                    );
+            if (!email) {
+
+                showMessage(
+                    "Digite seu e-mail primeiro para receber o link de recuperação.",
+                    "warning"
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
 
 
-                                if (buttonText) {
-
-                                    buttonText.textContent =
-                                        "Entrando...";
-
-                                }
+            forgotPassword.style.pointerEvents =
+                "none";
 
 
-                                if (buttonIcon) {
+            forgotPassword.textContent =
+                "Enviando...";
 
-                                    buttonIcon.className =
-                                        "fa-solid fa-spinner fa-spin";
 
-                                }
+            try {
+
+                const {
+                    error
+                } =
+                    await supabaseClient.auth
+                        .resetPasswordForEmail(
+                            email,
+                            {
+
+                                redirectTo:
+                                    window.location.origin +
+                                    "/redefinir-senha.html"
 
                             }
+                        );
 
-                        },
-                        50
+
+                if (error) {
+
+                    console.error(
+                        "Erro recuperação:",
+                        error
+                    );
+
+
+                    showMessage(
+                        "Não foi possível enviar o e-mail de recuperação: " +
+                        error.message,
+                        "error"
+                    );
+
+                } else {
+
+                    showMessage(
+                        "Se este e-mail estiver cadastrado, você receberá um link para redefinir sua senha.",
+                        "success"
                     );
 
                 }
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                showMessage(
+                    "Não foi possível solicitar a recuperação da senha.",
+                    "error"
+                );
+
+            }
+
+
+            forgotPassword.style.pointerEvents =
+                "auto";
+
+
+            forgotPassword.textContent =
+                "Esqueci minha senha";
+
+        }
+    );
+
+
+    /* =====================================================
+       LOGIN COM GOOGLE
+    ===================================================== */
+
+    googleLoginButton.addEventListener(
+        "click",
+        async function () {
+
+            clearMessage();
+
+            googleLoginButton.disabled =
+                true;
+
+
+            try {
+
+                const {
+                    error
+                } =
+                    await supabaseClient.auth
+                        .signInWithOAuth({
+
+                            provider: "google",
+
+                            options: {
+
+                                redirectTo:
+                                    window.location.origin +
+                                    "/painel.html"
+
+                            }
+
+                        });
+
+
+                if (error) {
+
+                    console.error(
+                        "Erro Google:",
+                        error
+                    );
+
+
+                    showMessage(
+                        "Não foi possível entrar com o Google: " +
+                        error.message,
+                        "error"
+                    );
+
+
+                    googleLoginButton.disabled =
+                        false;
+
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                showMessage(
+                    "Erro ao conectar com o Google.",
+                    "error"
+                );
+
+
+                googleLoginButton.disabled =
+                    false;
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       VERIFICAR SESSÃO EXISTENTE
+    ===================================================== */
+
+    async function verificarSessao() {
+
+        try {
+
+            const {
+                data
+            } =
+                await supabaseClient.auth
+                    .getSession();
+
+
+            if (
+                data &&
+                data.session &&
+                data.session.user
+            ) {
+
+                console.log(
+                    "Usuário já está autenticado."
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao verificar sessão:",
+                error
             );
 
         }
 
-
     }
-);
+
+
+    verificarSessao();
+
+
+});
 
 </script>
 
