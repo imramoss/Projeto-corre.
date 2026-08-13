@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Projeto Corre | Perfil</title>
+<title>Projeto Corre | Meu Perfil</title>
 
 <link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
 rel="stylesheet">
 
 <link
@@ -24,19 +24,29 @@ margin:0;
 padding:0;
 }
 
-body{
-background:#080808;
-color:white;
-font-family:Poppins,sans-serif;
+:root{
+--green:#A3FF12;
+--black:#080808;
+--dark:#101010;
+--dark2:#171717;
+--border:#292929;
+--gray:#777;
+--gray2:#aaa;
+--white:#fff;
+--red:#ff6666;
 }
 
-header{
-height:75px;
-border-bottom:1px solid #292929;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 7%;
+body{
+min-height:100vh;
+background:
+radial-gradient(
+circle at top right,
+rgba(163,255,18,.08),
+transparent 35%
+),
+#080808;
+color:white;
+font-family:Poppins,sans-serif;
 }
 
 a{
@@ -44,103 +54,753 @@ color:inherit;
 text-decoration:none;
 }
 
+button,
+input,
+select{
+font-family:inherit;
+}
+
+header{
+height:75px;
+border-bottom:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+background:rgba(8,8,8,.95);
+position:sticky;
+top:0;
+z-index:20;
+backdrop-filter:blur(12px);
+}
+
 .logo{
 font-size:20px;
 font-weight:800;
 }
 
-.logo i,
+.logo i{
+color:var(--green);
+margin-right:8px;
+}
+
 .logo span{
-color:#A3FF12;
+color:var(--green);
 }
 
 .back{
-color:#777;
 font-size:12px;
+color:#777;
+transition:.2s;
 }
+
+.back:hover{
+color:var(--green);
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
 
 main{
-max-width:700px;
+width:100%;
+max-width:900px;
 margin:auto;
-padding:45px 20px;
+padding:40px 20px 60px;
 }
 
-h1{
+.page-title{
+margin-bottom:25px;
+}
+
+.page-title h1{
 font-size:30px;
-margin-bottom:30px;
+font-weight:800;
 }
 
-.profile-card{
-background:#111;
-border:1px solid #292929;
-border-radius:22px;
-padding:35px;
-text-align:center;
+.page-title h1 span{
+color:var(--green);
 }
 
-.profile-card img{
-width:90px;
-height:90px;
-border-radius:50%;
-border:3px solid #A3FF12;
-margin-bottom:18px;
-}
-
-.profile-card h2{
-font-size:20px;
-}
-
-.email{
+.page-title p{
+margin-top:6px;
 color:#666;
 font-size:12px;
-margin-top:5px;
 }
 
-.info{
-margin-top:30px;
-display:grid;
-gap:12px;
-text-align:left;
+
+/* =====================================================
+   PERFIL PRINCIPAL
+===================================================== */
+
+.profile-card{
+background:
+radial-gradient(
+circle at top right,
+rgba(163,255,18,.10),
+transparent 35%
+),
+#111;
+
+border:1px solid var(--border);
+border-radius:22px;
+padding:30px;
 }
 
-.info div{
+
+/* =====================================================
+   CABEÇALHO DO PERFIL
+===================================================== */
+
+.profile-header{
+display:flex;
+align-items:center;
+gap:25px;
+padding-bottom:25px;
+border-bottom:1px solid var(--border);
+}
+
+.avatar-area{
+position:relative;
+width:105px;
+height:105px;
+flex-shrink:0;
+}
+
+.avatar-area img{
+width:105px;
+height:105px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--green);
 background:#171717;
-padding:15px;
-border-radius:10px;
 }
 
-.info small{
+.avatar-edit{
+position:absolute;
+right:-2px;
+bottom:2px;
+
+width:34px;
+height:34px;
+
+border-radius:50%;
+border:3px solid #111;
+
+background:var(--green);
+color:#080808;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+font-size:13px;
+transition:.2s;
+}
+
+.avatar-edit:hover{
+transform:scale(1.08);
+}
+
+.profile-main-info h2{
+font-size:21px;
+font-weight:700;
+}
+
+.profile-main-info .email{
+font-size:12px;
+color:#666;
+margin-top:4px;
+}
+
+.profile-main-info .runner{
+display:inline-flex;
+align-items:center;
+gap:6px;
+
+margin-top:10px;
+
+padding:5px 10px;
+
+border-radius:20px;
+
+background:rgba(163,255,18,.08);
+border:1px solid rgba(163,255,18,.18);
+
+color:var(--green);
+
+font-size:10px;
+font-weight:600;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:22px;
+}
+
+.btn{
+height:45px;
+padding:0 18px;
+
+border-radius:10px;
+
+border:1px solid var(--border);
+
+background:#171717;
+color:#aaa;
+
+font-size:12px;
+font-weight:600;
+
+cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+
+transition:.2s;
+}
+
+.btn:hover{
+border-color:rgba(163,255,18,.3);
+color:var(--green);
+}
+
+.btn-primary{
+background:var(--green);
+border-color:var(--green);
+color:#080808;
+}
+
+.btn-primary:hover{
+background:#b0ff38;
+color:#080808;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.section{
+margin-top:20px;
+
+background:#111;
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+padding:25px;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:10px;
+
+margin-bottom:20px;
+}
+
+.section-title i{
+color:var(--green);
+font-size:16px;
+}
+
+.section-title h3{
+font-size:15px;
+}
+
+.section-title p{
+font-size:10px;
+color:#666;
+margin-top:2px;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.info-box{
+background:#171717;
+border:1px solid #202020;
+border-radius:12px;
+padding:15px;
+}
+
+.info-box small{
+display:block;
+font-size:9px;
+color:#666;
+margin-bottom:5px;
+text-transform:uppercase;
+}
+
+.info-box strong{
+font-size:12px;
+font-weight:600;
+color:#ddd;
+}
+
+
+/* =====================================================
+   PREFERÊNCIAS
+===================================================== */
+
+.preferences{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.preference{
+background:#171717;
+border:1px solid #202020;
+border-radius:12px;
+padding:18px;
+}
+
+.preference i{
+font-size:18px;
+color:var(--green);
+margin-bottom:12px;
+}
+
+.preference small{
 display:block;
 color:#666;
 font-size:9px;
-margin-bottom:4px;
+margin-bottom:5px;
 }
 
-.info strong{
+.preference strong{
 font-size:12px;
 }
 
+
+/* =====================================================
+   SEGURANÇA
+===================================================== */
+
+.security-list{
+display:grid;
+gap:10px;
+}
+
+.security-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:15px;
+
+background:#171717;
+
+border:1px solid #202020;
+
+border-radius:11px;
+}
+
+.security-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.security-left i{
+width:32px;
+height:32px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:9px;
+
+background:rgba(163,255,18,.08);
+color:var(--green);
+}
+
+.security-left strong{
+display:block;
+font-size:11px;
+}
+
+.security-left small{
+display:block;
+font-size:9px;
+color:#666;
+margin-top:2px;
+}
+
+.security-item button{
+background:transparent;
+border:0;
+color:#777;
+cursor:pointer;
+font-size:11px;
+}
+
+.security-item button:hover{
+color:var(--green);
+}
+
+
+/* =====================================================
+   SAIR
+===================================================== */
+
 .logout{
-margin-top:25px;
+margin-top:20px;
+
 width:100%;
 height:48px;
-border:1px solid #522020;
+
+border:1px solid rgba(255,70,70,.2);
+
 background:rgba(255,50,50,.05);
+
 color:#ff7777;
-border-radius:10px;
+
+border-radius:11px;
+
 cursor:pointer;
+
 font-family:inherit;
+font-size:12px;
+font-weight:600;
+
+transition:.2s;
 }
 
 .logout:hover{
 background:rgba(255,50,50,.12);
 }
 
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.75);
+
+display:none;
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+z-index:100;
+
+backdrop-filter:blur(8px);
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal-box{
+width:100%;
+max-width:500px;
+
+background:#111;
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 25px 80px rgba(0,0,0,.6);
+
+max-height:90vh;
+overflow:auto;
+}
+
+.modal-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+margin-bottom:22px;
+}
+
+.modal-header h2{
+font-size:18px;
+}
+
+.close-modal{
+width:34px;
+height:34px;
+
+border:0;
+border-radius:9px;
+
+background:#191919;
+
+color:#777;
+
+cursor:pointer;
+}
+
+.close-modal:hover{
+color:white;
+}
+
+.form-group{
+margin-bottom:16px;
+}
+
+.form-group label{
+display:block;
+font-size:10px;
+color:#777;
+margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+width:100%;
+height:45px;
+
+padding:0 13px;
+
+border-radius:10px;
+
+border:1px solid var(--border);
+
+background:#0b0b0b;
+
+color:white;
+
+outline:none;
+
+font-size:12px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+border-color:var(--green);
+}
+
+.form-group select option{
+background:#111;
+}
+
+.modal-actions{
+display:flex;
+gap:10px;
+margin-top:22px;
+}
+
+.modal-actions button{
+flex:1;
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.photo-section{
+text-align:center;
+margin-bottom:20px;
+}
+
+.photo-preview{
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid var(--green);
+
+margin-bottom:10px;
+}
+
+.photo-buttons{
+display:flex;
+justify-content:center;
+gap:8px;
+}
+
+.photo-buttons button{
+padding:8px 12px;
+
+border-radius:8px;
+
+border:1px solid var(--border);
+
+background:#171717;
+
+color:#aaa;
+
+font-size:10px;
+
+cursor:pointer;
+}
+
+.photo-buttons button:hover{
+color:var(--green);
+}
+
+#photoInput{
+display:none;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+position:fixed;
+
+left:50%;
+bottom:25px;
+
+transform:translate(-50%,20px);
+
+padding:12px 18px;
+
+border-radius:10px;
+
+background:#171717;
+
+border:1px solid rgba(163,255,18,.25);
+
+color:var(--green);
+
+font-size:11px;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.3s;
+
+z-index:200;
+}
+
+.toast.show{
+opacity:1;
+transform:translate(-50%,0);
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:700px){
+
+header{
+height:65px;
+padding:0 18px;
+}
+
+.logo{
+font-size:17px;
+}
+
+main{
+padding:25px 14px 45px;
+}
+
+.page-title h1{
+font-size:25px;
+}
+
+.profile-card{
+padding:20px;
+}
+
+.profile-header{
+flex-direction:column;
+text-align:center;
+gap:15px;
+}
+
+.profile-main-info h2{
+font-size:19px;
+}
+
+.actions{
+width:100%;
+}
+
+.actions .btn{
+flex:1;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+}
+
+.preferences{
+grid-template-columns:1fr;
+}
+
+.section{
+padding:20px;
+}
+
+}
+
+@media(max-width:420px){
+
+.back{
+font-size:0;
+}
+
+.back i{
+font-size:14px;
+}
+
+.profile-card{
+border-radius:17px;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.modal-box{
+padding:20px;
+}
+
+}
+
 </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -155,57 +815,175 @@ Projeto <span>Corre</span>
 <a href="painel.html" class="back">
 
 <i class="fa-solid fa-arrow-left"></i>
-Voltar
+
+ Voltar
 
 </a>
 
 </header>
 
+
 <main>
 
+
+<div class="page-title">
+
 <h1>
-Meu <span style="color:#A3FF12">perfil</span>
+Meu <span>perfil</span>
 </h1>
+
+<p>
+Gerencie seus dados e personalize sua experiência no Projeto Corre.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     PERFIL PRINCIPAL
+===================================================== -->
 
 <div class="profile-card">
 
-<img
-data-user-avatar
-alt="Avatar">
 
-<h2 data-user-name></h2>
+<div class="profile-header">
+
+
+<div class="avatar-area">
+
+<img
+id="profileAvatar"
+data-user-avatar
+alt="Foto do perfil">
+
+<button
+class="avatar-edit"
+id="changePhotoButton"
+type="button"
+title="Alterar foto">
+
+<i class="fa-solid fa-camera"></i>
+
+</button>
+
+</div>
+
+
+<div class="profile-main-info">
+
+<h2 data-user-name>
+Corredor
+</h2>
 
 <p
 class="email"
 data-user-email>
 </p>
 
-<div class="info">
+<div class="runner">
 
-<div>
+<i class="fa-solid fa-person-running"></i>
 
-<small>
-NOME
-</small>
-
-<strong data-user-name></strong>
+Corredor do Projeto Corre
 
 </div>
 
-<div>
+</div>
 
-<small>
-E-MAIL
-</small>
-
-<strong data-user-email></strong>
 
 </div>
 
+
+<div class="actions">
+
+<button
+class="btn btn-primary"
+id="editProfileButton"
+type="button">
+
+<i class="fa-solid fa-pen"></i>
+
+Editar perfil
+
+</button>
+
+<button
+class="btn"
+id="photoButton"
+type="button">
+
+<i class="fa-solid fa-camera"></i>
+
+Alterar foto
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     INFORMAÇÕES DA CONTA
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-user"></i>
+
 <div>
 
+<h3>
+Informações da conta
+</h3>
+
+<p>
+Seus dados principais
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-grid">
+
+
+<div class="info-box">
+
 <small>
-PLANO
+Nome
+</small>
+
+<strong id="infoName">
+Carregando...
+</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<small>
+E-mail
+</small>
+
+<strong
+data-user-email>
+Carregando...
+</strong>
+
+</div>
+
+
+<div class="info-box">
+
+<small>
+Plano
 </small>
 
 <strong>
@@ -214,11 +992,211 @@ Gratuito
 
 </div>
 
+
+<div class="info-box">
+
+<small>
+Status
+</small>
+
+<strong style="color:#A3FF12;">
+<i class="fa-solid fa-circle"
+style="font-size:7px;"></i>
+
+ Conta ativa
+
+</strong>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     PREFERÊNCIAS
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-sliders"></i>
+
+<div>
+
+<h3>
+Preferências de corrida
+</h3>
+
+<p>
+Personalize seu perfil de corredor
+</p>
+
+</div>
+
+</div>
+
+
+<div class="preferences">
+
+
+<div class="preference">
+
+<i class="fa-solid fa-bullseye"></i>
+
+<small>
+Objetivo
+</small>
+
+<strong id="displayGoal">
+Não definido
+</strong>
+
+</div>
+
+
+<div class="preference">
+
+<i class="fa-solid fa-ranking-star"></i>
+
+<small>
+Nível
+</small>
+
+<strong id="displayLevel">
+Iniciante
+</strong>
+
+</div>
+
+
+<div class="preference">
+
+<i class="fa-solid fa-road"></i>
+
+<small>
+Distância favorita
+</small>
+
+<strong id="displayDistance">
+5 km
+</strong>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =====================================================
+     SEGURANÇA
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<div>
+
+<h3>
+Segurança
+</h3>
+
+<p>
+Proteja o acesso à sua conta
+</p>
+
+</div>
+
+</div>
+
+
+<div class="security-list">
+
+
+<div class="security-item">
+
+<div class="security-left">
+
+<i class="fa-solid fa-lock"></i>
+
+<div>
+
+<strong>
+Senha
+</strong>
+
+<small>
+Altere sua senha de acesso
+</small>
+
+</div>
+
 </div>
 
 <button
+type="button"
+id="resetPasswordButton">
+
+Alterar senha
+<i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
+</div>
+
+
+<div class="security-item">
+
+<div class="security-left">
+
+<i class="fa-solid fa-envelope-circle-check"></i>
+
+<div>
+
+<strong>
+E-mail da conta
+</strong>
+
+<small>
+Seu e-mail é usado para acessar o Projeto Corre
+</small>
+
+</div>
+
+</div>
+
+<i
+class="fa-solid fa-check"
+style="color:#A3FF12;font-size:12px;">
+</i>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- SAIR -->
+
+<button
 class="logout"
-data-logout>
+id="logoutButton"
+type="button">
 
 <i class="fa-solid fa-right-from-bracket"></i>
 
@@ -226,11 +1204,803 @@ data-logout>
 
 </button>
 
-</div>
 
 </main>
 
+
+<!-- =====================================================
+     INPUT DA FOTO
+===================================================== -->
+
+<input
+type="file"
+id="photoInput"
+accept="image/jpeg,image/png,image/webp">
+
+
+<!-- =====================================================
+     MODAL EDITAR PERFIL
+===================================================== -->
+
+<div
+class="modal"
+id="editModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-header">
+
+<h2>
+Editar perfil
+</h2>
+
+<button
+class="close-modal"
+id="closeModal"
+type="button">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="editName">
+NOME
+</label>
+
+<input
+type="text"
+id="editName"
+placeholder="Seu nome"
+maxlength="60">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="editGoal">
+OBJETIVO
+</label>
+
+<select id="editGoal">
+
+<option value="">
+Selecione seu objetivo
+</option>
+
+<option value="Melhorar condicionamento">
+Melhorar condicionamento
+</option>
+
+<option value="Correr 5 km">
+Correr 5 km
+</option>
+
+<option value="Correr 10 km">
+Correr 10 km
+</option>
+
+<option value="Melhorar velocidade">
+Melhorar velocidade
+</option>
+
+<option value="Ganhar resistência">
+Ganhar resistência
+</option>
+
+<option value="Manter constância">
+Manter constância
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="editLevel">
+NÍVEL
+</label>
+
+<select id="editLevel">
+
+<option value="Iniciante">
+Iniciante
+</option>
+
+<option value="Intermediário">
+Intermediário
+</option>
+
+<option value="Avançado">
+Avançado
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="editDistance">
+DISTÂNCIA FAVORITA
+</label>
+
+<select id="editDistance">
+
+<option value="5 km">
+5 km
+</option>
+
+<option value="10 km">
+10 km
+</option>
+
+<option value="21 km">
+21 km
+</option>
+
+<option value="42 km">
+42 km
+</option>
+
+<option value="Outra">
+Outra
+</option>
+
+</select>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+class="btn"
+id="cancelEdit"
+type="button">
+
+Cancelar
+
+</button>
+
+<button
+class="btn btn-primary"
+id="saveProfile"
+type="button">
+
+<i class="fa-solid fa-check"></i>
+
+Salvar alterações
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast">
+
+Alterações salvas!
+
+</div>
+
+
 <script src="script.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const editButton =
+document.getElementById("editProfileButton");
+
+const editModal =
+document.getElementById("editModal");
+
+const closeModal =
+document.getElementById("closeModal");
+
+const cancelEdit =
+document.getElementById("cancelEdit");
+
+const saveProfile =
+document.getElementById("saveProfile");
+
+const editName =
+document.getElementById("editName");
+
+const editGoal =
+document.getElementById("editGoal");
+
+const editLevel =
+document.getElementById("editLevel");
+
+const editDistance =
+document.getElementById("editDistance");
+
+const infoName =
+document.getElementById("infoName");
+
+const displayGoal =
+document.getElementById("displayGoal");
+
+const displayLevel =
+document.getElementById("displayLevel");
+
+const displayDistance =
+document.getElementById("displayDistance");
+
+const photoInput =
+document.getElementById("photoInput");
+
+const changePhotoButton =
+document.getElementById("changePhotoButton");
+
+const photoButton =
+document.getElementById("photoButton");
+
+const profileAvatar =
+document.getElementById("profileAvatar");
+
+const toast =
+document.getElementById("toast");
+
+const logoutButton =
+document.getElementById("logoutButton");
+
+const resetPasswordButton =
+document.getElementById("resetPasswordButton");
+
+
+/* =====================================================
+   DADOS LOCAIS DO PERFIL
+===================================================== */
+
+function getProfileData(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem("projetoCorreProfile")
+        ) || {};
+
+    }catch(error){
+
+        return {};
+
+    }
+
+}
+
+
+function saveProfileData(data){
+
+    localStorage.setItem(
+        "projetoCorreProfile",
+        JSON.stringify(data)
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =====================================================
+   PEGAR NOME DO SCRIPT.JS
+===================================================== */
+
+function getCurrentName(){
+
+    const nameElement =
+        document.querySelector("[data-user-name]");
+
+    if(
+        nameElement &&
+        nameElement.textContent.trim() &&
+        nameElement.textContent.trim() !== "Corredor"
+    ){
+
+        return nameElement.textContent.trim();
+
+    }
+
+    return "Corredor";
+
+}
+
+
+/* =====================================================
+   CARREGAR PERFIL
+===================================================== */
+
+function loadProfile(){
+
+    const data =
+        getProfileData();
+
+    const currentName =
+        data.name || getCurrentName();
+
+    infoName.textContent =
+        currentName;
+
+    editName.value =
+        currentName === "Corredor"
+            ? ""
+            : currentName;
+
+    displayGoal.textContent =
+        data.goal || "Não definido";
+
+    displayLevel.textContent =
+        data.level || "Iniciante";
+
+    displayDistance.textContent =
+        data.distance || "5 km";
+
+
+    editGoal.value =
+        data.goal || "";
+
+    editLevel.value =
+        data.level || "Iniciante";
+
+    editDistance.value =
+        data.distance || "5 km";
+
+
+    if(data.avatar){
+
+        profileAvatar.src =
+            data.avatar;
+
+        document
+        .querySelectorAll("[data-user-avatar]")
+        .forEach(function(img){
+
+            img.src =
+                data.avatar;
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   ABRIR MODAL
+===================================================== */
+
+editButton.addEventListener(
+"click",
+function(){
+
+    loadProfile();
+
+    editModal.classList.add("active");
+
+});
+
+
+/* =====================================================
+   FECHAR MODAL
+===================================================== */
+
+function closeEditModal(){
+
+    editModal.classList.remove("active");
+
+}
+
+closeModal.addEventListener(
+"click",
+closeEditModal
+);
+
+cancelEdit.addEventListener(
+"click",
+closeEditModal
+);
+
+
+editModal.addEventListener(
+"click",
+function(event){
+
+    if(event.target === editModal){
+
+        closeEditModal();
+
+    }
+
+});
+
+
+/* =====================================================
+   SALVAR PERFIL
+===================================================== */
+
+saveProfile.addEventListener(
+"click",
+function(){
+
+    const name =
+        editName.value.trim();
+
+    const goal =
+        editGoal.value;
+
+    const level =
+        editLevel.value;
+
+    const distance =
+        editDistance.value;
+
+
+    if(!name){
+
+        editName.focus();
+
+        showToast("Digite seu nome.");
+
+        return;
+
+    }
+
+
+    const oldData =
+        getProfileData();
+
+
+    const data = {
+
+        ...oldData,
+
+        name:name,
+
+        goal:goal,
+
+        level:level,
+
+        distance:distance
+
+    };
+
+
+    saveProfileData(data);
+
+
+    document
+    .querySelectorAll("[data-user-name]")
+    .forEach(function(element){
+
+        element.textContent =
+            name;
+
+    });
+
+
+    infoName.textContent =
+        name;
+
+    displayGoal.textContent =
+        goal || "Não definido";
+
+    displayLevel.textContent =
+        level;
+
+    displayDistance.textContent =
+        distance;
+
+
+    closeEditModal();
+
+    showToast("Perfil atualizado com sucesso!");
+
+});
+
+
+/* =====================================================
+   FOTO DE PERFIL
+===================================================== */
+
+function openPhotoPicker(){
+
+    photoInput.click();
+
+}
+
+changePhotoButton.addEventListener(
+"click",
+openPhotoPicker
+);
+
+photoButton.addEventListener(
+"click",
+openPhotoPicker
+);
+
+
+photoInput.addEventListener(
+"change",
+function(){
+
+    const file =
+        photoInput.files[0];
+
+    if(!file){
+
+        return;
+
+    }
+
+
+    if(file.size > 5 * 1024 * 1024){
+
+        showToast(
+            "A foto deve ter no máximo 5 MB."
+        );
+
+        photoInput.value = "";
+
+        return;
+
+    }
+
+
+    if(!file.type.startsWith("image/")){
+
+        showToast(
+            "Escolha uma imagem válida."
+        );
+
+        photoInput.value = "";
+
+        return;
+
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event){
+
+            const image =
+                event.target.result;
+
+
+            try{
+
+                const data =
+                    getProfileData();
+
+                data.avatar =
+                    image;
+
+                saveProfileData(data);
+
+
+                document
+                .querySelectorAll("[data-user-avatar]")
+                .forEach(function(img){
+
+                    img.src =
+                        image;
+
+                });
+
+
+                profileAvatar.src =
+                    image;
+
+
+                showToast(
+                    "Foto de perfil atualizada!"
+                );
+
+
+            }catch(error){
+
+                showToast(
+                    "Não foi possível salvar essa foto."
+                );
+
+            }
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* =====================================================
+   ALTERAR SENHA
+===================================================== */
+
+resetPasswordButton.addEventListener(
+"click",
+async function(){
+
+    const emailElement =
+        document.querySelector("[data-user-email]");
+
+    const email =
+        emailElement
+            ? emailElement.textContent.trim()
+            : "";
+
+
+    if(!email){
+
+        showToast(
+            "Não foi possível identificar seu e-mail."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Se o Supabase estiver disponível no script.js,
+       tentamos utilizar a recuperação oficial.
+    */
+
+    if(
+        typeof supabase !== "undefined" &&
+        supabase.auth &&
+        supabase.auth.resetPasswordForEmail
+    ){
+
+        try{
+
+            const result =
+                await supabase.auth.resetPasswordForEmail(
+                    email
+                );
+
+
+            if(result.error){
+
+                showToast(
+                    "Não foi possível enviar o e-mail."
+                );
+
+                return;
+
+            }
+
+
+            showToast(
+                "Link para alterar a senha enviado!"
+            );
+
+            return;
+
+        }catch(error){
+
+            showToast(
+                "Erro ao solicitar alteração de senha."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    showToast(
+        "A recuperação de senha será configurada em breve."
+    );
+
+});
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutButton.addEventListener(
+"click",
+function(){
+
+    if(
+        typeof window.logout === "function"
+    ){
+
+        window.logout();
+
+        return;
+
+    }
+
+
+    if(
+        typeof window.logoutUser === "function"
+    ){
+
+        window.logoutUser();
+
+        return;
+
+    }
+
+
+    /*
+       Fallback caso o script.js ainda não possua
+       uma função pública de logout.
+    */
+
+    localStorage.removeItem(
+        "projetoCorreProfile"
+    );
+
+    window.location.href =
+        "login.html";
+
+});
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+loadProfile();
+
+
+});
+
+</script>
+
 
 </body>
 
