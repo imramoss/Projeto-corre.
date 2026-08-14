@@ -350,6 +350,11 @@ function redirectIfLoggedIn() {
    INTERFACE DO USUÁRIO
 ============================================================ */
 
+/* ============================================================
+   INTERFACE DO USUÁRIO
+   + RECADO PERSONALIZADO
+============================================================ */
+
 function setupUserInterface() {
 
     const user =
@@ -360,33 +365,26 @@ function setupUserInterface() {
     }
 
 
+    /* ========================================================
+       DADOS DO USUÁRIO
+    ======================================================== */
+
     const userName =
         user.nome ||
         user.name ||
         "Corredor";
 
-
-    /*
-       Nome nos títulos.
-    */
-
-    document
-        .querySelectorAll(
-            ".topbar h1"
+    const userEmail =
+        String(
+            user.email || ""
         )
-        .forEach(
-            function (title) {
-
-                title.innerHTML =
-                    `Olá, ${escapeHTML(userName)} 👋`;
-
-            }
-        );
+        .trim()
+        .toLowerCase();
 
 
-    /*
-       Elementos com data-user-name.
-    */
+    /* ========================================================
+       NOME NOS ELEMENTOS
+    ======================================================== */
 
     document
         .querySelectorAll(
@@ -402,9 +400,9 @@ function setupUserInterface() {
         );
 
 
-    /*
-       Elementos com data-user-email.
-    */
+    /* ========================================================
+       E-MAIL
+    ======================================================== */
 
     document
         .querySelectorAll(
@@ -420,9 +418,9 @@ function setupUserInterface() {
         );
 
 
-    /*
-       Elementos com data-user-plan.
-    */
+    /* ========================================================
+       PLANO
+    ======================================================== */
 
     document
         .querySelectorAll(
@@ -438,9 +436,150 @@ function setupUserInterface() {
         );
 
 
+    /* ========================================================
+       TÍTULO DO PAINEL
+    ======================================================== */
+
+    const topbarTitle =
+        document.querySelector(
+            ".topbar h1"
+        );
+
+
+    if (topbarTitle) {
+
+        topbarTitle.innerHTML =
+            `Olá, ${escapeHTML(userName)} 👋`;
+
+    }
+
+
+    /* ========================================================
+       RECADO ESPECIAL
+       
+       SOMENTE ESTE E-MAIL RECEBE O RECADO:
+       
+       hellenvitoria428@gmail.com
+    ======================================================== */
+
+    const specialEmail =
+        "hellenvitoria428@gmail.com";
+
+
     /*
-       Avatar.
+       ESCREVA AQUI O RECADO QUE VOCÊ QUER
+       QUE APAREÇA PARA ELA.
     */
+
+    const specialMessage =
+        "Te amo meu amô!❤️";
+
+
+    /*
+       Verifica o e-mail do usuário logado.
+    */
+
+    if (
+        userEmail === specialEmail
+    ) {
+
+        /*
+           Procura o subtítulo que fica
+           logo abaixo do "Olá, Fulano".
+        */
+
+        const topbarSubtitle =
+            document.querySelector(
+                ".topbar p"
+            );
+
+
+        if (topbarSubtitle) {
+
+            /*
+               Mantém o texto original
+               e acrescenta o recado.
+            */
+
+            topbarSubtitle.innerHTML =
+                `
+                Pronto para mais um dia de evolução?
+                
+                <span
+                    class="special-message">
+                    ${escapeHTML(specialMessage)}
+                </span>
+                `;
+
+
+            /*
+               Estilo do recado.
+            */
+
+            const style =
+                document.createElement(
+                    "style"
+                );
+
+
+            style.textContent = `
+
+                .special-message {
+
+                    display: block;
+
+                    margin-top: 8px;
+
+                    color: #A3FF12;
+
+                    font-size: 11px;
+
+                    font-weight: 600;
+
+                    animation:
+                        specialMessageAppear
+                        .8s ease;
+
+                }
+
+
+                @keyframes specialMessageAppear {
+
+                    from {
+
+                        opacity: 0;
+
+                        transform:
+                            translateY(5px);
+
+                    }
+
+                    to {
+
+                        opacity: 1;
+
+                        transform:
+                            translateY(0);
+
+                    }
+
+                }
+
+            `;
+
+
+            document.head.appendChild(
+                style
+            );
+
+        }
+
+    }
+
+
+    /* ========================================================
+       AVATAR
+    ======================================================== */
 
     const avatars =
         document.querySelectorAll(
@@ -453,6 +592,7 @@ function setupUserInterface() {
 
             avatar.style.cursor =
                 "pointer";
+
 
             avatar.addEventListener(
                 "click",
@@ -467,35 +607,6 @@ function setupUserInterface() {
         }
     );
 
-
-    /*
-       Notificação.
-    */
-
-    const notification =
-        document.querySelector(
-            ".top-icons .fa-bell"
-        );
-
-
-    if (notification) {
-
-        notification.style.cursor =
-            "pointer";
-
-        notification.addEventListener(
-            "click",
-            function () {
-
-                alert(
-                    "🔔 Você não possui novas notificações."
-                );
-
-            }
-        );
-
-    }
-}
 
 
 /* ============================================================
